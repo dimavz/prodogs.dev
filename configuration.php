@@ -13,9 +13,9 @@ class JConfig {
 	public $debug_lang = '0';
 	public $dbtype = 'mysqli';
 	public $host = 'localhost';
-	public $user = 'prodogsdev';
+	public $user = 'prodogsloc';
 	public $password = '12345';
-	public $db = 'prodogs.dev';
+	public $db = 'prodogs.loc';
 	public $dbprefix = 'dogs_';
 	public $live_site = '';
 	public $secret = 'px0xnunrngOCPMVL';
