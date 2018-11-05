@@ -21,6 +21,7 @@ class plgContentGlossary extends JPlugin
 		JHTML::_('behavior.tooltip');
 
 		$field = $this->params->get('field');
+
 		if(! $field)
 		{
 			JError::raiseWarning(230, 'Glossary plugin - parameters not set. Edit plugin or unpublish it.');
@@ -29,6 +30,7 @@ class plgContentGlossary extends JPlugin
 
 		$where = array();
 		$sections = $this->params->get('categories');
+
 		ArrayHelper::clean_r($sections);
 		JArrayHelper::toInteger($sections);
 		$sections[] = 0;
@@ -65,7 +67,9 @@ class plgContentGlossary extends JPlugin
 			if($this->params->get('link'))
 			{
 				$link = Url::record($vall);
+
 				$title = htmlspecialchars($vall->title, ENT_COMPAT, 'UTF-8');
+
 				$nums = '';
 				if($this->params->get('link') == 2)
 				{
@@ -87,9 +91,13 @@ class plgContentGlossary extends JPlugin
 			else
 			{
 				$string = sprintf('\\1<span data-placement="top" rel="popover" data-original-title="%s" data-content="%s" class="glossary">\\2</span>\\3', htmlspecialchars($vall->title, ENT_COMPAT, 'UTF-8'), htmlspecialchars($vall->field_value, ENT_COMPAT, 'UTF-8'));
+
 			}
 
-			$article->text = preg_replace("/([^\w]?)(" . preg_quote($vall->title) . ")([^\w]?)/isU", $string, $article->text);
+			$title = mb_strtolower($vall->title); // Перевод в нижний регистр
+
+			$article->text = preg_replace("/([^\w]?)(". preg_quote($title) .'|'.preg_quote($vall->title).")([^\w]?)/is", $string, $article->text);
+
 		}
 	}
 }
