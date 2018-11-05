@@ -24,13 +24,13 @@ CREATE TABLE IF NOT EXISTS `dogs_assets` (
   UNIQUE KEY `idx_asset_name` (`name`),
   KEY `idx_lft_rgt` (`lft`,`rgt`),
   KEY `idx_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=229 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=268 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_assets: ~255 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_assets: ~265 rows (приблизительно)
 DELETE FROM `dogs_assets`;
 /*!40000 ALTER TABLE `dogs_assets` DISABLE KEYS */;
 INSERT INTO `dogs_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `title`, `rules`) VALUES
-	(1, 0, 0, 525, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
+	(1, 0, 0, 529, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
 	(2, 1, 1, 2, 1, 'com_admin', 'com_admin', '{}'),
 	(3, 1, 3, 6, 1, 'com_banners', 'com_banners', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
 	(4, 1, 7, 8, 1, 'com_cache', 'com_cache', '{"core.admin":{"7":1},"core.manage":{"7":1}}'),
@@ -84,7 +84,7 @@ INSERT INTO `dogs_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `ti
 	(54, 16, 38, 39, 2, 'com_menus.menu.1', 'Главное меню', '{}'),
 	(55, 18, 82, 83, 2, 'com_modules.module.87', 'Sample Data', '{}'),
 	(56, 11, 26, 27, 2, 'com_languages.language.2', 'Русский (Россия)', '{}'),
-	(57, 1, 163, 200, 1, 'com_cobalt', 'com_cobalt', '{}'),
+	(57, 1, 163, 202, 1, 'com_cobalt', 'com_cobalt', '{}'),
 	(58, 18, 84, 85, 2, 'com_modules.module.88', 'Категории объявлений', '{}'),
 	(59, 18, 86, 87, 2, 'com_modules.module.89', 'Cobalt - Module - Filters', '{}'),
 	(60, 18, 88, 89, 2, 'com_modules.module.90', 'Cobalt - Module - Who Follows User', '{}'),
@@ -97,90 +97,90 @@ INSERT INTO `dogs_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `ti
 	(67, 18, 102, 103, 2, 'com_modules.module.97', 'Cobalt - Module - Tag Cloud', '{}'),
 	(68, 18, 104, 105, 2, 'com_modules.module.98', 'Cobalt - Module - User Statictics', '{}'),
 	(69, 57, 164, 165, 2, 'com_cobalt.type.1', 'Cobalt Content Type: Собака', '{}'),
-	(70, 1, 201, 202, 1, 'com_cobalt.field.1', 'Изображение', '{}'),
-	(71, 1, 203, 204, 1, 'com_cobalt.field.2', 'Примечание', '{}'),
-	(72, 1, 205, 206, 1, 'com_cobalt.field.3', 'Кличка домашняя', '{}'),
-	(73, 1, 207, 208, 1, 'com_cobalt.field.4', 'Кличка по родословной', '{}'),
-	(74, 1, 209, 210, 1, 'com_cobalt.section.1', '', '{}'),
+	(70, 1, 203, 204, 1, 'com_cobalt.field.1', 'Изображение', '{}'),
+	(71, 1, 205, 206, 1, 'com_cobalt.field.2', 'Примечание', '{}'),
+	(72, 1, 207, 208, 1, 'com_cobalt.field.3', 'Кличка домашняя', '{}'),
+	(73, 1, 209, 210, 1, 'com_cobalt.field.4', 'Кличка по родословной', '{}'),
+	(74, 1, 211, 212, 1, 'com_cobalt.section.1', '', '{}'),
 	(75, 57, 166, 167, 2, 'com_cobalt.type.2', 'Cobalt Content Type: Порода', '{}'),
-	(76, 1, 211, 212, 1, 'com_cobalt.field.5', 'Изображение породы', '{}'),
-	(77, 1, 213, 214, 1, 'com_cobalt.field.6', 'Описание породы', '{}'),
-	(78, 1, 215, 216, 1, 'com_cobalt.section.2', '', '{}'),
-	(79, 1, 217, 218, 1, 'com_cobalt.field.7', 'Собака', '{}'),
-	(80, 1, 219, 220, 1, 'com_cobalt.field.8', 'Порода', '{}'),
+	(76, 1, 213, 214, 1, 'com_cobalt.field.5', 'Изображение породы', '{}'),
+	(77, 1, 215, 216, 1, 'com_cobalt.field.6', 'Описание породы', '{}'),
+	(78, 1, 217, 218, 1, 'com_cobalt.section.2', '', '{}'),
+	(79, 1, 219, 220, 1, 'com_cobalt.field.7', 'Собака', '{}'),
+	(80, 1, 221, 222, 1, 'com_cobalt.field.8', 'Порода', '{}'),
 	(81, 16, 40, 41, 2, 'com_menus.menu.2', 'Меню Собаковода', '{}'),
 	(82, 18, 106, 107, 2, 'com_modules.module.99', 'Менеджер Собаковода', '{}'),
-	(83, 1, 221, 222, 1, 'com_cobalt.field.9', 'Пол', '{}'),
-	(84, 1, 223, 224, 1, 'com_cobalt.field.10', 'Дата рождения', '{}'),
-	(85, 1, 225, 226, 1, 'com_cobalt.field.11', 'Дата смерти', '{}'),
-	(86, 1, 227, 228, 1, 'com_cobalt.field.12', 'Номер РКФ/FCI', '{}'),
-	(87, 1, 229, 230, 1, 'com_cobalt.field.13', 'Клеймо/Chip', '{}'),
-	(88, 1, 231, 232, 1, 'com_cobalt.field.14', 'Окрас', '{}'),
-	(89, 1, 233, 234, 1, 'com_cobalt.field.15', 'Высота в холке', '{}'),
-	(90, 1, 235, 236, 1, 'com_cobalt.field.16', 'Вес', '{}'),
-	(91, 1, 237, 238, 1, 'com_cobalt.field.17', 'Место нахождения', '{}'),
+	(83, 1, 223, 224, 1, 'com_cobalt.field.9', 'Пол', '{}'),
+	(84, 1, 225, 226, 1, 'com_cobalt.field.10', 'Дата рождения', '{}'),
+	(85, 1, 227, 228, 1, 'com_cobalt.field.11', 'Дата смерти', '{}'),
+	(86, 1, 229, 230, 1, 'com_cobalt.field.12', 'Номер РКФ/FCI', '{}'),
+	(87, 1, 231, 232, 1, 'com_cobalt.field.13', 'Клеймо/Chip', '{}'),
+	(88, 1, 233, 234, 1, 'com_cobalt.field.14', 'Окрас', '{}'),
+	(89, 1, 235, 236, 1, 'com_cobalt.field.15', 'Высота в холке', '{}'),
+	(90, 1, 237, 238, 1, 'com_cobalt.field.16', 'Вес', '{}'),
+	(91, 1, 239, 240, 1, 'com_cobalt.field.17', 'Место нахождения', '{}'),
 	(92, 57, 168, 169, 2, 'com_cobalt.type.3', 'Cobalt Content Type: Альбом', '{}'),
-	(93, 1, 239, 240, 1, 'com_cobalt.field.18', 'Галлерея', '{}'),
-	(94, 1, 241, 242, 1, 'com_cobalt.section.3', '', '{}'),
-	(95, 1, 243, 244, 1, 'com_cobalt.field.19', 'Описание альбома', '{}'),
-	(96, 1, 245, 246, 1, 'com_cobalt.field.20', 'Собака', '{}'),
-	(97, 1, 247, 248, 1, 'com_cobalt.field.21', 'Альбом', '{}'),
+	(93, 1, 241, 242, 1, 'com_cobalt.field.18', 'Галлерея', '{}'),
+	(94, 1, 243, 244, 1, 'com_cobalt.section.3', '', '{}'),
+	(95, 1, 245, 246, 1, 'com_cobalt.field.19', 'Описание альбома', '{}'),
+	(96, 1, 247, 248, 1, 'com_cobalt.field.20', 'Собака', '{}'),
+	(97, 1, 249, 250, 1, 'com_cobalt.field.21', 'Альбом', '{}'),
 	(98, 57, 170, 171, 2, 'com_cobalt.type.4', 'Cobalt Content Type: Видеоролик', '{}'),
-	(99, 1, 249, 250, 1, 'com_cobalt.section.4', '', '{}'),
-	(100, 1, 251, 252, 1, 'com_cobalt.field.22', 'Ссылка на видео', '{}'),
-	(101, 1, 253, 254, 1, 'com_cobalt.field.23', 'Описание ролика', '{}'),
-	(102, 1, 255, 256, 1, 'com_cobalt.field.24', 'Собака', '{}'),
-	(103, 1, 257, 258, 1, 'com_cobalt.field.25', 'Видеоролик', '{}'),
+	(99, 1, 251, 252, 1, 'com_cobalt.section.4', '', '{}'),
+	(100, 1, 253, 254, 1, 'com_cobalt.field.22', 'Ссылка на видео', '{}'),
+	(101, 1, 255, 256, 1, 'com_cobalt.field.23', 'Описание ролика', '{}'),
+	(102, 1, 257, 258, 1, 'com_cobalt.field.24', 'Собака', '{}'),
+	(103, 1, 259, 260, 1, 'com_cobalt.field.25', 'Видеоролик', '{}'),
 	(104, 57, 172, 173, 2, 'com_cobalt.type.5', 'Cobalt Content Type: Питомник', '{}'),
-	(105, 1, 259, 260, 1, 'com_cobalt.section.5', '', '{}'),
-	(106, 1, 261, 262, 1, 'com_cobalt.field.26', 'Обложка питомника', '{}'),
-	(107, 1, 263, 264, 1, 'com_cobalt.field.27', 'Описание питомника', '{}'),
-	(108, 1, 265, 266, 1, 'com_cobalt.field.28', 'Заводчик', '{}'),
-	(109, 1, 267, 268, 1, 'com_cobalt.field.29', 'E-mail', '{}'),
+	(105, 1, 261, 262, 1, 'com_cobalt.section.5', '', '{}'),
+	(106, 1, 263, 264, 1, 'com_cobalt.field.26', 'Обложка питомника', '{}'),
+	(107, 1, 265, 266, 1, 'com_cobalt.field.27', 'Описание питомника', '{}'),
+	(108, 1, 267, 268, 1, 'com_cobalt.field.28', 'Заводчик', '{}'),
+	(109, 1, 269, 270, 1, 'com_cobalt.field.29', 'E-mail', '{}'),
 	(110, 16, 42, 43, 2, 'com_menus.menu.3', 'Меню Питомника', '{}'),
 	(111, 18, 108, 109, 2, 'com_modules.module.100', 'Менеджер Питомника', '{}'),
-	(112, 1, 269, 270, 1, 'com_cobalt.field.30', 'Мобильный телефон', '{}'),
-	(113, 1, 271, 272, 1, 'com_cobalt.field.31', 'Телефон', '{}'),
-	(114, 1, 273, 274, 1, 'com_cobalt.field.32', 'Skype', '{}'),
-	(115, 1, 275, 276, 1, 'com_cobalt.field.33', 'Сайт', '{}'),
-	(116, 1, 277, 278, 1, 'com_cobalt.field.34', 'Местоположение', '{}'),
-	(117, 1, 279, 280, 1, 'com_cobalt.field.35', 'Факс', '{}'),
-	(118, 1, 281, 282, 1, 'com_cobalt.field.36', 'Собака', '{}'),
-	(119, 1, 283, 284, 1, 'com_cobalt.field.37', 'Питомник', '{}'),
-	(120, 1, 285, 286, 1, 'com_cobalt.field.38', 'Питомник', '{}'),
-	(121, 1, 287, 288, 1, 'com_cobalt.field.39', 'Порода', '{}'),
+	(112, 1, 271, 272, 1, 'com_cobalt.field.30', 'Мобильный телефон', '{}'),
+	(113, 1, 273, 274, 1, 'com_cobalt.field.31', 'Телефон', '{}'),
+	(114, 1, 275, 276, 1, 'com_cobalt.field.32', 'Skype', '{}'),
+	(115, 1, 277, 278, 1, 'com_cobalt.field.33', 'Сайт', '{}'),
+	(116, 1, 279, 280, 1, 'com_cobalt.field.34', 'Местоположение', '{}'),
+	(117, 1, 281, 282, 1, 'com_cobalt.field.35', 'Факс', '{}'),
+	(118, 1, 283, 284, 1, 'com_cobalt.field.36', 'Собака', '{}'),
+	(119, 1, 285, 286, 1, 'com_cobalt.field.37', 'Питомник', '{}'),
+	(120, 1, 287, 288, 1, 'com_cobalt.field.38', 'Питомник', '{}'),
+	(121, 1, 289, 290, 1, 'com_cobalt.field.39', 'Порода', '{}'),
 	(122, 16, 44, 45, 2, 'com_menus.menu.4', 'Меню Админа', '{}'),
 	(123, 18, 110, 111, 2, 'com_modules.module.101', 'Меню Админа', '{}'),
-	(124, 1, 289, 290, 1, 'com_fields', 'com_fields', '{}'),
-	(125, 1, 291, 292, 1, 'com_associations', 'com_associations', '{}'),
+	(124, 1, 291, 292, 1, 'com_fields', 'com_fields', '{}'),
+	(125, 1, 293, 294, 1, 'com_associations', 'com_associations', '{}'),
 	(126, 57, 174, 175, 2, 'com_cobalt.type.6', 'Cobalt Content Type: Новость', '{}'),
-	(127, 1, 293, 294, 1, 'com_cobalt.section.6', '', '{}'),
-	(128, 1, 295, 296, 1, 'com_cobalt.field.40', 'Изображение Новости', '{}'),
-	(129, 1, 297, 298, 1, 'com_cobalt.field.41', 'Содержание новости', '{}'),
+	(127, 1, 295, 296, 1, 'com_cobalt.section.6', '', '{}'),
+	(128, 1, 297, 298, 1, 'com_cobalt.field.40', 'Изображение Новости', '{}'),
+	(129, 1, 299, 300, 1, 'com_cobalt.field.41', 'Содержание новости', '{}'),
 	(130, 57, 176, 177, 2, 'com_cobalt.type.7', 'Cobalt Content Type: Новость Питомника', '{}'),
-	(131, 1, 299, 300, 1, 'com_cobalt.field.44', 'Новость', '{}'),
-	(132, 1, 301, 302, 1, 'com_cobalt.field.45', 'Питомник', '{}'),
-	(133, 1, 303, 304, 1, 'com_cobalt.field.42', 'Изображение Новости', '{}'),
-	(134, 1, 305, 306, 1, 'com_cobalt.field.43', 'Содержание новости', '{}'),
+	(131, 1, 301, 302, 1, 'com_cobalt.field.44', 'Новость', '{}'),
+	(132, 1, 303, 304, 1, 'com_cobalt.field.45', 'Питомник', '{}'),
+	(133, 1, 305, 306, 1, 'com_cobalt.field.42', 'Изображение Новости', '{}'),
+	(134, 1, 307, 308, 1, 'com_cobalt.field.43', 'Содержание новости', '{}'),
 	(135, 57, 178, 179, 2, 'com_cobalt.type.8', 'Cobalt Content Type: Родословная', '{}'),
-	(136, 1, 307, 308, 1, 'com_cobalt.field.46', 'Номер родословной', '{}'),
-	(137, 1, 309, 310, 1, 'com_cobalt.field.47', 'Дата родословной', '{}'),
-	(138, 1, 311, 312, 1, 'com_cobalt.field.48', 'Фото родословной', '{}'),
-	(139, 1, 313, 314, 1, 'com_cobalt.section.7', '', '{}'),
-	(140, 1, 315, 316, 1, 'com_cobalt.field.49', 'Родословная', '{}'),
-	(141, 1, 317, 318, 1, 'com_cobalt.field.50', 'Собака', '{}'),
-	(142, 1, 319, 320, 1, 'com_cobalt.field.51', 'Организация', '{}'),
-	(143, 1, 321, 322, 1, 'com_cobalt.field.52', 'Родитель', '{}'),
-	(144, 1, 323, 324, 1, 'com_cobalt.field.53', 'Потомок', '{}'),
-	(145, 1, 325, 326, 1, 'com_cobalt.field.54', 'Место рождения', '{}'),
+	(136, 1, 309, 310, 1, 'com_cobalt.field.46', 'Номер родословной', '{}'),
+	(137, 1, 311, 312, 1, 'com_cobalt.field.47', 'Дата родословной', '{}'),
+	(138, 1, 313, 314, 1, 'com_cobalt.field.48', 'Фото родословной', '{}'),
+	(139, 1, 315, 316, 1, 'com_cobalt.section.7', '', '{}'),
+	(140, 1, 317, 318, 1, 'com_cobalt.field.49', 'Родословная', '{}'),
+	(141, 1, 319, 320, 1, 'com_cobalt.field.50', 'Собака', '{}'),
+	(142, 1, 321, 322, 1, 'com_cobalt.field.51', 'Организация', '{}'),
+	(143, 1, 323, 324, 1, 'com_cobalt.field.52', 'Родитель', '{}'),
+	(144, 1, 325, 326, 1, 'com_cobalt.field.53', 'Потомок', '{}'),
+	(145, 1, 327, 328, 1, 'com_cobalt.field.54', 'Место рождения', '{}'),
 	(146, 57, 180, 181, 2, 'com_cobalt.type.9', 'Cobalt Content Type: Титул', '{}'),
-	(147, 1, 327, 328, 1, 'com_cobalt.section.8', '', '{}'),
-	(148, 1, 329, 330, 1, 'com_cobalt.field.55', 'Сокращение титула Eng', '{}'),
-	(149, 1, 331, 332, 1, 'com_cobalt.field.56', 'Расшифровка титула', '{}'),
-	(150, 1, 333, 334, 1, 'com_cobalt.field.57', 'Описание титула', '{}'),
-	(151, 1, 335, 336, 1, 'com_cobalt.field.58', 'Сокращение титула Rus', '{}'),
-	(152, 1, 337, 338, 1, 'com_cobalt.field.59', 'Собака', '{}'),
-	(153, 1, 339, 340, 1, 'com_cobalt.field.60', 'Титул', '{}'),
+	(147, 1, 329, 330, 1, 'com_cobalt.section.8', '', '{}'),
+	(148, 1, 331, 332, 1, 'com_cobalt.field.55', 'Сокращение титула Eng', '{}'),
+	(149, 1, 333, 334, 1, 'com_cobalt.field.56', 'Расшифровка титула', '{}'),
+	(150, 1, 335, 336, 1, 'com_cobalt.field.57', 'Описание титула', '{}'),
+	(151, 1, 337, 338, 1, 'com_cobalt.field.58', 'Сокращение титула Rus', '{}'),
+	(152, 1, 339, 340, 1, 'com_cobalt.field.59', 'Собака', '{}'),
+	(153, 1, 341, 342, 1, 'com_cobalt.field.60', 'Титул', '{}'),
 	(154, 18, 112, 113, 2, 'com_modules.module.102', 'Кнопка добавить Собаку', '{}'),
 	(155, 18, 114, 115, 2, 'com_modules.module.103', 'Кнопка добавить Родословную', '{}'),
 	(156, 18, 116, 117, 2, 'com_modules.module.104', 'Кнопка добавить Альбом', '{}'),
@@ -190,109 +190,111 @@ INSERT INTO `dogs_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `ti
 	(160, 18, 124, 125, 2, 'com_modules.module.108', 'Кнопка добавить Породу', '{}'),
 	(161, 18, 126, 127, 2, 'com_modules.module.109', 'Кнопка добавить Титул', '{}'),
 	(162, 57, 182, 183, 2, 'com_cobalt.type.10', 'Cobalt Content Type: Щенок', '{}'),
-	(163, 1, 341, 342, 1, 'com_cobalt.field.63', 'Стоимость', '{}'),
-	(164, 1, 343, 344, 1, 'com_cobalt.section.9', '', '{}'),
-	(165, 1, 345, 346, 1, 'com_cobalt.field.67', 'Пол', '{}'),
-	(166, 1, 347, 348, 1, 'com_cobalt.field.79', 'Родители', '{}'),
-	(167, 1, 349, 350, 1, 'com_cobalt.field.75', 'Галлерея', '{}'),
-	(168, 1, 351, 352, 1, 'com_cobalt.field.76', 'Видеоролик', '{}'),
-	(169, 1, 353, 354, 1, 'com_cobalt.field.74', 'Адресс', '{}'),
-	(170, 1, 355, 356, 1, 'com_cobalt.field.83', 'Щенок', '{}'),
-	(171, 1, 357, 358, 1, 'com_cobalt.field.65', 'Порода', '{}'),
-	(172, 1, 359, 360, 1, 'com_cobalt.field.84', 'Щенок', '{}'),
-	(173, 1, 361, 362, 1, 'com_cobalt.field.78', 'Родословная', '{}'),
-	(174, 1, 363, 364, 1, 'com_cobalt.field.85', 'Щенок', '{}'),
-	(175, 1, 365, 366, 1, 'com_cobalt.field.86', 'Щенок', '{}'),
-	(176, 1, 367, 368, 1, 'com_cobalt.field.82', 'Титул', '{}'),
-	(177, 1, 369, 370, 1, 'com_cobalt.field.87', 'Щенок', '{}'),
-	(178, 1, 371, 372, 1, 'com_cobalt.field.77', 'Питомник', '{}'),
-	(179, 1, 373, 374, 1, 'com_cobalt.field.66', 'Дата рождения', '{}'),
-	(180, 1, 375, 376, 1, 'com_cobalt.field.68', 'Дата смерти', '{}'),
-	(181, 1, 377, 378, 1, 'com_cobalt.field.64', 'Кличка по родословной', '{}'),
-	(182, 1, 379, 380, 1, 'com_cobalt.field.69', 'Номер РКФ/FCI', '{}'),
-	(183, 1, 381, 382, 1, 'com_cobalt.field.70', 'Клеймо/Chip', '{}'),
-	(184, 1, 383, 384, 1, 'com_cobalt.field.71', 'Окрас', '{}'),
-	(185, 1, 385, 386, 1, 'com_cobalt.category.8', 'Продажа щенков', '{}'),
-	(186, 1, 387, 388, 1, 'com_cobalt.category.9', 'Вязка, знакомства', '{}'),
-	(187, 1, 389, 390, 1, 'com_cobalt.category.10', 'Груминг,стрижки собак', '{}'),
-	(188, 1, 391, 392, 1, 'com_cobalt.category.11', 'Дрессировка собак', '{}'),
-	(189, 1, 393, 394, 1, 'com_cobalt.category.12', 'Розыск собаки', '{}'),
-	(190, 1, 395, 396, 1, 'com_cobalt.category.13', 'Ищу хозяина', '{}'),
-	(191, 1, 397, 398, 1, 'com_cobalt.category.14', 'Товары для собак', '{}'),
-	(192, 1, 399, 400, 1, 'com_cobalt.category.15', 'Прочие объявления', '{}'),
-	(193, 1, 401, 402, 1, 'com_cobalt.field.89', 'Телефон', '{}'),
-	(194, 1, 403, 404, 1, 'com_cobalt.field.90', 'Мобильный', '{}'),
-	(195, 1, 405, 406, 1, 'com_cobalt.field.91', 'Факс', '{}'),
-	(196, 1, 407, 408, 1, 'com_cobalt.field.92', 'ISQ', '{}'),
-	(197, 1, 409, 410, 1, 'com_cobalt.field.93', 'Skype', '{}'),
-	(198, 1, 411, 412, 1, 'com_cobalt.field.94', 'E-mail', '{}'),
-	(199, 1, 413, 414, 1, 'com_cobalt.field.95', 'Контактное лицо', '{}'),
+	(163, 1, 343, 344, 1, 'com_cobalt.field.63', 'Стоимость', '{}'),
+	(164, 1, 345, 346, 1, 'com_cobalt.section.9', '', '{}'),
+	(165, 1, 347, 348, 1, 'com_cobalt.field.67', 'Пол', '{}'),
+	(166, 1, 349, 350, 1, 'com_cobalt.field.79', 'Родители', '{}'),
+	(167, 1, 351, 352, 1, 'com_cobalt.field.75', 'Галлерея', '{}'),
+	(168, 1, 353, 354, 1, 'com_cobalt.field.76', 'Видеоролик', '{}'),
+	(169, 1, 355, 356, 1, 'com_cobalt.field.74', 'Адресс', '{}'),
+	(170, 1, 357, 358, 1, 'com_cobalt.field.83', 'Щенок', '{}'),
+	(171, 1, 359, 360, 1, 'com_cobalt.field.65', 'Порода', '{}'),
+	(172, 1, 361, 362, 1, 'com_cobalt.field.84', 'Щенок', '{}'),
+	(173, 1, 363, 364, 1, 'com_cobalt.field.78', 'Родословная', '{}'),
+	(174, 1, 365, 366, 1, 'com_cobalt.field.85', 'Щенок', '{}'),
+	(175, 1, 367, 368, 1, 'com_cobalt.field.86', 'Щенок', '{}'),
+	(176, 1, 369, 370, 1, 'com_cobalt.field.82', 'Титул', '{}'),
+	(177, 1, 371, 372, 1, 'com_cobalt.field.87', 'Щенок', '{}'),
+	(178, 1, 373, 374, 1, 'com_cobalt.field.77', 'Питомник', '{}'),
+	(179, 1, 375, 376, 1, 'com_cobalt.field.66', 'Дата рождения', '{}'),
+	(180, 1, 377, 378, 1, 'com_cobalt.field.68', 'Дата смерти', '{}'),
+	(181, 1, 379, 380, 1, 'com_cobalt.field.64', 'Кличка по родословной', '{}'),
+	(182, 1, 381, 382, 1, 'com_cobalt.field.69', 'Номер РКФ/FCI', '{}'),
+	(183, 1, 383, 384, 1, 'com_cobalt.field.70', 'Клеймо/Chip', '{}'),
+	(184, 1, 385, 386, 1, 'com_cobalt.field.71', 'Окрас', '{}'),
+	(185, 1, 387, 388, 1, 'com_cobalt.category.8', 'Продажа щенков', '{}'),
+	(186, 1, 389, 390, 1, 'com_cobalt.category.9', 'Вязка, знакомства', '{}'),
+	(187, 1, 391, 392, 1, 'com_cobalt.category.10', 'Груминг,стрижки собак', '{}'),
+	(188, 1, 393, 394, 1, 'com_cobalt.category.11', 'Дрессировка собак', '{}'),
+	(189, 1, 395, 396, 1, 'com_cobalt.category.12', 'Розыск собаки', '{}'),
+	(190, 1, 397, 398, 1, 'com_cobalt.category.13', 'Ищу хозяина', '{}'),
+	(191, 1, 399, 400, 1, 'com_cobalt.category.14', 'Товары для собак', '{}'),
+	(192, 1, 401, 402, 1, 'com_cobalt.category.15', 'Прочие объявления', '{}'),
+	(193, 1, 403, 404, 1, 'com_cobalt.field.89', 'Телефон', '{}'),
+	(194, 1, 405, 406, 1, 'com_cobalt.field.90', 'Мобильный', '{}'),
+	(195, 1, 407, 408, 1, 'com_cobalt.field.91', 'Факс', '{}'),
+	(196, 1, 409, 410, 1, 'com_cobalt.field.92', 'ISQ', '{}'),
+	(197, 1, 411, 412, 1, 'com_cobalt.field.93', 'Skype', '{}'),
+	(198, 1, 413, 414, 1, 'com_cobalt.field.94', 'E-mail', '{}'),
+	(199, 1, 415, 416, 1, 'com_cobalt.field.95', 'Контактное лицо', '{}'),
 	(200, 57, 184, 185, 2, 'com_cobalt.type.12', 'Cobalt Content Type: Вязка', '{}'),
-	(201, 1, 415, 416, 1, 'com_cobalt.field.62', 'Примечание', '{}'),
-	(202, 1, 417, 418, 1, 'com_cobalt.field.96', 'Объявление о вязке', '{}'),
-	(203, 1, 419, 420, 1, 'com_cobalt.field.97', 'Собака', '{}'),
-	(204, 1, 421, 422, 1, 'com_cobalt.field.98', 'Вязка', '{}'),
-	(205, 1, 423, 424, 1, 'com_cobalt.field.99', 'E-mail', '{}'),
-	(206, 1, 425, 426, 1, 'com_cobalt.field.100', 'Мобильный', '{}'),
-	(207, 1, 427, 428, 1, 'com_cobalt.field.101', 'Телефон', '{}'),
-	(208, 1, 429, 430, 1, 'com_cobalt.field.102', 'Факс', '{}'),
-	(209, 1, 431, 432, 1, 'com_cobalt.field.103', 'Skype', '{}'),
-	(210, 1, 433, 434, 1, 'com_cobalt.field.104', 'ICQ', '{}'),
-	(211, 1, 435, 436, 1, 'com_cobalt.field.105', 'Фото', '{}'),
-	(212, 1, 437, 438, 1, 'com_cobalt.field.106', 'Местоположение', '{}'),
-	(213, 1, 439, 440, 1, 'com_cobalt.field.107', 'Контактное лицо', '{}'),
+	(201, 1, 417, 418, 1, 'com_cobalt.field.62', 'Примечание', '{}'),
+	(202, 1, 419, 420, 1, 'com_cobalt.field.96', 'Объявление о вязке', '{}'),
+	(203, 1, 421, 422, 1, 'com_cobalt.field.97', 'Собака', '{}'),
+	(204, 1, 423, 424, 1, 'com_cobalt.field.98', 'Вязка', '{}'),
+	(205, 1, 425, 426, 1, 'com_cobalt.field.99', 'E-mail', '{}'),
+	(206, 1, 427, 428, 1, 'com_cobalt.field.100', 'Мобильный', '{}'),
+	(207, 1, 429, 430, 1, 'com_cobalt.field.101', 'Телефон', '{}'),
+	(208, 1, 431, 432, 1, 'com_cobalt.field.102', 'Факс', '{}'),
+	(209, 1, 433, 434, 1, 'com_cobalt.field.103', 'Skype', '{}'),
+	(210, 1, 435, 436, 1, 'com_cobalt.field.104', 'ICQ', '{}'),
+	(211, 1, 437, 438, 1, 'com_cobalt.field.105', 'Фото', '{}'),
+	(212, 1, 439, 440, 1, 'com_cobalt.field.106', 'Местоположение', '{}'),
+	(213, 1, 441, 442, 1, 'com_cobalt.field.107', 'Контактное лицо', '{}'),
 	(214, 57, 186, 187, 2, 'com_cobalt.type.13', 'Cobalt Content Type: Груминг', '{}'),
-	(215, 1, 441, 442, 1, 'com_cobalt.field.108', 'Содержание объявления', '{}'),
-	(216, 1, 443, 444, 1, 'com_cobalt.field.116', 'Фото', '{}'),
-	(217, 1, 445, 446, 1, 'com_cobalt.field.119', 'Галлерея работ', '{}'),
-	(218, 1, 447, 448, 1, 'com_cobalt.field.120', 'Сайт', '{}'),
-	(219, 1, 449, 450, 1, 'com_cobalt.field.112', 'Телефон', '{}'),
-	(220, 1, 451, 452, 1, 'com_cobalt.field.113', 'Факс', '{}'),
-	(221, 1, 453, 454, 1, 'com_cobalt.field.114', 'Skype', '{}'),
-	(222, 1, 455, 456, 1, 'com_cobalt.field.115', 'ICQ', '{}'),
-	(223, 1, 457, 458, 1, 'com_cobalt.field.121', 'Видеоролик', '{}'),
-	(224, 1, 459, 460, 1, 'com_cobalt.field.118', 'Контактное лицо', '{}'),
+	(215, 1, 443, 444, 1, 'com_cobalt.field.108', 'Содержание объявления', '{}'),
+	(216, 1, 445, 446, 1, 'com_cobalt.field.116', 'Фото', '{}'),
+	(217, 1, 447, 448, 1, 'com_cobalt.field.119', 'Галлерея работ', '{}'),
+	(218, 1, 449, 450, 1, 'com_cobalt.field.120', 'Сайт', '{}'),
+	(219, 1, 451, 452, 1, 'com_cobalt.field.112', 'Телефон', '{}'),
+	(220, 1, 453, 454, 1, 'com_cobalt.field.113', 'Факс', '{}'),
+	(221, 1, 455, 456, 1, 'com_cobalt.field.114', 'Skype', '{}'),
+	(222, 1, 457, 458, 1, 'com_cobalt.field.115', 'ICQ', '{}'),
+	(223, 1, 459, 460, 1, 'com_cobalt.field.121', 'Видеоролик', '{}'),
+	(224, 1, 461, 462, 1, 'com_cobalt.field.118', 'Контактное лицо', '{}'),
 	(225, 57, 188, 189, 2, 'com_cobalt.type.14', 'Cobalt Content Type: Дрессировка', '{}'),
 	(226, 16, 46, 47, 2, 'com_menus.menu.5', 'Меню Пользователя', '{}'),
 	(227, 18, 128, 129, 2, 'com_modules.module.110', 'Меню Пользователя', '{}'),
-	(228, 1, 461, 462, 1, 'com_cobalt.field.132', 'Контактное лицо', '{}'),
+	(228, 1, 463, 464, 1, 'com_cobalt.field.132', 'Контактное лицо', '{}'),
 	(229, 57, 190, 191, 2, 'com_cobalt.type.15', 'Cobalt Content Type: Розыск собаки', '{}'),
-	(230, 1, 463, 464, 1, 'com_cobalt.field.135', 'Объявление о розыске', '{}'),
-	(231, 1, 465, 466, 1, 'com_cobalt.field.146', 'Внимание!!! Розыск', '{}'),
-	(232, 1, 467, 468, 1, 'com_cobalt.field.136', 'Собака', '{}'),
-	(233, 1, 469, 470, 1, 'com_cobalt.field.145', 'Контактное лицо', '{}'),
-	(234, 1, 471, 472, 1, 'com_cobalt.field.147', 'Место пропажи', '{}'),
-	(235, 1, 473, 474, 1, 'com_cobalt.field.148', 'Дата пропажи', '{}'),
+	(230, 1, 465, 466, 1, 'com_cobalt.field.135', 'Объявление о розыске', '{}'),
+	(231, 1, 467, 468, 1, 'com_cobalt.field.146', 'Внимание!!! Розыск', '{}'),
+	(232, 1, 469, 470, 1, 'com_cobalt.field.136', 'Собака', '{}'),
+	(233, 1, 471, 472, 1, 'com_cobalt.field.145', 'Контактное лицо', '{}'),
+	(234, 1, 473, 474, 1, 'com_cobalt.field.147', 'Место пропажи', '{}'),
+	(235, 1, 475, 476, 1, 'com_cobalt.field.148', 'Дата пропажи', '{}'),
 	(236, 57, 192, 193, 2, 'com_cobalt.type.16', 'Cobalt Content Type: Ищу хозяина', '{}'),
-	(237, 1, 475, 476, 1, 'com_cobalt.field.150', 'Галлерея', '{}'),
-	(238, 1, 477, 478, 1, 'com_cobalt.field.157', 'Фото', '{}'),
-	(239, 1, 479, 480, 1, 'com_cobalt.field.158', 'Местоположение', '{}'),
-	(240, 1, 481, 482, 1, 'com_cobalt.field.162', 'Дата находки', '{}'),
-	(241, 1, 483, 484, 1, 'com_cobalt.field.149', 'Содержание объявления', '{}'),
-	(242, 1, 485, 486, 1, 'com_cobalt.field.163', 'Место находки', '{}'),
-	(243, 1, 487, 488, 1, 'com_cobalt.field.164', 'Тип объявления', '{}'),
-	(244, 1, 489, 490, 1, 'com_cobalt.field.165', 'Заголовок объявления', '{}'),
+	(237, 1, 477, 478, 1, 'com_cobalt.field.150', 'Галлерея', '{}'),
+	(238, 1, 479, 480, 1, 'com_cobalt.field.157', 'Фото', '{}'),
+	(239, 1, 481, 482, 1, 'com_cobalt.field.158', 'Местоположение', '{}'),
+	(240, 1, 483, 484, 1, 'com_cobalt.field.162', 'Дата находки', '{}'),
+	(241, 1, 485, 486, 1, 'com_cobalt.field.149', 'Содержание объявления', '{}'),
+	(242, 1, 487, 488, 1, 'com_cobalt.field.163', 'Место находки', '{}'),
+	(243, 1, 489, 490, 1, 'com_cobalt.field.164', 'Тип объявления', '{}'),
+	(244, 1, 491, 492, 1, 'com_cobalt.field.165', 'Заголовок объявления', '{}'),
 	(245, 57, 194, 195, 2, 'com_cobalt.type.17', 'Cobalt Content Type: Товар', '{}'),
-	(246, 1, 491, 492, 1, 'com_cobalt.field.181', 'Тип объявления', '{}'),
-	(247, 1, 493, 494, 1, 'com_cobalt.field.179', 'Разместить объявление до даты', '{}'),
-	(248, 1, 495, 496, 1, 'com_cobalt.field.166', 'Описание товара', '{}'),
-	(249, 1, 497, 498, 1, 'com_cobalt.field.174', 'Фото товара', '{}'),
-	(250, 1, 499, 500, 1, 'com_cobalt.field.183', 'Стоимость товара', '{}'),
-	(251, 1, 501, 502, 1, 'com_cobalt.field.182', 'Название товара', '{}'),
-	(252, 1, 503, 504, 1, 'com_cobalt.field.176', 'Контактное лицо', '{}'),
+	(246, 1, 493, 494, 1, 'com_cobalt.field.181', 'Тип объявления', '{}'),
+	(247, 1, 495, 496, 1, 'com_cobalt.field.179', 'Разместить объявление до даты', '{}'),
+	(248, 1, 497, 498, 1, 'com_cobalt.field.166', 'Описание товара', '{}'),
+	(249, 1, 499, 500, 1, 'com_cobalt.field.174', 'Фото товара', '{}'),
+	(250, 1, 501, 502, 1, 'com_cobalt.field.183', 'Стоимость товара', '{}'),
+	(251, 1, 503, 504, 1, 'com_cobalt.field.182', 'Название товара', '{}'),
+	(252, 1, 505, 506, 1, 'com_cobalt.field.176', 'Контактное лицо', '{}'),
 	(253, 57, 196, 197, 2, 'com_cobalt.type.18', 'Cobalt Content Type: Прочее', '{}'),
-	(254, 1, 505, 506, 1, 'com_cobalt.field.192', 'Фото', '{}'),
-	(255, 1, 507, 508, 1, 'com_cobalt.field.184', 'Содержание объявления', '{}'),
-	(256, 1, 509, 510, 1, 'com_cobalt.field.200', 'Заголовок объявления', '{}'),
-	(257, 1, 511, 512, 1, 'com_cobalt.field.194', 'Контактное лицо', '{}'),
-	(258, 1, 513, 514, 1, 'com_cobalt.field.61', 'Основное фото', '{}'),
+	(254, 1, 507, 508, 1, 'com_cobalt.field.192', 'Фото', '{}'),
+	(255, 1, 509, 510, 1, 'com_cobalt.field.184', 'Содержание объявления', '{}'),
+	(256, 1, 511, 512, 1, 'com_cobalt.field.200', 'Заголовок объявления', '{}'),
+	(257, 1, 513, 514, 1, 'com_cobalt.field.194', 'Контактное лицо', '{}'),
+	(258, 1, 515, 516, 1, 'com_cobalt.field.61', 'Основное фото', '{}'),
 	(259, 57, 198, 199, 2, 'com_cobalt.type.19', 'Cobalt Content Type: Статья', '{}'),
-	(260, 1, 515, 516, 1, 'com_cobalt.section.11', '', '{}'),
-	(261, 1, 517, 518, 1, 'com_cobalt.field.202', 'Содержание статьи', '{}'),
-	(262, 1, 519, 520, 1, 'com_cobalt.field.201', 'Изображение', '{}'),
-	(263, 1, 521, 522, 1, 'com_cobalt.category.16', 'Уход и воспитание', '{}'),
-	(264, 1, 523, 524, 1, 'com_cobalt.category.17', 'Полезные советы', '{}'),
-	(265, 18, 130, 131, 2, 'com_modules.module.111', 'Категории публикаций', '{}');
+	(260, 1, 517, 518, 1, 'com_cobalt.section.11', '', '{}'),
+	(261, 1, 519, 520, 1, 'com_cobalt.field.202', 'Содержание статьи', '{}'),
+	(262, 1, 521, 522, 1, 'com_cobalt.field.201', 'Изображение', '{}'),
+	(263, 1, 523, 524, 1, 'com_cobalt.category.16', 'Уход и воспитание', '{}'),
+	(264, 1, 525, 526, 1, 'com_cobalt.category.17', 'Полезные советы', '{}'),
+	(265, 18, 130, 131, 2, 'com_modules.module.111', 'Категории публикаций', '{}'),
+	(266, 57, 200, 201, 2, 'com_cobalt.type.20', 'Cobalt Content Type: Определение', '{}'),
+	(267, 1, 527, 528, 1, 'com_cobalt.field.203', 'Описание', '{}');
 /*!40000 ALTER TABLE `dogs_assets` ENABLE KEYS */;
 
 
@@ -821,9 +823,9 @@ INSERT INTO `dogs_extensions` (`extension_id`, `package_id`, `name`, `type`, `el
 	(449, 0, 'plg_authentication_cookie', 'plugin', 'cookie', 'authentication', 0, 1, 1, 0, '{"name":"plg_authentication_cookie","type":"plugin","creationDate":"July 2013","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"PLG_AUTH_COOKIE_XML_DESCRIPTION","group":"","filename":"cookie"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(450, 0, 'plg_twofactorauth_yubikey', 'plugin', 'yubikey', 'twofactorauth', 0, 0, 1, 0, '{"name":"plg_twofactorauth_yubikey","type":"plugin","creationDate":"September 2013","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.2.0","description":"PLG_TWOFACTORAUTH_YUBIKEY_XML_DESCRIPTION","group":"","filename":"yubikey"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(451, 0, 'plg_search_tags', 'plugin', 'tags', 'search', 0, 1, 1, 0, '{"name":"plg_search_tags","type":"plugin","creationDate":"March 2014","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"PLG_SEARCH_TAGS_XML_DESCRIPTION","group":"","filename":"tags"}', '{"search_limit":"50","show_tagged_items":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-	(452, 0, 'plg_system_updatenotification', 'plugin', 'updatenotification', 'system', 0, 1, 1, 0, '{"name":"plg_system_updatenotification","type":"plugin","creationDate":"May 2015","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_SYSTEM_UPDATENOTIFICATION_XML_DESCRIPTION","group":"","filename":"updatenotification"}', '{"lastrun":1541052155}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(452, 0, 'plg_system_updatenotification', 'plugin', 'updatenotification', 'system', 0, 1, 1, 0, '{"name":"plg_system_updatenotification","type":"plugin","creationDate":"May 2015","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_SYSTEM_UPDATENOTIFICATION_XML_DESCRIPTION","group":"","filename":"updatenotification"}', '{"lastrun":1541399111}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(453, 0, 'plg_editors-xtd_module', 'plugin', 'module', 'editors-xtd', 0, 1, 1, 0, '{"name":"plg_editors-xtd_module","type":"plugin","creationDate":"October 2015","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_MODULE_XML_DESCRIPTION","group":"","filename":"module"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-	(454, 0, 'plg_system_stats', 'plugin', 'stats', 'system', 0, 1, 1, 0, '{"name":"plg_system_stats","type":"plugin","creationDate":"November 2013","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_SYSTEM_STATS_XML_DESCRIPTION","group":"","filename":"stats"}', '{"mode":1,"lastrun":1541055741,"unique_id":"646b159ba1414416ca68f2fb7a5938d6af1af090","interval":12}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(454, 0, 'plg_system_stats', 'plugin', 'stats', 'system', 0, 1, 1, 0, '{"name":"plg_system_stats","type":"plugin","creationDate":"November 2013","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_SYSTEM_STATS_XML_DESCRIPTION","group":"","filename":"stats"}', '{"mode":1,"lastrun":1541399207,"unique_id":"646b159ba1414416ca68f2fb7a5938d6af1af090","interval":12}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(455, 0, 'plg_installer_packageinstaller', 'plugin', 'packageinstaller', 'installer', 0, 1, 1, 1, '{"name":"plg_installer_packageinstaller","type":"plugin","creationDate":"May 2016","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.6.0","description":"PLG_INSTALLER_PACKAGEINSTALLER_PLUGIN_XML_DESCRIPTION","group":"","filename":"packageinstaller"}', '', '', '', 0, '0000-00-00 00:00:00', 1, 0),
 	(456, 0, 'PLG_INSTALLER_FOLDERINSTALLER', 'plugin', 'folderinstaller', 'installer', 0, 1, 1, 1, '{"name":"PLG_INSTALLER_FOLDERINSTALLER","type":"plugin","creationDate":"May 2016","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.6.0","description":"PLG_INSTALLER_FOLDERINSTALLER_PLUGIN_XML_DESCRIPTION","group":"","filename":"folderinstaller"}', '', '', '', 0, '0000-00-00 00:00:00', 2, 0),
 	(457, 0, 'PLG_INSTALLER_URLINSTALLER', 'plugin', 'urlinstaller', 'installer', 0, 1, 1, 1, '{"name":"PLG_INSTALLER_URLINSTALLER","type":"plugin","creationDate":"May 2016","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.6.0","description":"PLG_INSTALLER_URLINSTALLER_PLUGIN_XML_DESCRIPTION","group":"","filename":"urlinstaller"}', '', '', '', 0, '0000-00-00 00:00:00', 3, 0),
@@ -1376,7 +1378,7 @@ CREATE TABLE IF NOT EXISTS `dogs_finder_taxonomy` (
   KEY `idx_parent_published` (`parent_id`,`state`,`access`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
--- Дамп данных таблицы prodogs.loc.dogs_finder_taxonomy: ~1 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_finder_taxonomy: ~0 rows (приблизительно)
 DELETE FROM `dogs_finder_taxonomy`;
 /*!40000 ALTER TABLE `dogs_finder_taxonomy` DISABLE KEYS */;
 INSERT INTO `dogs_finder_taxonomy` (`id`, `parent_id`, `title`, `state`, `access`, `ordering`) VALUES
@@ -1735,9 +1737,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_categories` (
   KEY `idx_alias` (`alias`),
   KEY `idx_language` (`language`),
   KEY `idx_parent` (`parent_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_categories: 9 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_categories: 11 rows
 DELETE FROM `dogs_js_res_categories`;
 /*!40000 ALTER TABLE `dogs_js_res_categories` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `section_id`, `title`, `alias`, `note`, `description`, `image`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `modified_user_id`, `modified_time`, `hits`, `language`, `num_current`, `num_all`, `relative_cats`) VALUES
@@ -2168,9 +2170,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_fields` (
   KEY `idx_publish` (`published`,`type_id`,`filter`,`key`),
   KEY `idx_group` (`group_id`),
   KEY `idx_filter` (`filter`)
-) ENGINE=MyISAM AUTO_INCREMENT=135 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=204 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_fields: 194 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_fields: 197 rows
 DELETE FROM `dogs_js_res_fields`;
 /*!40000 ALTER TABLE `dogs_js_res_fields` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_fields` (`id`, `key`, `label`, `type_id`, `field_type`, `params`, `checked_out`, `checked_out_time`, `published`, `ordering`, `access`, `group_id`, `asset_id`, `filter`, `user_id`) VALUES
@@ -2369,7 +2371,8 @@ INSERT INTO `dogs_js_res_fields` (`id`, `key`, `label`, `type_id`, `field_type`,
 	(202, 'kecaff6f647b26294b4195031791df569', 'Содержание статьи', 19, 'html', '{"core":{"show_intro":"1","show_full":"1","show_feed":"1","show_compare":"0","required":"1","searchable":"1","description":"","xml_tag_name":"","field_class":"","show_lable":"1","label_break":"2","lable_class":"","icon":"blue-document.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"default.php","template_output_full":"default.php","default_value":"","intro":"500","hide_intro":"0","readmore":"1","readmore_lbl":"\\u041f\\u043e\\u0434\\u0440\\u043e\\u0431\\u043d\\u0435\\u0435...","full":"0","editor":"tinymce","short":"0","height":"300","plugins":["pagebreak"],"allow_html":"3","tags_mode":"1","filter_tags":"iframe, script","attr_mode":"1","filter_attr":"rel"},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, 2, 1, 0, 261, 0, 784),
 	(201, 'k776c43fe8b8ce0684ddb973bd8e6d3f9', 'Изображение', 19, 'image', '{"core":{"show_intro":"1","show_full":"1","show_feed":"1","show_compare":"0","required":"1","searchable":"0","description":"","xml_tag_name":"","field_class":"","show_lable":"1","label_break":"2","lable_class":"","icon":"image-balloon.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"list.php","template_output_full":"full.php","select_type":"2","formats":"png,jpg,gif,jpeg","directory":"images","show_subfolders":"0","allow_caption":"0","default_img":"","subfolder":"image","list_mode":"1","lightbox_list":"0","img_list_hspace":"0","img_list_vspace":"0","thumbs_list_height":"200","thumbs_list_width":"300","thumbs_list_quality":"80","thumbs_list_mode":"6","thumbs_list_stretch":"0","thumbs_list_bg":"#000000","full_mode":"1","lightbox_full":"0","img_hspace":"0","img_vspace":"0","thumbs_height":"400","thumbs_width":"600","thumbs_quality":"80","thumbs_mode":"6","thumbs_stretch":"0","thumbs_bg":"#000000"},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, 1, 1, 0, 262, 0, 784),
 	(199, 'k96ea0915d5f096e2b7c6560800a5aca1', 'Тип объявления', 18, 'select', '{"core":{"show_intro":"1","show_full":"1","show_feed":"0","show_compare":"0","required":"1","searchable":"0","description":"","xml_tag_name":"","field_class":"","show_lable":"3","label_break":"0","lable_class":"","icon":"block.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"default.php","template_output_full":"default.php","sortable":"0","template_filter":"autocomplete.php","template_filter_module":"autocomplete.php","filter_enable":"1","filter_hide":"0","filter_descr":"","filter_show_number":"1","filter_linkage":"1","filter_icon":"funnel-small.png","filter_tip":"\\u0421\\u043c\\u043e\\u0442\\u0440\\u0435\\u0442\\u044c \\u0432\\u0441\\u0435 \\u043e\\u0431\\u044a\\u044f\\u0432\\u043b\\u0435\\u043d\\u0438\\u044f \\u0433\\u0434\\u0435 %s \\u0441\\u043e\\u043e\\u0442\\u0432\\u0435\\u0442\\u0441\\u0442\\u0432\\u0443\\u0435\\u0442 %s","sort":"2","width":"450","size":"10","values":"\\u041f\\u0440\\u043e\\u0434\\u0430\\u043c\\r\\n\\u041a\\u0443\\u043f\\u043b\\u044e\\r\\n\\u0421\\u043f\\u0440\\u043e\\u0441\\r\\n\\u041f\\u0440\\u0435\\u0434\\u043b\\u043e\\u0436\\u0435\\u043d\\u0438\\u0435","default_val":"\\u041f\\u0440\\u043e\\u0434\\u0430\\u043c","color_separator":"^","label":"- \\u0412\\u044b\\u0431\\u0435\\u0440\\u0438\\u0442\\u0435 \\u0442\\u0438\\u043f \\u043e\\u0431\\u044a\\u044f\\u0432\\u043b\\u0435\\u043d\\u0438\\u044f -","chosen":"1","add_value":"2","save_new":"1","user_value_label":"\\u0412\\u0430\\u0448 \\u0432\\u0430\\u0440\\u0438\\u0430\\u043d\\u0442","sql_source":"0","sql":"","sql_label":"- Select Element -","sql_link":"","sql_link_target":"0","sql_ext_db":"0","sql_db_host":"","sql_db_port":"","sql_db_user":"","sql_db_pass":"","sql_db_name":""},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 0, 1, 1, 0, 246, 1, 784),
-	(200, 'kc1d10dde54a221bd77fef49f6010182b', 'Заголовок объявления', 18, 'text', '{"core":{"show_intro":"0","show_full":"0","show_feed":"0","show_compare":"0","required":"1","searchable":"1","description":"","xml_tag_name":"","field_class":"","show_lable":"3","label_break":"0","lable_class":"","icon":"edit.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"default.php","template_output_full":"default.php","sortable":"0","ordering_mode":"digits","template_filter":"autocomplete.php","template_filter_module":"autocomplete.php","filter_enable":"0","filter_hide":"0","filter_descr":"","filter_show_number":"1","filter_linkage":"1","filter_icon":"funnel-small.png","filter_tip":"Show all records where %s is equal to %s","maxlength":"0","default_val":"","size":"90%","prepend":"","append":"","allow_html":"0","is_unique":"0","length":"0","seemore":">>>","qr_code":"0","qr_width":"60","regex_val":"","mask":{"mask_type":"","mask":""},"show_mask":"1","values":"\\u041e\\u0440\\u0433\\u0430\\u043d\\u0438\\u0437\\u0430\\u0446\\u0438\\u0438 \\u0442\\u0440\\u0435\\u0431\\u0443\\u0435\\u0442\\u0441\\u044f \\u043a\\u0438\\u043d\\u043e\\u043b\\u043e\\u0433"},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, 2, 1, 58, 256, 0, 784);
+	(200, 'kc1d10dde54a221bd77fef49f6010182b', 'Заголовок объявления', 18, 'text', '{"core":{"show_intro":"0","show_full":"0","show_feed":"0","show_compare":"0","required":"1","searchable":"1","description":"","xml_tag_name":"","field_class":"","show_lable":"3","label_break":"0","lable_class":"","icon":"edit.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"default.php","template_output_full":"default.php","sortable":"0","ordering_mode":"digits","template_filter":"autocomplete.php","template_filter_module":"autocomplete.php","filter_enable":"0","filter_hide":"0","filter_descr":"","filter_show_number":"1","filter_linkage":"1","filter_icon":"funnel-small.png","filter_tip":"Show all records where %s is equal to %s","maxlength":"0","default_val":"","size":"90%","prepend":"","append":"","allow_html":"0","is_unique":"0","length":"0","seemore":">>>","qr_code":"0","qr_width":"60","regex_val":"","mask":{"mask_type":"","mask":""},"show_mask":"1","values":"\\u041e\\u0440\\u0433\\u0430\\u043d\\u0438\\u0437\\u0430\\u0446\\u0438\\u0438 \\u0442\\u0440\\u0435\\u0431\\u0443\\u0435\\u0442\\u0441\\u044f \\u043a\\u0438\\u043d\\u043e\\u043b\\u043e\\u0433"},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, 2, 1, 58, 256, 0, 784),
+	(203, 'kd5757e168354e1533c569640a578cc4a', 'Описание', 20, 'textarea', '{"core":{"show_intro":"1","show_full":"1","show_feed":"1","show_compare":"0","required":"1","searchable":"1","description":"","xml_tag_name":"","field_class":"","show_lable":"3","label_break":"0","lable_class":"","icon":"balloon-box-left.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"default.php","template_output_full":"default.php","sortable":"0","default_value":"","placeholder":"","intro":"0","seemore":"...","prepare":"1","mention":"1","height":"300px","maxlen":"0","minlen":"0","notify":"1","symbols_left_msg":"There are (%s) characters left of %d allowed","grow_enable":"1","grow_max_height":"350","bbcode":"0","bbcode_menu":"0","bbcode_text":"\\u041c\\u044b \\u043f\\u043e\\u043d\\u0438\\u043c\\u0430\\u0435\\u043c BBcode","bbcode_text_show":"1","bbcode_attr":"rel=\'nofollow\'","markdown":"1","markdown_text":"\\u041c\\u044b \\u043f\\u043e\\u043d\\u0438\\u043c\\u0430\\u0435\\u043c Markdown","markdown_text_show":"1","allow_html":"2","tags_mode":"1","filter_tags":"iframe, script","attr_mode":"1","filter_attr":""},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, 0, 1, 0, 267, 0, 784);
 /*!40000 ALTER TABLE `dogs_js_res_fields` ENABLE KEYS */;
 
 
@@ -2385,7 +2388,7 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_fields_group` (
   `icon` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_type` (`type_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы prodogs.loc.dogs_js_res_fields_group: 60 rows
 DELETE FROM `dogs_js_res_fields_group`;
@@ -2814,9 +2817,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_files` (
   PRIMARY KEY (`id`),
   KEY `idx_name` (`filename`),
   KEY `idx_record` (`record_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_files: 26 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_files: 27 rows
 DELETE FROM `dogs_js_res_files`;
 /*!40000 ALTER TABLE `dogs_js_res_files` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_files` (`id`, `filename`, `realname`, `ctime`, `saved`, `params`, `section_id`, `record_id`, `type_id`, `field_id`, `user_id`, `ext`, `fullpath`, `hits`, `size`, `ip`, `width`, `height`, `rating`, `rating_nums`, `comments`, `comment_num`, `title`, `description`, `views`) VALUES
@@ -2861,9 +2864,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_hits` (
   PRIMARY KEY (`id`),
   KEY `idx_record` (`record_id`),
   KEY `idex_user` (`section_id`,`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_hits: 34 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_hits: 35 rows
 DELETE FROM `dogs_js_res_hits`;
 /*!40000 ALTER TABLE `dogs_js_res_hits` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_hits` (`id`, `record_id`, `ctime`, `user_id`, `ip`, `section_id`) VALUES
@@ -4110,7 +4113,7 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_notifications` (
   KEY `idx_r_1` (`ref_1`),
   KEY `idx_r_2` (`ref_2`),
   KEY `idx_ruser` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы prodogs.loc.dogs_js_res_notifications: ~15 rows (приблизительно)
 DELETE FROM `dogs_js_res_notifications`;
@@ -4288,9 +4291,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_record` (
   KEY `idx_comment` (`comments`),
   KEY `idx_vote` (`votes_result`),
   FULLTEXT KEY `full` (`fieldsdata`)
-) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_record: 74 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_record: 75 rows
 DELETE FROM `dogs_js_res_record`;
 /*!40000 ALTER TABLE `dogs_js_res_record` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_record` (`id`, `title`, `published`, `access`, `params`, `user_id`, `section_id`, `checked_out`, `checked_out_time`, `ctime`, `extime`, `mtime`, `inittime`, `ftime`, `pubtime`, `type_id`, `hits`, `ordering`, `meta_descr`, `meta_key`, `meta_index`, `alias`, `featured`, `archive`, `ucatid`, `ucatname`, `langs`, `asset_id`, `ip`, `votes`, `favorite_num`, `hidden`, `votes_result`, `exalert`, `access_key`, `categories`, `fieldsdata`, `fields`, `comments`, `tags`, `multirating`, `subscriptions_num`, `version`, `parent_id`, `parent`, `whorepost`, `repostedby`, `newTags`) VALUES
@@ -4385,9 +4388,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_record_category` (
   PRIMARY KEY (`id`),
   KEY `rec` (`record_id`),
   KEY `idx_cat` (`section_id`,`catid`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_record_category: 9 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_record_category: 10 rows
 DELETE FROM `dogs_js_res_record_category`;
 /*!40000 ALTER TABLE `dogs_js_res_record_category` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_record_category` (`id`, `catid`, `record_id`, `ordering`, `otime`, `section_id`, `published`, `access`) VALUES
@@ -4449,9 +4452,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_record_values` (
   KEY `idx_key` (`field_key`),
   KEY `idx_record` (`record_id`),
   KEY `idx_field` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1185 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2124 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_record_values: 420 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_record_values: 422 rows
 DELETE FROM `dogs_js_res_record_values`;
 /*!40000 ALTER TABLE `dogs_js_res_record_values` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_record_values` (`id`, `field_id`, `field_key`, `field_type`, `field_label`, `field_value`, `record_id`, `user_id`, `type_id`, `section_id`, `params`, `ip`, `ctime`, `value_index`, `value_num`) VALUES
@@ -4932,9 +4935,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_sections` (
   `categories` int(11) DEFAULT '0',
   `language` char(7) NOT NULL DEFAULT '*',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_sections: 9 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_sections: 10 rows
 DELETE FROM `dogs_js_res_sections`;
 /*!40000 ALTER TABLE `dogs_js_res_sections` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_sections` (`id`, `asset_id`, `name`, `title`, `alias`, `description`, `published`, `ordering`, `image`, `image_position`, `params`, `checked_out`, `checked_out_time`, `access`, `categories`, `language`) VALUES
@@ -4963,9 +4966,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_subscribe` (
   PRIMARY KEY (`id`),
   KEY `idx_rf` (`ref_id`),
   KEY `idx_us` (`user_id`,`section_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=77 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_subscribe: 77 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_subscribe: 78 rows
 DELETE FROM `dogs_js_res_subscribe`;
 /*!40000 ALTER TABLE `dogs_js_res_subscribe` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_subscribe` (`id`, `user_id`, `ref_id`, `ctime`, `type`, `params`, `section_id`) VALUES
@@ -5143,9 +5146,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_types` (
   `language` char(7) NOT NULL DEFAULT '*',
   PRIMARY KEY (`id`),
   KEY `published` (`published`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_types: 17 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_types: 19 rows
 DELETE FROM `dogs_js_res_types`;
 /*!40000 ALTER TABLE `dogs_js_res_types` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_types` (`id`, `name`, `params`, `checked_out`, `checked_out_time`, `published`, `description`, `form`, `user_id`, `asset_id`, `language`) VALUES
@@ -5166,7 +5169,8 @@ INSERT INTO `dogs_js_res_types` (`id`, `name`, `params`, `checked_out`, `checked
 	(16, 'Ищу хозяина', '{"properties":{"item_itemid":"","item_compare":"0","item_can_favorite":"2","item_can_moderate":"3","item_edit":"1","item_delete":"1","allow_extend":"0","allow_hide":"0","default_extend":"10","item_expire_access":"3","tmpl_article":"default.13904dd7f0c5821f9c65bd51b6ff8a52","tmpl_articleform":"myform.8de253ceaeea0ace1a33ee1f509cd64b","tmpl_rating":"default.aa195651e5e73e7cbf14a6d3e5b2e47c","tmpl_comment":"default.f766688ca2a4d02278cebaa4bf552a85","item_can_view_tag":"1","item_can_add_tag":"2","item_can_attach_tag":"2","item_tag_htmltags":"h1, h2, h3, h4, h5, h6, strong, em, b, i, big","item_tag_relevance":"0","item_tag_num":"0","item_tags_max":"25","item_title_unique":"0","item_title":"2","item_title_composite":"[164] [165]","item_title_limit":"0","rate_access":"0","rate_access_author":"0","rate_mode":"1","rate_smart_before":"60","rate_smart_minimum":"5","rate_multirating":"0","rate_multirating_options":"","rate_multirating_tmpl":"default.php","rate_multirating_sort":"2"},"submission":{"submission":"2","can_edit":"-1","access":"1","public_edit":"1","autopublish":"1","edit_autopublish":"1","redirect":"1","redirect_url":"","submit_msg":"JLIB_APPLICATION","save_msg":"JLIB_APPLICATION","default_expire":"0","public_alert":"1","limits_total":"0","limits_day":"0","allow_category":"0","first_category":"0","multi_category":"0","multi_max_num":"3","robots":""},"category_limit":{"allow":"1","category_limit_mode":"0","show_restricted":"0","category":["13"]},"comments":{"comments":""},"audit":{"audit_date_format":"","audit_date_custom":"h:i A, d M Y","versioning":"0","versioning_max":"10","audit_log":"0","itemid":"","al1":{"on":"1","msg":"CAUDLOG1"},"al2":{"on":"1","msg":"CAUDLOG2"},"al26":{"on":"1","msg":"CAUDLOG26"},"al3":{"on":"1","msg":"CAUDLOG3"},"al4":{"on":"1","msg":"CAUDLOG4"},"al5":{"on":"1","msg":"CAUDLOG5"},"al6":{"on":"1","msg":"CAUDLOG6"},"al7":{"on":"1","msg":"CAUDLOG7"},"al8":{"on":"1","msg":"CAUDLOG8"},"al9":{"on":"1","msg":"CAUDLOG9"},"al10":{"on":"1","msg":"CAUDLOG10"},"al25":{"on":"1","msg":"CAUDLOG25"},"al12":{"on":"1","msg":"CAUDLOG12"},"al13":{"on":"1","msg":"CAUDLOG13"},"al14":{"on":"1","msg":"CAUDLOG14"},"al15":{"on":"1","msg":"CAUDLOG15"},"al16":{"on":"1","msg":"CAUDLOG16"},"al17":{"on":"1","msg":"CAUDLOG17"},"al18":{"on":"1","msg":"CAUDLOG18"},"al19":{"on":"1","msg":"CAUDLOG19"},"al20":{"on":"1","msg":"CAUDLOG20"},"al27":{"on":"1","msg":"CAUDLOG27"},"al28":{"on":"1","msg":"CAUDLOG28"},"al29":{"on":"1","msg":"CAUDLOG29"},"al30":{"on":"1","msg":"CAUDLOG30"},"al32":{"on":"1","msg":"CAUDLOG31"}},"emerald":{"subscr_skip":"3","subscr_author_skip":"1","subscr_moderator_skip":"1","type_display_subscription_msg":"You cannot see this article because article author subscritpion has expired.","type_display_subscription_count":"0","type_view_subscription_msg":"You cannot see this article because your subscritpion has expired.","type_view_subscription_count":"0","type_submit_subscription_msg":"To submit you need to be subscribed user and have following subscriptions","type_ulimit_subscription_count":"0","type_ulimit_count":"10","type_edit_subscription_msg":"To edit you need to be subscribed user and have folowing subscriptions","type_comment_subscription_msg":"To comment you need to be subscribed user and have folowing subscriptions","type_multicat_subscription_msg":"To submit this item to multiple categories you have to be subscribed member.","type_feature_subscription_msg":"To make record featured you need to be subscribed user and have folowing subscriptions","type_feature_subscription_time":"30","type_feature_unfeature":"2","type_extend_subscription_msg":"To prolong you need to be subscribed user and have folowing subscriptions","type_extend_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, '', 'form-0161d3b17edb12dd5c194f2d96cf8e4015408017', 784, 236, '*'),
 	(17, 'Товар', '{"properties":{"item_itemid":"","item_compare":"0","item_can_favorite":"2","item_can_moderate":"3","item_edit":"1","item_delete":"1","allow_extend":"0","allow_hide":"0","default_extend":"10","item_expire_access":"3","tmpl_article":"default.13904dd7f0c5821f9c65bd51b6ff8a52","tmpl_articleform":"myform.8de253ceaeea0ace1a33ee1f509cd64b","tmpl_rating":"default.cf4cb0b3197ada13816a0a033a3303d4","tmpl_comment":"default.f766688ca2a4d02278cebaa4bf552a85","item_can_view_tag":"1","item_can_add_tag":"2","item_can_attach_tag":"3","item_tag_htmltags":"h1, h2, h3, h4, h5, h6, strong, em, b, i, big","item_tag_relevance":"0","item_tag_num":"0","item_tags_max":"25","item_title_unique":"0","item_title":"2","item_title_composite":"[181] [182]","item_title_limit":"0","rate_access":"0","rate_access_author":"0","rate_mode":"1","rate_smart_before":"60","rate_smart_minimum":"5","rate_multirating":"0","rate_multirating_options":"","rate_multirating_tmpl":"default.php","rate_multirating_sort":"2"},"submission":{"submission":"2","can_edit":"-1","access":"1","public_edit":"1","autopublish":"1","edit_autopublish":"1","redirect":"1","redirect_url":"","submit_msg":"JLIB_APPLICATION","save_msg":"JLIB_APPLICATION","default_expire":"0","public_alert":"1","limits_total":"0","limits_day":"0","allow_category":"0","first_category":"0","multi_category":"0","multi_max_num":"3","robots":""},"category_limit":{"allow":"1","category_limit_mode":"0","show_restricted":"0","category":["14"]},"comments":{"comments":""},"audit":{"audit_date_format":"","audit_date_custom":"h:i A, d M Y","versioning":"0","versioning_max":"10","audit_log":"0","itemid":"","al1":{"on":"1","msg":"CAUDLOG1"},"al2":{"on":"1","msg":"CAUDLOG2"},"al26":{"on":"1","msg":"CAUDLOG26"},"al3":{"on":"1","msg":"CAUDLOG3"},"al4":{"on":"1","msg":"CAUDLOG4"},"al5":{"on":"1","msg":"CAUDLOG5"},"al6":{"on":"1","msg":"CAUDLOG6"},"al7":{"on":"1","msg":"CAUDLOG7"},"al8":{"on":"1","msg":"CAUDLOG8"},"al9":{"on":"1","msg":"CAUDLOG9"},"al10":{"on":"1","msg":"CAUDLOG10"},"al25":{"on":"1","msg":"CAUDLOG25"},"al12":{"on":"1","msg":"CAUDLOG12"},"al13":{"on":"1","msg":"CAUDLOG13"},"al14":{"on":"1","msg":"CAUDLOG14"},"al15":{"on":"1","msg":"CAUDLOG15"},"al16":{"on":"1","msg":"CAUDLOG16"},"al17":{"on":"1","msg":"CAUDLOG17"},"al18":{"on":"1","msg":"CAUDLOG18"},"al19":{"on":"1","msg":"CAUDLOG19"},"al20":{"on":"1","msg":"CAUDLOG20"},"al27":{"on":"1","msg":"CAUDLOG27"},"al28":{"on":"1","msg":"CAUDLOG28"},"al29":{"on":"1","msg":"CAUDLOG29"},"al30":{"on":"1","msg":"CAUDLOG30"},"al32":{"on":"1","msg":"CAUDLOG31"}},"emerald":{"subscr_skip":"3","subscr_author_skip":"1","subscr_moderator_skip":"1","type_display_subscription_msg":"You cannot see this article because article author subscritpion has expired.","type_display_subscription_count":"0","type_view_subscription_msg":"You cannot see this article because your subscritpion has expired.","type_view_subscription_count":"0","type_submit_subscription_msg":"To submit you need to be subscribed user and have following subscriptions","type_ulimit_subscription_count":"0","type_ulimit_count":"10","type_edit_subscription_msg":"To edit you need to be subscribed user and have folowing subscriptions","type_comment_subscription_msg":"To comment you need to be subscribed user and have folowing subscriptions","type_multicat_subscription_msg":"To submit this item to multiple categories you have to be subscribed member.","type_feature_subscription_msg":"To make record featured you need to be subscribed user and have folowing subscriptions","type_feature_subscription_time":"30","type_feature_unfeature":"2","type_extend_subscription_msg":"To prolong you need to be subscribed user and have folowing subscriptions","type_extend_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, '', 'form-0161d3b17edb12dd5c194f2d96cf8e4015408017', 784, 245, '*'),
 	(18, 'Прочее', '{"properties":{"item_itemid":"","item_compare":"0","item_can_favorite":"2","item_can_moderate":"3","item_edit":"1","item_delete":"1","allow_extend":"0","allow_hide":"0","default_extend":"10","item_expire_access":"3","tmpl_article":"default.13904dd7f0c5821f9c65bd51b6ff8a52","tmpl_articleform":"myform.8de253ceaeea0ace1a33ee1f509cd64b","tmpl_rating":"default.00b0413a64c6ee306baed8f62b046c72","tmpl_comment":"default.f766688ca2a4d02278cebaa4bf552a85","item_can_view_tag":"1","item_can_add_tag":"2","item_can_attach_tag":"3","item_tag_htmltags":"h1, h2, h3, h4, h5, h6, strong, em, b, i, big","item_tag_relevance":"0","item_tag_num":"0","item_tags_max":"25","item_title_unique":"0","item_title":"2","item_title_composite":"[200]","item_title_limit":"0","rate_access":"0","rate_access_author":"0","rate_mode":"1","rate_smart_before":"60","rate_smart_minimum":"5","rate_multirating":"0","rate_multirating_options":"","rate_multirating_tmpl":"default.php","rate_multirating_sort":"2"},"submission":{"submission":"2","can_edit":"-1","access":"1","public_edit":"1","autopublish":"1","edit_autopublish":"1","redirect":"1","redirect_url":"","submit_msg":"JLIB_APPLICATION","save_msg":"JLIB_APPLICATION","default_expire":"0","public_alert":"1","limits_total":"0","limits_day":"0","allow_category":"0","first_category":"0","multi_category":"0","multi_max_num":"3","robots":""},"category_limit":{"allow":"1","category_limit_mode":"0","show_restricted":"0","category":["15"]},"comments":{"comments":""},"audit":{"audit_date_format":"","audit_date_custom":"h:i A, d M Y","versioning":"0","versioning_max":"10","audit_log":"0","itemid":"","al1":{"on":"1","msg":"CAUDLOG1"},"al2":{"on":"1","msg":"CAUDLOG2"},"al26":{"on":"1","msg":"CAUDLOG26"},"al3":{"on":"1","msg":"CAUDLOG3"},"al4":{"on":"1","msg":"CAUDLOG4"},"al5":{"on":"1","msg":"CAUDLOG5"},"al6":{"on":"1","msg":"CAUDLOG6"},"al7":{"on":"1","msg":"CAUDLOG7"},"al8":{"on":"1","msg":"CAUDLOG8"},"al9":{"on":"1","msg":"CAUDLOG9"},"al10":{"on":"1","msg":"CAUDLOG10"},"al25":{"on":"1","msg":"CAUDLOG25"},"al12":{"on":"1","msg":"CAUDLOG12"},"al13":{"on":"1","msg":"CAUDLOG13"},"al14":{"on":"1","msg":"CAUDLOG14"},"al15":{"on":"1","msg":"CAUDLOG15"},"al16":{"on":"1","msg":"CAUDLOG16"},"al17":{"on":"1","msg":"CAUDLOG17"},"al18":{"on":"1","msg":"CAUDLOG18"},"al19":{"on":"1","msg":"CAUDLOG19"},"al20":{"on":"1","msg":"CAUDLOG20"},"al27":{"on":"1","msg":"CAUDLOG27"},"al28":{"on":"1","msg":"CAUDLOG28"},"al29":{"on":"1","msg":"CAUDLOG29"},"al30":{"on":"1","msg":"CAUDLOG30"},"al32":{"on":"1","msg":"CAUDLOG31"}},"emerald":{"subscr_skip":"3","subscr_author_skip":"1","subscr_moderator_skip":"1","type_display_subscription_msg":"You cannot see this article because article author subscritpion has expired.","type_display_subscription_count":"0","type_view_subscription_msg":"You cannot see this article because your subscritpion has expired.","type_view_subscription_count":"0","type_submit_subscription_msg":"To submit you need to be subscribed user and have following subscriptions","type_ulimit_subscription_count":"0","type_ulimit_count":"10","type_edit_subscription_msg":"To edit you need to be subscribed user and have folowing subscriptions","type_comment_subscription_msg":"To comment you need to be subscribed user and have folowing subscriptions","type_multicat_subscription_msg":"To submit this item to multiple categories you have to be subscribed member.","type_feature_subscription_msg":"To make record featured you need to be subscribed user and have folowing subscriptions","type_feature_subscription_time":"30","type_feature_unfeature":"2","type_extend_subscription_msg":"To prolong you need to be subscribed user and have folowing subscriptions","type_extend_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, '', 'form-0161d3b17edb12dd5c194f2d96cf8e4015408017', 784, 253, '*'),
-	(19, 'Статья', '{"properties":{"item_itemid":"","item_compare":"0","item_can_favorite":"2","item_can_moderate":"3","item_edit":"1","item_delete":"1","allow_extend":"0","allow_hide":"0","default_extend":"10","item_expire_access":"3","tmpl_article":"default.d3cad1913daaec701fcc358ed297eb61","tmpl_articleform":"myform.0f38da855cb8ca8a6331b0dcea584d7b","tmpl_rating":"default.43d91f1e638174806b4d50f50ea72e71","tmpl_comment":"default.084cbf732dfb8f82961834a479ea8870","item_can_view_tag":"1","item_can_add_tag":"2","item_can_attach_tag":"2","item_tag_htmltags":"h1, h2, h3, h4, h5, h6, strong, em, b, i, big","item_tag_relevance":"0","item_tag_num":"0","item_tags_max":"25","item_title_unique":"0","item_title":"1","item_title_composite":"","item_title_limit":"0","rate_access":"0","rate_access_author":"0","rate_mode":"1","rate_smart_before":"60","rate_smart_minimum":"5","rate_multirating":"0","rate_multirating_options":"","rate_multirating_tmpl":"default.php","rate_multirating_sort":"2"},"submission":{"submission":"2","can_edit":"-1","access":"1","public_edit":"1","autopublish":"1","edit_autopublish":"1","redirect":"1","redirect_url":"","submit_msg":"JLIB_APPLICATION","save_msg":"JLIB_APPLICATION","default_expire":"0","public_alert":"1","limits_total":"0","limits_day":"0","allow_category":"1","first_category":"0","multi_category":"0","multi_max_num":"3","robots":""},"category_limit":{"allow":"1","category_limit_mode":"0","show_restricted":"0"},"comments":{"comments":""},"audit":{"audit_date_format":"","audit_date_custom":"h:i A, d M Y","versioning":"0","versioning_max":"10","audit_log":"0","itemid":"","al1":{"on":"1","msg":"CAUDLOG1"},"al2":{"on":"1","msg":"CAUDLOG2"},"al26":{"on":"1","msg":"CAUDLOG26"},"al3":{"on":"1","msg":"CAUDLOG3"},"al4":{"on":"1","msg":"CAUDLOG4"},"al5":{"on":"1","msg":"CAUDLOG5"},"al6":{"on":"1","msg":"CAUDLOG6"},"al7":{"on":"1","msg":"CAUDLOG7"},"al8":{"on":"1","msg":"CAUDLOG8"},"al9":{"on":"1","msg":"CAUDLOG9"},"al10":{"on":"1","msg":"CAUDLOG10"},"al25":{"on":"1","msg":"CAUDLOG25"},"al12":{"on":"1","msg":"CAUDLOG12"},"al13":{"on":"1","msg":"CAUDLOG13"},"al14":{"on":"1","msg":"CAUDLOG14"},"al15":{"on":"1","msg":"CAUDLOG15"},"al16":{"on":"1","msg":"CAUDLOG16"},"al17":{"on":"1","msg":"CAUDLOG17"},"al18":{"on":"1","msg":"CAUDLOG18"},"al19":{"on":"1","msg":"CAUDLOG19"},"al20":{"on":"1","msg":"CAUDLOG20"},"al27":{"on":"1","msg":"CAUDLOG27"},"al28":{"on":"1","msg":"CAUDLOG28"},"al29":{"on":"1","msg":"CAUDLOG29"},"al30":{"on":"1","msg":"CAUDLOG30"},"al32":{"on":"1","msg":"CAUDLOG31"}},"emerald":{"subscr_skip":"3","subscr_author_skip":"1","subscr_moderator_skip":"1","type_display_subscription_msg":"You cannot see this article because article author subscritpion has expired.","type_display_subscription_count":"0","type_view_subscription_msg":"You cannot see this article because your subscritpion has expired.","type_view_subscription_count":"0","type_submit_subscription_msg":"To submit you need to be subscribed user and have following subscriptions","type_ulimit_subscription_count":"0","type_ulimit_count":"10","type_edit_subscription_msg":"To edit you need to be subscribed user and have folowing subscriptions","type_comment_subscription_msg":"To comment you need to be subscribed user and have folowing subscriptions","type_multicat_subscription_msg":"To submit this item to multiple categories you have to be subscribed member.","type_feature_subscription_msg":"To make record featured you need to be subscribed user and have folowing subscriptions","type_feature_subscription_time":"30","type_feature_unfeature":"2","type_extend_subscription_msg":"To prolong you need to be subscribed user and have folowing subscriptions","type_extend_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, '', 'form-e1d08dd59f145584d8af5c85aaa6970315395853', 784, 259, '*');
+	(19, 'Статья', '{"properties":{"item_itemid":"","item_compare":"0","item_can_favorite":"2","item_can_moderate":"3","item_edit":"1","item_delete":"1","allow_extend":"0","allow_hide":"0","default_extend":"10","item_expire_access":"3","tmpl_article":"default.d3cad1913daaec701fcc358ed297eb61","tmpl_articleform":"myform.0f38da855cb8ca8a6331b0dcea584d7b","tmpl_rating":"default.43d91f1e638174806b4d50f50ea72e71","tmpl_comment":"default.084cbf732dfb8f82961834a479ea8870","item_can_view_tag":"1","item_can_add_tag":"2","item_can_attach_tag":"2","item_tag_htmltags":"h1, h2, h3, h4, h5, h6, strong, em, b, i, big","item_tag_relevance":"0","item_tag_num":"0","item_tags_max":"25","item_title_unique":"0","item_title":"1","item_title_composite":"","item_title_limit":"0","rate_access":"0","rate_access_author":"0","rate_mode":"1","rate_smart_before":"60","rate_smart_minimum":"5","rate_multirating":"0","rate_multirating_options":"","rate_multirating_tmpl":"default.php","rate_multirating_sort":"2"},"submission":{"submission":"2","can_edit":"-1","access":"1","public_edit":"1","autopublish":"1","edit_autopublish":"1","redirect":"1","redirect_url":"","submit_msg":"JLIB_APPLICATION","save_msg":"JLIB_APPLICATION","default_expire":"0","public_alert":"1","limits_total":"0","limits_day":"0","allow_category":"1","first_category":"0","multi_category":"0","multi_max_num":"3","robots":""},"category_limit":{"allow":"1","category_limit_mode":"0","show_restricted":"0"},"comments":{"comments":""},"audit":{"audit_date_format":"","audit_date_custom":"h:i A, d M Y","versioning":"0","versioning_max":"10","audit_log":"0","itemid":"","al1":{"on":"1","msg":"CAUDLOG1"},"al2":{"on":"1","msg":"CAUDLOG2"},"al26":{"on":"1","msg":"CAUDLOG26"},"al3":{"on":"1","msg":"CAUDLOG3"},"al4":{"on":"1","msg":"CAUDLOG4"},"al5":{"on":"1","msg":"CAUDLOG5"},"al6":{"on":"1","msg":"CAUDLOG6"},"al7":{"on":"1","msg":"CAUDLOG7"},"al8":{"on":"1","msg":"CAUDLOG8"},"al9":{"on":"1","msg":"CAUDLOG9"},"al10":{"on":"1","msg":"CAUDLOG10"},"al25":{"on":"1","msg":"CAUDLOG25"},"al12":{"on":"1","msg":"CAUDLOG12"},"al13":{"on":"1","msg":"CAUDLOG13"},"al14":{"on":"1","msg":"CAUDLOG14"},"al15":{"on":"1","msg":"CAUDLOG15"},"al16":{"on":"1","msg":"CAUDLOG16"},"al17":{"on":"1","msg":"CAUDLOG17"},"al18":{"on":"1","msg":"CAUDLOG18"},"al19":{"on":"1","msg":"CAUDLOG19"},"al20":{"on":"1","msg":"CAUDLOG20"},"al27":{"on":"1","msg":"CAUDLOG27"},"al28":{"on":"1","msg":"CAUDLOG28"},"al29":{"on":"1","msg":"CAUDLOG29"},"al30":{"on":"1","msg":"CAUDLOG30"},"al32":{"on":"1","msg":"CAUDLOG31"}},"emerald":{"subscr_skip":"3","subscr_author_skip":"1","subscr_moderator_skip":"1","type_display_subscription_msg":"You cannot see this article because article author subscritpion has expired.","type_display_subscription_count":"0","type_view_subscription_msg":"You cannot see this article because your subscritpion has expired.","type_view_subscription_count":"0","type_submit_subscription_msg":"To submit you need to be subscribed user and have following subscriptions","type_ulimit_subscription_count":"0","type_ulimit_count":"10","type_edit_subscription_msg":"To edit you need to be subscribed user and have folowing subscriptions","type_comment_subscription_msg":"To comment you need to be subscribed user and have folowing subscriptions","type_multicat_subscription_msg":"To submit this item to multiple categories you have to be subscribed member.","type_feature_subscription_msg":"To make record featured you need to be subscribed user and have folowing subscriptions","type_feature_subscription_time":"30","type_feature_unfeature":"2","type_extend_subscription_msg":"To prolong you need to be subscribed user and have folowing subscriptions","type_extend_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, '', 'form-e1d08dd59f145584d8af5c85aaa6970315395853', 784, 259, '*'),
+	(20, 'Определение', '{"properties":{"item_itemid":"","item_compare":"0","item_can_favorite":"2","item_can_moderate":"3","item_edit":"1","item_delete":"1","allow_extend":"0","allow_hide":"0","default_extend":"10","item_expire_access":"3","tmpl_article":"default.4ad63fa3d4e9cbe3ffb814da62ddbf45","tmpl_articleform":"myform.679884a16f7093ca675782e03d40c37e","tmpl_rating":"crown.748ed1e71742f9139ea5d6f22d84a265","tmpl_comment":"default.80570385ff05ec510e050f366480aee7","item_can_view_tag":"1","item_can_add_tag":"2","item_can_attach_tag":"2","item_tag_htmltags":"h1, h2, h3, h4, h5, h6, strong, em, b, i, big","item_tag_relevance":"0","item_tag_num":"0","item_tags_max":"25","item_title_unique":"0","item_title":"1","item_title_composite":"","item_title_limit":"0","rate_access":"1","rate_access_author":"0","rate_mode":"1","rate_smart_before":"60","rate_smart_minimum":"5","rate_multirating":"0","rate_multirating_options":"","rate_multirating_tmpl":"default.php","rate_multirating_sort":"2"},"submission":{"submission":"6","can_edit":"-1","access":"1","public_edit":"1","autopublish":"1","edit_autopublish":"1","redirect":"1","redirect_url":"","submit_msg":"JLIB_APPLICATION","save_msg":"JLIB_APPLICATION","default_expire":"0","public_alert":"1","limits_total":"0","limits_day":"0","allow_category":"1","first_category":"0","multi_category":"0","multi_max_num":"3","robots":""},"category_limit":{"allow":"1","category_limit_mode":"0","show_restricted":"0"},"comments":{"comments":""},"audit":{"audit_date_format":"","audit_date_custom":"h:i A, d M Y","versioning":"0","versioning_max":"10","audit_log":"0","itemid":"","al1":{"on":"1","msg":"CAUDLOG1"},"al2":{"on":"1","msg":"CAUDLOG2"},"al26":{"on":"1","msg":"CAUDLOG26"},"al3":{"on":"1","msg":"CAUDLOG3"},"al4":{"on":"1","msg":"CAUDLOG4"},"al5":{"on":"1","msg":"CAUDLOG5"},"al6":{"on":"1","msg":"CAUDLOG6"},"al7":{"on":"1","msg":"CAUDLOG7"},"al8":{"on":"1","msg":"CAUDLOG8"},"al9":{"on":"1","msg":"CAUDLOG9"},"al10":{"on":"1","msg":"CAUDLOG10"},"al25":{"on":"1","msg":"CAUDLOG25"},"al12":{"on":"1","msg":"CAUDLOG12"},"al13":{"on":"1","msg":"CAUDLOG13"},"al14":{"on":"1","msg":"CAUDLOG14"},"al15":{"on":"1","msg":"CAUDLOG15"},"al16":{"on":"1","msg":"CAUDLOG16"},"al17":{"on":"1","msg":"CAUDLOG17"},"al18":{"on":"1","msg":"CAUDLOG18"},"al19":{"on":"1","msg":"CAUDLOG19"},"al20":{"on":"1","msg":"CAUDLOG20"},"al27":{"on":"1","msg":"CAUDLOG27"},"al28":{"on":"1","msg":"CAUDLOG28"},"al29":{"on":"1","msg":"CAUDLOG29"},"al30":{"on":"1","msg":"CAUDLOG30"},"al32":{"on":"1","msg":"CAUDLOG31"}},"emerald":{"subscr_skip":"3","subscr_author_skip":"1","subscr_moderator_skip":"1","type_display_subscription_msg":"You cannot see this article because article author subscritpion has expired.","type_display_subscription_count":"0","type_view_subscription_msg":"You cannot see this article because your subscritpion has expired.","type_view_subscription_count":"0","type_submit_subscription_msg":"To submit you need to be subscribed user and have following subscriptions","type_ulimit_subscription_count":"0","type_ulimit_count":"10","type_edit_subscription_msg":"To edit you need to be subscribed user and have folowing subscriptions","type_comment_subscription_msg":"To comment you need to be subscribed user and have folowing subscriptions","type_multicat_subscription_msg":"To submit this item to multiple categories you have to be subscribed member.","type_feature_subscription_msg":"To make record featured you need to be subscribed user and have folowing subscriptions","type_feature_subscription_time":"30","type_feature_unfeature":"2","type_extend_subscription_msg":"To prolong you need to be subscribed user and have folowing subscriptions","type_extend_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, '', 'form-ecb977c531b528f29a8b1aeaf457924815413995', 784, 266, '*');
 /*!40000 ALTER TABLE `dogs_js_res_types` ENABLE KEYS */;
 
 
@@ -5308,9 +5312,9 @@ CREATE TABLE IF NOT EXISTS `dogs_menu` (
   KEY `idx_alias` (`alias`(100)),
   KEY `idx_path` (`path`(100)),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_menu: ~53 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_menu: ~54 rows (приблизительно)
 DELETE FROM `dogs_menu`;
 /*!40000 ALTER TABLE `dogs_menu` DISABLE KEYS */;
 INSERT INTO `dogs_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`) VALUES
@@ -5454,9 +5458,9 @@ CREATE TABLE IF NOT EXISTS `dogs_modules` (
   KEY `published` (`published`,`access`),
   KEY `newsfeeds` (`module`,`published`),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_modules: ~39 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_modules: ~40 rows (приблизительно)
 DELETE FROM `dogs_modules`;
 /*!40000 ALTER TABLE `dogs_modules` DISABLE KEYS */;
 INSERT INTO `dogs_modules` (`id`, `asset_id`, `title`, `note`, `content`, `ordering`, `position`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `published`, `module`, `access`, `showtitle`, `params`, `client_id`, `language`) VALUES
@@ -5510,7 +5514,7 @@ CREATE TABLE IF NOT EXISTS `dogs_modules_menu` (
   PRIMARY KEY (`moduleid`,`menuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_modules_menu: ~42 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_modules_menu: ~43 rows (приблизительно)
 DELETE FROM `dogs_modules_menu`;
 /*!40000 ALTER TABLE `dogs_modules_menu` DISABLE KEYS */;
 INSERT INTO `dogs_modules_menu` (`moduleid`, `menuid`) VALUES
@@ -5686,7 +5690,7 @@ CREATE TABLE IF NOT EXISTS `dogs_schemas` (
   PRIMARY KEY (`extension_id`,`version_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_schemas: ~1 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_schemas: ~0 rows (приблизительно)
 DELETE FROM `dogs_schemas`;
 /*!40000 ALTER TABLE `dogs_schemas` DISABLE KEYS */;
 INSERT INTO `dogs_schemas` (`extension_id`, `version_id`) VALUES
@@ -5708,10 +5712,12 @@ CREATE TABLE IF NOT EXISTS `dogs_session` (
   KEY `time` (`time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_session: ~2 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_session: ~4 rows (приблизительно)
 DELETE FROM `dogs_session`;
 /*!40000 ALTER TABLE `dogs_session` DISABLE KEYS */;
 INSERT INTO `dogs_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
+	('2hkkajfajcbsj0282cjn5ged23', 0, 1, '1541399233', 'joomla|s:2500:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyNztzOjU6InRpbWVyIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InN0YXJ0IjtpOjE1NDEzOTkxMTc7czo0OiJsYXN0IjtpOjE1NDEzOTkyMzM7czozOiJub3ciO2k6MTU0MTM5OTIzMzt9czo1OiJ0b2tlbiI7czozMjoicGdrVklVMTViVEZ4cFh5M3RocURrdGs1NERVTHBobUMiO31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6NDp7czo3OiJza2lwZXJzIjtPOjg6InN0ZENsYXNzIjoxOntzOjM6ImFsbCI7YTowOnt9fXM6NjoiZ2xvYmFsIjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6Imxpc3QiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibGltaXQiO2k6NTt9fXM6MTA6ImNvbV9jb2JhbHQiO086ODoic3RkQ2xhc3MiOjEwOntzOjg6InJlY29yZHMxIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxO31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6NjoiZmllbGRzIjtPOjg6InN0ZENsYXNzIjoyOntzOjg6Im9yZGVyY29sIjtOO3M6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czoyMjoicmVjb3Jkczlfc2hvd19jaGlsZHJlbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6OTt9fXM6ODoicmVjb3JkczkiO086ODoic3RkQ2xhc3MiOjQ6e3M6MTA6ImxpbWl0c3RhcnQiO2k6MDtzOjg6Im9yZGVyY29sIjtOO3M6OToib3JkZXJkaXJuIjtOO3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjk7fX1zOjg6InJlY29yZHM2IjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo2O31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6OToicmVjb3JkczExIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxMTt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjEwOiJjYXRlZ29yaWVzIjtPOjg6InN0ZENsYXNzIjoyOntzOjg6Im9yZGVyY29sIjtOO3M6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czo4OiJyZWNvcmRzMiI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6Mjt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjg6InJlY29yZHM1IjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo1O31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6ODoicmVjb3JkczgiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjg7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9fXM6NzoiY29iYWx0OCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJsaW1pdCI7czoyOiIyMCI7fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fXM6MjA6ImNvYmFsdF9sYXN0X2xpc3RfaWRzIjthOjE6e2k6MDtzOjE6IjYiO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 0, ''),
+	('9dpks791u5bv5m2mklmhscfut7', 1, 0, '1541399617', 'joomla|s:1192:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyNTtzOjU6InRpbWVyIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InN0YXJ0IjtpOjE1NDEzOTkxMTE7czo0OiJsYXN0IjtpOjE1NDEzOTk2MTY7czozOiJub3ciO2k6MTU0MTM5OTYxNzt9czo1OiJ0b2tlbiI7czozMjoiUGpldFdvZWJQcWRaWHFwUHQybXRIUHNpcWw0VDUzRWEiO31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoiY29tX2NvYmFsdCI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjozOntzOjQ6InR5cGUiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiZGF0YSI7Tjt9czo1OiJmaWVsZCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJkYXRhIjtOO31zOjc6InNlY3Rpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiZGF0YSI7Tjt9fXM6NjoiZmllbGRzIjtPOjg6InN0ZENsYXNzIjoxOntzOjY6ImZpZWxkcyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJ0eXBlIjtpOjIwO319fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtzOjM6Ijc4NCI7fXM6MTE6ImFwcGxpY2F0aW9uIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6InF1ZXVlIjthOjA6e319fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO30=";', 784, 'admin'),
 	('diero6j486jod5r4d4mdlug440', 0, 0, '1541064952', 'joomla|s:3036:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo1OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo2MDtzOjU6InRpbWVyIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InN0YXJ0IjtpOjE1NDEwNjM5NTU7czo0OiJsYXN0IjtpOjE1NDEwNjQ5NTI7czozOiJub3ciO2k6MTU0MTA2NDk1Mjt9czo1OiJ0b2tlbiI7czozMjoiSjdBN0JES0R0NjdLOWppSjkzSndMdlk0am1jRWFCZmoiO31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6NTp7czo3OiJza2lwZXJzIjtPOjg6InN0ZENsYXNzIjoxOntzOjM6ImFsbCI7YTowOnt9fXM6NjoiZ2xvYmFsIjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6Imxpc3QiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibGltaXQiO3M6MjoiMjAiO319czoxMDoiY29tX2NvYmFsdCI7Tzo4OiJzdGRDbGFzcyI6MTA6e3M6OToicmVjb3JkczExIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxMTt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiZm9ybSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoyOiJpZCI7czoxOiIwIjtzOjQ6ImRhdGEiO047fX1zOjY6ImZpZWxkcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo4OiJvcmRlcmNvbCI7TjtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6MTA6ImNhdGVnb3JpZXMiO086ODoic3RkQ2xhc3MiOjI6e3M6ODoib3JkZXJjb2wiO047czoxMDoibGltaXRzdGFydCI7aTowO31zOjEyOiJyZWNvcmRzMTFfMTciO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjExO319czoxMjoicmVjb3JkczExXzE2IjtPOjg6InN0ZENsYXNzIjoxOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxMTt9fXM6ODoicmVjb3JkczIiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjI7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czo4OiJyZWNvcmRzOSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6OTt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjg6InJlY29yZHM1IjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo1O31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6ODoicmVjb3JkczgiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjg7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9fXM6NToidXNlcnMiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibG9naW4iO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiZm9ybSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJyZXR1cm4iO3M6Mjc6Imh0dHA6Ly9wcm9kb2dzLmxvYy9hcnRpY2xlcyI7czo0OiJkYXRhIjthOjA6e319fX1zOjc6ImNvYmFsdDgiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibGltaXQiO3M6MjoiMjAiO319czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7czozOiI3ODUiO31zOjIwOiJjb2JhbHRfbGFzdF9saXN0X2lkcyI7YToyMDp7aTowO3M6MjoiNTEiO2k6MTtzOjI6IjUyIjtpOjI7czoyOiIyNSI7aTozO3M6MjoiMzgiO2k6NDtzOjI6IjM5IjtpOjU7czoyOiI1MyI7aTo2O3M6MjoiMzEiO2k6NztzOjI6IjMyIjtpOjg7czoyOiIzNCI7aTo5O3M6MjoiMzMiO2k6MTA7czoyOiIzNSI7aToxMTtzOjI6IjI3IjtpOjEyO3M6MjoiNDAiO2k6MTM7czoyOiIzMCI7aToxNDtzOjI6IjM2IjtpOjE1O3M6MjoiMzciO2k6MTY7czoyOiIyOSI7aToxNztzOjI6IjI2IjtpOjE4O3M6MjoiMjgiO2k6MTk7czoyOiI1NCI7fXM6MTE6ImFwcGxpY2F0aW9uIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6InF1ZXVlIjthOjA6e319fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO30=";', 785, 'test'),
 	('grv7qcrncnjh97ehp32jvc3td4', 1, 0, '1541064665', 'joomla|s:2448:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo1NTE7czo1OiJ0b2tlbiI7czozMjoiVGdNU29lQ1M5VkRRVExBSlBOdENLdUhMclhmZEdqNWEiO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTU0MTA1NTc0MDtzOjQ6Imxhc3QiO2k6MTU0MTA2NDY2NTtzOjM6Im5vdyI7aToxNTQxMDY0NjY1O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6MTA6ImNvbV9jb2JhbHQiO086ODoic3RkQ2xhc3MiOjQ6e3M6NjoiZmllbGRzIjtPOjg6InN0ZENsYXNzIjoxOntzOjY6ImZpZWxkcyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJ0eXBlIjtpOjE5O319czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjo1OntzOjU6ImZpZWxkIjtPOjg6InN0ZENsYXNzIjoyOntzOjI6ImlkIjthOjA6e31zOjQ6ImRhdGEiO047fXM6NDoidHlwZSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoyOiJpZCI7YToyOntpOjA7aToxNztpOjE7aTo2O31zOjQ6ImRhdGEiO047fXM6NToiZ3JvdXAiO086ODoic3RkQ2xhc3MiOjI6e3M6MjoiaWQiO2E6MDp7fXM6NDoiZGF0YSI7Tjt9czo4OiJjYXRlZ29yeSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoyOiJpZCI7YTowOnt9czo0OiJkYXRhIjtOO31zOjc6InNlY3Rpb24iO086ODoic3RkQ2xhc3MiOjI6e3M6MjoiaWQiO2E6MDp7fXM6NDoiZGF0YSI7Tjt9fXM6NjoiZ3JvdXBzIjtPOjg6InN0ZENsYXNzIjoxOntzOjY6Imdyb3VwcyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJ0eXBlIjtpOjE4O319czoxMDoiY2F0ZWdvcmllcyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6Nzoic2VjdGlvbiI7czoyOiIxMSI7fX19czo5OiJjb21fbWVudXMiO086ODoic3RkQ2xhc3MiOjI6e3M6NToiaXRlbXMiO086ODoic3RkQ2xhc3MiOjQ6e3M6ODoibWVudXR5cGUiO3M6ODoibWFpbm1lbnUiO3M6OToiY2xpZW50X2lkIjtpOjA7czoxMDoibGltaXRzdGFydCI7aTowO3M6NDoibGlzdCI7YTo0OntzOjk6ImRpcmVjdGlvbiI7czozOiJhc2MiO3M6NToibGltaXQiO3M6MjoiMjAiO3M6ODoib3JkZXJpbmciO3M6NToiYS5sZnQiO3M6NToic3RhcnQiO2Q6MDt9fXM6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJpdGVtIjtPOjg6InN0ZENsYXNzIjo0OntzOjI6ImlkIjthOjA6e31zOjQ6ImRhdGEiO047czo0OiJ0eXBlIjtOO3M6NDoibGluayI7Tjt9fX1zOjExOiJjb21fbW9kdWxlcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjoxOntzOjY6Im1vZHVsZSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo0OiJkYXRhIjtOO3M6MjoiaWQiO2E6MDp7fX19czozOiJhZGQiO086ODoic3RkQ2xhc3MiOjE6e3M6NjoibW9kdWxlIjtPOjg6InN0ZENsYXNzIjoyOntzOjEyOiJleHRlbnNpb25faWQiO047czo2OiJwYXJhbXMiO047fX19fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO3M6MzoiNzg0Ijt9czoxMToiYXBwbGljYXRpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NToicXVldWUiO2E6MDp7fX19fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 784, 'admin');
 /*!40000 ALTER TABLE `dogs_session` ENABLE KEYS */;
@@ -5759,7 +5765,7 @@ CREATE TABLE IF NOT EXISTS `dogs_tags` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_tags: ~1 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_tags: ~0 rows (приблизительно)
 DELETE FROM `dogs_tags`;
 /*!40000 ALTER TABLE `dogs_tags` DISABLE KEYS */;
 INSERT INTO `dogs_tags` (`id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `created_by_alias`, `modified_user_id`, `modified_time`, `images`, `urls`, `hits`, `language`, `version`, `publish_up`, `publish_down`) VALUES
@@ -5928,7 +5934,7 @@ CREATE TABLE IF NOT EXISTS `dogs_update_sites` (
 DELETE FROM `dogs_update_sites`;
 /*!40000 ALTER TABLE `dogs_update_sites` DISABLE KEYS */;
 INSERT INTO `dogs_update_sites` (`update_site_id`, `name`, `type`, `location`, `enabled`, `last_check_timestamp`, `extra_query`) VALUES
-	(1, 'Joomla! Core', 'collection', 'https://update.joomla.org/core/list.xml', 1, 1541052176, ''),
+	(1, 'Joomla! Core', 'collection', 'https://update.joomla.org/core/list.xml', 1, 1541399131, ''),
 	(2, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_3.xml', 1, 1540970122, ''),
 	(3, 'Joomla! Update Component Update Site', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1540970142, '');
 /*!40000 ALTER TABLE `dogs_update_sites` ENABLE KEYS */;
@@ -6011,7 +6017,7 @@ CREATE TABLE IF NOT EXISTS `dogs_users` (
 DELETE FROM `dogs_users`;
 /*!40000 ALTER TABLE `dogs_users` DISABLE KEYS */;
 INSERT INTO `dogs_users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`, `otpKey`, `otep`, `requireReset`) VALUES
-	(784, 'Super User', 'admin', 'zatulenko@gmail.com', '$2y$10$7E7bc53LW240v3IQgxqsxeAsN7COWdQG4MzyXSaTMoJhGrPY.2nXq', 0, 1, '2018-10-05 08:34:45', '2018-11-01 07:02:20', '0', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
+	(784, 'Super User', 'admin', 'zatulenko@gmail.com', '$2y$10$7E7bc53LW240v3IQgxqsxeAsN7COWdQG4MzyXSaTMoJhGrPY.2nXq', 0, 1, '2018-10-05 08:34:45', '2018-11-05 06:26:47', '0', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
 	(785, 'test', 'test', 'test@mail.ru', '$2y$10$4YDroBqTShV7HZa2wUygh.7h7vzv55VoQ.XKUhalgPB6DGVL5v9zu', 0, 0, '2018-10-11 12:23:53', '2018-11-01 09:19:23', '', '{}', '0000-00-00 00:00:00', 0, '', '', 0),
 	(786, 'pitomnik', 'pitomnik', 'pitomnik@mail.ru', '$2y$10$yYyRGUy.9Yplad4WV914ieY7xSghacwy1eaPOkcr5E8ZF9uiQAenO', 0, 0, '2018-10-14 06:15:02', '2018-10-31 09:35:52', '', '{}', '0000-00-00 00:00:00', 0, '', '', 0);
 /*!40000 ALTER TABLE `dogs_users` ENABLE KEYS */;
@@ -6102,7 +6108,7 @@ CREATE TABLE IF NOT EXISTS `dogs_utf8_conversion` (
   `converted` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_utf8_conversion: ~1 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_utf8_conversion: ~0 rows (приблизительно)
 DELETE FROM `dogs_utf8_conversion`;
 /*!40000 ALTER TABLE `dogs_utf8_conversion` DISABLE KEYS */;
 INSERT INTO `dogs_utf8_conversion` (`converted`) VALUES
