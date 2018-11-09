@@ -11,6 +11,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Дамп структуры для таблица prodogs.loc.dogs_assets
+DROP TABLE IF EXISTS `dogs_assets`;
 CREATE TABLE IF NOT EXISTS `dogs_assets` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Nested set parent.',
@@ -300,6 +301,7 @@ INSERT INTO `dogs_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `ti
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_associations
+DROP TABLE IF EXISTS `dogs_associations`;
 CREATE TABLE IF NOT EXISTS `dogs_associations` (
   `id` int(11) NOT NULL COMMENT 'A reference to the associated item.',
   `context` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The context of the associated item.',
@@ -315,6 +317,7 @@ DELETE FROM `dogs_associations`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_banners
+DROP TABLE IF EXISTS `dogs_banners`;
 CREATE TABLE IF NOT EXISTS `dogs_banners` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cid` int(11) NOT NULL DEFAULT '0',
@@ -365,6 +368,7 @@ DELETE FROM `dogs_banners`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_banner_clients
+DROP TABLE IF EXISTS `dogs_banner_clients`;
 CREATE TABLE IF NOT EXISTS `dogs_banner_clients` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -392,6 +396,7 @@ DELETE FROM `dogs_banner_clients`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_banner_tracks
+DROP TABLE IF EXISTS `dogs_banner_tracks`;
 CREATE TABLE IF NOT EXISTS `dogs_banner_tracks` (
   `track_date` datetime NOT NULL,
   `track_type` int(10) unsigned NOT NULL,
@@ -410,6 +415,7 @@ DELETE FROM `dogs_banner_tracks`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_categories
+DROP TABLE IF EXISTS `dogs_categories`;
 CREATE TABLE IF NOT EXISTS `dogs_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
@@ -462,6 +468,7 @@ INSERT INTO `dogs_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `lev
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_contact_details
+DROP TABLE IF EXISTS `dogs_contact_details`;
 CREATE TABLE IF NOT EXISTS `dogs_contact_details` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -524,6 +531,7 @@ DELETE FROM `dogs_contact_details`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_content
+DROP TABLE IF EXISTS `dogs_content`;
 CREATE TABLE IF NOT EXISTS `dogs_content` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
@@ -574,6 +582,7 @@ DELETE FROM `dogs_content`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_contentitem_tag_map
+DROP TABLE IF EXISTS `dogs_contentitem_tag_map`;
 CREATE TABLE IF NOT EXISTS `dogs_contentitem_tag_map` (
   `type_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `core_content_id` int(10) unsigned NOT NULL COMMENT 'PK from the core content table',
@@ -594,6 +603,7 @@ DELETE FROM `dogs_contentitem_tag_map`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_content_frontpage
+DROP TABLE IF EXISTS `dogs_content_frontpage`;
 CREATE TABLE IF NOT EXISTS `dogs_content_frontpage` (
   `content_id` int(11) NOT NULL DEFAULT '0',
   `ordering` int(11) NOT NULL DEFAULT '0',
@@ -607,6 +617,7 @@ DELETE FROM `dogs_content_frontpage`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_content_rating
+DROP TABLE IF EXISTS `dogs_content_rating`;
 CREATE TABLE IF NOT EXISTS `dogs_content_rating` (
   `content_id` int(11) NOT NULL DEFAULT '0',
   `rating_sum` int(10) unsigned NOT NULL DEFAULT '0',
@@ -622,6 +633,7 @@ DELETE FROM `dogs_content_rating`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_content_types
+DROP TABLE IF EXISTS `dogs_content_types`;
 CREATE TABLE IF NOT EXISTS `dogs_content_types` (
   `type_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `type_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -656,6 +668,7 @@ INSERT INTO `dogs_content_types` (`type_id`, `type_title`, `type_alias`, `table`
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_core_log_searches
+DROP TABLE IF EXISTS `dogs_core_log_searches`;
 CREATE TABLE IF NOT EXISTS `dogs_core_log_searches` (
   `search_term` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `hits` int(10) unsigned NOT NULL DEFAULT '0'
@@ -668,6 +681,7 @@ DELETE FROM `dogs_core_log_searches`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_extensions
+DROP TABLE IF EXISTS `dogs_extensions`;
 CREATE TABLE IF NOT EXISTS `dogs_extensions` (
   `extension_id` int(11) NOT NULL AUTO_INCREMENT,
   `package_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Parent package ID for extensions installed as a package.',
@@ -944,6 +958,7 @@ INSERT INTO `dogs_extensions` (`extension_id`, `package_id`, `name`, `type`, `el
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_fields
+DROP TABLE IF EXISTS `dogs_fields`;
 CREATE TABLE IF NOT EXISTS `dogs_fields` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -985,6 +1000,7 @@ DELETE FROM `dogs_fields`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_fields_categories
+DROP TABLE IF EXISTS `dogs_fields_categories`;
 CREATE TABLE IF NOT EXISTS `dogs_fields_categories` (
   `field_id` int(11) NOT NULL DEFAULT '0',
   `category_id` int(11) NOT NULL DEFAULT '0',
@@ -998,6 +1014,7 @@ DELETE FROM `dogs_fields_categories`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_fields_groups
+DROP TABLE IF EXISTS `dogs_fields_groups`;
 CREATE TABLE IF NOT EXISTS `dogs_fields_groups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -1032,6 +1049,7 @@ DELETE FROM `dogs_fields_groups`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_fields_values
+DROP TABLE IF EXISTS `dogs_fields_values`;
 CREATE TABLE IF NOT EXISTS `dogs_fields_values` (
   `field_id` int(10) unsigned NOT NULL,
   `item_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Allow references to items which have strings as ids, eg. none db systems.',
@@ -1047,6 +1065,7 @@ DELETE FROM `dogs_fields_values`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_filters
+DROP TABLE IF EXISTS `dogs_finder_filters`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_filters` (
   `filter_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -1072,6 +1091,7 @@ DELETE FROM `dogs_finder_filters`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links
+DROP TABLE IF EXISTS `dogs_finder_links`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links` (
   `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `url` varchar(255) NOT NULL,
@@ -1108,6 +1128,7 @@ DELETE FROM `dogs_finder_links`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_terms0
+DROP TABLE IF EXISTS `dogs_finder_links_terms0`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_terms0` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1124,6 +1145,7 @@ DELETE FROM `dogs_finder_links_terms0`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_terms1
+DROP TABLE IF EXISTS `dogs_finder_links_terms1`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_terms1` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1140,6 +1162,7 @@ DELETE FROM `dogs_finder_links_terms1`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_terms2
+DROP TABLE IF EXISTS `dogs_finder_links_terms2`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_terms2` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1156,6 +1179,7 @@ DELETE FROM `dogs_finder_links_terms2`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_terms3
+DROP TABLE IF EXISTS `dogs_finder_links_terms3`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_terms3` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1172,6 +1196,7 @@ DELETE FROM `dogs_finder_links_terms3`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_terms4
+DROP TABLE IF EXISTS `dogs_finder_links_terms4`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_terms4` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1188,6 +1213,7 @@ DELETE FROM `dogs_finder_links_terms4`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_terms5
+DROP TABLE IF EXISTS `dogs_finder_links_terms5`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_terms5` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1204,6 +1230,7 @@ DELETE FROM `dogs_finder_links_terms5`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_terms6
+DROP TABLE IF EXISTS `dogs_finder_links_terms6`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_terms6` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1220,6 +1247,7 @@ DELETE FROM `dogs_finder_links_terms6`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_terms7
+DROP TABLE IF EXISTS `dogs_finder_links_terms7`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_terms7` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1236,6 +1264,7 @@ DELETE FROM `dogs_finder_links_terms7`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_terms8
+DROP TABLE IF EXISTS `dogs_finder_links_terms8`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_terms8` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1252,6 +1281,7 @@ DELETE FROM `dogs_finder_links_terms8`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_terms9
+DROP TABLE IF EXISTS `dogs_finder_links_terms9`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_terms9` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1268,6 +1298,7 @@ DELETE FROM `dogs_finder_links_terms9`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_termsa
+DROP TABLE IF EXISTS `dogs_finder_links_termsa`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_termsa` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1284,6 +1315,7 @@ DELETE FROM `dogs_finder_links_termsa`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_termsb
+DROP TABLE IF EXISTS `dogs_finder_links_termsb`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_termsb` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1300,6 +1332,7 @@ DELETE FROM `dogs_finder_links_termsb`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_termsc
+DROP TABLE IF EXISTS `dogs_finder_links_termsc`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_termsc` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1316,6 +1349,7 @@ DELETE FROM `dogs_finder_links_termsc`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_termsd
+DROP TABLE IF EXISTS `dogs_finder_links_termsd`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_termsd` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1332,6 +1366,7 @@ DELETE FROM `dogs_finder_links_termsd`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_termse
+DROP TABLE IF EXISTS `dogs_finder_links_termse`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_termse` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1348,6 +1383,7 @@ DELETE FROM `dogs_finder_links_termse`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_links_termsf
+DROP TABLE IF EXISTS `dogs_finder_links_termsf`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_links_termsf` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -1364,6 +1400,7 @@ DELETE FROM `dogs_finder_links_termsf`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_taxonomy
+DROP TABLE IF EXISTS `dogs_finder_taxonomy`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_taxonomy` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -1388,6 +1425,7 @@ INSERT INTO `dogs_finder_taxonomy` (`id`, `parent_id`, `title`, `state`, `access
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_taxonomy_map
+DROP TABLE IF EXISTS `dogs_finder_taxonomy_map`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_taxonomy_map` (
   `link_id` int(10) unsigned NOT NULL,
   `node_id` int(10) unsigned NOT NULL,
@@ -1403,6 +1441,7 @@ DELETE FROM `dogs_finder_taxonomy_map`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_terms
+DROP TABLE IF EXISTS `dogs_finder_terms`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_terms` (
   `term_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `term` varchar(75) NOT NULL,
@@ -1427,6 +1466,7 @@ DELETE FROM `dogs_finder_terms`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_terms_common
+DROP TABLE IF EXISTS `dogs_finder_terms_common`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_terms_common` (
   `term` varchar(75) NOT NULL,
   `language` varchar(3) NOT NULL,
@@ -1552,6 +1592,7 @@ INSERT INTO `dogs_finder_terms_common` (`term`, `language`) VALUES
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_tokens
+DROP TABLE IF EXISTS `dogs_finder_tokens`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_tokens` (
   `term` varchar(75) NOT NULL,
   `stem` varchar(75) NOT NULL,
@@ -1571,6 +1612,7 @@ DELETE FROM `dogs_finder_tokens`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_tokens_aggregate
+DROP TABLE IF EXISTS `dogs_finder_tokens_aggregate`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_tokens_aggregate` (
   `term_id` int(10) unsigned NOT NULL,
   `map_suffix` char(1) NOT NULL,
@@ -1594,6 +1636,7 @@ DELETE FROM `dogs_finder_tokens_aggregate`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_finder_types
+DROP TABLE IF EXISTS `dogs_finder_types`;
 CREATE TABLE IF NOT EXISTS `dogs_finder_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
@@ -1609,6 +1652,7 @@ DELETE FROM `dogs_finder_types`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_ip_2_country
+DROP TABLE IF EXISTS `dogs_js_ip_2_country`;
 CREATE TABLE IF NOT EXISTS `dogs_js_ip_2_country` (
   `ip_from` int(10) NOT NULL DEFAULT '0',
   `ip_to` int(10) NOT NULL DEFAULT '0',
@@ -1626,6 +1670,7 @@ DELETE FROM `dogs_js_ip_2_country`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_audit_log
+DROP TABLE IF EXISTS `dogs_js_res_audit_log`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_audit_log` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0',
@@ -1651,6 +1696,7 @@ DELETE FROM `dogs_js_res_audit_log`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_audit_restore
+DROP TABLE IF EXISTS `dogs_js_res_audit_restore`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_audit_restore` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `record_id` int(11) DEFAULT '0',
@@ -1674,6 +1720,7 @@ DELETE FROM `dogs_js_res_audit_restore`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_audit_versions
+DROP TABLE IF EXISTS `dogs_js_res_audit_versions`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_audit_versions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0',
@@ -1698,6 +1745,7 @@ DELETE FROM `dogs_js_res_audit_versions`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_categories
+DROP TABLE IF EXISTS `dogs_js_res_categories`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_categories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) NOT NULL DEFAULT '0',
@@ -1759,6 +1807,7 @@ INSERT INTO `dogs_js_res_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_category_filters
+DROP TABLE IF EXISTS `dogs_js_res_category_filters`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_category_filters` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) DEFAULT '0',
@@ -1774,6 +1823,7 @@ DELETE FROM `dogs_js_res_category_filters`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_category_user
+DROP TABLE IF EXISTS `dogs_js_res_category_user`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_category_user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL DEFAULT '0',
@@ -1809,6 +1859,7 @@ DELETE FROM `dogs_js_res_category_user`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_comments
+DROP TABLE IF EXISTS `dogs_js_res_comments`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_comments` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `record_id` int(10) NOT NULL DEFAULT '0',
@@ -1853,6 +1904,7 @@ INSERT INTO `dogs_js_res_comments` (`id`, `record_id`, `user_id`, `comment`, `ct
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_country
+DROP TABLE IF EXISTS `dogs_js_res_country`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_country` (
   `id` varchar(2) NOT NULL DEFAULT '',
   `name` varchar(64) NOT NULL DEFAULT ''
@@ -2130,6 +2182,7 @@ INSERT INTO `dogs_js_res_country` (`id`, `name`) VALUES
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_favorite
+DROP TABLE IF EXISTS `dogs_js_res_favorite`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_favorite` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL DEFAULT '0',
@@ -2149,6 +2202,7 @@ DELETE FROM `dogs_js_res_favorite`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_fields
+DROP TABLE IF EXISTS `dogs_js_res_fields`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_fields` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `key` varchar(45) DEFAULT NULL,
@@ -2378,6 +2432,7 @@ INSERT INTO `dogs_js_res_fields` (`id`, `key`, `label`, `type_id`, `field_type`,
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_fields_group
+DROP TABLE IF EXISTS `dogs_js_res_fields_group`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_fields_group` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(250) NOT NULL DEFAULT '',
@@ -2459,6 +2514,7 @@ INSERT INTO `dogs_js_res_fields_group` (`id`, `title`, `type_id`, `ordering`, `d
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_field_geo
+DROP TABLE IF EXISTS `dogs_js_res_field_geo`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_field_geo` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `country` char(2) DEFAULT NULL,
@@ -2487,6 +2543,7 @@ DELETE FROM `dogs_js_res_field_geo`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_field_multilevelselect
+DROP TABLE IF EXISTS `dogs_js_res_field_multilevelselect`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_field_multilevelselect` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
@@ -2516,6 +2573,7 @@ INSERT INTO `dogs_js_res_field_multilevelselect` (`id`, `name`, `field_id`, `par
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_field_stepaccess
+DROP TABLE IF EXISTS `dogs_js_res_field_stepaccess`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_field_stepaccess` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0',
@@ -2535,6 +2593,7 @@ DELETE FROM `dogs_js_res_field_stepaccess`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_field_telephone
+DROP TABLE IF EXISTS `dogs_js_res_field_telephone`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_field_telephone` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
@@ -2789,6 +2848,7 @@ INSERT INTO `dogs_js_res_field_telephone` (`id`, `name`, `code2`, `code3`, `phon
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_files
+DROP TABLE IF EXISTS `dogs_js_res_files`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_files` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `filename` varchar(55) NOT NULL DEFAULT '',
@@ -2855,6 +2915,7 @@ INSERT INTO `dogs_js_res_files` (`id`, `filename`, `realname`, `ctime`, `saved`,
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_hits
+DROP TABLE IF EXISTS `dogs_js_res_hits`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_hits` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `record_id` int(10) NOT NULL DEFAULT '0',
@@ -2911,6 +2972,7 @@ INSERT INTO `dogs_js_res_hits` (`id`, `record_id`, `ctime`, `user_id`, `ip`, `se
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_import
+DROP TABLE IF EXISTS `dogs_js_res_import`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_import` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(40) DEFAULT NULL,
@@ -2932,6 +2994,7 @@ INSERT INTO `dogs_js_res_import` (`id`, `name`, `params`, `user_id`, `crossids`,
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_import_rows
+DROP TABLE IF EXISTS `dogs_js_res_import_rows`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_import_rows` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `import` int(11) DEFAULT '0',
@@ -4070,6 +4133,7 @@ INSERT INTO `dogs_js_res_import_rows` (`id`, `import`, `text`, `ctime`) VALUES
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_moderators
+DROP TABLE IF EXISTS `dogs_js_res_moderators`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_moderators` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0',
@@ -4093,6 +4157,7 @@ DELETE FROM `dogs_js_res_moderators`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_notifications
+DROP TABLE IF EXISTS `dogs_js_res_notifications`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_notifications` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `option` varchar(100) NOT NULL DEFAULT '',
@@ -4140,6 +4205,7 @@ INSERT INTO `dogs_js_res_notifications` (`id`, `option`, `type`, `ctime`, `notif
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_packs
+DROP TABLE IF EXISTS `dogs_js_res_packs`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_packs` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
@@ -4173,6 +4239,7 @@ INSERT INTO `dogs_js_res_packs` (`id`, `name`, `description`, `key`, `addkey`, `
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_packs_sections
+DROP TABLE IF EXISTS `dogs_js_res_packs_sections`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_packs_sections` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pack_id` int(11) NOT NULL DEFAULT '0',
@@ -4212,6 +4279,7 @@ INSERT INTO `dogs_js_res_packs_sections` (`id`, `pack_id`, `section_id`, `params
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_polls
+DROP TABLE IF EXISTS `dogs_js_res_polls`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_polls` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `question` varchar(255) NOT NULL DEFAULT '',
@@ -4231,6 +4299,7 @@ DELETE FROM `dogs_js_res_polls`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_record
+DROP TABLE IF EXISTS `dogs_js_res_record`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_record` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL DEFAULT '',
@@ -4297,9 +4366,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_record` (
   KEY `idx_comment` (`comments`),
   KEY `idx_vote` (`votes_result`),
   FULLTEXT KEY `full` (`fieldsdata`)
-) ENGINE=MyISAM AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_record: 77 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_record: 105 rows
 DELETE FROM `dogs_js_res_record`;
 /*!40000 ALTER TABLE `dogs_js_res_record` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_record` (`id`, `title`, `published`, `access`, `params`, `user_id`, `section_id`, `checked_out`, `checked_out_time`, `ctime`, `extime`, `mtime`, `inittime`, `ftime`, `pubtime`, `type_id`, `hits`, `ordering`, `meta_descr`, `meta_key`, `meta_index`, `alias`, `featured`, `archive`, `ucatid`, `ucatname`, `langs`, `asset_id`, `ip`, `votes`, `favorite_num`, `hidden`, `votes_result`, `exalert`, `access_key`, `categories`, `fieldsdata`, `fields`, `comments`, `tags`, `multirating`, `subscriptions_num`, `version`, `parent_id`, `parent`, `whorepost`, `repostedby`, `newTags`) VALUES
@@ -4379,11 +4448,40 @@ INSERT INTO `dogs_js_res_record` (`id`, `title`, `published`, `access`, `params`
 	(81, 'Как фотографировать собак', 1, 1, '', 785, 11, 0, '0000-00-00 00:00:00', '2018-11-01 09:28:20', '0000-00-00 00:00:00', '2018-11-01 09:28:20', '2018-11-01 09:28:20', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 19, 1, 0, '', '', '', 'kak-fotografirovat-sobak', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '40d11c220900d43cf05d83fb55b7e6d2', '{"17":"\\u041f\\u043e\\u043b\\u0435\\u0437\\u043d\\u044b\\u0435 \\u0441\\u043e\\u0432\\u0435\\u0442\\u044b"}', '\r\n\r\n\r\n\r\n\r\n\r\n\r\nДелать фотографии собак так, чтобы они получались как у профессионалов - это по-настоящему трудная работа. В нашей статье Вы можете прочесть несколько советов, как это сделать самостоятельно.\r\n\r\n\r\nФотоаппарат\r\n\r\n\r\nВы знаете, что большинство цифровых фотоаппаратов рассчитано на печать фотографий размером 10х15 см. Вы легко сможете делать снимки для своего фотоальбома, и они будут чудесным напоминанием об особенно памятном дне, но Вам никогда не удастся увеличить их и сделать плакат? Если Вы все же попробуете это сделать, результат будет нечетким. Даже если Вам повезло, и Вы обладаете профессиональной цифровой камерой, Вы, скорее всего, ограничены размером 20х30 см, тогда как для плаката требуется хотя бы 30х40 см, а лучше уж 50х75 см. Такой размер может обеспечить только традиционный аналоговый фотоаппарат. Возможно, у Вас на чердаке завалялся именно такой?\r\n\r\n\r\nОбъектив\r\n\r\n\r\nКакой снимок можно считать фотографией с превосходным качеством. Мне кажется, что такое определение может получить фото, где видны отдельные волосы подшерстка собаки. Чтобы получить такое качество требуется телеобъектив 35-135 мм. Требуется взять такой объектив, чтобы с одной стороны не встревожить собаку своим близким присутствием, а с другой стороны, чтобы не исказить фотографию из-за слишком далекого объекта съемок. Стоит выбрать нечто среднее, так как каким бы богатым Вы не были, вряд ли имеет смысл скупить все возможные объективы.\r\n\r\n\r\nПленка\r\n\r\n\r\nОсобенности технологий различных производителей дают разные цветовые помехи при проявке пленки. Слишком много зеленого, белого или излишняя краснота снимка - вот неполный список тех дефектов, которые могут проявится на Ваших фотографиях. Попробуйте пленки разных производителей, не исключено, что путем пары экспериментов Вы найдете ту, которая больше подойдет лично Вам. \r\n \r\nЧто касается светочувствительности мы рекомендуем использовать пленку с пометкой 200. Она позволит Вам передать нюансы, как при свете, так и в тени. Предпочтите 24-кадровую пленку, так как  отсняв ее Вы получите перерыв, после которого изменится не только освещение, но и поведение собаки, а фотографии получатся более разнообразными.\r\n\r\n\r\nУспешный кадр\r\n\r\n\r\nЕсли Вы хотите, чтобы Ваша собака получилась более выразительной, не делайте снимков, где все поле фотографии занимает ее портрет в полный рост. Такая перспектива сокрушит любые исходные данные, ноги будут казаться короче, тело будет выглядеть слишком массивным. В общем, это не добавит Вашему питомцу красоты. Чтобы результат получился отличным, Вы должны быть примерно той же высоты, что и Ваш питомец. Лягте на поверхность или присядьте вниз и положите свои локти на пол или землю. Таким образом, у Вас будет надежная поддержка, а Ваша фотография будет более четкой. Постарайтесь избежать мест, где трава выросла очень высокой, кроме тех случаев, когда Вы хотите оставить в секрете, кого же Вы сфотографировали. Вообразите таксу в поле!.. Я шучу... Серьезно, для портрета собаки лучше найти открытую местность, чтоб были видны все детали лап, включая когти. Если Вы не хотите полежать на нежной траве или на грязной уличной щебенке, поищите место на солнце, где будет терраса и несколько ступеней. Расположите собаку на террасе, а сами спуститесь вниз по ступенькам, чтобы держать фотоаппарат на уровне груди Вашего питомца.\r\n\r\n\r\nЧеткость\r\n\r\n\r\nНе пытайтесь сделать одновременно четкий портрет Вашей собаки и при этом ясный пейзаж у нее за спиной. Если Вы сосредотачиваетесь на голове животного, замок или церковь на фоне должны быть размытыми. Если этого не произошло, значит нечетким получился сам портрет. В максимально возможной степени старайтесь, чтобы собака вошла на фотографию полностью, включая лапы, хвост и другие части тела. Если же Вас не оставляют мечты создать фотографию, где четкое изображение животного сочетается с изумительно прорисованным пейзажем, приготовьтесь сделать как минимум 2 прекрасных кадра, настраиваясь на разное расстояние, чтобы потом поработав в компьютерной программе, получить желаемый результат.\r\n\r\n\r\nКомпозиция\r\n\r\n\r\nЕсли Вы думаете, что получите великую фотографию своей собаки с одного кадра, то вы великий...мечтатель. Чтобы сделать исключительный портрет собаки, каждый нуждается в терпении ангела, большом количестве времени и нескольких пленках. Для начала необходимо дать собаке привыкнуть к Вам, чтобы она снова стала вести себя естественным образом. Если Вам повезет, то произойдет счастливый случай, который подарит Вам неожиданный ракурс, который будет интересно смотреться. Вы можете попытаться привлечь помощника, который будет разговаривать с собакой, чтобы Вы смогли снять ее в профиль или в повороте ¾. Интересный результат может получиться, если поместить в поле зрения камеры нескольких животных: две собаки, собака и кошка, собака и лягушка, или кузнечик. Просто подождите, что-нибудь интересное обязательно произойдет. И еще раз, не думайте, что одного кадра достаточно, используйте, по крайней мере, одну пленку.\r\n\r\n\r\nОсвещение\r\n\r\n\r\nБольшую часть времени года естественное освещение слишком плохое, чтобы получить превосходные портретные фотографии. Без солнца снимки будут унылыми, а зимнее солнце обладает свойством делать фотографии похожими на гравюры с минимумом оттенков и слишком острым переходом от света к тени. \r\n \r\nИдеальный свет - солнце, немного приглушенное, которое позволит предметам быть четкого и сочного цвета, даже если они находятся в тени.\r\n \r\nЗабудьте о вспышке. Никогда не используйте лампу. В дополнение к красным глазам вспышка сокрушит перспективу и удалит легкость. Возможно, Вы захотите использовать галогенные лампы. Она в каком-то роде заменит солнечный свет. Но не помещайте лампы слишком близко к Вашему питомцу. Свет более интересен, когда он прибывает со стороны. Если у Вас несколько пленок, попробуйте разные варианты освещения: сбоку, сзади, прямо на объект. Чем больше разных ракурсов и углов съемки Вы используете, тем больше шансов получить интересные снимки у Вас появится.\r\n\r\n\r\nФокус\r\n\r\n\r\nПри портретной съемке собак самое основное - это глаза. Конечно, взгляд, но и отражение света в глазах, и выражение бровей. Помните, что если Вы сфокусируетесь на глазу, то грудь и спина, не говоря уж о хвосте получатся менее четкими. Меняйте фокус каждые 3 снимка, чтобы получить детали спины или груди. Если у Вашей камеры есть система автофокуса, отключите ее. Профессионал никогда не пользуется ею. Конечно, настоящий профессионал не совсем согласиться с нашими советами, но благодаря им Вы можете получить очень красивые фотографии. \r\n \r\nМы надеемся, что у Вас получатся прекрасные портреты Ваших собак. Добавляйте их в альбомы ваших собак.\r\n\r\n \r\n \r\n\r\n \r\n\r\n\r\n\r\n\r\n\r\n , Как фотографировать собак', '{"201":{"image":"uploads\\/image\\/2018-11\\/1541064500_b67a6a3092868ea2595e7b390a89f2ea.jpg","realname":"fotodog.jpg","filename":"1541064500_b67a6a3092868ea2595e7b390a89f2ea.jpg"},"202":"<div class=\\"rt-grid-8 \\">\\r\\n<div class=\\"rt-block\\">\\r\\n<div id=\\"rt-mainbody\\">\\r\\n<div class=\\"component-content\\">\\r\\n<div id=\\"k2Container\\" class=\\"itemView blog\\">\\r\\n<div class=\\"itemBody\\">\\r\\n<div class=\\"itemFullText\\">\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u0414\\u0435\\u043b\\u0430\\u0442\\u044c \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u0438 \\u0441\\u043e\\u0431\\u0430\\u043a \\u0442\\u0430\\u043a, \\u0447\\u0442\\u043e\\u0431\\u044b \\u043e\\u043d\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0430\\u043b\\u0438\\u0441\\u044c \\u043a\\u0430\\u043a \\u0443 \\u043f\\u0440\\u043e\\u0444\\u0435\\u0441\\u0441\\u0438\\u043e\\u043d\\u0430\\u043b\\u043e\\u0432 - \\u044d\\u0442\\u043e \\u043f\\u043e-\\u043d\\u0430\\u0441\\u0442\\u043e\\u044f\\u0449\\u0435\\u043c\\u0443 \\u0442\\u0440\\u0443\\u0434\\u043d\\u0430\\u044f \\u0440\\u0430\\u0431\\u043e\\u0442\\u0430. \\u0412 \\u043d\\u0430\\u0448\\u0435\\u0439 \\u0441\\u0442\\u0430\\u0442\\u044c\\u0435 \\u0412\\u044b \\u043c\\u043e\\u0436\\u0435\\u0442\\u0435 \\u043f\\u0440\\u043e\\u0447\\u0435\\u0441\\u0442\\u044c \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u043e \\u0441\\u043e\\u0432\\u0435\\u0442\\u043e\\u0432, \\u043a\\u0430\\u043a \\u044d\\u0442\\u043e \\u0441\\u0434\\u0435\\u043b\\u0430\\u0442\\u044c \\u0441\\u0430\\u043c\\u043e\\u0441\\u0442\\u043e\\u044f\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e.<\\/span><\\/p>\\r\\n<ul>\\r\\n<li class=\\"lastItem firstItem\\">\\r\\n<h2><strong><span style=\\"font-size: 10pt;\\">\\u0424\\u043e\\u0442\\u043e\\u0430\\u043f\\u043f\\u0430\\u0440\\u0430\\u0442<\\/span><\\/strong><\\/h2>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u0412\\u044b \\u0437\\u043d\\u0430\\u0435\\u0442\\u0435, \\u0447\\u0442\\u043e \\u0431\\u043e\\u043b\\u044c\\u0448\\u0438\\u043d\\u0441\\u0442\\u0432\\u043e \\u0446\\u0438\\u0444\\u0440\\u043e\\u0432\\u044b\\u0445 \\u0444\\u043e\\u0442\\u043e\\u0430\\u043f\\u043f\\u0430\\u0440\\u0430\\u0442\\u043e\\u0432 \\u0440\\u0430\\u0441\\u0441\\u0447\\u0438\\u0442\\u0430\\u043d\\u043e \\u043d\\u0430 \\u043f\\u0435\\u0447\\u0430\\u0442\\u044c \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u0439 \\u0440\\u0430\\u0437\\u043c\\u0435\\u0440\\u043e\\u043c 10\\u044515 \\u0441\\u043c. \\u0412\\u044b \\u043b\\u0435\\u0433\\u043a\\u043e \\u0441\\u043c\\u043e\\u0436\\u0435\\u0442\\u0435 \\u0434\\u0435\\u043b\\u0430\\u0442\\u044c \\u0441\\u043d\\u0438\\u043c\\u043a\\u0438 \\u0434\\u043b\\u044f \\u0441\\u0432\\u043e\\u0435\\u0433\\u043e \\u0444\\u043e\\u0442\\u043e\\u0430\\u043b\\u044c\\u0431\\u043e\\u043c\\u0430, \\u0438 \\u043e\\u043d\\u0438 \\u0431\\u0443\\u0434\\u0443\\u0442 \\u0447\\u0443\\u0434\\u0435\\u0441\\u043d\\u044b\\u043c \\u043d\\u0430\\u043f\\u043e\\u043c\\u0438\\u043d\\u0430\\u043d\\u0438\\u0435\\u043c \\u043e\\u0431 \\u043e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e \\u043f\\u0430\\u043c\\u044f\\u0442\\u043d\\u043e\\u043c \\u0434\\u043d\\u0435, \\u043d\\u043e \\u0412\\u0430\\u043c \\u043d\\u0438\\u043a\\u043e\\u0433\\u0434\\u0430 \\u043d\\u0435 \\u0443\\u0434\\u0430\\u0441\\u0442\\u0441\\u044f \\u0443\\u0432\\u0435\\u043b\\u0438\\u0447\\u0438\\u0442\\u044c \\u0438\\u0445 \\u0438 \\u0441\\u0434\\u0435\\u043b\\u0430\\u0442\\u044c \\u043f\\u043b\\u0430\\u043a\\u0430\\u0442? \\u0415\\u0441\\u043b\\u0438 \\u0412\\u044b \\u0432\\u0441\\u0435 \\u0436\\u0435 \\u043f\\u043e\\u043f\\u0440\\u043e\\u0431\\u0443\\u0435\\u0442\\u0435 \\u044d\\u0442\\u043e \\u0441\\u0434\\u0435\\u043b\\u0430\\u0442\\u044c, \\u0440\\u0435\\u0437\\u0443\\u043b\\u044c\\u0442\\u0430\\u0442 \\u0431\\u0443\\u0434\\u0435\\u0442 \\u043d\\u0435\\u0447\\u0435\\u0442\\u043a\\u0438\\u043c. \\u0414\\u0430\\u0436\\u0435 \\u0435\\u0441\\u043b\\u0438 \\u0412\\u0430\\u043c \\u043f\\u043e\\u0432\\u0435\\u0437\\u043b\\u043e, \\u0438 \\u0412\\u044b \\u043e\\u0431\\u043b\\u0430\\u0434\\u0430\\u0435\\u0442\\u0435 \\u043f\\u0440\\u043e\\u0444\\u0435\\u0441\\u0441\\u0438\\u043e\\u043d\\u0430\\u043b\\u044c\\u043d\\u043e\\u0439 \\u0446\\u0438\\u0444\\u0440\\u043e\\u0432\\u043e\\u0439 \\u043a\\u0430\\u043c\\u0435\\u0440\\u043e\\u0439, \\u0412\\u044b, \\u0441\\u043a\\u043e\\u0440\\u0435\\u0435 \\u0432\\u0441\\u0435\\u0433\\u043e, \\u043e\\u0433\\u0440\\u0430\\u043d\\u0438\\u0447\\u0435\\u043d\\u044b \\u0440\\u0430\\u0437\\u043c\\u0435\\u0440\\u043e\\u043c 20\\u044530 \\u0441\\u043c, \\u0442\\u043e\\u0433\\u0434\\u0430 \\u043a\\u0430\\u043a \\u0434\\u043b\\u044f \\u043f\\u043b\\u0430\\u043a\\u0430\\u0442\\u0430 \\u0442\\u0440\\u0435\\u0431\\u0443\\u0435\\u0442\\u0441\\u044f \\u0445\\u043e\\u0442\\u044f \\u0431\\u044b 30\\u044540 \\u0441\\u043c, \\u0430 \\u043b\\u0443\\u0447\\u0448\\u0435 \\u0443\\u0436 50\\u044575 \\u0441\\u043c. \\u0422\\u0430\\u043a\\u043e\\u0439 \\u0440\\u0430\\u0437\\u043c\\u0435\\u0440 \\u043c\\u043e\\u0436\\u0435\\u0442 \\u043e\\u0431\\u0435\\u0441\\u043f\\u0435\\u0447\\u0438\\u0442\\u044c \\u0442\\u043e\\u043b\\u044c\\u043a\\u043e \\u0442\\u0440\\u0430\\u0434\\u0438\\u0446\\u0438\\u043e\\u043d\\u043d\\u044b\\u0439 \\u0430\\u043d\\u0430\\u043b\\u043e\\u0433\\u043e\\u0432\\u044b\\u0439 \\u0444\\u043e\\u0442\\u043e\\u0430\\u043f\\u043f\\u0430\\u0440\\u0430\\u0442. \\u0412\\u043e\\u0437\\u043c\\u043e\\u0436\\u043d\\u043e, \\u0443 \\u0412\\u0430\\u0441 \\u043d\\u0430 \\u0447\\u0435\\u0440\\u0434\\u0430\\u043a\\u0435 \\u0437\\u0430\\u0432\\u0430\\u043b\\u044f\\u043b\\u0441\\u044f \\u0438\\u043c\\u0435\\u043d\\u043d\\u043e \\u0442\\u0430\\u043a\\u043e\\u0439?<\\/span><\\/p>\\r\\n<ul>\\r\\n<li class=\\"lastItem firstItem\\">\\r\\n<h2><span style=\\"font-size: 10pt;\\"><strong>\\u041e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0438\\u0432<\\/strong><\\/span><\\/h2>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u041a\\u0430\\u043a\\u043e\\u0439 \\u0441\\u043d\\u0438\\u043c\\u043e\\u043a \\u043c\\u043e\\u0436\\u043d\\u043e \\u0441\\u0447\\u0438\\u0442\\u0430\\u0442\\u044c \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u0435\\u0439 \\u0441 \\u043f\\u0440\\u0435\\u0432\\u043e\\u0441\\u0445\\u043e\\u0434\\u043d\\u044b\\u043c \\u043a\\u0430\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e\\u043c. \\u041c\\u043d\\u0435 \\u043a\\u0430\\u0436\\u0435\\u0442\\u0441\\u044f, \\u0447\\u0442\\u043e \\u0442\\u0430\\u043a\\u043e\\u0435 \\u043e\\u043f\\u0440\\u0435\\u0434\\u0435\\u043b\\u0435\\u043d\\u0438\\u0435 \\u043c\\u043e\\u0436\\u0435\\u0442 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u044c \\u0444\\u043e\\u0442\\u043e, \\u0433\\u0434\\u0435 \\u0432\\u0438\\u0434\\u043d\\u044b \\u043e\\u0442\\u0434\\u0435\\u043b\\u044c\\u043d\\u044b\\u0435 \\u0432\\u043e\\u043b\\u043e\\u0441\\u044b \\u043f\\u043e\\u0434\\u0448\\u0435\\u0440\\u0441\\u0442\\u043a\\u0430 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0438. \\u0427\\u0442\\u043e\\u0431\\u044b \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u044c \\u0442\\u0430\\u043a\\u043e\\u0435 \\u043a\\u0430\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e \\u0442\\u0440\\u0435\\u0431\\u0443\\u0435\\u0442\\u0441\\u044f \\u0442\\u0435\\u043b\\u0435\\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0438\\u0432 35-135 \\u043c\\u043c. \\u0422\\u0440\\u0435\\u0431\\u0443\\u0435\\u0442\\u0441\\u044f \\u0432\\u0437\\u044f\\u0442\\u044c \\u0442\\u0430\\u043a\\u043e\\u0439 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0438\\u0432, \\u0447\\u0442\\u043e\\u0431\\u044b \\u0441 \\u043e\\u0434\\u043d\\u043e\\u0439 \\u0441\\u0442\\u043e\\u0440\\u043e\\u043d\\u044b \\u043d\\u0435 \\u0432\\u0441\\u0442\\u0440\\u0435\\u0432\\u043e\\u0436\\u0438\\u0442\\u044c \\u0441\\u043e\\u0431\\u0430\\u043a\\u0443 \\u0441\\u0432\\u043e\\u0438\\u043c \\u0431\\u043b\\u0438\\u0437\\u043a\\u0438\\u043c \\u043f\\u0440\\u0438\\u0441\\u0443\\u0442\\u0441\\u0442\\u0432\\u0438\\u0435\\u043c, \\u0430 \\u0441 \\u0434\\u0440\\u0443\\u0433\\u043e\\u0439 \\u0441\\u0442\\u043e\\u0440\\u043e\\u043d\\u044b, \\u0447\\u0442\\u043e\\u0431\\u044b \\u043d\\u0435 \\u0438\\u0441\\u043a\\u0430\\u0437\\u0438\\u0442\\u044c \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u044e \\u0438\\u0437-\\u0437\\u0430 \\u0441\\u043b\\u0438\\u0448\\u043a\\u043e\\u043c \\u0434\\u0430\\u043b\\u0435\\u043a\\u043e\\u0433\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430 \\u0441\\u044a\\u0435\\u043c\\u043e\\u043a. \\u0421\\u0442\\u043e\\u0438\\u0442 \\u0432\\u044b\\u0431\\u0440\\u0430\\u0442\\u044c \\u043d\\u0435\\u0447\\u0442\\u043e \\u0441\\u0440\\u0435\\u0434\\u043d\\u0435\\u0435, \\u0442\\u0430\\u043a \\u043a\\u0430\\u043a \\u043a\\u0430\\u043a\\u0438\\u043c \\u0431\\u044b \\u0431\\u043e\\u0433\\u0430\\u0442\\u044b\\u043c \\u0412\\u044b \\u043d\\u0435 \\u0431\\u044b\\u043b\\u0438, \\u0432\\u0440\\u044f\\u0434 \\u043b\\u0438 \\u0438\\u043c\\u0435\\u0435\\u0442 \\u0441\\u043c\\u044b\\u0441\\u043b \\u0441\\u043a\\u0443\\u043f\\u0438\\u0442\\u044c \\u0432\\u0441\\u0435 \\u0432\\u043e\\u0437\\u043c\\u043e\\u0436\\u043d\\u044b\\u0435 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0438\\u0432\\u044b.<\\/span><\\/p>\\r\\n<ul>\\r\\n<li class=\\"lastItem firstItem\\">\\r\\n<h2><span style=\\"font-size: 10pt;\\"><strong>\\u041f\\u043b\\u0435\\u043d\\u043a\\u0430<\\/strong><\\/span><\\/h2>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u041e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0438 \\u0442\\u0435\\u0445\\u043d\\u043e\\u043b\\u043e\\u0433\\u0438\\u0439 \\u0440\\u0430\\u0437\\u043b\\u0438\\u0447\\u043d\\u044b\\u0445 \\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u0435\\u0439 \\u0434\\u0430\\u044e\\u0442 \\u0440\\u0430\\u0437\\u043d\\u044b\\u0435 \\u0446\\u0432\\u0435\\u0442\\u043e\\u0432\\u044b\\u0435 \\u043f\\u043e\\u043c\\u0435\\u0445\\u0438 \\u043f\\u0440\\u0438 \\u043f\\u0440\\u043e\\u044f\\u0432\\u043a\\u0435 \\u043f\\u043b\\u0435\\u043d\\u043a\\u0438. \\u0421\\u043b\\u0438\\u0448\\u043a\\u043e\\u043c \\u043c\\u043d\\u043e\\u0433\\u043e \\u0437\\u0435\\u043b\\u0435\\u043d\\u043e\\u0433\\u043e, \\u0431\\u0435\\u043b\\u043e\\u0433\\u043e \\u0438\\u043b\\u0438 \\u0438\\u0437\\u043b\\u0438\\u0448\\u043d\\u044f\\u044f \\u043a\\u0440\\u0430\\u0441\\u043d\\u043e\\u0442\\u0430 \\u0441\\u043d\\u0438\\u043c\\u043a\\u0430 - \\u0432\\u043e\\u0442 \\u043d\\u0435\\u043f\\u043e\\u043b\\u043d\\u044b\\u0439 \\u0441\\u043f\\u0438\\u0441\\u043e\\u043a \\u0442\\u0435\\u0445 \\u0434\\u0435\\u0444\\u0435\\u043a\\u0442\\u043e\\u0432, \\u043a\\u043e\\u0442\\u043e\\u0440\\u044b\\u0435 \\u043c\\u043e\\u0433\\u0443\\u0442 \\u043f\\u0440\\u043e\\u044f\\u0432\\u0438\\u0442\\u0441\\u044f \\u043d\\u0430 \\u0412\\u0430\\u0448\\u0438\\u0445 \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u044f\\u0445. \\u041f\\u043e\\u043f\\u0440\\u043e\\u0431\\u0443\\u0439\\u0442\\u0435 \\u043f\\u043b\\u0435\\u043d\\u043a\\u0438 \\u0440\\u0430\\u0437\\u043d\\u044b\\u0445 \\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u0435\\u0439, \\u043d\\u0435 \\u0438\\u0441\\u043a\\u043b\\u044e\\u0447\\u0435\\u043d\\u043e, \\u0447\\u0442\\u043e \\u043f\\u0443\\u0442\\u0435\\u043c \\u043f\\u0430\\u0440\\u044b \\u044d\\u043a\\u0441\\u043f\\u0435\\u0440\\u0438\\u043c\\u0435\\u043d\\u0442\\u043e\\u0432 \\u0412\\u044b \\u043d\\u0430\\u0439\\u0434\\u0435\\u0442\\u0435 \\u0442\\u0443, \\u043a\\u043e\\u0442\\u043e\\u0440\\u0430\\u044f \\u0431\\u043e\\u043b\\u044c\\u0448\\u0435 \\u043f\\u043e\\u0434\\u043e\\u0439\\u0434\\u0435\\u0442 \\u043b\\u0438\\u0447\\u043d\\u043e \\u0412\\u0430\\u043c. <\\/span><\\/p>\\r\\n<div>\\u00a0<\\/div>\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u0427\\u0442\\u043e \\u043a\\u0430\\u0441\\u0430\\u0435\\u0442\\u0441\\u044f \\u0441\\u0432\\u0435\\u0442\\u043e\\u0447\\u0443\\u0432\\u0441\\u0442\\u0432\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0441\\u0442\\u0438 \\u043c\\u044b \\u0440\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c \\u0438\\u0441\\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u044c \\u043f\\u043b\\u0435\\u043d\\u043a\\u0443 \\u0441 \\u043f\\u043e\\u043c\\u0435\\u0442\\u043a\\u043e\\u0439 200. \\u041e\\u043d\\u0430 \\u043f\\u043e\\u0437\\u0432\\u043e\\u043b\\u0438\\u0442 \\u0412\\u0430\\u043c \\u043f\\u0435\\u0440\\u0435\\u0434\\u0430\\u0442\\u044c \\u043d\\u044e\\u0430\\u043d\\u0441\\u044b, \\u043a\\u0430\\u043a \\u043f\\u0440\\u0438 \\u0441\\u0432\\u0435\\u0442\\u0435, \\u0442\\u0430\\u043a \\u0438 \\u0432 \\u0442\\u0435\\u043d\\u0438. \\u041f\\u0440\\u0435\\u0434\\u043f\\u043e\\u0447\\u0442\\u0438\\u0442\\u0435 24-\\u043a\\u0430\\u0434\\u0440\\u043e\\u0432\\u0443\\u044e \\u043f\\u043b\\u0435\\u043d\\u043a\\u0443, \\u0442\\u0430\\u043a \\u043a\\u0430\\u043a\\u00a0 \\u043e\\u0442\\u0441\\u043d\\u044f\\u0432 \\u0435\\u0435 \\u0412\\u044b \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u0435 \\u043f\\u0435\\u0440\\u0435\\u0440\\u044b\\u0432, \\u043f\\u043e\\u0441\\u043b\\u0435 \\u043a\\u043e\\u0442\\u043e\\u0440\\u043e\\u0433\\u043e \\u0438\\u0437\\u043c\\u0435\\u043d\\u0438\\u0442\\u0441\\u044f \\u043d\\u0435 \\u0442\\u043e\\u043b\\u044c\\u043a\\u043e \\u043e\\u0441\\u0432\\u0435\\u0449\\u0435\\u043d\\u0438\\u0435, \\u043d\\u043e \\u0438 \\u043f\\u043e\\u0432\\u0435\\u0434\\u0435\\u043d\\u0438\\u0435 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0438, \\u0430 \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0430\\u0442\\u0441\\u044f \\u0431\\u043e\\u043b\\u0435\\u0435 \\u0440\\u0430\\u0437\\u043d\\u043e\\u043e\\u0431\\u0440\\u0430\\u0437\\u043d\\u044b\\u043c\\u0438.<\\/span><\\/p>\\r\\n<ul>\\r\\n<li class=\\"lastItem firstItem\\">\\r\\n<h2><span style=\\"font-size: 10pt;\\"><strong>\\u0423\\u0441\\u043f\\u0435\\u0448\\u043d\\u044b\\u0439 \\u043a\\u0430\\u0434\\u0440<\\/strong><\\/span><\\/h2>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u0415\\u0441\\u043b\\u0438 \\u0412\\u044b \\u0445\\u043e\\u0442\\u0438\\u0442\\u0435, \\u0447\\u0442\\u043e\\u0431\\u044b \\u0412\\u0430\\u0448\\u0430 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0430 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u043b\\u0430\\u0441\\u044c \\u0431\\u043e\\u043b\\u0435\\u0435 \\u0432\\u044b\\u0440\\u0430\\u0437\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u0439, \\u043d\\u0435 \\u0434\\u0435\\u043b\\u0430\\u0439\\u0442\\u0435 \\u0441\\u043d\\u0438\\u043c\\u043a\\u043e\\u0432, \\u0433\\u0434\\u0435 \\u0432\\u0441\\u0435 \\u043f\\u043e\\u043b\\u0435 \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u0438 \\u0437\\u0430\\u043d\\u0438\\u043c\\u0430\\u0435\\u0442 \\u0435\\u0435 \\u043f\\u043e\\u0440\\u0442\\u0440\\u0435\\u0442 \\u0432 \\u043f\\u043e\\u043b\\u043d\\u044b\\u0439 \\u0440\\u043e\\u0441\\u0442. \\u0422\\u0430\\u043a\\u0430\\u044f \\u043f\\u0435\\u0440\\u0441\\u043f\\u0435\\u043a\\u0442\\u0438\\u0432\\u0430 \\u0441\\u043e\\u043a\\u0440\\u0443\\u0448\\u0438\\u0442 \\u043b\\u044e\\u0431\\u044b\\u0435 \\u0438\\u0441\\u0445\\u043e\\u0434\\u043d\\u044b\\u0435 \\u0434\\u0430\\u043d\\u043d\\u044b\\u0435, \\u043d\\u043e\\u0433\\u0438 \\u0431\\u0443\\u0434\\u0443\\u0442 \\u043a\\u0430\\u0437\\u0430\\u0442\\u044c\\u0441\\u044f \\u043a\\u043e\\u0440\\u043e\\u0447\\u0435, \\u0442\\u0435\\u043b\\u043e \\u0431\\u0443\\u0434\\u0435\\u0442 \\u0432\\u044b\\u0433\\u043b\\u044f\\u0434\\u0435\\u0442\\u044c \\u0441\\u043b\\u0438\\u0448\\u043a\\u043e\\u043c \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u043d\\u044b\\u043c. \\u0412 \\u043e\\u0431\\u0449\\u0435\\u043c, \\u044d\\u0442\\u043e \\u043d\\u0435 \\u0434\\u043e\\u0431\\u0430\\u0432\\u0438\\u0442 \\u0412\\u0430\\u0448\\u0435\\u043c\\u0443 \\u043f\\u0438\\u0442\\u043e\\u043c\\u0446\\u0443 \\u043a\\u0440\\u0430\\u0441\\u043e\\u0442\\u044b. \\u0427\\u0442\\u043e\\u0431\\u044b \\u0440\\u0435\\u0437\\u0443\\u043b\\u044c\\u0442\\u0430\\u0442 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u043b\\u0441\\u044f \\u043e\\u0442\\u043b\\u0438\\u0447\\u043d\\u044b\\u043c, \\u0412\\u044b \\u0434\\u043e\\u043b\\u0436\\u043d\\u044b \\u0431\\u044b\\u0442\\u044c \\u043f\\u0440\\u0438\\u043c\\u0435\\u0440\\u043d\\u043e \\u0442\\u043e\\u0439 \\u0436\\u0435 \\u0432\\u044b\\u0441\\u043e\\u0442\\u044b, \\u0447\\u0442\\u043e \\u0438 \\u0412\\u0430\\u0448 \\u043f\\u0438\\u0442\\u043e\\u043c\\u0435\\u0446. \\u041b\\u044f\\u0433\\u0442\\u0435 \\u043d\\u0430 \\u043f\\u043e\\u0432\\u0435\\u0440\\u0445\\u043d\\u043e\\u0441\\u0442\\u044c \\u0438\\u043b\\u0438 \\u043f\\u0440\\u0438\\u0441\\u044f\\u0434\\u044c\\u0442\\u0435 \\u0432\\u043d\\u0438\\u0437 \\u0438 \\u043f\\u043e\\u043b\\u043e\\u0436\\u0438\\u0442\\u0435 \\u0441\\u0432\\u043e\\u0438 \\u043b\\u043e\\u043a\\u0442\\u0438 \\u043d\\u0430 \\u043f\\u043e\\u043b \\u0438\\u043b\\u0438 \\u0437\\u0435\\u043c\\u043b\\u044e. \\u0422\\u0430\\u043a\\u0438\\u043c \\u043e\\u0431\\u0440\\u0430\\u0437\\u043e\\u043c, \\u0443 \\u0412\\u0430\\u0441 \\u0431\\u0443\\u0434\\u0435\\u0442 \\u043d\\u0430\\u0434\\u0435\\u0436\\u043d\\u0430\\u044f \\u043f\\u043e\\u0434\\u0434\\u0435\\u0440\\u0436\\u043a\\u0430, \\u0430 \\u0412\\u0430\\u0448\\u0430 \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u044f \\u0431\\u0443\\u0434\\u0435\\u0442 \\u0431\\u043e\\u043b\\u0435\\u0435 \\u0447\\u0435\\u0442\\u043a\\u043e\\u0439. \\u041f\\u043e\\u0441\\u0442\\u0430\\u0440\\u0430\\u0439\\u0442\\u0435\\u0441\\u044c \\u0438\\u0437\\u0431\\u0435\\u0436\\u0430\\u0442\\u044c \\u043c\\u0435\\u0441\\u0442, \\u0433\\u0434\\u0435 \\u0442\\u0440\\u0430\\u0432\\u0430 \\u0432\\u044b\\u0440\\u043e\\u0441\\u043b\\u0430 \\u043e\\u0447\\u0435\\u043d\\u044c \\u0432\\u044b\\u0441\\u043e\\u043a\\u043e\\u0439, \\u043a\\u0440\\u043e\\u043c\\u0435 \\u0442\\u0435\\u0445 \\u0441\\u043b\\u0443\\u0447\\u0430\\u0435\\u0432, \\u043a\\u043e\\u0433\\u0434\\u0430 \\u0412\\u044b \\u0445\\u043e\\u0442\\u0438\\u0442\\u0435 \\u043e\\u0441\\u0442\\u0430\\u0432\\u0438\\u0442\\u044c \\u0432 \\u0441\\u0435\\u043a\\u0440\\u0435\\u0442\\u0435, \\u043a\\u043e\\u0433\\u043e \\u0436\\u0435 \\u0412\\u044b \\u0441\\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u0440\\u043e\\u0432\\u0430\\u043b\\u0438. \\u0412\\u043e\\u043e\\u0431\\u0440\\u0430\\u0437\\u0438\\u0442\\u0435 \\u0442\\u0430\\u043a\\u0441\\u0443 \\u0432 \\u043f\\u043e\\u043b\\u0435!.. \\u042f \\u0448\\u0443\\u0447\\u0443... \\u0421\\u0435\\u0440\\u044c\\u0435\\u0437\\u043d\\u043e, \\u0434\\u043b\\u044f \\u043f\\u043e\\u0440\\u0442\\u0440\\u0435\\u0442\\u0430 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0438 \\u043b\\u0443\\u0447\\u0448\\u0435 \\u043d\\u0430\\u0439\\u0442\\u0438 \\u043e\\u0442\\u043a\\u0440\\u044b\\u0442\\u0443\\u044e \\u043c\\u0435\\u0441\\u0442\\u043d\\u043e\\u0441\\u0442\\u044c, \\u0447\\u0442\\u043e\\u0431 \\u0431\\u044b\\u043b\\u0438 \\u0432\\u0438\\u0434\\u043d\\u044b \\u0432\\u0441\\u0435 \\u0434\\u0435\\u0442\\u0430\\u043b\\u0438 \\u043b\\u0430\\u043f, \\u0432\\u043a\\u043b\\u044e\\u0447\\u0430\\u044f \\u043a\\u043e\\u0433\\u0442\\u0438. \\u0415\\u0441\\u043b\\u0438 \\u0412\\u044b \\u043d\\u0435 \\u0445\\u043e\\u0442\\u0438\\u0442\\u0435 \\u043f\\u043e\\u043b\\u0435\\u0436\\u0430\\u0442\\u044c \\u043d\\u0430 \\u043d\\u0435\\u0436\\u043d\\u043e\\u0439 \\u0442\\u0440\\u0430\\u0432\\u0435 \\u0438\\u043b\\u0438 \\u043d\\u0430 \\u0433\\u0440\\u044f\\u0437\\u043d\\u043e\\u0439 \\u0443\\u043b\\u0438\\u0447\\u043d\\u043e\\u0439 \\u0449\\u0435\\u0431\\u0435\\u043d\\u043a\\u0435, \\u043f\\u043e\\u0438\\u0449\\u0438\\u0442\\u0435 \\u043c\\u0435\\u0441\\u0442\\u043e \\u043d\\u0430 \\u0441\\u043e\\u043b\\u043d\\u0446\\u0435, \\u0433\\u0434\\u0435 \\u0431\\u0443\\u0434\\u0435\\u0442 \\u0442\\u0435\\u0440\\u0440\\u0430\\u0441\\u0430 \\u0438 \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u043e \\u0441\\u0442\\u0443\\u043f\\u0435\\u043d\\u0435\\u0439. \\u0420\\u0430\\u0441\\u043f\\u043e\\u043b\\u043e\\u0436\\u0438\\u0442\\u0435 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0443 \\u043d\\u0430 \\u0442\\u0435\\u0440\\u0440\\u0430\\u0441\\u0435, \\u0430 \\u0441\\u0430\\u043c\\u0438 \\u0441\\u043f\\u0443\\u0441\\u0442\\u0438\\u0442\\u0435\\u0441\\u044c \\u0432\\u043d\\u0438\\u0437 \\u043f\\u043e \\u0441\\u0442\\u0443\\u043f\\u0435\\u043d\\u044c\\u043a\\u0430\\u043c, \\u0447\\u0442\\u043e\\u0431\\u044b \\u0434\\u0435\\u0440\\u0436\\u0430\\u0442\\u044c \\u0444\\u043e\\u0442\\u043e\\u0430\\u043f\\u043f\\u0430\\u0440\\u0430\\u0442 \\u043d\\u0430 \\u0443\\u0440\\u043e\\u0432\\u043d\\u0435 \\u0433\\u0440\\u0443\\u0434\\u0438 \\u0412\\u0430\\u0448\\u0435\\u0433\\u043e \\u043f\\u0438\\u0442\\u043e\\u043c\\u0446\\u0430.<\\/span><\\/p>\\r\\n<ul>\\r\\n<li class=\\"lastItem firstItem\\">\\r\\n<h2><span style=\\"font-size: 10pt;\\"><strong>\\u0427\\u0435\\u0442\\u043a\\u043e\\u0441\\u0442\\u044c<\\/strong><\\/span><\\/h2>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u041d\\u0435 \\u043f\\u044b\\u0442\\u0430\\u0439\\u0442\\u0435\\u0441\\u044c \\u0441\\u0434\\u0435\\u043b\\u0430\\u0442\\u044c \\u043e\\u0434\\u043d\\u043e\\u0432\\u0440\\u0435\\u043c\\u0435\\u043d\\u043d\\u043e \\u0447\\u0435\\u0442\\u043a\\u0438\\u0439 \\u043f\\u043e\\u0440\\u0442\\u0440\\u0435\\u0442 \\u0412\\u0430\\u0448\\u0435\\u0439 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0438 \\u0438 \\u043f\\u0440\\u0438 \\u044d\\u0442\\u043e\\u043c \\u044f\\u0441\\u043d\\u044b\\u0439 \\u043f\\u0435\\u0439\\u0437\\u0430\\u0436 \\u0443 \\u043d\\u0435\\u0435 \\u0437\\u0430 \\u0441\\u043f\\u0438\\u043d\\u043e\\u0439. \\u0415\\u0441\\u043b\\u0438 \\u0412\\u044b \\u0441\\u043e\\u0441\\u0440\\u0435\\u0434\\u043e\\u0442\\u0430\\u0447\\u0438\\u0432\\u0430\\u0435\\u0442\\u0435\\u0441\\u044c \\u043d\\u0430 \\u0433\\u043e\\u043b\\u043e\\u0432\\u0435 \\u0436\\u0438\\u0432\\u043e\\u0442\\u043d\\u043e\\u0433\\u043e, \\u0437\\u0430\\u043c\\u043e\\u043a \\u0438\\u043b\\u0438 \\u0446\\u0435\\u0440\\u043a\\u043e\\u0432\\u044c \\u043d\\u0430 \\u0444\\u043e\\u043d\\u0435 \\u0434\\u043e\\u043b\\u0436\\u043d\\u044b \\u0431\\u044b\\u0442\\u044c \\u0440\\u0430\\u0437\\u043c\\u044b\\u0442\\u044b\\u043c\\u0438. \\u0415\\u0441\\u043b\\u0438 \\u044d\\u0442\\u043e\\u0433\\u043e \\u043d\\u0435 \\u043f\\u0440\\u043e\\u0438\\u0437\\u043e\\u0448\\u043b\\u043e, \\u0437\\u043d\\u0430\\u0447\\u0438\\u0442 \\u043d\\u0435\\u0447\\u0435\\u0442\\u043a\\u0438\\u043c \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u043b\\u0441\\u044f \\u0441\\u0430\\u043c \\u043f\\u043e\\u0440\\u0442\\u0440\\u0435\\u0442. \\u0412 \\u043c\\u0430\\u043a\\u0441\\u0438\\u043c\\u0430\\u043b\\u044c\\u043d\\u043e \\u0432\\u043e\\u0437\\u043c\\u043e\\u0436\\u043d\\u043e\\u0439 \\u0441\\u0442\\u0435\\u043f\\u0435\\u043d\\u0438 \\u0441\\u0442\\u0430\\u0440\\u0430\\u0439\\u0442\\u0435\\u0441\\u044c, \\u0447\\u0442\\u043e\\u0431\\u044b \\u0441\\u043e\\u0431\\u0430\\u043a\\u0430 \\u0432\\u043e\\u0448\\u043b\\u0430 \\u043d\\u0430 \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u044e \\u043f\\u043e\\u043b\\u043d\\u043e\\u0441\\u0442\\u044c\\u044e, \\u0432\\u043a\\u043b\\u044e\\u0447\\u0430\\u044f \\u043b\\u0430\\u043f\\u044b, \\u0445\\u0432\\u043e\\u0441\\u0442 \\u0438 \\u0434\\u0440\\u0443\\u0433\\u0438\\u0435 \\u0447\\u0430\\u0441\\u0442\\u0438 \\u0442\\u0435\\u043b\\u0430. \\u0415\\u0441\\u043b\\u0438 \\u0436\\u0435 \\u0412\\u0430\\u0441 \\u043d\\u0435 \\u043e\\u0441\\u0442\\u0430\\u0432\\u043b\\u044f\\u044e\\u0442 \\u043c\\u0435\\u0447\\u0442\\u044b \\u0441\\u043e\\u0437\\u0434\\u0430\\u0442\\u044c \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u044e, \\u0433\\u0434\\u0435 \\u0447\\u0435\\u0442\\u043a\\u043e\\u0435 \\u0438\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0436\\u0438\\u0432\\u043e\\u0442\\u043d\\u043e\\u0433\\u043e \\u0441\\u043e\\u0447\\u0435\\u0442\\u0430\\u0435\\u0442\\u0441\\u044f \\u0441 \\u0438\\u0437\\u0443\\u043c\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e \\u043f\\u0440\\u043e\\u0440\\u0438\\u0441\\u043e\\u0432\\u0430\\u043d\\u043d\\u044b\\u043c \\u043f\\u0435\\u0439\\u0437\\u0430\\u0436\\u0435\\u043c, \\u043f\\u0440\\u0438\\u0433\\u043e\\u0442\\u043e\\u0432\\u044c\\u0442\\u0435\\u0441\\u044c \\u0441\\u0434\\u0435\\u043b\\u0430\\u0442\\u044c \\u043a\\u0430\\u043a \\u043c\\u0438\\u043d\\u0438\\u043c\\u0443\\u043c 2 \\u043f\\u0440\\u0435\\u043a\\u0440\\u0430\\u0441\\u043d\\u044b\\u0445 \\u043a\\u0430\\u0434\\u0440\\u0430, \\u043d\\u0430\\u0441\\u0442\\u0440\\u0430\\u0438\\u0432\\u0430\\u044f\\u0441\\u044c \\u043d\\u0430 \\u0440\\u0430\\u0437\\u043d\\u043e\\u0435 \\u0440\\u0430\\u0441\\u0441\\u0442\\u043e\\u044f\\u043d\\u0438\\u0435, \\u0447\\u0442\\u043e\\u0431\\u044b \\u043f\\u043e\\u0442\\u043e\\u043c \\u043f\\u043e\\u0440\\u0430\\u0431\\u043e\\u0442\\u0430\\u0432 \\u0432 \\u043a\\u043e\\u043c\\u043f\\u044c\\u044e\\u0442\\u0435\\u0440\\u043d\\u043e\\u0439 \\u043f\\u0440\\u043e\\u0433\\u0440\\u0430\\u043c\\u043c\\u0435, \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u044c \\u0436\\u0435\\u043b\\u0430\\u0435\\u043c\\u044b\\u0439 \\u0440\\u0435\\u0437\\u0443\\u043b\\u044c\\u0442\\u0430\\u0442.<\\/span><\\/p>\\r\\n<ul>\\r\\n<li class=\\"lastItem firstItem\\">\\r\\n<h2><span style=\\"font-size: 10pt;\\"><strong>\\u041a\\u043e\\u043c\\u043f\\u043e\\u0437\\u0438\\u0446\\u0438\\u044f<\\/strong><\\/span><\\/h2>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u0415\\u0441\\u043b\\u0438 \\u0412\\u044b \\u0434\\u0443\\u043c\\u0430\\u0435\\u0442\\u0435, \\u0447\\u0442\\u043e \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u0435 \\u0432\\u0435\\u043b\\u0438\\u043a\\u0443\\u044e \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u044e \\u0441\\u0432\\u043e\\u0435\\u0439 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0438 \\u0441 \\u043e\\u0434\\u043d\\u043e\\u0433\\u043e \\u043a\\u0430\\u0434\\u0440\\u0430, \\u0442\\u043e \\u0432\\u044b \\u0432\\u0435\\u043b\\u0438\\u043a\\u0438\\u0439...\\u043c\\u0435\\u0447\\u0442\\u0430\\u0442\\u0435\\u043b\\u044c. \\u0427\\u0442\\u043e\\u0431\\u044b \\u0441\\u0434\\u0435\\u043b\\u0430\\u0442\\u044c \\u0438\\u0441\\u043a\\u043b\\u044e\\u0447\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u044b\\u0439 \\u043f\\u043e\\u0440\\u0442\\u0440\\u0435\\u0442 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0438, \\u043a\\u0430\\u0436\\u0434\\u044b\\u0439 \\u043d\\u0443\\u0436\\u0434\\u0430\\u0435\\u0442\\u0441\\u044f \\u0432 \\u0442\\u0435\\u0440\\u043f\\u0435\\u043d\\u0438\\u0438 \\u0430\\u043d\\u0433\\u0435\\u043b\\u0430, \\u0431\\u043e\\u043b\\u044c\\u0448\\u043e\\u043c \\u043a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u0435 \\u0432\\u0440\\u0435\\u043c\\u0435\\u043d\\u0438 \\u0438 \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u0445 \\u043f\\u043b\\u0435\\u043d\\u043a\\u0430\\u0445. \\u0414\\u043b\\u044f \\u043d\\u0430\\u0447\\u0430\\u043b\\u0430 \\u043d\\u0435\\u043e\\u0431\\u0445\\u043e\\u0434\\u0438\\u043c\\u043e \\u0434\\u0430\\u0442\\u044c \\u0441\\u043e\\u0431\\u0430\\u043a\\u0435 \\u043f\\u0440\\u0438\\u0432\\u044b\\u043a\\u043d\\u0443\\u0442\\u044c \\u043a \\u0412\\u0430\\u043c, \\u0447\\u0442\\u043e\\u0431\\u044b \\u043e\\u043d\\u0430 \\u0441\\u043d\\u043e\\u0432\\u0430 \\u0441\\u0442\\u0430\\u043b\\u0430 \\u0432\\u0435\\u0441\\u0442\\u0438 \\u0441\\u0435\\u0431\\u044f \\u0435\\u0441\\u0442\\u0435\\u0441\\u0442\\u0432\\u0435\\u043d\\u043d\\u044b\\u043c \\u043e\\u0431\\u0440\\u0430\\u0437\\u043e\\u043c. \\u0415\\u0441\\u043b\\u0438 \\u0412\\u0430\\u043c \\u043f\\u043e\\u0432\\u0435\\u0437\\u0435\\u0442, \\u0442\\u043e \\u043f\\u0440\\u043e\\u0438\\u0437\\u043e\\u0439\\u0434\\u0435\\u0442 \\u0441\\u0447\\u0430\\u0441\\u0442\\u043b\\u0438\\u0432\\u044b\\u0439 \\u0441\\u043b\\u0443\\u0447\\u0430\\u0439, \\u043a\\u043e\\u0442\\u043e\\u0440\\u044b\\u0439 \\u043f\\u043e\\u0434\\u0430\\u0440\\u0438\\u0442 \\u0412\\u0430\\u043c \\u043d\\u0435\\u043e\\u0436\\u0438\\u0434\\u0430\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0430\\u043a\\u0443\\u0440\\u0441, \\u043a\\u043e\\u0442\\u043e\\u0440\\u044b\\u0439 \\u0431\\u0443\\u0434\\u0435\\u0442 \\u0438\\u043d\\u0442\\u0435\\u0440\\u0435\\u0441\\u043d\\u043e \\u0441\\u043c\\u043e\\u0442\\u0440\\u0435\\u0442\\u044c\\u0441\\u044f. \\u0412\\u044b \\u043c\\u043e\\u0436\\u0435\\u0442\\u0435 \\u043f\\u043e\\u043f\\u044b\\u0442\\u0430\\u0442\\u044c\\u0441\\u044f \\u043f\\u0440\\u0438\\u0432\\u043b\\u0435\\u0447\\u044c \\u043f\\u043e\\u043c\\u043e\\u0449\\u043d\\u0438\\u043a\\u0430, \\u043a\\u043e\\u0442\\u043e\\u0440\\u044b\\u0439 \\u0431\\u0443\\u0434\\u0435\\u0442 \\u0440\\u0430\\u0437\\u0433\\u043e\\u0432\\u0430\\u0440\\u0438\\u0432\\u0430\\u0442\\u044c \\u0441 \\u0441\\u043e\\u0431\\u0430\\u043a\\u043e\\u0439, \\u0447\\u0442\\u043e\\u0431\\u044b \\u0412\\u044b \\u0441\\u043c\\u043e\\u0433\\u043b\\u0438 \\u0441\\u043d\\u044f\\u0442\\u044c \\u0435\\u0435 \\u0432 \\u043f\\u0440\\u043e\\u0444\\u0438\\u043b\\u044c \\u0438\\u043b\\u0438 \\u0432 \\u043f\\u043e\\u0432\\u043e\\u0440\\u043e\\u0442\\u0435 \\u00be. \\u0418\\u043d\\u0442\\u0435\\u0440\\u0435\\u0441\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0437\\u0443\\u043b\\u044c\\u0442\\u0430\\u0442 \\u043c\\u043e\\u0436\\u0435\\u0442 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u044c\\u0441\\u044f, \\u0435\\u0441\\u043b\\u0438 \\u043f\\u043e\\u043c\\u0435\\u0441\\u0442\\u0438\\u0442\\u044c \\u0432 \\u043f\\u043e\\u043b\\u0435 \\u0437\\u0440\\u0435\\u043d\\u0438\\u044f \\u043a\\u0430\\u043c\\u0435\\u0440\\u044b \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u0445 \\u0436\\u0438\\u0432\\u043e\\u0442\\u043d\\u044b\\u0445: \\u0434\\u0432\\u0435 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0438, \\u0441\\u043e\\u0431\\u0430\\u043a\\u0430 \\u0438 \\u043a\\u043e\\u0448\\u043a\\u0430, \\u0441\\u043e\\u0431\\u0430\\u043a\\u0430 \\u0438 \\u043b\\u044f\\u0433\\u0443\\u0448\\u043a\\u0430, \\u0438\\u043b\\u0438 \\u043a\\u0443\\u0437\\u043d\\u0435\\u0447\\u0438\\u043a. \\u041f\\u0440\\u043e\\u0441\\u0442\\u043e \\u043f\\u043e\\u0434\\u043e\\u0436\\u0434\\u0438\\u0442\\u0435, \\u0447\\u0442\\u043e-\\u043d\\u0438\\u0431\\u0443\\u0434\\u044c \\u0438\\u043d\\u0442\\u0435\\u0440\\u0435\\u0441\\u043d\\u043e\\u0435 \\u043e\\u0431\\u044f\\u0437\\u0430\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e \\u043f\\u0440\\u043e\\u0438\\u0437\\u043e\\u0439\\u0434\\u0435\\u0442. \\u0418 \\u0435\\u0449\\u0435 \\u0440\\u0430\\u0437, \\u043d\\u0435 \\u0434\\u0443\\u043c\\u0430\\u0439\\u0442\\u0435, \\u0447\\u0442\\u043e \\u043e\\u0434\\u043d\\u043e\\u0433\\u043e \\u043a\\u0430\\u0434\\u0440\\u0430 \\u0434\\u043e\\u0441\\u0442\\u0430\\u0442\\u043e\\u0447\\u043d\\u043e, \\u0438\\u0441\\u043f\\u043e\\u043b\\u044c\\u0437\\u0443\\u0439\\u0442\\u0435, \\u043f\\u043e \\u043a\\u0440\\u0430\\u0439\\u043d\\u0435\\u0439 \\u043c\\u0435\\u0440\\u0435, \\u043e\\u0434\\u043d\\u0443 \\u043f\\u043b\\u0435\\u043d\\u043a\\u0443.<\\/span><\\/p>\\r\\n<ul>\\r\\n<li class=\\"lastItem firstItem\\">\\r\\n<h2><span style=\\"font-size: 10pt;\\"><strong>\\u041e\\u0441\\u0432\\u0435\\u0449\\u0435\\u043d\\u0438\\u0435<\\/strong><\\/span><\\/h2>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u0411\\u043e\\u043b\\u044c\\u0448\\u0443\\u044e \\u0447\\u0430\\u0441\\u0442\\u044c \\u0432\\u0440\\u0435\\u043c\\u0435\\u043d\\u0438 \\u0433\\u043e\\u0434\\u0430 \\u0435\\u0441\\u0442\\u0435\\u0441\\u0442\\u0432\\u0435\\u043d\\u043d\\u043e\\u0435 \\u043e\\u0441\\u0432\\u0435\\u0449\\u0435\\u043d\\u0438\\u0435 \\u0441\\u043b\\u0438\\u0448\\u043a\\u043e\\u043c \\u043f\\u043b\\u043e\\u0445\\u043e\\u0435, \\u0447\\u0442\\u043e\\u0431\\u044b \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u044c \\u043f\\u0440\\u0435\\u0432\\u043e\\u0441\\u0445\\u043e\\u0434\\u043d\\u044b\\u0435 \\u043f\\u043e\\u0440\\u0442\\u0440\\u0435\\u0442\\u043d\\u044b\\u0435 \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u0438. \\u0411\\u0435\\u0437 \\u0441\\u043e\\u043b\\u043d\\u0446\\u0430 \\u0441\\u043d\\u0438\\u043c\\u043a\\u0438 \\u0431\\u0443\\u0434\\u0443\\u0442 \\u0443\\u043d\\u044b\\u043b\\u044b\\u043c\\u0438, \\u0430 \\u0437\\u0438\\u043c\\u043d\\u0435\\u0435 \\u0441\\u043e\\u043b\\u043d\\u0446\\u0435 \\u043e\\u0431\\u043b\\u0430\\u0434\\u0430\\u0435\\u0442 \\u0441\\u0432\\u043e\\u0439\\u0441\\u0442\\u0432\\u043e\\u043c \\u0434\\u0435\\u043b\\u0430\\u0442\\u044c \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u0438 \\u043f\\u043e\\u0445\\u043e\\u0436\\u0438\\u043c\\u0438 \\u043d\\u0430 \\u0433\\u0440\\u0430\\u0432\\u044e\\u0440\\u044b \\u0441 \\u043c\\u0438\\u043d\\u0438\\u043c\\u0443\\u043c\\u043e\\u043c \\u043e\\u0442\\u0442\\u0435\\u043d\\u043a\\u043e\\u0432 \\u0438 \\u0441\\u043b\\u0438\\u0448\\u043a\\u043e\\u043c \\u043e\\u0441\\u0442\\u0440\\u044b\\u043c \\u043f\\u0435\\u0440\\u0435\\u0445\\u043e\\u0434\\u043e\\u043c \\u043e\\u0442 \\u0441\\u0432\\u0435\\u0442\\u0430 \\u043a \\u0442\\u0435\\u043d\\u0438. <\\/span><\\/p>\\r\\n<div>\\u00a0<\\/div>\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u0418\\u0434\\u0435\\u0430\\u043b\\u044c\\u043d\\u044b\\u0439 \\u0441\\u0432\\u0435\\u0442 - \\u0441\\u043e\\u043b\\u043d\\u0446\\u0435, \\u043d\\u0435\\u043c\\u043d\\u043e\\u0433\\u043e \\u043f\\u0440\\u0438\\u0433\\u043b\\u0443\\u0448\\u0435\\u043d\\u043d\\u043e\\u0435, \\u043a\\u043e\\u0442\\u043e\\u0440\\u043e\\u0435 \\u043f\\u043e\\u0437\\u0432\\u043e\\u043b\\u0438\\u0442 \\u043f\\u0440\\u0435\\u0434\\u043c\\u0435\\u0442\\u0430\\u043c \\u0431\\u044b\\u0442\\u044c \\u0447\\u0435\\u0442\\u043a\\u043e\\u0433\\u043e \\u0438 \\u0441\\u043e\\u0447\\u043d\\u043e\\u0433\\u043e \\u0446\\u0432\\u0435\\u0442\\u0430, \\u0434\\u0430\\u0436\\u0435 \\u0435\\u0441\\u043b\\u0438 \\u043e\\u043d\\u0438 \\u043d\\u0430\\u0445\\u043e\\u0434\\u044f\\u0442\\u0441\\u044f \\u0432 \\u0442\\u0435\\u043d\\u0438.<\\/span><\\/p>\\r\\n<div>\\u00a0<\\/div>\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u0417\\u0430\\u0431\\u0443\\u0434\\u044c\\u0442\\u0435 \\u043e \\u0432\\u0441\\u043f\\u044b\\u0448\\u043a\\u0435. \\u041d\\u0438\\u043a\\u043e\\u0433\\u0434\\u0430 \\u043d\\u0435 \\u0438\\u0441\\u043f\\u043e\\u043b\\u044c\\u0437\\u0443\\u0439\\u0442\\u0435 \\u043b\\u0430\\u043c\\u043f\\u0443. \\u0412 \\u0434\\u043e\\u043f\\u043e\\u043b\\u043d\\u0435\\u043d\\u0438\\u0435 \\u043a \\u043a\\u0440\\u0430\\u0441\\u043d\\u044b\\u043c \\u0433\\u043b\\u0430\\u0437\\u0430\\u043c \\u0432\\u0441\\u043f\\u044b\\u0448\\u043a\\u0430 \\u0441\\u043e\\u043a\\u0440\\u0443\\u0448\\u0438\\u0442 \\u043f\\u0435\\u0440\\u0441\\u043f\\u0435\\u043a\\u0442\\u0438\\u0432\\u0443 \\u0438 \\u0443\\u0434\\u0430\\u043b\\u0438\\u0442 \\u043b\\u0435\\u0433\\u043a\\u043e\\u0441\\u0442\\u044c. \\u0412\\u043e\\u0437\\u043c\\u043e\\u0436\\u043d\\u043e, \\u0412\\u044b \\u0437\\u0430\\u0445\\u043e\\u0442\\u0438\\u0442\\u0435 \\u0438\\u0441\\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u044c \\u0433\\u0430\\u043b\\u043e\\u0433\\u0435\\u043d\\u043d\\u044b\\u0435 \\u043b\\u0430\\u043c\\u043f\\u044b. \\u041e\\u043d\\u0430 \\u0432 \\u043a\\u0430\\u043a\\u043e\\u043c-\\u0442\\u043e \\u0440\\u043e\\u0434\\u0435 \\u0437\\u0430\\u043c\\u0435\\u043d\\u0438\\u0442 \\u0441\\u043e\\u043b\\u043d\\u0435\\u0447\\u043d\\u044b\\u0439 \\u0441\\u0432\\u0435\\u0442. \\u041d\\u043e \\u043d\\u0435 \\u043f\\u043e\\u043c\\u0435\\u0449\\u0430\\u0439\\u0442\\u0435 \\u043b\\u0430\\u043c\\u043f\\u044b \\u0441\\u043b\\u0438\\u0448\\u043a\\u043e\\u043c \\u0431\\u043b\\u0438\\u0437\\u043a\\u043e \\u043a \\u0412\\u0430\\u0448\\u0435\\u043c\\u0443 \\u043f\\u0438\\u0442\\u043e\\u043c\\u0446\\u0443. \\u0421\\u0432\\u0435\\u0442 \\u0431\\u043e\\u043b\\u0435\\u0435 \\u0438\\u043d\\u0442\\u0435\\u0440\\u0435\\u0441\\u0435\\u043d, \\u043a\\u043e\\u0433\\u0434\\u0430 \\u043e\\u043d \\u043f\\u0440\\u0438\\u0431\\u044b\\u0432\\u0430\\u0435\\u0442 \\u0441\\u043e \\u0441\\u0442\\u043e\\u0440\\u043e\\u043d\\u044b. \\u0415\\u0441\\u043b\\u0438 \\u0443 \\u0412\\u0430\\u0441 \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u043e \\u043f\\u043b\\u0435\\u043d\\u043e\\u043a, \\u043f\\u043e\\u043f\\u0440\\u043e\\u0431\\u0443\\u0439\\u0442\\u0435 \\u0440\\u0430\\u0437\\u043d\\u044b\\u0435 \\u0432\\u0430\\u0440\\u0438\\u0430\\u043d\\u0442\\u044b \\u043e\\u0441\\u0432\\u0435\\u0449\\u0435\\u043d\\u0438\\u044f: \\u0441\\u0431\\u043e\\u043a\\u0443, \\u0441\\u0437\\u0430\\u0434\\u0438, \\u043f\\u0440\\u044f\\u043c\\u043e \\u043d\\u0430 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442. \\u0427\\u0435\\u043c \\u0431\\u043e\\u043b\\u044c\\u0448\\u0435 \\u0440\\u0430\\u0437\\u043d\\u044b\\u0445 \\u0440\\u0430\\u043a\\u0443\\u0440\\u0441\\u043e\\u0432 \\u0438 \\u0443\\u0433\\u043b\\u043e\\u0432 \\u0441\\u044a\\u0435\\u043c\\u043a\\u0438 \\u0412\\u044b \\u0438\\u0441\\u043f\\u043e\\u043b\\u044c\\u0437\\u0443\\u0435\\u0442\\u0435, \\u0442\\u0435\\u043c \\u0431\\u043e\\u043b\\u044c\\u0448\\u0435 \\u0448\\u0430\\u043d\\u0441\\u043e\\u0432 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u044c \\u0438\\u043d\\u0442\\u0435\\u0440\\u0435\\u0441\\u043d\\u044b\\u0435 \\u0441\\u043d\\u0438\\u043c\\u043a\\u0438 \\u0443 \\u0412\\u0430\\u0441 \\u043f\\u043e\\u044f\\u0432\\u0438\\u0442\\u0441\\u044f.<\\/span><\\/p>\\r\\n<ul>\\r\\n<li class=\\"lastItem firstItem\\">\\r\\n<h2><span style=\\"font-size: 10pt;\\"><strong>\\u0424\\u043e\\u043a\\u0443\\u0441<\\/strong><\\/span><\\/h2>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u041f\\u0440\\u0438 \\u043f\\u043e\\u0440\\u0442\\u0440\\u0435\\u0442\\u043d\\u043e\\u0439 \\u0441\\u044a\\u0435\\u043c\\u043a\\u0435 \\u0441\\u043e\\u0431\\u0430\\u043a \\u0441\\u0430\\u043c\\u043e\\u0435 \\u043e\\u0441\\u043d\\u043e\\u0432\\u043d\\u043e\\u0435 - \\u044d\\u0442\\u043e \\u0433\\u043b\\u0430\\u0437\\u0430. \\u041a\\u043e\\u043d\\u0435\\u0447\\u043d\\u043e, \\u0432\\u0437\\u0433\\u043b\\u044f\\u0434, \\u043d\\u043e \\u0438 \\u043e\\u0442\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0441\\u0432\\u0435\\u0442\\u0430 \\u0432 \\u0433\\u043b\\u0430\\u0437\\u0430\\u0445, \\u0438 \\u0432\\u044b\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0431\\u0440\\u043e\\u0432\\u0435\\u0439. \\u041f\\u043e\\u043c\\u043d\\u0438\\u0442\\u0435, \\u0447\\u0442\\u043e \\u0435\\u0441\\u043b\\u0438 \\u0412\\u044b \\u0441\\u0444\\u043e\\u043a\\u0443\\u0441\\u0438\\u0440\\u0443\\u0435\\u0442\\u0435\\u0441\\u044c \\u043d\\u0430 \\u0433\\u043b\\u0430\\u0437\\u0443, \\u0442\\u043e \\u0433\\u0440\\u0443\\u0434\\u044c \\u0438 \\u0441\\u043f\\u0438\\u043d\\u0430, \\u043d\\u0435 \\u0433\\u043e\\u0432\\u043e\\u0440\\u044f \\u0443\\u0436 \\u043e \\u0445\\u0432\\u043e\\u0441\\u0442\\u0435 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0430\\u0442\\u0441\\u044f \\u043c\\u0435\\u043d\\u0435\\u0435 \\u0447\\u0435\\u0442\\u043a\\u0438\\u043c\\u0438. \\u041c\\u0435\\u043d\\u044f\\u0439\\u0442\\u0435 \\u0444\\u043e\\u043a\\u0443\\u0441 \\u043a\\u0430\\u0436\\u0434\\u044b\\u0435 3 \\u0441\\u043d\\u0438\\u043c\\u043a\\u0430, \\u0447\\u0442\\u043e\\u0431\\u044b \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u044c \\u0434\\u0435\\u0442\\u0430\\u043b\\u0438 \\u0441\\u043f\\u0438\\u043d\\u044b \\u0438\\u043b\\u0438 \\u0433\\u0440\\u0443\\u0434\\u0438. \\u0415\\u0441\\u043b\\u0438 \\u0443 \\u0412\\u0430\\u0448\\u0435\\u0439 \\u043a\\u0430\\u043c\\u0435\\u0440\\u044b \\u0435\\u0441\\u0442\\u044c \\u0441\\u0438\\u0441\\u0442\\u0435\\u043c\\u0430 \\u0430\\u0432\\u0442\\u043e\\u0444\\u043e\\u043a\\u0443\\u0441\\u0430, \\u043e\\u0442\\u043a\\u043b\\u044e\\u0447\\u0438\\u0442\\u0435 \\u0435\\u0435. \\u041f\\u0440\\u043e\\u0444\\u0435\\u0441\\u0441\\u0438\\u043e\\u043d\\u0430\\u043b \\u043d\\u0438\\u043a\\u043e\\u0433\\u0434\\u0430 \\u043d\\u0435 \\u043f\\u043e\\u043b\\u044c\\u0437\\u0443\\u0435\\u0442\\u0441\\u044f \\u0435\\u044e. \\u041a\\u043e\\u043d\\u0435\\u0447\\u043d\\u043e, \\u043d\\u0430\\u0441\\u0442\\u043e\\u044f\\u0449\\u0438\\u0439 \\u043f\\u0440\\u043e\\u0444\\u0435\\u0441\\u0441\\u0438\\u043e\\u043d\\u0430\\u043b \\u043d\\u0435 \\u0441\\u043e\\u0432\\u0441\\u0435\\u043c \\u0441\\u043e\\u0433\\u043b\\u0430\\u0441\\u0438\\u0442\\u044c\\u0441\\u044f \\u0441 \\u043d\\u0430\\u0448\\u0438\\u043c\\u0438 \\u0441\\u043e\\u0432\\u0435\\u0442\\u0430\\u043c\\u0438, \\u043d\\u043e \\u0431\\u043b\\u0430\\u0433\\u043e\\u0434\\u0430\\u0440\\u044f \\u0438\\u043c \\u0412\\u044b \\u043c\\u043e\\u0436\\u0435\\u0442\\u0435 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u044c \\u043e\\u0447\\u0435\\u043d\\u044c \\u043a\\u0440\\u0430\\u0441\\u0438\\u0432\\u044b\\u0435 \\u0444\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\\u0438\\u0438. <\\/span><\\/p>\\r\\n<div>\\u00a0<\\/div>\\r\\n<p><span style=\\"font-size: 10pt;\\">\\u041c\\u044b \\u043d\\u0430\\u0434\\u0435\\u0435\\u043c\\u0441\\u044f, \\u0447\\u0442\\u043e \\u0443 \\u0412\\u0430\\u0441 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0430\\u0442\\u0441\\u044f \\u043f\\u0440\\u0435\\u043a\\u0440\\u0430\\u0441\\u043d\\u044b\\u0435 \\u043f\\u043e\\u0440\\u0442\\u0440\\u0435\\u0442\\u044b \\u0412\\u0430\\u0448\\u0438\\u0445 \\u0441\\u043e\\u0431\\u0430\\u043a. \\u0414\\u043e\\u0431\\u0430\\u0432\\u043b\\u044f\\u0439\\u0442\\u0435 \\u0438\\u0445 \\u0432 \\u0430\\u043b\\u044c\\u0431\\u043e\\u043c\\u044b \\u0432\\u0430\\u0448\\u0438\\u0445 \\u0441\\u043e\\u0431\\u0430\\u043a.<br \\/><\\/span><\\/p>\\r\\n<\\/div>\\r\\n<div class=\\"clr\\">\\u00a0<\\/div>\\r\\n<div class=\\"clr\\">\\u00a0<\\/div>\\r\\n<\\/div>\\r\\n<div class=\\"clr\\">\\u00a0<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<div class=\\"clear\\">\\u00a0<\\/div>"}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
 	(79, 'Продам корм для собаки от компании 4 лапы', 1, 1, '', 785, 9, 0, '0000-00-00 00:00:00', '2018-11-01 08:21:42', '0000-00-00 00:00:00', '2018-11-01 08:21:42', '2018-11-01 08:21:42', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 17, 1, 0, '', '', '', 'prodam-korm-dlya-sobaki-ot-kompanii-4-lapy', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, 'ce1ddb33629e8fb37a4139523d596ddc', '{"14":"\\u0422\\u043e\\u0432\\u0430\\u0440\\u044b \\u0434\\u043b\\u044f \\u0441\\u043e\\u0431\\u0430\\u043a"}', 'корм для собаки от компании 4 лапы, Прекрасный корм для вашего питомца. Сбалансированный протеинами и витаминами. Вес 25кг, Продам корм для собаки от компании 4 лапы', '{"181":["\\u041f\\u0440\\u043e\\u0434\\u0430\\u043c"],"183":"$25","182":"\\u043a\\u043e\\u0440\\u043c \\u0434\\u043b\\u044f \\u0441\\u043e\\u0431\\u0430\\u043a\\u0438 \\u043e\\u0442 \\u043a\\u043e\\u043c\\u043f\\u0430\\u043d\\u0438\\u0438 4 \\u043b\\u0430\\u043f\\u044b","174":{"image":"uploads\\/image\\/2018-11\\/1541060502_cb99f68b31b84cf7c4e328c844d8671b.jpg","realname":"korm.jpg","filename":"1541060502_cb99f68b31b84cf7c4e328c844d8671b.jpg"},"166":"\\u041f\\u0440\\u0435\\u043a\\u0440\\u0430\\u0441\\u043d\\u044b\\u0439 \\u043a\\u043e\\u0440\\u043c \\u0434\\u043b\\u044f \\u0432\\u0430\\u0448\\u0435\\u0433\\u043e \\u043f\\u0438\\u0442\\u043e\\u043c\\u0446\\u0430. \\u0421\\u0431\\u0430\\u043b\\u0430\\u043d\\u0441\\u0438\\u0440\\u043e\\u0432\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043f\\u0440\\u043e\\u0442\\u0435\\u0438\\u043d\\u0430\\u043c\\u0438 \\u0438 \\u0432\\u0438\\u0442\\u0430\\u043c\\u0438\\u043d\\u0430\\u043c\\u0438. \\u0412\\u0435\\u0441 25\\u043a\\u0433","176":"\\u0410\\u043b\\u0435\\u043a\\u0441\\u0435\\u0439","168":"alex@mail.ru","169":{"country":"375","region":"29","tel":"2423534"},"170":null,"171":null,"172":"","173":"","177":[],"175":{"address":{"country":"UA","state":"","city":"\\u041a\\u0438\\u0435\\u0432","address1":""},"position":{"lat":"53.9","lng":"27.56669999999997","zoom":""}},"167":null,"178":{"embed":[],"link":[]}}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
 	(82, 'Аджилити', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-05 07:19:53', '0000-00-00 00:00:00', '2018-11-05 07:37:17', '2018-11-05 07:20:23', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 1, 0, '', '', '', 'adzhiliti', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '0b214f9b1b5f0fd372c179609f396144', '[]', '(от англ. аgility – быстрота, проворство, ловкость) – вид спорта, в котором собаки по команде человека преодолевают барьеры и другие снаряды. Благодаря своей динамичности, аджилити воспринимается многими собаками как игра и доставляет им истинное удовольствие. Термин «аджилити» в собирательном значении применяется ко всему спорту, в котором собака преодолевает препятствия. В узком смысле этот термин обозначает одну из нескольких дисциплин, входящих в аджилити как в спорт: аджилити, джампинг, гемблер, снукер, эстафета., Аджилити', '{"203":"(\\u043e\\u0442 \\u0430\\u043d\\u0433\\u043b. \\u0430gility \\u2013 \\u0431\\u044b\\u0441\\u0442\\u0440\\u043e\\u0442\\u0430, \\u043f\\u0440\\u043e\\u0432\\u043e\\u0440\\u0441\\u0442\\u0432\\u043e, \\u043b\\u043e\\u0432\\u043a\\u043e\\u0441\\u0442\\u044c) \\u2013 \\u0432\\u0438\\u0434 \\u0441\\u043f\\u043e\\u0440\\u0442\\u0430, \\u0432 \\u043a\\u043e\\u0442\\u043e\\u0440\\u043e\\u043c \\u0441\\u043e\\u0431\\u0430\\u043a\\u0438 \\u043f\\u043e \\u043a\\u043e\\u043c\\u0430\\u043d\\u0434\\u0435 \\u0447\\u0435\\u043b\\u043e\\u0432\\u0435\\u043a\\u0430 \\u043f\\u0440\\u0435\\u043e\\u0434\\u043e\\u043b\\u0435\\u0432\\u0430\\u044e\\u0442 \\u0431\\u0430\\u0440\\u044c\\u0435\\u0440\\u044b \\u0438 \\u0434\\u0440\\u0443\\u0433\\u0438\\u0435 \\u0441\\u043d\\u0430\\u0440\\u044f\\u0434\\u044b. \\u0411\\u043b\\u0430\\u0433\\u043e\\u0434\\u0430\\u0440\\u044f \\u0441\\u0432\\u043e\\u0435\\u0439 \\u0434\\u0438\\u043d\\u0430\\u043c\\u0438\\u0447\\u043d\\u043e\\u0441\\u0442\\u0438, \\u0430\\u0434\\u0436\\u0438\\u043b\\u0438\\u0442\\u0438 \\u0432\\u043e\\u0441\\u043f\\u0440\\u0438\\u043d\\u0438\\u043c\\u0430\\u0435\\u0442\\u0441\\u044f \\u043c\\u043d\\u043e\\u0433\\u0438\\u043c\\u0438 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0430\\u043c\\u0438 \\u043a\\u0430\\u043a \\u0438\\u0433\\u0440\\u0430 \\u0438 \\u0434\\u043e\\u0441\\u0442\\u0430\\u0432\\u043b\\u044f\\u0435\\u0442 \\u0438\\u043c \\u0438\\u0441\\u0442\\u0438\\u043d\\u043d\\u043e\\u0435 \\u0443\\u0434\\u043e\\u0432\\u043e\\u043b\\u044c\\u0441\\u0442\\u0432\\u0438\\u0435. \\u0422\\u0435\\u0440\\u043c\\u0438\\u043d \\u00ab\\u0430\\u0434\\u0436\\u0438\\u043b\\u0438\\u0442\\u0438\\u00bb \\u0432 \\u0441\\u043e\\u0431\\u0438\\u0440\\u0430\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u043c \\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u0438\\u0438 \\u043f\\u0440\\u0438\\u043c\\u0435\\u043d\\u044f\\u0435\\u0442\\u0441\\u044f \\u043a\\u043e \\u0432\\u0441\\u0435\\u043c\\u0443 \\u0441\\u043f\\u043e\\u0440\\u0442\\u0443, \\u0432 \\u043a\\u043e\\u0442\\u043e\\u0440\\u043e\\u043c \\u0441\\u043e\\u0431\\u0430\\u043a\\u0430 \\u043f\\u0440\\u0435\\u043e\\u0434\\u043e\\u043b\\u0435\\u0432\\u0430\\u0435\\u0442 \\u043f\\u0440\\u0435\\u043f\\u044f\\u0442\\u0441\\u0442\\u0432\\u0438\\u044f. \\u0412 \\u0443\\u0437\\u043a\\u043e\\u043c \\u0441\\u043c\\u044b\\u0441\\u043b\\u0435 \\u044d\\u0442\\u043e\\u0442 \\u0442\\u0435\\u0440\\u043c\\u0438\\u043d \\u043e\\u0431\\u043e\\u0437\\u043d\\u0430\\u0447\\u0430\\u0435\\u0442 \\u043e\\u0434\\u043d\\u0443 \\u0438\\u0437 \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u0445 \\u0434\\u0438\\u0441\\u0446\\u0438\\u043f\\u043b\\u0438\\u043d, \\u0432\\u0445\\u043e\\u0434\\u044f\\u0449\\u0438\\u0445 \\u0432 \\u0430\\u0434\\u0436\\u0438\\u043b\\u0438\\u0442\\u0438 \\u043a\\u0430\\u043a \\u0432 \\u0441\\u043f\\u043e\\u0440\\u0442: \\u0430\\u0434\\u0436\\u0438\\u043b\\u0438\\u0442\\u0438, \\u0434\\u0436\\u0430\\u043c\\u043f\\u0438\\u043d\\u0433, \\u0433\\u0435\\u043c\\u0431\\u043b\\u0435\\u0440, \\u0441\\u043d\\u0443\\u043a\\u0435\\u0440, \\u044d\\u0441\\u0442\\u0430\\u0444\\u0435\\u0442\\u0430."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
-	(83, 'Аллюр', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-05 07:30:44', '0000-00-00 00:00:00', '2018-11-05 07:31:09', '2018-11-05 07:31:09', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'allyur', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '96c536011e98382f1e377514bd59b4bb', '[]', 'способ движения четвероногого животного, характеризующийся скоростью и порядком перестановки ног (шаг, рысь, иноходь, галоп, карьер)., Аллюр', '{"203":"\\u0441\\u043f\\u043e\\u0441\\u043e\\u0431 \\u0434\\u0432\\u0438\\u0436\\u0435\\u043d\\u0438\\u044f \\u0447\\u0435\\u0442\\u0432\\u0435\\u0440\\u043e\\u043d\\u043e\\u0433\\u043e\\u0433\\u043e \\u0436\\u0438\\u0432\\u043e\\u0442\\u043d\\u043e\\u0433\\u043e, \\u0445\\u0430\\u0440\\u0430\\u043a\\u0442\\u0435\\u0440\\u0438\\u0437\\u0443\\u044e\\u0449\\u0438\\u0439\\u0441\\u044f \\u0441\\u043a\\u043e\\u0440\\u043e\\u0441\\u0442\\u044c\\u044e \\u0438 \\u043f\\u043e\\u0440\\u044f\\u0434\\u043a\\u043e\\u043c \\u043f\\u0435\\u0440\\u0435\\u0441\\u0442\\u0430\\u043d\\u043e\\u0432\\u043a\\u0438 \\u043d\\u043e\\u0433 (\\u0448\\u0430\\u0433, \\u0440\\u044b\\u0441\\u044c, \\u0438\\u043d\\u043e\\u0445\\u043e\\u0434\\u044c, \\u0433\\u0430\\u043b\\u043e\\u043f, \\u043a\\u0430\\u0440\\u044c\\u0435\\u0440)."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL);
+	(83, 'Аллюр', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-05 07:30:44', '0000-00-00 00:00:00', '2018-11-05 07:31:09', '2018-11-05 07:31:09', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'allyur', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '96c536011e98382f1e377514bd59b4bb', '[]', 'способ движения четвероногого животного, характеризующийся скоростью и порядком перестановки ног (шаг, рысь, иноходь, галоп, карьер)., Аллюр', '{"203":"\\u0441\\u043f\\u043e\\u0441\\u043e\\u0431 \\u0434\\u0432\\u0438\\u0436\\u0435\\u043d\\u0438\\u044f \\u0447\\u0435\\u0442\\u0432\\u0435\\u0440\\u043e\\u043d\\u043e\\u0433\\u043e\\u0433\\u043e \\u0436\\u0438\\u0432\\u043e\\u0442\\u043d\\u043e\\u0433\\u043e, \\u0445\\u0430\\u0440\\u0430\\u043a\\u0442\\u0435\\u0440\\u0438\\u0437\\u0443\\u044e\\u0449\\u0438\\u0439\\u0441\\u044f \\u0441\\u043a\\u043e\\u0440\\u043e\\u0441\\u0442\\u044c\\u044e \\u0438 \\u043f\\u043e\\u0440\\u044f\\u0434\\u043a\\u043e\\u043c \\u043f\\u0435\\u0440\\u0435\\u0441\\u0442\\u0430\\u043d\\u043e\\u0432\\u043a\\u0438 \\u043d\\u043e\\u0433 (\\u0448\\u0430\\u0433, \\u0440\\u044b\\u0441\\u044c, \\u0438\\u043d\\u043e\\u0445\\u043e\\u0434\\u044c, \\u0433\\u0430\\u043b\\u043e\\u043f, \\u043a\\u0430\\u0440\\u044c\\u0435\\u0440)."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(84, 'АНКОР', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:26:05', '0000-00-00 00:00:00', '2018-11-09 08:26:29', '2018-11-09 08:26:29', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'ankor', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, 'db7acac810b043070b28f98d5f8237ca', '[]', '(Ассоциация независимых кинологических организаций России) - национальная ассоциация., АНКОР', '{"203":"(\\u0410\\u0441\\u0441\\u043e\\u0446\\u0438\\u0430\\u0446\\u0438\\u044f \\u043d\\u0435\\u0437\\u0430\\u0432\\u0438\\u0441\\u0438\\u043c\\u044b\\u0445 \\u043a\\u0438\\u043d\\u043e\\u043b\\u043e\\u0433\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0445 \\u043e\\u0440\\u0433\\u0430\\u043d\\u0438\\u0437\\u0430\\u0446\\u0438\\u0439 \\u0420\\u043e\\u0441\\u0441\\u0438\\u0438) - \\u043d\\u0430\\u0446\\u0438\\u043e\\u043d\\u0430\\u043b\\u044c\\u043d\\u0430\\u044f \\u0430\\u0441\\u0441\\u043e\\u0446\\u0438\\u0430\\u0446\\u0438\\u044f."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(85, 'Апорт', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:27:40', '0000-00-00 00:00:00', '2018-11-09 08:28:01', '2018-11-09 08:28:01', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'aport', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, 'c749c12931e6d7ebec790c63a333d81f', '[]', 'команда, используемая в дрессировке собак в качестве условного сигнала при выработке условного рефлекса подноски предметов. В других случаях слово «апорт» используется для обозначения предметов., Апорт', '{"203":"\\u043a\\u043e\\u043c\\u0430\\u043d\\u0434\\u0430, \\u0438\\u0441\\u043f\\u043e\\u043b\\u044c\\u0437\\u0443\\u0435\\u043c\\u0430\\u044f \\u0432 \\u0434\\u0440\\u0435\\u0441\\u0441\\u0438\\u0440\\u043e\\u0432\\u043a\\u0435 \\u0441\\u043e\\u0431\\u0430\\u043a \\u0432 \\u043a\\u0430\\u0447\\u0435\\u0441\\u0442\\u0432\\u0435 \\u0443\\u0441\\u043b\\u043e\\u0432\\u043d\\u043e\\u0433\\u043e \\u0441\\u0438\\u0433\\u043d\\u0430\\u043b\\u0430 \\u043f\\u0440\\u0438 \\u0432\\u044b\\u0440\\u0430\\u0431\\u043e\\u0442\\u043a\\u0435 \\u0443\\u0441\\u043b\\u043e\\u0432\\u043d\\u043e\\u0433\\u043e \\u0440\\u0435\\u0444\\u043b\\u0435\\u043a\\u0441\\u0430 \\u043f\\u043e\\u0434\\u043d\\u043e\\u0441\\u043a\\u0438 \\u043f\\u0440\\u0435\\u0434\\u043c\\u0435\\u0442\\u043e\\u0432. \\u0412 \\u0434\\u0440\\u0443\\u0433\\u0438\\u0445 \\u0441\\u043b\\u0443\\u0447\\u0430\\u044f\\u0445 \\u0441\\u043b\\u043e\\u0432\\u043e \\u00ab\\u0430\\u043f\\u043e\\u0440\\u0442\\u00bb \\u0438\\u0441\\u043f\\u043e\\u043b\\u044c\\u0437\\u0443\\u0435\\u0442\\u0441\\u044f \\u0434\\u043b\\u044f \\u043e\\u0431\\u043e\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u0438\\u044f \\u043f\\u0440\\u0435\\u0434\\u043c\\u0435\\u0442\\u043e\\u0432."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(86, 'Аппелистая собака', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:28:16', '0000-00-00 00:00:00', '2018-11-09 08:28:44', '2018-11-09 08:28:44', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'appelistaya-sobaka', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '778418f13ed4f1e5e10ddcf4861f5564', '[]', '(от фр. appeler) – собака, скоро идущая на зов. Достоинство это в собаке очень важно., Аппелистая собака', '{"203":"(\\u043e\\u0442 \\u0444\\u0440. appeler) \\u2013 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0430, \\u0441\\u043a\\u043e\\u0440\\u043e \\u0438\\u0434\\u0443\\u0449\\u0430\\u044f \\u043d\\u0430 \\u0437\\u043e\\u0432. \\u0414\\u043e\\u0441\\u0442\\u043e\\u0438\\u043d\\u0441\\u0442\\u0432\\u043e \\u044d\\u0442\\u043e \\u0432 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0435 \\u043e\\u0447\\u0435\\u043d\\u044c \\u0432\\u0430\\u0436\\u043d\\u043e."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(87, 'Аутбридинг', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:29:00', '0000-00-00 00:00:00', '2018-11-09 08:29:36', '2018-11-09 08:29:36', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'autbriding', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '6b654a899224e888646feb650a2c726d', '[]', 'скрещивание неродственных собак одной породы., Аутбридинг', '{"203":"\\u0441\\u043a\\u0440\\u0435\\u0449\\u0438\\u0432\\u0430\\u043d\\u0438\\u0435 \\u043d\\u0435\\u0440\\u043e\\u0434\\u0441\\u0442\\u0432\\u0435\\u043d\\u043d\\u044b\\u0445 \\u0441\\u043e\\u0431\\u0430\\u043a \\u043e\\u0434\\u043d\\u043e\\u0439 \\u043f\\u043e\\u0440\\u043e\\u0434\\u044b."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(88, 'Брыли', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:29:48', '0000-00-00 00:00:00', '2018-11-09 08:30:16', '2018-11-09 08:30:16', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'bryli', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, 'd04be1b3c1f3228266ec225c411ac307', '[]', 'губы собаки, свободно свешивающиеся по бокам нижней челюсти. Брыли могут быть тонкими и мягкими, как у пойнтера, или толстыми и грубыми, как у бладхаунда., Брыли', '{"203":"\\u0433\\u0443\\u0431\\u044b \\u0441\\u043e\\u0431\\u0430\\u043a\\u0438, \\u0441\\u0432\\u043e\\u0431\\u043e\\u0434\\u043d\\u043e \\u0441\\u0432\\u0435\\u0448\\u0438\\u0432\\u0430\\u044e\\u0449\\u0438\\u0435\\u0441\\u044f \\u043f\\u043e \\u0431\\u043e\\u043a\\u0430\\u043c \\u043d\\u0438\\u0436\\u043d\\u0435\\u0439 \\u0447\\u0435\\u043b\\u044e\\u0441\\u0442\\u0438. \\u0411\\u0440\\u044b\\u043b\\u0438 \\u043c\\u043e\\u0433\\u0443\\u0442 \\u0431\\u044b\\u0442\\u044c \\u0442\\u043e\\u043d\\u043a\\u0438\\u043c\\u0438 \\u0438 \\u043c\\u044f\\u0433\\u043a\\u0438\\u043c\\u0438, \\u043a\\u0430\\u043a \\u0443 \\u043f\\u043e\\u0439\\u043d\\u0442\\u0435\\u0440\\u0430, \\u0438\\u043b\\u0438 \\u0442\\u043e\\u043b\\u0441\\u0442\\u044b\\u043c\\u0438 \\u0438 \\u0433\\u0440\\u0443\\u0431\\u044b\\u043c\\u0438, \\u043a\\u0430\\u043a \\u0443 \\u0431\\u043b\\u0430\\u0434\\u0445\\u0430\\u0443\\u043d\\u0434\\u0430."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(89, 'Вейтпуллинг', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:30:30', '0000-00-00 00:00:00', '2018-11-09 08:30:46', '2018-11-09 08:30:46', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'vejtpulling', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '0b9a32147bbe05dd022ae0359b412f81', '[]', 'это соревнование по перетягиванию веса на определенное расстояние, в котором участники разбиты на весовые категории, а груз находится на тележке с колесами или санях., Вейтпуллинг', '{"203":"\\u044d\\u0442\\u043e \\u0441\\u043e\\u0440\\u0435\\u0432\\u043d\\u043e\\u0432\\u0430\\u043d\\u0438\\u0435 \\u043f\\u043e \\u043f\\u0435\\u0440\\u0435\\u0442\\u044f\\u0433\\u0438\\u0432\\u0430\\u043d\\u0438\\u044e \\u0432\\u0435\\u0441\\u0430 \\u043d\\u0430 \\u043e\\u043f\\u0440\\u0435\\u0434\\u0435\\u043b\\u0435\\u043d\\u043d\\u043e\\u0435 \\u0440\\u0430\\u0441\\u0441\\u0442\\u043e\\u044f\\u043d\\u0438\\u0435, \\u0432 \\u043a\\u043e\\u0442\\u043e\\u0440\\u043e\\u043c \\u0443\\u0447\\u0430\\u0441\\u0442\\u043d\\u0438\\u043a\\u0438 \\u0440\\u0430\\u0437\\u0431\\u0438\\u0442\\u044b \\u043d\\u0430 \\u0432\\u0435\\u0441\\u043e\\u0432\\u044b\\u0435 \\u043a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u0438, \\u0430 \\u0433\\u0440\\u0443\\u0437 \\u043d\\u0430\\u0445\\u043e\\u0434\\u0438\\u0442\\u0441\\u044f \\u043d\\u0430 \\u0442\\u0435\\u043b\\u0435\\u0436\\u043a\\u0435 \\u0441 \\u043a\\u043e\\u043b\\u0435\\u0441\\u0430\\u043c\\u0438 \\u0438\\u043b\\u0438 \\u0441\\u0430\\u043d\\u044f\\u0445."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(90, 'Выводка собак', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:31:04', '0000-00-00 00:00:00', '2018-11-09 08:31:32', '2018-11-09 08:31:32', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'vyvodka-sobak', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, 'a43960f8c63664a0fe47101a9b7d2c95', '[]', 'мероприятия, проводимые клубами служебного собаководства, для оценки молодняка по породности и качеству выращивания и для изучения производителей., Выводка собак', '{"203":"\\u043c\\u0435\\u0440\\u043e\\u043f\\u0440\\u0438\\u044f\\u0442\\u0438\\u044f, \\u043f\\u0440\\u043e\\u0432\\u043e\\u0434\\u0438\\u043c\\u044b\\u0435 \\u043a\\u043b\\u0443\\u0431\\u0430\\u043c\\u0438 \\u0441\\u043b\\u0443\\u0436\\u0435\\u0431\\u043d\\u043e\\u0433\\u043e \\u0441\\u043e\\u0431\\u0430\\u043a\\u043e\\u0432\\u043e\\u0434\\u0441\\u0442\\u0432\\u0430, \\u0434\\u043b\\u044f \\u043e\\u0446\\u0435\\u043d\\u043a\\u0438 \\u043c\\u043e\\u043b\\u043e\\u0434\\u043d\\u044f\\u043a\\u0430 \\u043f\\u043e \\u043f\\u043e\\u0440\\u043e\\u0434\\u043d\\u043e\\u0441\\u0442\\u0438 \\u0438 \\u043a\\u0430\\u0447\\u0435\\u0441\\u0442\\u0432\\u0443 \\u0432\\u044b\\u0440\\u0430\\u0449\\u0438\\u0432\\u0430\\u043d\\u0438\\u044f \\u0438 \\u0434\\u043b\\u044f \\u0438\\u0437\\u0443\\u0447\\u0435\\u043d\\u0438\\u044f \\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u0435\\u0439."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(91, 'Выдержка', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:35:48', '0000-00-00 00:00:00', '2018-11-09 08:36:10', '2018-11-09 08:36:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'vyderzhka', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '4688609f49eb1260863d1f197bcafa73', '[]', 'сохранение животным определенного положения, занимаемого по сигналу дрессировщика. Используется для закрепления выработанных условных рефлексов., Выдержка', '{"203":"\\u0441\\u043e\\u0445\\u0440\\u0430\\u043d\\u0435\\u043d\\u0438\\u0435 \\u0436\\u0438\\u0432\\u043e\\u0442\\u043d\\u044b\\u043c \\u043e\\u043f\\u0440\\u0435\\u0434\\u0435\\u043b\\u0435\\u043d\\u043d\\u043e\\u0433\\u043e \\u043f\\u043e\\u043b\\u043e\\u0436\\u0435\\u043d\\u0438\\u044f, \\u0437\\u0430\\u043d\\u0438\\u043c\\u0430\\u0435\\u043c\\u043e\\u0433\\u043e \\u043f\\u043e \\u0441\\u0438\\u0433\\u043d\\u0430\\u043b\\u0443 \\u0434\\u0440\\u0435\\u0441\\u0441\\u0438\\u0440\\u043e\\u0432\\u0449\\u0438\\u043a\\u0430. \\u0418\\u0441\\u043f\\u043e\\u043b\\u044c\\u0437\\u0443\\u0435\\u0442\\u0441\\u044f \\u0434\\u043b\\u044f \\u0437\\u0430\\u043a\\u0440\\u0435\\u043f\\u043b\\u0435\\u043d\\u0438\\u044f \\u0432\\u044b\\u0440\\u0430\\u0431\\u043e\\u0442\\u0430\\u043d\\u043d\\u044b\\u0445 \\u0443\\u0441\\u043b\\u043e\\u0432\\u043d\\u044b\\u0445 \\u0440\\u0435\\u0444\\u043b\\u0435\\u043a\\u0441\\u043e\\u0432."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(92, 'Порода', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:36:29', '0000-00-00 00:00:00', '2018-11-09 08:37:10', '2018-11-09 08:37:10', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'poroda', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '443cd9d61fe6a6adb520d1063434a687', '[]', 'созданная искусственным отбором достаточно многочисленная группа собак, имеющих общее происхождение и ряд сходных морфологических, физиологических и поведенческих особенностей, стойко передающихся по наследству., Порода', '{"203":"\\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u043d\\u0430\\u044f \\u0438\\u0441\\u043a\\u0443\\u0441\\u0441\\u0442\\u0432\\u0435\\u043d\\u043d\\u044b\\u043c \\u043e\\u0442\\u0431\\u043e\\u0440\\u043e\\u043c \\u0434\\u043e\\u0441\\u0442\\u0430\\u0442\\u043e\\u0447\\u043d\\u043e \\u043c\\u043d\\u043e\\u0433\\u043e\\u0447\\u0438\\u0441\\u043b\\u0435\\u043d\\u043d\\u0430\\u044f \\u0433\\u0440\\u0443\\u043f\\u043f\\u0430 \\u0441\\u043e\\u0431\\u0430\\u043a, \\u0438\\u043c\\u0435\\u044e\\u0449\\u0438\\u0445 \\u043e\\u0431\\u0449\\u0435\\u0435 \\u043f\\u0440\\u043e\\u0438\\u0441\\u0445\\u043e\\u0436\\u0434\\u0435\\u043d\\u0438\\u0435 \\u0438 \\u0440\\u044f\\u0434 \\u0441\\u0445\\u043e\\u0434\\u043d\\u044b\\u0445 \\u043c\\u043e\\u0440\\u0444\\u043e\\u043b\\u043e\\u0433\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0445, \\u0444\\u0438\\u0437\\u0438\\u043e\\u043b\\u043e\\u0433\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0445 \\u0438 \\u043f\\u043e\\u0432\\u0435\\u0434\\u0435\\u043d\\u0447\\u0435\\u0441\\u043a\\u0438\\u0445 \\u043e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u0435\\u0439, \\u0441\\u0442\\u043e\\u0439\\u043a\\u043e \\u043f\\u0435\\u0440\\u0435\\u0434\\u0430\\u044e\\u0449\\u0438\\u0445\\u0441\\u044f \\u043f\\u043e \\u043d\\u0430\\u0441\\u043b\\u0435\\u0434\\u0441\\u0442\\u0432\\u0443."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(93, 'Высокопередая собака', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:38:03', '0000-00-00 00:00:00', '2018-11-09 08:38:17', '2018-11-09 08:38:17', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'vysokoperedaya-sobaka', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '48fc3a4f8d0200daa835591abeee1d1a', '[]', 'собака, у которой холка заметно выше крупа, так что линия верха оказывается как бы спадающей к крупу., Высокопередая собака', '{"203":"\\u0441\\u043e\\u0431\\u0430\\u043a\\u0430, \\u0443 \\u043a\\u043e\\u0442\\u043e\\u0440\\u043e\\u0439 \\u0445\\u043e\\u043b\\u043a\\u0430 \\u0437\\u0430\\u043c\\u0435\\u0442\\u043d\\u043e \\u0432\\u044b\\u0448\\u0435 \\u043a\\u0440\\u0443\\u043f\\u0430, \\u0442\\u0430\\u043a \\u0447\\u0442\\u043e \\u043b\\u0438\\u043d\\u0438\\u044f \\u0432\\u0435\\u0440\\u0445\\u0430 \\u043e\\u043a\\u0430\\u0437\\u044b\\u0432\\u0430\\u0435\\u0442\\u0441\\u044f \\u043a\\u0430\\u043a \\u0431\\u044b \\u0441\\u043f\\u0430\\u0434\\u0430\\u044e\\u0449\\u0435\\u0439 \\u043a \\u043a\\u0440\\u0443\\u043f\\u0443."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(94, 'Галоп', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:38:28', '0000-00-00 00:00:00', '2018-11-09 08:38:42', '2018-11-09 08:38:42', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'galop', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, 'f85ab0b0cafac6e593455702eb630718', '[]', 'быстрый аллюр, при котором собака перемещается бросками. Для галопа характерны стадия зависания и приземление сначала передними конечностями, потом задними; причем задние ноги в момент приземления оказываются позади передних., Галоп', '{"203":"\\u0431\\u044b\\u0441\\u0442\\u0440\\u044b\\u0439 \\u0430\\u043b\\u043b\\u044e\\u0440, \\u043f\\u0440\\u0438 \\u043a\\u043e\\u0442\\u043e\\u0440\\u043e\\u043c \\u0441\\u043e\\u0431\\u0430\\u043a\\u0430 \\u043f\\u0435\\u0440\\u0435\\u043c\\u0435\\u0449\\u0430\\u0435\\u0442\\u0441\\u044f \\u0431\\u0440\\u043e\\u0441\\u043a\\u0430\\u043c\\u0438. \\u0414\\u043b\\u044f \\u0433\\u0430\\u043b\\u043e\\u043f\\u0430 \\u0445\\u0430\\u0440\\u0430\\u043a\\u0442\\u0435\\u0440\\u043d\\u044b \\u0441\\u0442\\u0430\\u0434\\u0438\\u044f \\u0437\\u0430\\u0432\\u0438\\u0441\\u0430\\u043d\\u0438\\u044f \\u0438 \\u043f\\u0440\\u0438\\u0437\\u0435\\u043c\\u043b\\u0435\\u043d\\u0438\\u0435 \\u0441\\u043d\\u0430\\u0447\\u0430\\u043b\\u0430 \\u043f\\u0435\\u0440\\u0435\\u0434\\u043d\\u0438\\u043c\\u0438 \\u043a\\u043e\\u043d\\u0435\\u0447\\u043d\\u043e\\u0441\\u0442\\u044f\\u043c\\u0438, \\u043f\\u043e\\u0442\\u043e\\u043c \\u0437\\u0430\\u0434\\u043d\\u0438\\u043c\\u0438; \\u043f\\u0440\\u0438\\u0447\\u0435\\u043c \\u0437\\u0430\\u0434\\u043d\\u0438\\u0435 \\u043d\\u043e\\u0433\\u0438 \\u0432 \\u043c\\u043e\\u043c\\u0435\\u043d\\u0442 \\u043f\\u0440\\u0438\\u0437\\u0435\\u043c\\u043b\\u0435\\u043d\\u0438\\u044f \\u043e\\u043a\\u0430\\u0437\\u044b\\u0432\\u0430\\u044e\\u0442\\u0441\\u044f \\u043f\\u043e\\u0437\\u0430\\u0434\\u0438 \\u043f\\u0435\\u0440\\u0435\\u0434\\u043d\\u0438\\u0445."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(95, 'Гачи', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:38:54', '0000-00-00 00:00:00', '2018-11-09 08:39:12', '2018-11-09 08:39:12', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'gachi', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '33a2b4c44ba982b6e089db126f8408b6', '[]', 'гачами у собак называются части ног от колен до таза., Гачи', '{"203":"\\u0433\\u0430\\u0447\\u0430\\u043c\\u0438 \\u0443 \\u0441\\u043e\\u0431\\u0430\\u043a \\u043d\\u0430\\u0437\\u044b\\u0432\\u0430\\u044e\\u0442\\u0441\\u044f \\u0447\\u0430\\u0441\\u0442\\u0438 \\u043d\\u043e\\u0433 \\u043e\\u0442 \\u043a\\u043e\\u043b\\u0435\\u043d \\u0434\\u043e \\u0442\\u0430\\u0437\\u0430."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(96, 'Гемблер', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:39:36', '0000-00-00 00:00:00', '2018-11-09 08:39:49', '2018-11-09 08:39:49', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'gembler', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '104137b73f6850e2ca83d5abb9724b0b', '[]', 'одна из игровых дисциплин аджилити, цель которого – набрать максимальное количество очков за отведенное время., Гемблер', '{"203":"\\u043e\\u0434\\u043d\\u0430 \\u0438\\u0437 \\u0438\\u0433\\u0440\\u043e\\u0432\\u044b\\u0445 \\u0434\\u0438\\u0441\\u0446\\u0438\\u043f\\u043b\\u0438\\u043d \\u0430\\u0434\\u0436\\u0438\\u043b\\u0438\\u0442\\u0438, \\u0446\\u0435\\u043b\\u044c \\u043a\\u043e\\u0442\\u043e\\u0440\\u043e\\u0433\\u043e \\u2013 \\u043d\\u0430\\u0431\\u0440\\u0430\\u0442\\u044c \\u043c\\u0430\\u043a\\u0441\\u0438\\u043c\\u0430\\u043b\\u044c\\u043d\\u043e\\u0435 \\u043a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e \\u043e\\u0447\\u043a\\u043e\\u0432 \\u0437\\u0430 \\u043e\\u0442\\u0432\\u0435\\u0434\\u0435\\u043d\\u043d\\u043e\\u0435 \\u0432\\u0440\\u0435\\u043c\\u044f."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(97, 'Генеалогическая линия', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:40:01', '0000-00-00 00:00:00', '2018-11-09 08:40:30', '2018-11-09 08:40:30', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'genealogicheskaya-liniya', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '1b0aea449081cfbf92cdecf37afb144e', '[]', 'родословная большой группы собак – потомков нескольких поколений, родоначальником которых является выдающийся производитель., Генеалогическая линия', '{"203":"\\u0440\\u043e\\u0434\\u043e\\u0441\\u043b\\u043e\\u0432\\u043d\\u0430\\u044f \\u0431\\u043e\\u043b\\u044c\\u0448\\u043e\\u0439 \\u0433\\u0440\\u0443\\u043f\\u043f\\u044b \\u0441\\u043e\\u0431\\u0430\\u043a \\u2013 \\u043f\\u043e\\u0442\\u043e\\u043c\\u043a\\u043e\\u0432 \\u043d\\u0435\\u0441\\u043a\\u043e\\u043b\\u044c\\u043a\\u0438\\u0445 \\u043f\\u043e\\u043a\\u043e\\u043b\\u0435\\u043d\\u0438\\u0439, \\u0440\\u043e\\u0434\\u043e\\u043d\\u0430\\u0447\\u0430\\u043b\\u044c\\u043d\\u0438\\u043a\\u043e\\u043c \\u043a\\u043e\\u0442\\u043e\\u0440\\u044b\\u0445 \\u044f\\u0432\\u043b\\u044f\\u0435\\u0442\\u0441\\u044f \\u0432\\u044b\\u0434\\u0430\\u044e\\u0449\\u0438\\u0439\\u0441\\u044f \\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u044c."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(98, 'Генотип', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:40:43', '0000-00-00 00:00:00', '2018-11-09 08:41:04', '2018-11-09 08:41:04', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'genotip', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '98439666dc9e40e6017b4d69ad90f371', '[]', 'совокупность наследственной информации, получаемой организмом через гены от особей предшествующих поколений., Генотип', '{"203":"\\u0441\\u043e\\u0432\\u043e\\u043a\\u0443\\u043f\\u043d\\u043e\\u0441\\u0442\\u044c \\u043d\\u0430\\u0441\\u043b\\u0435\\u0434\\u0441\\u0442\\u0432\\u0435\\u043d\\u043d\\u043e\\u0439 \\u0438\\u043d\\u0444\\u043e\\u0440\\u043c\\u0430\\u0446\\u0438\\u0438, \\u043f\\u043e\\u043b\\u0443\\u0447\\u0430\\u0435\\u043c\\u043e\\u0439 \\u043e\\u0440\\u0433\\u0430\\u043d\\u0438\\u0437\\u043c\\u043e\\u043c \\u0447\\u0435\\u0440\\u0435\\u0437 \\u0433\\u0435\\u043d\\u044b \\u043e\\u0442 \\u043e\\u0441\\u043e\\u0431\\u0435\\u0439 \\u043f\\u0440\\u0435\\u0434\\u0448\\u0435\\u0441\\u0442\\u0432\\u0443\\u044e\\u0449\\u0438\\u0445 \\u043f\\u043e\\u043a\\u043e\\u043b\\u0435\\u043d\\u0438\\u0439."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(99, 'Голова яблоком', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:41:22', '0000-00-00 00:00:00', '2018-11-09 08:41:40', '2018-11-09 08:41:40', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'golova-yablokom', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '287eef51a03f4e3b58ee84071f72b10b', '[]', 'закругленный куполообразный череп; для одних пород - это дефект, для других - норма (например, для чи-хуа-хуа)., Голова яблоком', '{"203":"\\u0437\\u0430\\u043a\\u0440\\u0443\\u0433\\u043b\\u0435\\u043d\\u043d\\u044b\\u0439 \\u043a\\u0443\\u043f\\u043e\\u043b\\u043e\\u043e\\u0431\\u0440\\u0430\\u0437\\u043d\\u044b\\u0439 \\u0447\\u0435\\u0440\\u0435\\u043f; \\u0434\\u043b\\u044f \\u043e\\u0434\\u043d\\u0438\\u0445 \\u043f\\u043e\\u0440\\u043e\\u0434 - \\u044d\\u0442\\u043e \\u0434\\u0435\\u0444\\u0435\\u043a\\u0442, \\u0434\\u043b\\u044f \\u0434\\u0440\\u0443\\u0433\\u0438\\u0445 - \\u043d\\u043e\\u0440\\u043c\\u0430 (\\u043d\\u0430\\u043f\\u0440\\u0438\\u043c\\u0435\\u0440, \\u0434\\u043b\\u044f \\u0447\\u0438-\\u0445\\u0443\\u0430-\\u0445\\u0443\\u0430)."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(100, 'Груминг', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:41:53', '0000-00-00 00:00:00', '2018-11-09 08:42:13', '2018-11-09 08:42:13', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'gruming', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, 'cc7acbc513ae959655d98d9d49f54655', '[]', 'гигиенический уход за животными, включающий не только стрижку, но и уход за когтями, зубами, состоянием ушей и кожи., Груминг', '{"203":"\\u0433\\u0438\\u0433\\u0438\\u0435\\u043d\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u0443\\u0445\\u043e\\u0434 \\u0437\\u0430 \\u0436\\u0438\\u0432\\u043e\\u0442\\u043d\\u044b\\u043c\\u0438, \\u0432\\u043a\\u043b\\u044e\\u0447\\u0430\\u044e\\u0449\\u0438\\u0439 \\u043d\\u0435 \\u0442\\u043e\\u043b\\u044c\\u043a\\u043e \\u0441\\u0442\\u0440\\u0438\\u0436\\u043a\\u0443, \\u043d\\u043e \\u0438 \\u0443\\u0445\\u043e\\u0434 \\u0437\\u0430 \\u043a\\u043e\\u0433\\u0442\\u044f\\u043c\\u0438, \\u0437\\u0443\\u0431\\u0430\\u043c\\u0438, \\u0441\\u043e\\u0441\\u0442\\u043e\\u044f\\u043d\\u0438\\u0435\\u043c \\u0443\\u0448\\u0435\\u0439 \\u0438 \\u043a\\u043e\\u0436\\u0438."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(101, 'Джампинг', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:42:25', '0000-00-00 00:00:00', '2018-11-09 08:43:07', '2018-11-09 08:43:07', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'dzhamping', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '6773eb23aeef64da6fabb6646ef9e45c', '[]', 'одна из дисциплин аджилити. На трассе джампинга не устанавливаются препятствия с зонами касания (контактные препятствия) и стол, а только барьеры и «шина»., Джампинг', '{"203":"\\u043e\\u0434\\u043d\\u0430 \\u0438\\u0437 \\u0434\\u0438\\u0441\\u0446\\u0438\\u043f\\u043b\\u0438\\u043d \\u0430\\u0434\\u0436\\u0438\\u043b\\u0438\\u0442\\u0438. \\u041d\\u0430 \\u0442\\u0440\\u0430\\u0441\\u0441\\u0435 \\u0434\\u0436\\u0430\\u043c\\u043f\\u0438\\u043d\\u0433\\u0430 \\u043d\\u0435 \\u0443\\u0441\\u0442\\u0430\\u043d\\u0430\\u0432\\u043b\\u0438\\u0432\\u0430\\u044e\\u0442\\u0441\\u044f \\u043f\\u0440\\u0435\\u043f\\u044f\\u0442\\u0441\\u0442\\u0432\\u0438\\u044f \\u0441 \\u0437\\u043e\\u043d\\u0430\\u043c\\u0438 \\u043a\\u0430\\u0441\\u0430\\u043d\\u0438\\u044f (\\u043a\\u043e\\u043d\\u0442\\u0430\\u043a\\u0442\\u043d\\u044b\\u0435 \\u043f\\u0440\\u0435\\u043f\\u044f\\u0442\\u0441\\u0442\\u0432\\u0438\\u044f) \\u0438 \\u0441\\u0442\\u043e\\u043b, \\u0430 \\u0442\\u043e\\u043b\\u044c\\u043a\\u043e \\u0431\\u0430\\u0440\\u044c\\u0435\\u0440\\u044b \\u0438 \\u00ab\\u0448\\u0438\\u043d\\u0430\\u00bb."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(102, 'Дрессировка', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:44:22', '0000-00-00 00:00:00', '2018-11-09 08:45:03', '2018-11-09 08:45:03', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'dressirovka', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, 'fa942c30c6a6d2942f86007f2986eb0e', '[]', 'приучение животного к выполнению определенных действий по сигналам человека. Сущность дрессировки заключается в выработке у животного условных рефлексов (навыков), необходимых для управления его поведением. Дрессировкой или первоначальным обучением называется постепенное развитие тех качеств и способностей, которые даны природой., Дрессировка', '{"203":"\\u043f\\u0440\\u0438\\u0443\\u0447\\u0435\\u043d\\u0438\\u0435 \\u0436\\u0438\\u0432\\u043e\\u0442\\u043d\\u043e\\u0433\\u043e \\u043a \\u0432\\u044b\\u043f\\u043e\\u043b\\u043d\\u0435\\u043d\\u0438\\u044e \\u043e\\u043f\\u0440\\u0435\\u0434\\u0435\\u043b\\u0435\\u043d\\u043d\\u044b\\u0445 \\u0434\\u0435\\u0439\\u0441\\u0442\\u0432\\u0438\\u0439 \\u043f\\u043e \\u0441\\u0438\\u0433\\u043d\\u0430\\u043b\\u0430\\u043c \\u0447\\u0435\\u043b\\u043e\\u0432\\u0435\\u043a\\u0430. \\u0421\\u0443\\u0449\\u043d\\u043e\\u0441\\u0442\\u044c \\u0434\\u0440\\u0435\\u0441\\u0441\\u0438\\u0440\\u043e\\u0432\\u043a\\u0438 \\u0437\\u0430\\u043a\\u043b\\u044e\\u0447\\u0430\\u0435\\u0442\\u0441\\u044f \\u0432 \\u0432\\u044b\\u0440\\u0430\\u0431\\u043e\\u0442\\u043a\\u0435 \\u0443 \\u0436\\u0438\\u0432\\u043e\\u0442\\u043d\\u043e\\u0433\\u043e \\u0443\\u0441\\u043b\\u043e\\u0432\\u043d\\u044b\\u0445 \\u0440\\u0435\\u0444\\u043b\\u0435\\u043a\\u0441\\u043e\\u0432 (\\u043d\\u0430\\u0432\\u044b\\u043a\\u043e\\u0432), \\u043d\\u0435\\u043e\\u0431\\u0445\\u043e\\u0434\\u0438\\u043c\\u044b\\u0445 \\u0434\\u043b\\u044f \\u0443\\u043f\\u0440\\u0430\\u0432\\u043b\\u0435\\u043d\\u0438\\u044f \\u0435\\u0433\\u043e \\u043f\\u043e\\u0432\\u0435\\u0434\\u0435\\u043d\\u0438\\u0435\\u043c. \\u0414\\u0440\\u0435\\u0441\\u0441\\u0438\\u0440\\u043e\\u0432\\u043a\\u043e\\u0439 \\u0438\\u043b\\u0438 \\u043f\\u0435\\u0440\\u0432\\u043e\\u043d\\u0430\\u0447\\u0430\\u043b\\u044c\\u043d\\u044b\\u043c \\u043e\\u0431\\u0443\\u0447\\u0435\\u043d\\u0438\\u0435\\u043c \\u043d\\u0430\\u0437\\u044b\\u0432\\u0430\\u0435\\u0442\\u0441\\u044f \\u043f\\u043e\\u0441\\u0442\\u0435\\u043f\\u0435\\u043d\\u043d\\u043e\\u0435 \\u0440\\u0430\\u0437\\u0432\\u0438\\u0442\\u0438\\u0435 \\u0442\\u0435\\u0445 \\u043a\\u0430\\u0447\\u0435\\u0441\\u0442\\u0432 \\u0438 \\u0441\\u043f\\u043e\\u0441\\u043e\\u0431\\u043d\\u043e\\u0441\\u0442\\u0435\\u0439, \\u043a\\u043e\\u0442\\u043e\\u0440\\u044b\\u0435 \\u0434\\u0430\\u043d\\u044b \\u043f\\u0440\\u0438\\u0440\\u043e\\u0434\\u043e\\u0439."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(103, 'Заводская линия', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:45:24', '0000-00-00 00:00:00', '2018-11-09 08:45:38', '2018-11-09 08:45:38', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'zavodskaya-liniya', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '5cccee680bb5bab219e56edd750743e2', '[]', 'большая группа собак, имеющая общего выдающегося кобеля-родоначальника, со сходными характерными особенностями поведения, конституции, экстерьера, служебными качествами, полученная в результате целенаправленного отбора и подбора., Заводская линия', '{"203":"\\u0431\\u043e\\u043b\\u044c\\u0448\\u0430\\u044f \\u0433\\u0440\\u0443\\u043f\\u043f\\u0430 \\u0441\\u043e\\u0431\\u0430\\u043a, \\u0438\\u043c\\u0435\\u044e\\u0449\\u0430\\u044f \\u043e\\u0431\\u0449\\u0435\\u0433\\u043e \\u0432\\u044b\\u0434\\u0430\\u044e\\u0449\\u0435\\u0433\\u043e\\u0441\\u044f \\u043a\\u043e\\u0431\\u0435\\u043b\\u044f-\\u0440\\u043e\\u0434\\u043e\\u043d\\u0430\\u0447\\u0430\\u043b\\u044c\\u043d\\u0438\\u043a\\u0430, \\u0441\\u043e \\u0441\\u0445\\u043e\\u0434\\u043d\\u044b\\u043c\\u0438 \\u0445\\u0430\\u0440\\u0430\\u043a\\u0442\\u0435\\u0440\\u043d\\u044b\\u043c\\u0438 \\u043e\\u0441\\u043e\\u0431\\u0435\\u043d\\u043d\\u043e\\u0441\\u0442\\u044f\\u043c\\u0438 \\u043f\\u043e\\u0432\\u0435\\u0434\\u0435\\u043d\\u0438\\u044f, \\u043a\\u043e\\u043d\\u0441\\u0442\\u0438\\u0442\\u0443\\u0446\\u0438\\u0438, \\u044d\\u043a\\u0441\\u0442\\u0435\\u0440\\u044c\\u0435\\u0440\\u0430, \\u0441\\u043b\\u0443\\u0436\\u0435\\u0431\\u043d\\u044b\\u043c\\u0438 \\u043a\\u0430\\u0447\\u0435\\u0441\\u0442\\u0432\\u0430\\u043c\\u0438, \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u043d\\u0430\\u044f \\u0432 \\u0440\\u0435\\u0437\\u0443\\u043b\\u044c\\u0442\\u0430\\u0442\\u0435 \\u0446\\u0435\\u043b\\u0435\\u043d\\u0430\\u043f\\u0440\\u0430\\u0432\\u043b\\u0435\\u043d\\u043d\\u043e\\u0433\\u043e \\u043e\\u0442\\u0431\\u043e\\u0440\\u0430 \\u0438 \\u043f\\u043e\\u0434\\u0431\\u043e\\u0440\\u0430."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(104, 'ЗГС', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:45:53', '0000-00-00 00:00:00', '2018-11-09 08:46:18', '2018-11-09 08:46:18', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'zgs', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, 'ef5fc2f66c9a8a6b9b6f5b56b4fb16a3', '[]', '(защитная городская собака) - курс дрессуры на собаку-телохранителя в условиях города., ЗГС', '{"203":"(\\u0437\\u0430\\u0449\\u0438\\u0442\\u043d\\u0430\\u044f \\u0433\\u043e\\u0440\\u043e\\u0434\\u0441\\u043a\\u0430\\u044f \\u0441\\u043e\\u0431\\u0430\\u043a\\u0430) - \\u043a\\u0443\\u0440\\u0441 \\u0434\\u0440\\u0435\\u0441\\u0441\\u0443\\u0440\\u044b \\u043d\\u0430 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0443-\\u0442\\u0435\\u043b\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u0435\\u043b\\u044f \\u0432 \\u0443\\u0441\\u043b\\u043e\\u0432\\u0438\\u044f\\u0445 \\u0433\\u043e\\u0440\\u043e\\u0434\\u0430."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(105, 'ЗКС', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:46:32', '0000-00-00 00:00:00', '2018-11-09 08:46:55', '2018-11-09 08:46:55', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'zks', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, 'e74443bf0c87ba1d8deb52ca7511c398', '[]', '(защитно-караульная служба) - курс дрессуры созданный в 20-x годах в Советской России., ЗКС', '{"203":"(\\u0437\\u0430\\u0449\\u0438\\u0442\\u043d\\u043e-\\u043a\\u0430\\u0440\\u0430\\u0443\\u043b\\u044c\\u043d\\u0430\\u044f \\u0441\\u043b\\u0443\\u0436\\u0431\\u0430) - \\u043a\\u0443\\u0440\\u0441 \\u0434\\u0440\\u0435\\u0441\\u0441\\u0443\\u0440\\u044b \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u043d\\u044b\\u0439 \\u0432 20-x \\u0433\\u043e\\u0434\\u0430\\u0445 \\u0432 \\u0421\\u043e\\u0432\\u0435\\u0442\\u0441\\u043a\\u043e\\u0439 \\u0420\\u043e\\u0441\\u0441\\u0438\\u0438."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(106, 'Инбридинг', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:47:07', '0000-00-00 00:00:00', '2018-11-09 08:47:27', '2018-11-09 08:47:27', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'inbriding', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '98c7e56b69f9a347cf08c561b4d7fe09', '[]', 'скрещивание близкородственных собак (одной линии). Зоотехнический прием для закрепления выдающихся качеств ценных производителей. При длительном инбридинге возможно снижение жизнеспособности, ослабление конституции у потомства., Инбридинг', '{"203":"\\u0441\\u043a\\u0440\\u0435\\u0449\\u0438\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0431\\u043b\\u0438\\u0437\\u043a\\u043e\\u0440\\u043e\\u0434\\u0441\\u0442\\u0432\\u0435\\u043d\\u043d\\u044b\\u0445 \\u0441\\u043e\\u0431\\u0430\\u043a (\\u043e\\u0434\\u043d\\u043e\\u0439 \\u043b\\u0438\\u043d\\u0438\\u0438). \\u0417\\u043e\\u043e\\u0442\\u0435\\u0445\\u043d\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u043f\\u0440\\u0438\\u0435\\u043c \\u0434\\u043b\\u044f \\u0437\\u0430\\u043a\\u0440\\u0435\\u043f\\u043b\\u0435\\u043d\\u0438\\u044f \\u0432\\u044b\\u0434\\u0430\\u044e\\u0449\\u0438\\u0445\\u0441\\u044f \\u043a\\u0430\\u0447\\u0435\\u0441\\u0442\\u0432 \\u0446\\u0435\\u043d\\u043d\\u044b\\u0445 \\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u043e\\u0434\\u0438\\u0442\\u0435\\u043b\\u0435\\u0439. \\u041f\\u0440\\u0438 \\u0434\\u043b\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e\\u043c \\u0438\\u043d\\u0431\\u0440\\u0438\\u0434\\u0438\\u043d\\u0433\\u0435 \\u0432\\u043e\\u0437\\u043c\\u043e\\u0436\\u043d\\u043e \\u0441\\u043d\\u0438\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0436\\u0438\\u0437\\u043d\\u0435\\u0441\\u043f\\u043e\\u0441\\u043e\\u0431\\u043d\\u043e\\u0441\\u0442\\u0438, \\u043e\\u0441\\u043b\\u0430\\u0431\\u043b\\u0435\\u043d\\u0438\\u0435 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0438\\u0442\\u0443\\u0446\\u0438\\u0438 \\u0443 \\u043f\\u043e\\u0442\\u043e\\u043c\\u0441\\u0442\\u0432\\u0430."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(107, 'Индекс формата', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:48:06', '0000-00-00 00:00:00', '2018-11-09 08:48:20', '2018-11-09 08:48:20', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'indeks-formata', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '45fe795c3403945cc7bdf98f2dd09824', '[]', 'числовая величина, выражающая форму сложения, то есть соотношение высоты собаки и ее длины., Индекс формата', '{"203":"\\u0447\\u0438\\u0441\\u043b\\u043e\\u0432\\u0430\\u044f \\u0432\\u0435\\u043b\\u0438\\u0447\\u0438\\u043d\\u0430, \\u0432\\u044b\\u0440\\u0430\\u0436\\u0430\\u044e\\u0449\\u0430\\u044f \\u0444\\u043e\\u0440\\u043c\\u0443 \\u0441\\u043b\\u043e\\u0436\\u0435\\u043d\\u0438\\u044f, \\u0442\\u043e \\u0435\\u0441\\u0442\\u044c \\u0441\\u043e\\u043e\\u0442\\u043d\\u043e\\u0448\\u0435\\u043d\\u0438\\u0435 \\u0432\\u044b\\u0441\\u043e\\u0442\\u044b \\u0441\\u043e\\u0431\\u0430\\u043a\\u0438 \\u0438 \\u0435\\u0435 \\u0434\\u043b\\u0438\\u043d\\u044b."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(108, 'Иноходь', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:48:32', '0000-00-00 00:00:00', '2018-11-09 08:49:07', '2018-11-09 08:49:07', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'inokhod', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '738fbfb8b917865a33651fd6e90fc4a9', '[]', ' один из аллюров средней скорости, при котором собака одновременно поднимает и опускает то обе правые конечности, то обе левые. Характерна для таких пород, как бразильский фила, бобтейл. Для большинства пород считается дефектом., Иноходь', '{"203":" \\u043e\\u0434\\u0438\\u043d \\u0438\\u0437 \\u0430\\u043b\\u043b\\u044e\\u0440\\u043e\\u0432 \\u0441\\u0440\\u0435\\u0434\\u043d\\u0435\\u0439 \\u0441\\u043a\\u043e\\u0440\\u043e\\u0441\\u0442\\u0438, \\u043f\\u0440\\u0438 \\u043a\\u043e\\u0442\\u043e\\u0440\\u043e\\u043c \\u0441\\u043e\\u0431\\u0430\\u043a\\u0430 \\u043e\\u0434\\u043d\\u043e\\u0432\\u0440\\u0435\\u043c\\u0435\\u043d\\u043d\\u043e \\u043f\\u043e\\u0434\\u043d\\u0438\\u043c\\u0430\\u0435\\u0442 \\u0438 \\u043e\\u043f\\u0443\\u0441\\u043a\\u0430\\u0435\\u0442 \\u0442\\u043e \\u043e\\u0431\\u0435 \\u043f\\u0440\\u0430\\u0432\\u044b\\u0435 \\u043a\\u043e\\u043d\\u0435\\u0447\\u043d\\u043e\\u0441\\u0442\\u0438, \\u0442\\u043e \\u043e\\u0431\\u0435 \\u043b\\u0435\\u0432\\u044b\\u0435. \\u0425\\u0430\\u0440\\u0430\\u043a\\u0442\\u0435\\u0440\\u043d\\u0430 \\u0434\\u043b\\u044f \\u0442\\u0430\\u043a\\u0438\\u0445 \\u043f\\u043e\\u0440\\u043e\\u0434, \\u043a\\u0430\\u043a \\u0431\\u0440\\u0430\\u0437\\u0438\\u043b\\u044c\\u0441\\u043a\\u0438\\u0439 \\u0444\\u0438\\u043b\\u0430, \\u0431\\u043e\\u0431\\u0442\\u0435\\u0439\\u043b. \\u0414\\u043b\\u044f \\u0431\\u043e\\u043b\\u044c\\u0448\\u0438\\u043d\\u0441\\u0442\\u0432\\u0430 \\u043f\\u043e\\u0440\\u043e\\u0434 \\u0441\\u0447\\u0438\\u0442\\u0430\\u0435\\u0442\\u0441\\u044f \\u0434\\u0435\\u0444\\u0435\\u043a\\u0442\\u043e\\u043c."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(109, 'Интерьер', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:49:21', '0000-00-00 00:00:00', '2018-11-09 08:49:59', '2018-11-09 08:49:59', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'interer', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '04d5599067619e5373dacb1edc3db602', '[]', 'совокупность внутренних физиологических, анатомо-гистологических и биологических свойств организма в связи с его конституцией и направлением продуктивности. Является составной частью конституции. К интерьерным признакам относятся: костяк, мускулатура, кожа и подкожная клетчатка, кровь, гормоны, нервная система, органы чувств., Интерьер', '{"203":"\\u0441\\u043e\\u0432\\u043e\\u043a\\u0443\\u043f\\u043d\\u043e\\u0441\\u0442\\u044c \\u0432\\u043d\\u0443\\u0442\\u0440\\u0435\\u043d\\u043d\\u0438\\u0445 \\u0444\\u0438\\u0437\\u0438\\u043e\\u043b\\u043e\\u0433\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0445, \\u0430\\u043d\\u0430\\u0442\\u043e\\u043c\\u043e-\\u0433\\u0438\\u0441\\u0442\\u043e\\u043b\\u043e\\u0433\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0445 \\u0438 \\u0431\\u0438\\u043e\\u043b\\u043e\\u0433\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0445 \\u0441\\u0432\\u043e\\u0439\\u0441\\u0442\\u0432 \\u043e\\u0440\\u0433\\u0430\\u043d\\u0438\\u0437\\u043c\\u0430 \\u0432 \\u0441\\u0432\\u044f\\u0437\\u0438 \\u0441 \\u0435\\u0433\\u043e \\u043a\\u043e\\u043d\\u0441\\u0442\\u0438\\u0442\\u0443\\u0446\\u0438\\u0435\\u0439 \\u0438 \\u043d\\u0430\\u043f\\u0440\\u0430\\u0432\\u043b\\u0435\\u043d\\u0438\\u0435\\u043c \\u043f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\\u0438\\u0432\\u043d\\u043e\\u0441\\u0442\\u0438. \\u042f\\u0432\\u043b\\u044f\\u0435\\u0442\\u0441\\u044f \\u0441\\u043e\\u0441\\u0442\\u0430\\u0432\\u043d\\u043e\\u0439 \\u0447\\u0430\\u0441\\u0442\\u044c\\u044e \\u043a\\u043e\\u043d\\u0441\\u0442\\u0438\\u0442\\u0443\\u0446\\u0438\\u0438. \\u041a \\u0438\\u043d\\u0442\\u0435\\u0440\\u044c\\u0435\\u0440\\u043d\\u044b\\u043c \\u043f\\u0440\\u0438\\u0437\\u043d\\u0430\\u043a\\u0430\\u043c \\u043e\\u0442\\u043d\\u043e\\u0441\\u044f\\u0442\\u0441\\u044f: \\u043a\\u043e\\u0441\\u0442\\u044f\\u043a, \\u043c\\u0443\\u0441\\u043a\\u0443\\u043b\\u0430\\u0442\\u0443\\u0440\\u0430, \\u043a\\u043e\\u0436\\u0430 \\u0438 \\u043f\\u043e\\u0434\\u043a\\u043e\\u0436\\u043d\\u0430\\u044f \\u043a\\u043b\\u0435\\u0442\\u0447\\u0430\\u0442\\u043a\\u0430, \\u043a\\u0440\\u043e\\u0432\\u044c, \\u0433\\u043e\\u0440\\u043c\\u043e\\u043d\\u044b, \\u043d\\u0435\\u0440\\u0432\\u043d\\u0430\\u044f \\u0441\\u0438\\u0441\\u0442\\u0435\\u043c\\u0430, \\u043e\\u0440\\u0433\\u0430\\u043d\\u044b \\u0447\\u0443\\u0432\\u0441\\u0442\\u0432."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(110, 'Полевые испытания', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:50:36', '0000-00-00 00:00:00', '2018-11-09 08:51:19', '2018-11-09 08:51:19', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'polevye-ispytaniya', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, '9100d2ed014359a507afe82c7fe4d1dd', '[]', 'соревнования с охотничьими собаками для оценки их рабочих (полевых) качеств и стиля работы при отыскании или преследовании дичи., Полевые испытания', '{"203":"\\u0441\\u043e\\u0440\\u0435\\u0432\\u043d\\u043e\\u0432\\u0430\\u043d\\u0438\\u044f \\u0441 \\u043e\\u0445\\u043e\\u0442\\u043d\\u0438\\u0447\\u044c\\u0438\\u043c\\u0438 \\u0441\\u043e\\u0431\\u0430\\u043a\\u0430\\u043c\\u0438 \\u0434\\u043b\\u044f \\u043e\\u0446\\u0435\\u043d\\u043a\\u0438 \\u0438\\u0445 \\u0440\\u0430\\u0431\\u043e\\u0447\\u0438\\u0445 (\\u043f\\u043e\\u043b\\u0435\\u0432\\u044b\\u0445) \\u043a\\u0430\\u0447\\u0435\\u0441\\u0442\\u0432 \\u0438 \\u0441\\u0442\\u0438\\u043b\\u044f \\u0440\\u0430\\u0431\\u043e\\u0442\\u044b \\u043f\\u0440\\u0438 \\u043e\\u0442\\u044b\\u0441\\u043a\\u0430\\u043d\\u0438\\u0438 \\u0438\\u043b\\u0438 \\u043f\\u0440\\u0435\\u0441\\u043b\\u0435\\u0434\\u043e\\u0432\\u0430\\u043d\\u0438\\u0438 \\u0434\\u0438\\u0447\\u0438."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL),
+	(111, 'Карабин', 1, 1, '', 784, 12, 0, '0000-00-00 00:00:00', '2018-11-09 08:51:42', '0000-00-00 00:00:00', '2018-11-09 08:51:55', '2018-11-09 08:51:55', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 20, 0, 0, '', '', '', 'karabin', 0, 0, 0, NULL, 'ru-RU', 0, '127.0.0.1', 0, 0, 0, 0, 0, 'f319cefef4f93463863f480916a8a411', '[]', 'устройство, предназначенное для крепления поводка или цепи к ошейнику, шлейке., Карабин', '{"203":"\\u0443\\u0441\\u0442\\u0440\\u043e\\u0439\\u0441\\u0442\\u0432\\u043e, \\u043f\\u0440\\u0435\\u0434\\u043d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u043e\\u0435 \\u0434\\u043b\\u044f \\u043a\\u0440\\u0435\\u043f\\u043b\\u0435\\u043d\\u0438\\u044f \\u043f\\u043e\\u0432\\u043e\\u0434\\u043a\\u0430 \\u0438\\u043b\\u0438 \\u0446\\u0435\\u043f\\u0438 \\u043a \\u043e\\u0448\\u0435\\u0439\\u043d\\u0438\\u043a\\u0443, \\u0448\\u043b\\u0435\\u0439\\u043a\\u0435."}', 0, '', NULL, 1, 1, 0, 'com_cobalt', 0, '[]', NULL);
 /*!40000 ALTER TABLE `dogs_js_res_record` ENABLE KEYS */;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_record_category
+DROP TABLE IF EXISTS `dogs_js_res_record_category`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_record_category` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `catid` int(10) NOT NULL DEFAULT '0',
@@ -4416,6 +4514,7 @@ INSERT INTO `dogs_js_res_record_category` (`id`, `catid`, `record_id`, `ordering
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_record_repost
+DROP TABLE IF EXISTS `dogs_js_res_record_repost`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_record_repost` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `host_id` int(11) NOT NULL DEFAULT '0',
@@ -4439,6 +4538,7 @@ INSERT INTO `dogs_js_res_record_repost` (`id`, `host_id`, `record_id`, `ctime`, 
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_record_values
+DROP TABLE IF EXISTS `dogs_js_res_record_values`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_record_values` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(10) NOT NULL DEFAULT '0',
@@ -4460,9 +4560,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_record_values` (
   KEY `idx_key` (`field_key`),
   KEY `idx_record` (`record_id`),
   KEY `idx_field` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2132 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2160 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_record_values: 423 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_record_values: 451 rows
 DELETE FROM `dogs_js_res_record_values`;
 /*!40000 ALTER TABLE `dogs_js_res_record_values` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_record_values` (`id`, `field_id`, `field_key`, `field_type`, `field_label`, `field_value`, `record_id`, `user_id`, `type_id`, `section_id`, `params`, `ip`, `ctime`, `value_index`, `value_num`) VALUES
@@ -4888,11 +4988,40 @@ INSERT INTO `dogs_js_res_record_values` (`id`, `field_id`, `field_key`, `field_t
 	(2122, 201, 'k776c43fe8b8ce0684ddb973bd8e6d3f9', 'image', 'Изображение', 'uploads/image/2018-11/1541064500_b67a6a3092868ea2595e7b390a89f2ea.jpg', 81, 785, 19, 11, '', '127.0.0.1', '2018-11-01 09:28:20', '0', 0),
 	(2123, 202, 'kecaff6f647b26294b4195031791df569', 'html', 'Содержание статьи', '<div class="rt-grid-8 ">\r\n<div class="rt-block">\r\n<div id="rt-mainbody">\r\n<div class="component-content">\r\n<div id="k2Container" class="itemView blog">\r\n<div class="itemBody">\r\n<div class="itemFullText">\r\n<p><span style="font-size: 10pt;">Делать фотографии собак так, чтобы они получались как у профессионалов - это по-настоящему трудная работа. В нашей статье Вы можете прочесть несколько советов, как это сделать самостоятельно.</span></p>\r\n<ul>\r\n<li class="lastItem firstItem">\r\n<h2><strong><span style="font-size: 10pt;">Фотоаппарат</span></strong></h2>\r\n</li>\r\n</ul>\r\n<p><span style="font-size: 10pt;">Вы знаете, что большинство цифровых фотоаппаратов рассчитано на печать фотографий размером 10х15 см. Вы легко сможете делать снимки для своего фотоальбома, и они будут чудесным напоминанием об особенно памятном дне, но Вам никогда не удастся увеличить их и сделать плакат? Если Вы все же попробуете это сделать, результат будет нечетким. Даже если Вам повезло, и Вы обладаете профессиональной цифровой камерой, Вы, скорее всего, ограничены размером 20х30 см, тогда как для плаката требуется хотя бы 30х40 см, а лучше уж 50х75 см. Такой размер может обеспечить только традиционный аналоговый фотоаппарат. Возможно, у Вас на чердаке завалялся именно такой?</span></p>\r\n<ul>\r\n<li class="lastItem firstItem">\r\n<h2><span style="font-size: 10pt;"><strong>Объектив</strong></span></h2>\r\n</li>\r\n</ul>\r\n<p><span style="font-size: 10pt;">Какой снимок можно считать фотографией с превосходным качеством. Мне кажется, что такое определение может получить фото, где видны отдельные волосы подшерстка собаки. Чтобы получить такое качество требуется телеобъектив 35-135 мм. Требуется взять такой объектив, чтобы с одной стороны не встревожить собаку своим близким присутствием, а с другой стороны, чтобы не исказить фотографию из-за слишком далекого объекта съемок. Стоит выбрать нечто среднее, так как каким бы богатым Вы не были, вряд ли имеет смысл скупить все возможные объективы.</span></p>\r\n<ul>\r\n<li class="lastItem firstItem">\r\n<h2><span style="font-size: 10pt;"><strong>Пленка</strong></span></h2>\r\n</li>\r\n</ul>\r\n<p><span style="font-size: 10pt;">Особенности технологий различных производителей дают разные цветовые помехи при проявке пленки. Слишком много зеленого, белого или излишняя краснота снимка - вот неполный список тех дефектов, которые могут проявится на Ваших фотографиях. Попробуйте пленки разных производителей, не исключено, что путем пары экспериментов Вы найдете ту, которая больше подойдет лично Вам. </span></p>\r\n<div> </div>\r\n<p><span style="font-size: 10pt;">Что касается светочувствительности мы рекомендуем использовать пленку с пометкой 200. Она позволит Вам передать нюансы, как при свете, так и в тени. Предпочтите 24-кадровую пленку, так как  отсняв ее Вы получите перерыв, после которого изменится не только освещение, но и поведение собаки, а фотографии получатся более разнообразными.</span></p>\r\n<ul>\r\n<li class="lastItem firstItem">\r\n<h2><span style="font-size: 10pt;"><strong>Успешный кадр</strong></span></h2>\r\n</li>\r\n</ul>\r\n<p><span style="font-size: 10pt;">Если Вы хотите, чтобы Ваша собака получилась более выразительной, не делайте снимков, где все поле фотографии занимает ее портрет в полный рост. Такая перспектива сокрушит любые исходные данные, ноги будут казаться короче, тело будет выглядеть слишком массивным. В общем, это не добавит Вашему питомцу красоты. Чтобы результат получился отличным, Вы должны быть примерно той же высоты, что и Ваш питомец. Лягте на поверхность или присядьте вниз и положите свои локти на пол или землю. Таким образом, у Вас будет надежная поддержка, а Ваша фотография будет более четкой. Постарайтесь избежать мест, где трава выросла очень высокой, кроме тех случаев, когда Вы хотите оставить в секрете, кого же Вы сфотографировали. Вообразите таксу в поле!.. Я шучу... Серьезно, для портрета собаки лучше найти открытую местность, чтоб были видны все детали лап, включая когти. Если Вы не хотите полежать на нежной траве или на грязной уличной щебенке, поищите место на солнце, где будет терраса и несколько ступеней. Расположите собаку на террасе, а сами спуститесь вниз по ступенькам, чтобы держать фотоаппарат на уровне груди Вашего питомца.</span></p>\r\n<ul>\r\n<li class="lastItem firstItem">\r\n<h2><span style="font-size: 10pt;"><strong>Четкость</strong></span></h2>\r\n</li>\r\n</ul>\r\n<p><span style="font-size: 10pt;">Не пытайтесь сделать одновременно четкий портрет Вашей собаки и при этом ясный пейзаж у нее за спиной. Если Вы сосредотачиваетесь на голове животного, замок или церковь на фоне должны быть размытыми. Если этого не произошло, значит нечетким получился сам портрет. В максимально возможной степени старайтесь, чтобы собака вошла на фотографию полностью, включая лапы, хвост и другие части тела. Если же Вас не оставляют мечты создать фотографию, где четкое изображение животного сочетается с изумительно прорисованным пейзажем, приготовьтесь сделать как минимум 2 прекрасных кадра, настраиваясь на разное расстояние, чтобы потом поработав в компьютерной программе, получить желаемый результат.</span></p>\r\n<ul>\r\n<li class="lastItem firstItem">\r\n<h2><span style="font-size: 10pt;"><strong>Композиция</strong></span></h2>\r\n</li>\r\n</ul>\r\n<p><span style="font-size: 10pt;">Если Вы думаете, что получите великую фотографию своей собаки с одного кадра, то вы великий...мечтатель. Чтобы сделать исключительный портрет собаки, каждый нуждается в терпении ангела, большом количестве времени и нескольких пленках. Для начала необходимо дать собаке привыкнуть к Вам, чтобы она снова стала вести себя естественным образом. Если Вам повезет, то произойдет счастливый случай, который подарит Вам неожиданный ракурс, который будет интересно смотреться. Вы можете попытаться привлечь помощника, который будет разговаривать с собакой, чтобы Вы смогли снять ее в профиль или в повороте ¾. Интересный результат может получиться, если поместить в поле зрения камеры нескольких животных: две собаки, собака и кошка, собака и лягушка, или кузнечик. Просто подождите, что-нибудь интересное обязательно произойдет. И еще раз, не думайте, что одного кадра достаточно, используйте, по крайней мере, одну пленку.</span></p>\r\n<ul>\r\n<li class="lastItem firstItem">\r\n<h2><span style="font-size: 10pt;"><strong>Освещение</strong></span></h2>\r\n</li>\r\n</ul>\r\n<p><span style="font-size: 10pt;">Большую часть времени года естественное освещение слишком плохое, чтобы получить превосходные портретные фотографии. Без солнца снимки будут унылыми, а зимнее солнце обладает свойством делать фотографии похожими на гравюры с минимумом оттенков и слишком острым переходом от света к тени. </span></p>\r\n<div> </div>\r\n<p><span style="font-size: 10pt;">Идеальный свет - солнце, немного приглушенное, которое позволит предметам быть четкого и сочного цвета, даже если они находятся в тени.</span></p>\r\n<div> </div>\r\n<p><span style="font-size: 10pt;">Забудьте о вспышке. Никогда не используйте лампу. В дополнение к красным глазам вспышка сокрушит перспективу и удалит легкость. Возможно, Вы захотите использовать галогенные лампы. Она в каком-то роде заменит солнечный свет. Но не помещайте лампы слишком близко к Вашему питомцу. Свет более интересен, когда он прибывает со стороны. Если у Вас несколько пленок, попробуйте разные варианты освещения: сбоку, сзади, прямо на объект. Чем больше разных ракурсов и углов съемки Вы используете, тем больше шансов получить интересные снимки у Вас появится.</span></p>\r\n<ul>\r\n<li class="lastItem firstItem">\r\n<h2><span style="font-size: 10pt;"><strong>Фокус</strong></span></h2>\r\n</li>\r\n</ul>\r\n<p><span style="font-size: 10pt;">При портретной съемке собак самое основное - это глаза. Конечно, взгляд, но и отражение света в глазах, и выражение бровей. Помните, что если Вы сфокусируетесь на глазу, то грудь и спина, не говоря уж о хвосте получатся менее четкими. Меняйте фокус каждые 3 снимка, чтобы получить детали спины или груди. Если у Вашей камеры есть система автофокуса, отключите ее. Профессионал никогда не пользуется ею. Конечно, настоящий профессионал не совсем согласиться с нашими советами, но благодаря им Вы можете получить очень красивые фотографии. </span></p>\r\n<div> </div>\r\n<p><span style="font-size: 10pt;">Мы надеемся, что у Вас получатся прекрасные портреты Ваших собак. Добавляйте их в альбомы ваших собак.<br /></span></p>\r\n</div>\r\n<div class="clr"> </div>\r\n<div class="clr"> </div>\r\n</div>\r\n<div class="clr"> </div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n<div class="clear"> </div>', 81, 785, 19, 11, '', '127.0.0.1', '2018-11-01 09:28:20', '0', 0),
 	(2131, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', '(от англ. аgility – быстрота, проворство, ловкость) – вид спорта, в котором собаки по команде человека преодолевают барьеры и другие снаряды. Благодаря своей динамичности, аджилити воспринимается многими собаками как игра и доставляет им истинное удовольствие. Термин «аджилити» в собирательном значении применяется ко всему спорту, в котором собака преодолевает препятствия. В узком смысле этот термин обозначает одну из нескольких дисциплин, входящих в аджилити как в спорт: аджилити, джампинг, гемблер, снукер, эстафета.', 82, 784, 20, 12, '', '127.0.0.1', '2018-11-05 07:37:17', '0', 0),
-	(2125, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'способ движения четвероногого животного, характеризующийся скоростью и порядком перестановки ног (шаг, рысь, иноходь, галоп, карьер).', 83, 784, 20, 12, '', '127.0.0.1', '2018-11-05 07:31:09', '0', 0);
+	(2125, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'способ движения четвероногого животного, характеризующийся скоростью и порядком перестановки ног (шаг, рысь, иноходь, галоп, карьер).', 83, 784, 20, 12, '', '127.0.0.1', '2018-11-05 07:31:09', '0', 0),
+	(2132, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', '(Ассоциация независимых кинологических организаций России) - национальная ассоциация.', 84, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:26:29', '0', 0),
+	(2133, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'команда, используемая в дрессировке собак в качестве условного сигнала при выработке условного рефлекса подноски предметов. В других случаях слово «апорт» используется для обозначения предметов.', 85, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:28:01', '0', 0),
+	(2134, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', '(от фр. appeler) – собака, скоро идущая на зов. Достоинство это в собаке очень важно.', 86, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:28:44', '0', 0),
+	(2135, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'скрещивание неродственных собак одной породы.', 87, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:29:36', '0', 0),
+	(2136, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'губы собаки, свободно свешивающиеся по бокам нижней челюсти. Брыли могут быть тонкими и мягкими, как у пойнтера, или толстыми и грубыми, как у бладхаунда.', 88, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:30:16', '0', 0),
+	(2137, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'это соревнование по перетягиванию веса на определенное расстояние, в котором участники разбиты на весовые категории, а груз находится на тележке с колесами или санях.', 89, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:30:46', '0', 0),
+	(2138, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'мероприятия, проводимые клубами служебного собаководства, для оценки молодняка по породности и качеству выращивания и для изучения производителей.', 90, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:31:32', '0', 0),
+	(2139, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'сохранение животным определенного положения, занимаемого по сигналу дрессировщика. Используется для закрепления выработанных условных рефлексов.', 91, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:36:10', '0', 0),
+	(2140, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'созданная искусственным отбором достаточно многочисленная группа собак, имеющих общее происхождение и ряд сходных морфологических, физиологических и поведенческих особенностей, стойко передающихся по наследству.', 92, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:37:10', '0', 0),
+	(2141, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'собака, у которой холка заметно выше крупа, так что линия верха оказывается как бы спадающей к крупу.', 93, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:38:17', '0', 0),
+	(2142, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'быстрый аллюр, при котором собака перемещается бросками. Для галопа характерны стадия зависания и приземление сначала передними конечностями, потом задними; причем задние ноги в момент приземления оказываются позади передних.', 94, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:38:42', '0', 0),
+	(2143, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'гачами у собак называются части ног от колен до таза.', 95, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:39:12', '0', 0),
+	(2144, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'одна из игровых дисциплин аджилити, цель которого – набрать максимальное количество очков за отведенное время.', 96, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:39:49', '0', 0),
+	(2145, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'родословная большой группы собак – потомков нескольких поколений, родоначальником которых является выдающийся производитель.', 97, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:40:30', '0', 0),
+	(2146, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'совокупность наследственной информации, получаемой организмом через гены от особей предшествующих поколений.', 98, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:41:04', '0', 0),
+	(2147, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'закругленный куполообразный череп; для одних пород - это дефект, для других - норма (например, для чи-хуа-хуа).', 99, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:41:40', '0', 0),
+	(2148, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'гигиенический уход за животными, включающий не только стрижку, но и уход за когтями, зубами, состоянием ушей и кожи.', 100, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:42:13', '0', 0),
+	(2149, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'одна из дисциплин аджилити. На трассе джампинга не устанавливаются препятствия с зонами касания (контактные препятствия) и стол, а только барьеры и «шина».', 101, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:43:07', '0', 0),
+	(2150, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'приучение животного к выполнению определенных действий по сигналам человека. Сущность дрессировки заключается в выработке у животного условных рефлексов (навыков), необходимых для управления его поведением. Дрессировкой или первоначальным обучением называется постепенное развитие тех качеств и способностей, которые даны природой.', 102, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:45:03', '0', 0),
+	(2151, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'большая группа собак, имеющая общего выдающегося кобеля-родоначальника, со сходными характерными особенностями поведения, конституции, экстерьера, служебными качествами, полученная в результате целенаправленного отбора и подбора.', 103, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:45:38', '0', 0),
+	(2152, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', '(защитная городская собака) - курс дрессуры на собаку-телохранителя в условиях города.', 104, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:46:18', '0', 0),
+	(2153, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', '(защитно-караульная служба) - курс дрессуры созданный в 20-x годах в Советской России.', 105, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:46:55', '0', 0),
+	(2154, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'скрещивание близкородственных собак (одной линии). Зоотехнический прием для закрепления выдающихся качеств ценных производителей. При длительном инбридинге возможно снижение жизнеспособности, ослабление конституции у потомства.', 106, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:47:27', '0', 0),
+	(2155, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'числовая величина, выражающая форму сложения, то есть соотношение высоты собаки и ее длины.', 107, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:48:20', '0', 0),
+	(2156, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'один из аллюров средней скорости, при котором собака одновременно поднимает и опускает то обе правые конечности, то обе левые. Характерна для таких пород, как бразильский фила, бобтейл. Для большинства пород считается дефектом.', 108, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:49:07', '0', 0),
+	(2157, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'совокупность внутренних физиологических, анатомо-гистологических и биологических свойств организма в связи с его конституцией и направлением продуктивности. Является составной частью конституции. К интерьерным признакам относятся: костяк, мускулатура, кожа и подкожная клетчатка, кровь, гормоны, нервная система, органы чувств.', 109, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:49:59', '0', 0),
+	(2158, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'соревнования с охотничьими собаками для оценки их рабочих (полевых) качеств и стиля работы при отыскании или преследовании дичи.', 110, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:51:19', '0', 0),
+	(2159, 203, 'kd5757e168354e1533c569640a578cc4a', 'textarea', 'Описание', 'устройство, предназначенное для крепления поводка или цепи к ошейнику, шлейке.', 111, 784, 20, 12, '', '127.0.0.1', '2018-11-09 08:51:55', '0', 0);
 /*!40000 ALTER TABLE `dogs_js_res_record_values` ENABLE KEYS */;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_sales
+DROP TABLE IF EXISTS `dogs_js_res_sales`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_sales` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0',
@@ -4926,6 +5055,7 @@ DELETE FROM `dogs_js_res_sales`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_sections
+DROP TABLE IF EXISTS `dogs_js_res_sections`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_sections` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) NOT NULL DEFAULT '0',
@@ -4960,11 +5090,12 @@ INSERT INTO `dogs_js_res_sections` (`id`, `asset_id`, `name`, `title`, `alias`, 
 	(8, 147, 'Титулы собак', '', 'tituly-sobak', '', 1, 4, '', '', '{"general":{"status":"1","status_msg":"This section is currently offline. Please, check back later.","category_itemid":"","noaccess_redirect":"","orderby":"r.title ASC","lang_mode":"0","records_mode":"0","filter_mode":"1","cat_mode":"1","can_display":"","featured_first":"0","marknew":"0","show_future_records":"3","show_past_records":"3","show_restrict":"1","show_children":"0","have_unpublished":"1","item_label":"item","section_home_items":"1","section_home_orderby":"r.ctime DESC","home_featured_first":"0","type":["9"],"record_submit_limit":"0","tmpl_markup":"default.a80f3e0510a352a753f78e41fb893afa","tmpl_list":["table.be15da949fbfd25e845c7fb17c6e82f4"],"tmpl_category":"0","tmpl_compare":"blog.45ede58dbfc4d4fd90f6ad7bedf4503a","tmpl_list_default":"default"},"more":{"search_mode":"3","search_title":"1","search_name":"0","search_email":"0","search_comments":"0","feed_link":"1","feed_link2":"1","records_mode":"0","feed_limit":"50","orderby_rss":"r.ctime DESC","feed_link_type":"1","metadesc":"","metakey":"","author":"","robots":""},"personalize":{"personalize":"1","records_mode":"0","author_mode":"username","breadcrumbs":"1","post_anywhere":"0","home_text":"See all artilces","text_icon":"home.png","onlinestatus":"1","vip":"0","novip":"3","glod_amount":"250","vip_gold":"vipGold.png","vip_silver":"vipSilver.png","vip_gray":"vipGray.png","pcat_submit":"0","pcat_limit":"10","pcat_descr_length":"200","pcat_icon":"1","pcat_meta":"2","allow_section_set":"1","allow_change_header":"1","allow_change_descr":"1","user_sec_descr_length":"200","allow_access_control":"1","allow_access_control_add":"1"},"events":{"subscribe_section":"2","subscribe_category":"2","subscribe_record":"2","subscribe_user":"2","alerts":"1","user_manage":"1","event_date_format":"","event_date_custom":"d M Y","event":{"record_new":{"notif":"2","activ":"2","karma1":"0","msg":"EVENT_RECORD_NEW","msg_pers":"EVENT_RECORD_NEW_PERS"},"record_view":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_VIEW","msg_pers":"EVENT_RECORD_VIEW_PERS"},"record_wait_approve":{"notif":"2","activ":"2","msg":"EVENT_RECORD_WAIT_APPROVE","msg_pers":"EVENT_RECORD_WAIT_APPROVE_PERS"},"record_approved":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_APPROVED","msg_pers":"EVENT_RECORD_APPROVED_PERS"},"record_edited":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_EDITED","msg_pers":"EVENT_RECORD_EDITED_PERS"},"record_deleted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_DELETED","msg_pers":"EVENT_RECORD_DELETED_PERS"},"record_rated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_RATED","msg_pers":"EVENT_RECORD_RATED_PERS"},"record_expired":{"notif":"2","activ":"2","karma2":"0","msg":"EVENT_RECORD_EXPIRED","msg_pers":"EVENT_RECORD_EXPIRED_PERS"},"record_featured_expired":{"notif":"2","activ":"2","karma2":"0","msg":"EVENT_RECORD_FEATURED_EXPIRED","msg_pers":"EVENT_RECORD_FEATURED_EXPIRED_PERS"},"record_bookmarked":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_BOOKMARKED","msg_pers":"EVENT_RECORD_BOOKMARKED_PERS"},"record_tagged":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_TAGGED","msg_pers":"EVENT_RECORD_TAGGED_PERS"},"record_unpublished":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_UNPUBLISHED","msg_pers":"EVENT_RECORD_UNPUBLISHED_PERS"},"record_featured":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_FEATURED","msg_pers":"EVENT_RECORD_FEATURED_PERS"},"record_extended":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_EXTENDED","msg_pers":"EVENT_RECORD_EXTENDED_PERS"},"record_reposted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_REPOSTED","msg_pers":"EVENT_RECORD_REPOSTED_PERS"},"record_posted":{"notif":"2","activ":"2","karma1":"0","msg":"EVENT_RECORD_POSTED","msg_pers":"EVENT_RECORD_POSTED_PERS"},"comment_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_NEW","msg_pers":"EVENT_COMMENT_NEW_PERS"},"comment_edited":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_EDITED","msg_pers":"EVENT_COMMENT_EDITED_PERS"},"comment_rated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_RATED","msg_pers":"EVENT_COMMENT_RATED_PERS"},"comment_deleted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_DELETED","msg_pers":"EVENT_COMMENT_DELETED_PERS"},"comment_approved":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_APPROVED","msg_pers":"EVENT_COMMENT_APPROVED_PERS"},"comment_reply":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_REPLY","msg_pers":"EVENT_COMMENT_REPLY_PERS"},"comment_unpublished":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_UNPUBLISHED","msg_pers":"EVENT_COMMENT_UNPUBLISHED_PERS"},"status_changed":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_STATUS_CHANGED","msg_pers":"EVENT_STATUS_CHANGED_PERS"},"parent_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_PARENT_NEW","msg_pers":"EVENT_PARENT_NEW_PERS"},"child_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_CHILD_NEW","msg_pers":"EVENT_CHILD_NEW_PERS"},"parent_attached":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_PARENT_ATTACHED","msg_pers":"EVENT_PARENT_ATTACHED_PERS"},"child_attached":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_CHILD_ATTACHED","msg_pers":"EVENT_CHILD_ATTACHED_PERS"},"order_updated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_ORDER_UPDATED","msg_pers":"EVENT_ORDER_UPDATED_PERS"},"new_sale":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_NEW_SALE","msg_pers":"EVENT_NEW_SALE_PERS"},"new_sale_manual":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_NEW_SALE_MANUAL","msg_pers":"EVENT_NEW_SALE_MANUAL_PERS"}}}}', 0, '0000-00-00 00:00:00', 1, 0, '*'),
 	(9, 164, 'Объявления', '', 'obyavleniya', '', 1, 3, '', '', '{"general":{"status":"1","status_msg":"This section is currently offline. Please, check back later.","category_itemid":"","noaccess_redirect":"","orderby":"r.ctime DESC","lang_mode":"0","records_mode":"0","filter_mode":"1","cat_mode":"1","can_display":"","featured_first":"0","marknew":"0","show_future_records":"3","show_past_records":"3","show_restrict":"1","show_children":"0","have_unpublished":"1","item_label":"item","section_home_items":"2","section_home_orderby":"r.ctime DESC","home_featured_first":"0","type":["10","12","13","14","15","16","17","18"],"record_submit_limit":"0","tmpl_markup":"mytemplate.c2975cf31f2c6488a24b25e5f18b3302","tmpl_list":["blog.ecd74a803975381979001915fab87ee9"],"tmpl_category":"0","tmpl_compare":"blog.cbb345290b0e23e82524e47ec87499ef","tmpl_list_default":"default"},"more":{"search_mode":"3","search_title":"1","search_name":"0","search_email":"0","search_comments":"0","feed_link":"1","feed_link2":"1","records_mode":"0","feed_limit":"50","orderby_rss":"r.ctime DESC","feed_link_type":"1","metadesc":"","metakey":"","author":"","robots":""},"personalize":{"personalize":"1","records_mode":"0","author_mode":"username","breadcrumbs":"1","post_anywhere":"0","home_text":"See all artilces","text_icon":"home.png","onlinestatus":"1","vip":"0","novip":"3","glod_amount":"250","vip_gold":"vipGold.png","vip_silver":"vipSilver.png","vip_gray":"vipGray.png","pcat_submit":"0","pcat_limit":"10","pcat_descr_length":"200","pcat_icon":"1","pcat_meta":"2","allow_section_set":"1","allow_change_header":"1","allow_change_descr":"1","user_sec_descr_length":"200","allow_access_control":"1","allow_access_control_add":"1"},"events":{"subscribe_section":"2","subscribe_category":"2","subscribe_record":"2","subscribe_user":"2","alerts":"1","user_manage":"1","event_date_format":"","event_date_custom":"d M Y","event":{"record_new":{"notif":"2","activ":"2","karma1":"0","msg":"EVENT_RECORD_NEW","msg_pers":"EVENT_RECORD_NEW_PERS"},"record_view":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_VIEW","msg_pers":"EVENT_RECORD_VIEW_PERS"},"record_wait_approve":{"notif":"2","activ":"2","msg":"EVENT_RECORD_WAIT_APPROVE","msg_pers":"EVENT_RECORD_WAIT_APPROVE_PERS"},"record_approved":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_APPROVED","msg_pers":"EVENT_RECORD_APPROVED_PERS"},"record_edited":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_EDITED","msg_pers":"EVENT_RECORD_EDITED_PERS"},"record_deleted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_DELETED","msg_pers":"EVENT_RECORD_DELETED_PERS"},"record_rated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_RATED","msg_pers":"EVENT_RECORD_RATED_PERS"},"record_expired":{"notif":"2","activ":"2","karma2":"0","msg":"EVENT_RECORD_EXPIRED","msg_pers":"EVENT_RECORD_EXPIRED_PERS"},"record_featured_expired":{"notif":"2","activ":"2","karma2":"0","msg":"EVENT_RECORD_FEATURED_EXPIRED","msg_pers":"EVENT_RECORD_FEATURED_EXPIRED_PERS"},"record_bookmarked":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_BOOKMARKED","msg_pers":"EVENT_RECORD_BOOKMARKED_PERS"},"record_tagged":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_TAGGED","msg_pers":"EVENT_RECORD_TAGGED_PERS"},"record_unpublished":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_UNPUBLISHED","msg_pers":"EVENT_RECORD_UNPUBLISHED_PERS"},"record_featured":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_FEATURED","msg_pers":"EVENT_RECORD_FEATURED_PERS"},"record_extended":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_EXTENDED","msg_pers":"EVENT_RECORD_EXTENDED_PERS"},"record_reposted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_REPOSTED","msg_pers":"EVENT_RECORD_REPOSTED_PERS"},"record_posted":{"notif":"2","activ":"2","karma1":"0","msg":"EVENT_RECORD_POSTED","msg_pers":"EVENT_RECORD_POSTED_PERS"},"comment_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_NEW","msg_pers":"EVENT_COMMENT_NEW_PERS"},"comment_edited":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_EDITED","msg_pers":"EVENT_COMMENT_EDITED_PERS"},"comment_rated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_RATED","msg_pers":"EVENT_COMMENT_RATED_PERS"},"comment_deleted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_DELETED","msg_pers":"EVENT_COMMENT_DELETED_PERS"},"comment_approved":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_APPROVED","msg_pers":"EVENT_COMMENT_APPROVED_PERS"},"comment_reply":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_REPLY","msg_pers":"EVENT_COMMENT_REPLY_PERS"},"comment_unpublished":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_UNPUBLISHED","msg_pers":"EVENT_COMMENT_UNPUBLISHED_PERS"},"status_changed":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_STATUS_CHANGED","msg_pers":"EVENT_STATUS_CHANGED_PERS"},"parent_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_PARENT_NEW","msg_pers":"EVENT_PARENT_NEW_PERS"},"child_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_CHILD_NEW","msg_pers":"EVENT_CHILD_NEW_PERS"},"parent_attached":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_PARENT_ATTACHED","msg_pers":"EVENT_PARENT_ATTACHED_PERS"},"child_attached":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_CHILD_ATTACHED","msg_pers":"EVENT_CHILD_ATTACHED_PERS"},"order_updated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_ORDER_UPDATED","msg_pers":"EVENT_ORDER_UPDATED_PERS"},"new_sale":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_NEW_SALE","msg_pers":"EVENT_NEW_SALE_PERS"},"new_sale_manual":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_NEW_SALE_MANUAL","msg_pers":"EVENT_NEW_SALE_MANUAL_PERS"}}}}', 0, '0000-00-00 00:00:00', 1, 8, '*'),
 	(11, 260, 'Публикации', '', 'publikatsii', '', 1, 2, '', '', '{"general":{"status":"1","status_msg":"This section is currently offline. Please, check back later.","category_itemid":"","noaccess_redirect":"","orderby":"r.ctime DESC","lang_mode":"0","records_mode":"0","filter_mode":"1","cat_mode":"1","can_display":"","featured_first":"0","marknew":"0","show_future_records":"3","show_past_records":"3","show_restrict":"1","show_children":"0","have_unpublished":"1","item_label":"item","section_home_items":"2","section_home_orderby":"r.ctime DESC","home_featured_first":"0","type":["19"],"record_submit_limit":"0","tmpl_markup":"mytemplate.473b629f5fc11ca9ef36295e44195dab","tmpl_list":["blog.a8ca5d90e22a35ed0ceb5e35df38110c"],"tmpl_category":"0","tmpl_compare":"blog.df020caa6fed34f6d00fc1701708e034","tmpl_list_default":"default"},"more":{"search_mode":"3","search_title":"1","search_name":"0","search_email":"0","search_comments":"0","feed_link":"1","feed_link2":"1","records_mode":"0","feed_limit":"50","orderby_rss":"r.ctime DESC","feed_link_type":"1","metadesc":"","metakey":"","author":"","robots":""},"personalize":{"personalize":"1","records_mode":"0","author_mode":"username","breadcrumbs":"1","post_anywhere":"0","home_text":"\\u0421\\u043c\\u043e\\u0442\\u0440\\u0435\\u0442\\u044c \\u0432\\u0441\\u0435 \\u0441\\u0442\\u0430\\u0442\\u044c\\u0438","text_icon":"home.png","onlinestatus":"1","vip":"0","novip":"3","glod_amount":"250","vip_gold":"vipGold.png","vip_silver":"vipSilver.png","vip_gray":"vipGray.png","pcat_submit":"0","pcat_limit":"10","pcat_descr_length":"200","pcat_icon":"1","pcat_meta":"2","allow_section_set":"1","allow_change_header":"1","allow_change_descr":"1","user_sec_descr_length":"200","allow_access_control":"1","allow_access_control_add":"1"},"events":{"subscribe_section":"2","subscribe_category":"2","subscribe_record":"2","subscribe_user":"2","alerts":"1","user_manage":"1","event_date_format":"","event_date_custom":"d M Y","event":{"record_new":{"notif":"2","activ":"2","karma1":"0","msg":"EVENT_RECORD_NEW","msg_pers":"EVENT_RECORD_NEW_PERS"},"record_view":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_VIEW","msg_pers":"EVENT_RECORD_VIEW_PERS"},"record_wait_approve":{"notif":"2","activ":"2","msg":"EVENT_RECORD_WAIT_APPROVE","msg_pers":"EVENT_RECORD_WAIT_APPROVE_PERS"},"record_approved":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_APPROVED","msg_pers":"EVENT_RECORD_APPROVED_PERS"},"record_edited":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_EDITED","msg_pers":"EVENT_RECORD_EDITED_PERS"},"record_deleted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_DELETED","msg_pers":"EVENT_RECORD_DELETED_PERS"},"record_rated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_RATED","msg_pers":"EVENT_RECORD_RATED_PERS"},"record_expired":{"notif":"2","activ":"2","karma2":"0","msg":"EVENT_RECORD_EXPIRED","msg_pers":"EVENT_RECORD_EXPIRED_PERS"},"record_featured_expired":{"notif":"2","activ":"2","karma2":"0","msg":"EVENT_RECORD_FEATURED_EXPIRED","msg_pers":"EVENT_RECORD_FEATURED_EXPIRED_PERS"},"record_bookmarked":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_BOOKMARKED","msg_pers":"EVENT_RECORD_BOOKMARKED_PERS"},"record_tagged":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_TAGGED","msg_pers":"EVENT_RECORD_TAGGED_PERS"},"record_unpublished":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_UNPUBLISHED","msg_pers":"EVENT_RECORD_UNPUBLISHED_PERS"},"record_featured":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_FEATURED","msg_pers":"EVENT_RECORD_FEATURED_PERS"},"record_extended":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_EXTENDED","msg_pers":"EVENT_RECORD_EXTENDED_PERS"},"record_reposted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_REPOSTED","msg_pers":"EVENT_RECORD_REPOSTED_PERS"},"record_posted":{"notif":"2","activ":"2","karma1":"0","msg":"EVENT_RECORD_POSTED","msg_pers":"EVENT_RECORD_POSTED_PERS"},"comment_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_NEW","msg_pers":"EVENT_COMMENT_NEW_PERS"},"comment_edited":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_EDITED","msg_pers":"EVENT_COMMENT_EDITED_PERS"},"comment_rated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_RATED","msg_pers":"EVENT_COMMENT_RATED_PERS"},"comment_deleted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_DELETED","msg_pers":"EVENT_COMMENT_DELETED_PERS"},"comment_approved":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_APPROVED","msg_pers":"EVENT_COMMENT_APPROVED_PERS"},"comment_reply":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_REPLY","msg_pers":"EVENT_COMMENT_REPLY_PERS"},"comment_unpublished":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_UNPUBLISHED","msg_pers":"EVENT_COMMENT_UNPUBLISHED_PERS"},"status_changed":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_STATUS_CHANGED","msg_pers":"EVENT_STATUS_CHANGED_PERS"},"parent_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_PARENT_NEW","msg_pers":"EVENT_PARENT_NEW_PERS"},"child_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_CHILD_NEW","msg_pers":"EVENT_CHILD_NEW_PERS"},"parent_attached":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_PARENT_ATTACHED","msg_pers":"EVENT_PARENT_ATTACHED_PERS"},"child_attached":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_CHILD_ATTACHED","msg_pers":"EVENT_CHILD_ATTACHED_PERS"},"order_updated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_ORDER_UPDATED","msg_pers":"EVENT_ORDER_UPDATED_PERS"},"new_sale":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_NEW_SALE","msg_pers":"EVENT_NEW_SALE_PERS"},"new_sale_manual":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_NEW_SALE_MANUAL","msg_pers":"EVENT_NEW_SALE_MANUAL_PERS"}}}}', 0, '0000-00-00 00:00:00', 1, 2, '*'),
-	(12, 268, 'Словарь собаковода', '', 'slovar-sobakovoda', '', 1, 1, '', '', '{"general":{"status":"1","status_msg":"This section is currently offline. Please, check back later.","category_itemid":"","noaccess_redirect":"","orderby":"r.ctime DESC","lang_mode":"0","records_mode":"0","filter_mode":"1","cat_mode":"1","can_display":"","featured_first":"0","marknew":"0","show_future_records":"3","show_past_records":"3","show_restrict":"1","show_children":"0","have_unpublished":"1","item_label":"item","section_home_items":"1","section_home_orderby":"r.ctime DESC","home_featured_first":"0","type":["20"],"record_submit_limit":"0","tmpl_markup":"mytemplate.b8a98255ec2b1c2699c62944109b77df","tmpl_list":["blog.36fd78d6f763b5d45b4fc1be137f567e"],"tmpl_category":"0","tmpl_compare":"blog.e6e42189684b7292bb2a3b683aed964a","tmpl_list_default":"default"},"more":{"search_mode":"3","search_title":"1","search_name":"0","search_email":"0","search_comments":"0","feed_link":"1","feed_link2":"1","records_mode":"0","feed_limit":"50","orderby_rss":"r.ctime DESC","feed_link_type":"1","metadesc":"","metakey":"","author":"","robots":""},"personalize":{"personalize":"1","records_mode":"0","author_mode":"username","breadcrumbs":"1","post_anywhere":"0","home_text":"See all artilces","text_icon":"home.png","onlinestatus":"1","vip":"0","novip":"3","glod_amount":"250","vip_gold":"vipGold.png","vip_silver":"vipSilver.png","vip_gray":"vipGray.png","pcat_submit":"0","pcat_limit":"10","pcat_descr_length":"200","pcat_icon":"1","pcat_meta":"2","allow_section_set":"1","allow_change_header":"1","allow_change_descr":"1","user_sec_descr_length":"200","allow_access_control":"1","allow_access_control_add":"1"},"events":{"subscribe_section":"2","subscribe_category":"2","subscribe_record":"2","subscribe_user":"2","alerts":"1","user_manage":"1","event_date_format":"","event_date_custom":"d M Y","event":{"record_new":{"notif":"2","activ":"2","karma1":"0","msg":"EVENT_RECORD_NEW","msg_pers":"EVENT_RECORD_NEW_PERS"},"record_view":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_VIEW","msg_pers":"EVENT_RECORD_VIEW_PERS"},"record_wait_approve":{"notif":"2","activ":"2","msg":"EVENT_RECORD_WAIT_APPROVE","msg_pers":"EVENT_RECORD_WAIT_APPROVE_PERS"},"record_approved":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_APPROVED","msg_pers":"EVENT_RECORD_APPROVED_PERS"},"record_edited":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_EDITED","msg_pers":"EVENT_RECORD_EDITED_PERS"},"record_deleted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_DELETED","msg_pers":"EVENT_RECORD_DELETED_PERS"},"record_rated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_RATED","msg_pers":"EVENT_RECORD_RATED_PERS"},"record_expired":{"notif":"2","activ":"2","karma2":"0","msg":"EVENT_RECORD_EXPIRED","msg_pers":"EVENT_RECORD_EXPIRED_PERS"},"record_featured_expired":{"notif":"2","activ":"2","karma2":"0","msg":"EVENT_RECORD_FEATURED_EXPIRED","msg_pers":"EVENT_RECORD_FEATURED_EXPIRED_PERS"},"record_bookmarked":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_BOOKMARKED","msg_pers":"EVENT_RECORD_BOOKMARKED_PERS"},"record_tagged":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_TAGGED","msg_pers":"EVENT_RECORD_TAGGED_PERS"},"record_unpublished":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_UNPUBLISHED","msg_pers":"EVENT_RECORD_UNPUBLISHED_PERS"},"record_featured":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_FEATURED","msg_pers":"EVENT_RECORD_FEATURED_PERS"},"record_extended":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_EXTENDED","msg_pers":"EVENT_RECORD_EXTENDED_PERS"},"record_reposted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_REPOSTED","msg_pers":"EVENT_RECORD_REPOSTED_PERS"},"record_posted":{"notif":"2","activ":"2","karma1":"0","msg":"EVENT_RECORD_POSTED","msg_pers":"EVENT_RECORD_POSTED_PERS"},"comment_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_NEW","msg_pers":"EVENT_COMMENT_NEW_PERS"},"comment_edited":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_EDITED","msg_pers":"EVENT_COMMENT_EDITED_PERS"},"comment_rated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_RATED","msg_pers":"EVENT_COMMENT_RATED_PERS"},"comment_deleted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_DELETED","msg_pers":"EVENT_COMMENT_DELETED_PERS"},"comment_approved":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_APPROVED","msg_pers":"EVENT_COMMENT_APPROVED_PERS"},"comment_reply":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_REPLY","msg_pers":"EVENT_COMMENT_REPLY_PERS"},"comment_unpublished":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_UNPUBLISHED","msg_pers":"EVENT_COMMENT_UNPUBLISHED_PERS"},"status_changed":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_STATUS_CHANGED","msg_pers":"EVENT_STATUS_CHANGED_PERS"},"parent_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_PARENT_NEW","msg_pers":"EVENT_PARENT_NEW_PERS"},"child_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_CHILD_NEW","msg_pers":"EVENT_CHILD_NEW_PERS"},"parent_attached":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_PARENT_ATTACHED","msg_pers":"EVENT_PARENT_ATTACHED_PERS"},"child_attached":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_CHILD_ATTACHED","msg_pers":"EVENT_CHILD_ATTACHED_PERS"},"order_updated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_ORDER_UPDATED","msg_pers":"EVENT_ORDER_UPDATED_PERS"},"new_sale":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_NEW_SALE","msg_pers":"EVENT_NEW_SALE_PERS"},"new_sale_manual":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_NEW_SALE_MANUAL","msg_pers":"EVENT_NEW_SALE_MANUAL_PERS"}}}}', 0, '0000-00-00 00:00:00', 1, 0, '*');
+	(12, 268, 'Словарь собаковода', '', 'slovar-sobakovoda', '', 1, 1, '', '', '{"general":{"status":"1","status_msg":"This section is currently offline. Please, check back later.","category_itemid":"","noaccess_redirect":"","orderby":"r.title ASC","lang_mode":"0","records_mode":"0","filter_mode":"1","cat_mode":"1","can_display":"","featured_first":"0","marknew":"0","show_future_records":"3","show_past_records":"3","show_restrict":"1","show_children":"0","have_unpublished":"1","item_label":"item","section_home_items":"1","section_home_orderby":"r.ctime DESC","home_featured_first":"0","type":["20"],"record_submit_limit":"0","tmpl_markup":"mytemplate.b8a98255ec2b1c2699c62944109b77df","tmpl_list":["blog.36fd78d6f763b5d45b4fc1be137f567e"],"tmpl_category":"0","tmpl_compare":"blog.e6e42189684b7292bb2a3b683aed964a","tmpl_list_default":"default"},"more":{"search_mode":"3","search_title":"1","search_name":"0","search_email":"0","search_comments":"0","feed_link":"1","feed_link2":"1","records_mode":"0","feed_limit":"50","orderby_rss":"r.ctime DESC","feed_link_type":"1","metadesc":"","metakey":"","author":"","robots":""},"personalize":{"personalize":"1","records_mode":"0","author_mode":"username","breadcrumbs":"1","post_anywhere":"0","home_text":"See all artilces","text_icon":"home.png","onlinestatus":"1","vip":"0","novip":"3","glod_amount":"250","vip_gold":"vipGold.png","vip_silver":"vipSilver.png","vip_gray":"vipGray.png","pcat_submit":"0","pcat_limit":"10","pcat_descr_length":"200","pcat_icon":"1","pcat_meta":"2","allow_section_set":"1","allow_change_header":"1","allow_change_descr":"1","user_sec_descr_length":"200","allow_access_control":"1","allow_access_control_add":"1"},"events":{"subscribe_section":"2","subscribe_category":"2","subscribe_record":"2","subscribe_user":"2","alerts":"1","user_manage":"1","event_date_format":"","event_date_custom":"d M Y","event":{"record_new":{"notif":"2","activ":"2","karma1":"0","msg":"EVENT_RECORD_NEW","msg_pers":"EVENT_RECORD_NEW_PERS"},"record_view":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_VIEW","msg_pers":"EVENT_RECORD_VIEW_PERS"},"record_wait_approve":{"notif":"2","activ":"2","msg":"EVENT_RECORD_WAIT_APPROVE","msg_pers":"EVENT_RECORD_WAIT_APPROVE_PERS"},"record_approved":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_APPROVED","msg_pers":"EVENT_RECORD_APPROVED_PERS"},"record_edited":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_EDITED","msg_pers":"EVENT_RECORD_EDITED_PERS"},"record_deleted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_DELETED","msg_pers":"EVENT_RECORD_DELETED_PERS"},"record_rated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_RATED","msg_pers":"EVENT_RECORD_RATED_PERS"},"record_expired":{"notif":"2","activ":"2","karma2":"0","msg":"EVENT_RECORD_EXPIRED","msg_pers":"EVENT_RECORD_EXPIRED_PERS"},"record_featured_expired":{"notif":"2","activ":"2","karma2":"0","msg":"EVENT_RECORD_FEATURED_EXPIRED","msg_pers":"EVENT_RECORD_FEATURED_EXPIRED_PERS"},"record_bookmarked":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_BOOKMARKED","msg_pers":"EVENT_RECORD_BOOKMARKED_PERS"},"record_tagged":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_TAGGED","msg_pers":"EVENT_RECORD_TAGGED_PERS"},"record_unpublished":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_UNPUBLISHED","msg_pers":"EVENT_RECORD_UNPUBLISHED_PERS"},"record_featured":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_FEATURED","msg_pers":"EVENT_RECORD_FEATURED_PERS"},"record_extended":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_EXTENDED","msg_pers":"EVENT_RECORD_EXTENDED_PERS"},"record_reposted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_RECORD_REPOSTED","msg_pers":"EVENT_RECORD_REPOSTED_PERS"},"record_posted":{"notif":"2","activ":"2","karma1":"0","msg":"EVENT_RECORD_POSTED","msg_pers":"EVENT_RECORD_POSTED_PERS"},"comment_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_NEW","msg_pers":"EVENT_COMMENT_NEW_PERS"},"comment_edited":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_EDITED","msg_pers":"EVENT_COMMENT_EDITED_PERS"},"comment_rated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_RATED","msg_pers":"EVENT_COMMENT_RATED_PERS"},"comment_deleted":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_DELETED","msg_pers":"EVENT_COMMENT_DELETED_PERS"},"comment_approved":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_APPROVED","msg_pers":"EVENT_COMMENT_APPROVED_PERS"},"comment_reply":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_REPLY","msg_pers":"EVENT_COMMENT_REPLY_PERS"},"comment_unpublished":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_COMMENT_UNPUBLISHED","msg_pers":"EVENT_COMMENT_UNPUBLISHED_PERS"},"status_changed":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_STATUS_CHANGED","msg_pers":"EVENT_STATUS_CHANGED_PERS"},"parent_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_PARENT_NEW","msg_pers":"EVENT_PARENT_NEW_PERS"},"child_new":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_CHILD_NEW","msg_pers":"EVENT_CHILD_NEW_PERS"},"parent_attached":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_PARENT_ATTACHED","msg_pers":"EVENT_PARENT_ATTACHED_PERS"},"child_attached":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_CHILD_ATTACHED","msg_pers":"EVENT_CHILD_ATTACHED_PERS"},"order_updated":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_ORDER_UPDATED","msg_pers":"EVENT_ORDER_UPDATED_PERS"},"new_sale":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_NEW_SALE","msg_pers":"EVENT_NEW_SALE_PERS"},"new_sale_manual":{"notif":"2","activ":"2","karma1":"0","karma2":"0","msg":"EVENT_NEW_SALE_MANUAL","msg_pers":"EVENT_NEW_SALE_MANUAL_PERS"}}}}', 0, '0000-00-00 00:00:00', 1, 0, '*');
 /*!40000 ALTER TABLE `dogs_js_res_sections` ENABLE KEYS */;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_subscribe
+DROP TABLE IF EXISTS `dogs_js_res_subscribe`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_subscribe` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0',
@@ -4976,9 +5107,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_subscribe` (
   PRIMARY KEY (`id`),
   KEY `idx_rf` (`ref_id`),
   KEY `idx_us` (`user_id`,`section_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=115 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_subscribe: 80 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_subscribe: 108 rows
 DELETE FROM `dogs_js_res_subscribe`;
 /*!40000 ALTER TABLE `dogs_js_res_subscribe` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_subscribe` (`id`, `user_id`, `ref_id`, `ctime`, `type`, `params`, `section_id`) VALUES
@@ -5061,11 +5192,40 @@ INSERT INTO `dogs_js_res_subscribe` (`id`, `user_id`, `ref_id`, `ctime`, `type`,
 	(83, 785, 80, '2018-11-01 08:43:22', 'record', NULL, 9),
 	(84, 785, 81, '2018-11-01 09:28:20', 'record', NULL, 11),
 	(85, 784, 82, '2018-11-05 07:20:23', 'record', NULL, 12),
-	(86, 784, 83, '2018-11-05 07:31:09', 'record', NULL, 12);
+	(86, 784, 83, '2018-11-05 07:31:09', 'record', NULL, 12),
+	(87, 784, 84, '2018-11-09 08:26:29', 'record', NULL, 12),
+	(88, 784, 85, '2018-11-09 08:28:01', 'record', NULL, 12),
+	(89, 784, 86, '2018-11-09 08:28:44', 'record', NULL, 12),
+	(90, 784, 87, '2018-11-09 08:29:36', 'record', NULL, 12),
+	(91, 784, 88, '2018-11-09 08:30:16', 'record', NULL, 12),
+	(92, 784, 89, '2018-11-09 08:30:46', 'record', NULL, 12),
+	(93, 784, 90, '2018-11-09 08:31:32', 'record', NULL, 12),
+	(94, 784, 91, '2018-11-09 08:36:10', 'record', NULL, 12),
+	(95, 784, 92, '2018-11-09 08:37:10', 'record', NULL, 12),
+	(96, 784, 93, '2018-11-09 08:38:17', 'record', NULL, 12),
+	(97, 784, 94, '2018-11-09 08:38:42', 'record', NULL, 12),
+	(98, 784, 95, '2018-11-09 08:39:12', 'record', NULL, 12),
+	(99, 784, 96, '2018-11-09 08:39:49', 'record', NULL, 12),
+	(100, 784, 97, '2018-11-09 08:40:30', 'record', NULL, 12),
+	(101, 784, 98, '2018-11-09 08:41:04', 'record', NULL, 12),
+	(102, 784, 99, '2018-11-09 08:41:40', 'record', NULL, 12),
+	(103, 784, 100, '2018-11-09 08:42:13', 'record', NULL, 12),
+	(104, 784, 101, '2018-11-09 08:43:07', 'record', NULL, 12),
+	(105, 784, 102, '2018-11-09 08:45:03', 'record', NULL, 12),
+	(106, 784, 103, '2018-11-09 08:45:38', 'record', NULL, 12),
+	(107, 784, 104, '2018-11-09 08:46:18', 'record', NULL, 12),
+	(108, 784, 105, '2018-11-09 08:46:55', 'record', NULL, 12),
+	(109, 784, 106, '2018-11-09 08:47:27', 'record', NULL, 12),
+	(110, 784, 107, '2018-11-09 08:48:20', 'record', NULL, 12),
+	(111, 784, 108, '2018-11-09 08:49:07', 'record', NULL, 12),
+	(112, 784, 109, '2018-11-09 08:49:59', 'record', NULL, 12),
+	(113, 784, 110, '2018-11-09 08:51:19', 'record', NULL, 12),
+	(114, 784, 111, '2018-11-09 08:51:55', 'record', NULL, 12);
 /*!40000 ALTER TABLE `dogs_js_res_subscribe` ENABLE KEYS */;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_subscribe_cat
+DROP TABLE IF EXISTS `dogs_js_res_subscribe_cat`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_subscribe_cat` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `cat_id` int(11) NOT NULL DEFAULT '0',
@@ -5086,6 +5246,7 @@ DELETE FROM `dogs_js_res_subscribe_cat`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_subscribe_user
+DROP TABLE IF EXISTS `dogs_js_res_subscribe_user`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_subscribe_user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `u_id` int(11) NOT NULL DEFAULT '0',
@@ -5106,6 +5267,7 @@ DELETE FROM `dogs_js_res_subscribe_user`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_tags
+DROP TABLE IF EXISTS `dogs_js_res_tags`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_tags` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tag` varchar(50) NOT NULL DEFAULT '',
@@ -5122,6 +5284,7 @@ DELETE FROM `dogs_js_res_tags`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_tags_history
+DROP TABLE IF EXISTS `dogs_js_res_tags_history`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_tags_history` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `record_id` int(10) NOT NULL DEFAULT '0',
@@ -5144,6 +5307,7 @@ DELETE FROM `dogs_js_res_tags_history`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_types
+DROP TABLE IF EXISTS `dogs_js_res_types`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL DEFAULT '',
@@ -5187,6 +5351,7 @@ INSERT INTO `dogs_js_res_types` (`id`, `name`, `params`, `checked_out`, `checked
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_user_options
+DROP TABLE IF EXISTS `dogs_js_res_user_options`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_user_options` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0',
@@ -5206,6 +5371,7 @@ DELETE FROM `dogs_js_res_user_options`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_user_options_autofollow
+DROP TABLE IF EXISTS `dogs_js_res_user_options_autofollow`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_user_options_autofollow` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT '0',
@@ -5221,6 +5387,7 @@ DELETE FROM `dogs_js_res_user_options_autofollow`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_user_post_map
+DROP TABLE IF EXISTS `dogs_js_res_user_post_map`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_user_post_map` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0',
@@ -5237,6 +5404,7 @@ DELETE FROM `dogs_js_res_user_post_map`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_vote
+DROP TABLE IF EXISTS `dogs_js_res_vote`;
 CREATE TABLE IF NOT EXISTS `dogs_js_res_vote` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL DEFAULT '0',
@@ -5259,6 +5427,7 @@ DELETE FROM `dogs_js_res_vote`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_languages
+DROP TABLE IF EXISTS `dogs_languages`;
 CREATE TABLE IF NOT EXISTS `dogs_languages` (
   `lang_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -5291,6 +5460,7 @@ INSERT INTO `dogs_languages` (`lang_id`, `asset_id`, `lang_code`, `title`, `titl
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_menu
+DROP TABLE IF EXISTS `dogs_menu`;
 CREATE TABLE IF NOT EXISTS `dogs_menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `menutype` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The type of menu this item belongs to. FK to #__menu_types.menutype',
@@ -5391,6 +5561,7 @@ INSERT INTO `dogs_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `li
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_menu_types
+DROP TABLE IF EXISTS `dogs_menu_types`;
 CREATE TABLE IF NOT EXISTS `dogs_menu_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -5415,6 +5586,7 @@ INSERT INTO `dogs_menu_types` (`id`, `asset_id`, `menutype`, `title`, `descripti
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_messages
+DROP TABLE IF EXISTS `dogs_messages`;
 CREATE TABLE IF NOT EXISTS `dogs_messages` (
   `message_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id_from` int(10) unsigned NOT NULL DEFAULT '0',
@@ -5436,6 +5608,7 @@ DELETE FROM `dogs_messages`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_messages_cfg
+DROP TABLE IF EXISTS `dogs_messages_cfg`;
 CREATE TABLE IF NOT EXISTS `dogs_messages_cfg` (
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
   `cfg_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -5450,6 +5623,7 @@ DELETE FROM `dogs_messages_cfg`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_modules
+DROP TABLE IF EXISTS `dogs_modules`;
 CREATE TABLE IF NOT EXISTS `dogs_modules` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
@@ -5523,6 +5697,7 @@ INSERT INTO `dogs_modules` (`id`, `asset_id`, `title`, `note`, `content`, `order
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_modules_menu
+DROP TABLE IF EXISTS `dogs_modules_menu`;
 CREATE TABLE IF NOT EXISTS `dogs_modules_menu` (
   `moduleid` int(11) NOT NULL DEFAULT '0',
   `menuid` int(11) NOT NULL DEFAULT '0',
@@ -5580,6 +5755,7 @@ INSERT INTO `dogs_modules_menu` (`moduleid`, `menuid`) VALUES
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_newsfeeds
+DROP TABLE IF EXISTS `dogs_newsfeeds`;
 CREATE TABLE IF NOT EXISTS `dogs_newsfeeds` (
   `catid` int(11) NOT NULL DEFAULT '0',
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -5628,6 +5804,7 @@ DELETE FROM `dogs_newsfeeds`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_overrider
+DROP TABLE IF EXISTS `dogs_overrider`;
 CREATE TABLE IF NOT EXISTS `dogs_overrider` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `constant` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5643,6 +5820,7 @@ DELETE FROM `dogs_overrider`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_postinstall_messages
+DROP TABLE IF EXISTS `dogs_postinstall_messages`;
 CREATE TABLE IF NOT EXISTS `dogs_postinstall_messages` (
   `postinstall_message_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `extension_id` bigint(20) NOT NULL DEFAULT '700' COMMENT 'FK to #__extensions',
@@ -5676,6 +5854,7 @@ INSERT INTO `dogs_postinstall_messages` (`postinstall_message_id`, `extension_id
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_redirect_links
+DROP TABLE IF EXISTS `dogs_redirect_links`;
 CREATE TABLE IF NOT EXISTS `dogs_redirect_links` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `old_url` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5699,6 +5878,7 @@ DELETE FROM `dogs_redirect_links`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_schemas
+DROP TABLE IF EXISTS `dogs_schemas`;
 CREATE TABLE IF NOT EXISTS `dogs_schemas` (
   `extension_id` int(11) NOT NULL,
   `version_id` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5714,6 +5894,7 @@ INSERT INTO `dogs_schemas` (`extension_id`, `version_id`) VALUES
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_session
+DROP TABLE IF EXISTS `dogs_session`;
 CREATE TABLE IF NOT EXISTS `dogs_session` (
   `session_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `client_id` tinyint(3) unsigned DEFAULT NULL,
@@ -5727,18 +5908,17 @@ CREATE TABLE IF NOT EXISTS `dogs_session` (
   KEY `time` (`time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_session: ~4 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_session: ~2 rows (приблизительно)
 DELETE FROM `dogs_session`;
 /*!40000 ALTER TABLE `dogs_session` DISABLE KEYS */;
 INSERT INTO `dogs_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
-	('62mmpgio7hebpsla4ah28ed3n6', 1, 0, '1541403574', 'joomla|s:2240:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyNDE7czo1OiJ0b2tlbiI7czozMjoiWUVKbUlBdmZ6SHROVTl6WHJTZXFOVEV0TFNlNEZDNUsiO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTU0MTQwMTY3ODtzOjQ6Imxhc3QiO2k6MTU0MTQwMzU3MztzOjM6Im5vdyI7aToxNTQxNDAzNTc0O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6MTA6ImNvbV9jb2JhbHQiO086ODoic3RkQ2xhc3MiOjQ6e3M6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6NDp7czo3OiJzZWN0aW9uIjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6ImRhdGEiO047czoyOiJpZCI7YTowOnt9fXM6NDoidHlwZSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoyOiJpZCI7YTowOnt9czo0OiJkYXRhIjtOO31zOjU6ImZpZWxkIjtPOjg6InN0ZENsYXNzIjoyOntzOjI6ImlkIjthOjA6e31zOjQ6ImRhdGEiO047fXM6MTE6InBhY2tzZWN0aW9uIjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6ImRhdGEiO047czoyOiJpZCI7YTowOnt9fX1zOjY6ImZpZWxkcyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo2OiJmaWVsZHMiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoidHlwZSI7aToxMDt9fXM6NToicGFja3MiO086ODoic3RkQ2xhc3MiOjE6e3M6ODoib3JkZXJjb2wiO047fXM6MTI6InBhY2tzZWN0aW9ucyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo0OiJwYWNrIjtpOjI7czo4OiJvcmRlcmNvbCI7Tjt9fXM6OToiY29tX21lbnVzIjtPOjg6InN0ZENsYXNzIjoyOntzOjU6Iml0ZW1zIjtPOjg6InN0ZENsYXNzIjo2OntzOjg6Im1lbnV0eXBlIjtzOjk6ImFkbWlubWVudSI7czo5OiJjbGllbnRfaWQiO2k6MDtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7czo0OiJsaXN0IjthOjQ6e3M6OToiZGlyZWN0aW9uIjtzOjM6ImFzYyI7czo1OiJsaW1pdCI7czoyOiIyMCI7czo4OiJvcmRlcmluZyI7czo1OiJhLmxmdCI7czo1OiJzdGFydCI7ZDowO31zOjk6InB1Ymxpc2hlZCI7czoxOiIxIjtzOjY6ImZpbHRlciI7YToxOntzOjk6InB1Ymxpc2hlZCI7czoxOiIxIjt9fXM6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJpdGVtIjtPOjg6InN0ZENsYXNzIjo0OntzOjQ6ImRhdGEiO047czo0OiJ0eXBlIjtOO3M6NDoibGluayI7TjtzOjI6ImlkIjthOjA6e319fX1zOjExOiJjb21fcGx1Z2lucyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjoxOntzOjY6InBsdWdpbiI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoyOiJpZCI7YTowOnt9czo0OiJkYXRhIjtOO319fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtzOjM6Ijc4NCI7fXM6MTE6ImFwcGxpY2F0aW9uIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6InF1ZXVlIjthOjA6e319fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO30=";', 784, 'admin'),
-	('bcodnv2dn0nhal10i8a6ec4q26', 1, 0, '1541747634', 'joomla|s:1404:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxMjtzOjU6InRva2VuIjtzOjMyOiJ4clZRNTdTMUJCRGpIMmFJZ3pUZXU3TUFQZ25DOEJZYiI7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNTQxNzQ3MjcxO3M6NDoibGFzdCI7aToxNTQxNzQ3NjM0O3M6Mzoibm93IjtpOjE1NDE3NDc2MzQ7fX1zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoxMzoiY29tX2luc3RhbGxlciI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo3OiJtZXNzYWdlIjtzOjA6IiI7czoxNzoiZXh0ZW5zaW9uX21lc3NhZ2UiO3M6MDoiIjt9czo5OiJjb21fbWVudXMiO086ODoic3RkQ2xhc3MiOjI6e3M6NToiaXRlbXMiO086ODoic3RkQ2xhc3MiOjQ6e3M6ODoibWVudXR5cGUiO3M6OToiYWRtaW5tZW51IjtzOjk6ImNsaWVudF9pZCI7aTowO3M6MTA6ImxpbWl0c3RhcnQiO2k6MDtzOjQ6Imxpc3QiO2E6NDp7czo5OiJkaXJlY3Rpb24iO3M6MzoiYXNjIjtzOjU6ImxpbWl0IjtzOjI6IjIwIjtzOjg6Im9yZGVyaW5nIjtzOjU6ImEubGZ0IjtzOjU6InN0YXJ0IjtkOjA7fX1zOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiaXRlbSI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo0OiJkYXRhIjtOO3M6NDoidHlwZSI7TjtzOjQ6ImxpbmsiO047fX19fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO3M6MzoiNzg0Ijt9czoxMToiYXBwbGljYXRpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NToicXVldWUiO2E6MDp7fX19fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 784, 'admin'),
-	('h8ogcejbvdppg8rbsflh2d37c2', 0, 0, '1541403441', 'joomla|s:3612:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo1OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxNDM7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNTQxMzk5MTE3O3M6NDoibGFzdCI7aToxNTQxNDAzNDQxO3M6Mzoibm93IjtpOjE1NDE0MDM0NDE7fXM6NToidG9rZW4iO3M6MzI6InBna1ZJVTE1YlRGeHBYeTN0aHFEa3RrNTREVUxwaG1DIjt9czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjU6e3M6Nzoic2tpcGVycyI7Tzo4OiJzdGRDbGFzcyI6MTp7czozOiJhbGwiO2E6MDp7fX1zOjY6Imdsb2JhbCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJsaXN0IjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbWl0IjtpOjU7fX1zOjEwOiJjb21fY29iYWx0IjtPOjg6InN0ZENsYXNzIjoxNjp7czo4OiJyZWNvcmRzMSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6MTt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjY6ImZpZWxkcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo4OiJvcmRlcmNvbCI7TjtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6MjI6InJlY29yZHM5X3Nob3dfY2hpbGRyZW4iO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjk7fX1zOjg6InJlY29yZHM5IjtPOjg6InN0ZENsYXNzIjo0OntzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7czo4OiJvcmRlcmNvbCI7TjtzOjk6Im9yZGVyZGlybiI7TjtzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo5O319czo4OiJyZWNvcmRzNiI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6Njt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjk6InJlY29yZHMxMSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6MTE7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czoxMDoiY2F0ZWdvcmllcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo4OiJvcmRlcmNvbCI7TjtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6ODoicmVjb3JkczIiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjI7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czo4OiJyZWNvcmRzNSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6NTt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjg6InJlY29yZHM4IjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo4O31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6OToicmVjb3JkczEyIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxMjt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjE4OiJyZWNvcmRzM18xX2NyZWF0ZWQiO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjM7fX1zOjg6InJlY29yZHMzIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6MTk6InJlY29yZHMxMl8xX2NyZWF0ZWQiO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjEyO319czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImZvcm0iO086ODoic3RkQ2xhc3MiOjI6e3M6MjoiaWQiO2E6MDp7fXM6NDoiZGF0YSI7Tjt9fXM6NToidXNlcnMiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibW9kYWwiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjc6InNlY3Rpb24iO3M6MjoiMTIiO31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fX19czo3OiJjb2JhbHQ4IjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbWl0IjtzOjI6IjIwIjt9czo1OiJ1c2VycyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJsb2dpbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJmb3JtIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6InJldHVybiI7czozNjoiaHR0cDovL3Byb2RvZ3MubG9jL3Nsb3Zhci1zb2Jha292b2RhIjtzOjQ6ImRhdGEiO2E6MDp7fX19fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtzOjM6Ijc4NCI7fXM6MjA6ImNvYmFsdF9sYXN0X2xpc3RfaWRzIjthOjI6e2k6MDtzOjE6IjQiO2k6MTtzOjE6IjEiO31zOjExOiJhcHBsaWNhdGlvbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJxdWV1ZSI7YTowOnt9fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9";', 784, 'admin'),
-	('rcnr3irct524uko375qamb32j5', 0, 0, '1541747332', 'joomla|s:2068:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyMTtzOjU6InRva2VuIjtzOjMyOiJKRHIyN1JsQUFYM0RiT2hQS1RiWnRHZ2NXSzJCVFUybiI7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNTQxNzQ2OTgyO3M6NDoibGFzdCI7aToxNTQxNzQ3MzMyO3M6Mzoibm93IjtpOjE1NDE3NDczMzI7fX1zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6NTp7czo3OiJza2lwZXJzIjtPOjg6InN0ZENsYXNzIjoxOntzOjM6ImFsbCI7YTowOnt9fXM6NjoiZ2xvYmFsIjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6Imxpc3QiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibGltaXQiO2k6NTt9fXM6MTA6ImNvbV9jb2JhbHQiO086ODoic3RkQ2xhc3MiOjY6e3M6ODoicmVjb3JkczYiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjY7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czo2OiJmaWVsZHMiO086ODoic3RkQ2xhc3MiOjI6e3M6ODoib3JkZXJjb2wiO047czoxMDoibGltaXRzdGFydCI7aTowO31zOjk6InJlY29yZHMxMiI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6MTI7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czoxODoicmVjb3JkczhfMV9jcmVhdGVkIjtPOjg6InN0ZENsYXNzIjoxOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo4O319czo4OiJyZWNvcmRzOCI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoibGltaXRzdGFydCI7aTowO31zOjE5OiJyZWNvcmRzMTJfMV9jcmVhdGVkIjtPOjg6InN0ZENsYXNzIjoxOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxMjt9fX1zOjU6InVzZXJzIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxvZ2luIjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImZvcm0iO086ODoic3RkQ2xhc3MiOjI6e3M6NjoicmV0dXJuIjtzOjM2OiJodHRwOi8vcHJvZG9ncy5sb2Mvc2xvdmFyLXNvYmFrb3ZvZGEiO3M6NDoiZGF0YSI7YTowOnt9fX19czo3OiJjb2JhbHQ4IjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbWl0IjtzOjI6IjIwIjt9fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO3M6MzoiNzg0Ijt9czoyMDoiY29iYWx0X2xhc3RfbGlzdF9pZHMiO2E6Mjp7aTowO3M6MjoiODMiO2k6MTtzOjI6IjgyIjt9fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO30=";', 784, 'admin');
+	('j0duqorq9p94nn6vefpk3vf0s5', 1, 0, '1541752521', 'joomla|s:1332:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxMztzOjU6InRpbWVyIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InN0YXJ0IjtpOjE1NDE3NTE4MzY7czo0OiJsYXN0IjtpOjE1NDE3NTI1MjE7czozOiJub3ciO2k6MTU0MTc1MjUyMTt9czo1OiJ0b2tlbiI7czozMjoicUszazVNTUtaMVFYSTJvclE1YTVwSHFDUEJGU3U1UjQiO31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoxMDoiY29tX2NvYmFsdCI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo3OiJyZWNvcmRzIjtPOjg6InN0ZENsYXNzIjo0OntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJzZWFyY2giO3M6MDoiIjtzOjg6ImNhdGVnb3J5IjtpOjA7fXM6ODoib3JkZXJjb2wiO3M6NDoiYS5pZCI7czo5OiJvcmRlcmRpcm4iO3M6NDoiZGVzYyI7czoxMDoibGltaXRzdGFydCI7aTowO31zOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6Nzoic2VjdGlvbiI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoyOiJpZCI7YTowOnt9czo0OiJkYXRhIjtOO319fXM6NjoiZ2xvYmFsIjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6Imxpc3QiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibGltaXQiO2k6MjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7czozOiI3ODQiO31zOjExOiJhcHBsaWNhdGlvbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJxdWV1ZSI7YTowOnt9fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9";', 784, 'admin'),
+	('sji2fvof6odbuido99ucpactt5', 0, 0, '1541753568', 'joomla|s:3332:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo1OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTozNDM7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNTQxNzUxODQ5O3M6NDoibGFzdCI7aToxNTQxNzUzNTY3O3M6Mzoibm93IjtpOjE1NDE3NTM1Njg7fXM6NToidG9rZW4iO3M6MzI6IlNhUnVFVjBKTjJDVmFVbzA1RWRmQlFYVEZ4UDUwN1VyIjt9czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjU6e3M6Nzoic2tpcGVycyI7Tzo4OiJzdGRDbGFzcyI6MTp7czozOiJhbGwiO2E6MDp7fX1zOjY6Imdsb2JhbCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJsaXN0IjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbWl0IjtpOjU7fX1zOjEwOiJjb21fY29iYWx0IjtPOjg6InN0ZENsYXNzIjoxNDp7czo4OiJyZWNvcmRzMiI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6Mjt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjY6ImZpZWxkcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo4OiJvcmRlcmNvbCI7TjtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6OToicmVjb3JkczEyIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxMjt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjg6InJlY29yZHM5IjtPOjg6InN0ZENsYXNzIjo0OntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo5O31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7czo4OiJvcmRlcmNvbCI7TjtzOjk6Im9yZGVyZGlybiI7Tjt9czoxMDoiY2F0ZWdvcmllcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo4OiJvcmRlcmNvbCI7TjtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6ODoicmVjb3JkczgiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjg7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImZvcm0iO086ODoic3RkQ2xhc3MiOjI6e3M6MjoiaWQiO3M6MToiMCI7czo0OiJkYXRhIjtOO319czo1OiJ1c2VycyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJtb2RhbCI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6Nzoic2VjdGlvbiI7czoyOiIxMiI7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9fXM6MjI6InJlY29yZHM1X3Nob3dfY2hpbGRyZW4iO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjU7fX1zOjg6InJlY29yZHM1IjtPOjg6InN0ZENsYXNzIjozOntzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7czo4OiJvcmRlcmNvbCI7TjtzOjk6Im9yZGVyZGlybiI7Tjt9czoyMjoicmVjb3JkczFfc2hvd19jaGlsZHJlbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6MTt9fXM6ODoicmVjb3JkczEiO086ODoic3RkQ2xhc3MiOjM6e3M6MTA6ImxpbWl0c3RhcnQiO2k6MDtzOjg6Im9yZGVyY29sIjtOO3M6OToib3JkZXJkaXJuIjtOO31zOjIyOiJyZWNvcmRzOV9zaG93X2NoaWxkcmVuIjtPOjg6InN0ZENsYXNzIjoxOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo5O319czo5OiJzZWN0aW9uMTIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTI6ImZpbHRlcl9hbHBoYSI7Tjt9fXM6NzoiY29iYWx0OCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJsaW1pdCI7czoyOiIyMCI7fXM6NToidXNlcnMiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibG9naW4iO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiZm9ybSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJyZXR1cm4iO3M6MzY6Imh0dHA6Ly9wcm9kb2dzLmxvYy9zbG92YXItc29iYWtvdm9kYSI7czo0OiJkYXRhIjthOjA6e319fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7czozOiI3ODQiO31zOjIwOiJjb2JhbHRfbGFzdF9saXN0X2lkcyI7YTo1OntpOjA7czoyOiI4MiI7aToxO3M6MjoiODMiO2k6MjtzOjI6Ijg0IjtpOjM7czoyOiI4NSI7aTo0O3M6MjoiODYiO31zOjExOiJhcHBsaWNhdGlvbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJxdWV1ZSI7YTowOnt9fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9";', 784, 'admin');
 /*!40000 ALTER TABLE `dogs_session` ENABLE KEYS */;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_tags
+DROP TABLE IF EXISTS `dogs_tags`;
 CREATE TABLE IF NOT EXISTS `dogs_tags` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -5789,6 +5969,7 @@ INSERT INTO `dogs_tags` (`id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `titl
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_template_styles
+DROP TABLE IF EXISTS `dogs_template_styles`;
 CREATE TABLE IF NOT EXISTS `dogs_template_styles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `template` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -5813,6 +5994,7 @@ INSERT INTO `dogs_template_styles` (`id`, `template`, `client_id`, `home`, `titl
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_ucm_base
+DROP TABLE IF EXISTS `dogs_ucm_base`;
 CREATE TABLE IF NOT EXISTS `dogs_ucm_base` (
   `ucm_id` int(10) unsigned NOT NULL,
   `ucm_item_id` int(10) NOT NULL,
@@ -5831,6 +6013,7 @@ DELETE FROM `dogs_ucm_base`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_ucm_content
+DROP TABLE IF EXISTS `dogs_ucm_content`;
 CREATE TABLE IF NOT EXISTS `dogs_ucm_content` (
   `core_content_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `core_type_alias` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'FK to the content types table',
@@ -5886,6 +6069,7 @@ DELETE FROM `dogs_ucm_content`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_ucm_history
+DROP TABLE IF EXISTS `dogs_ucm_history`;
 CREATE TABLE IF NOT EXISTS `dogs_ucm_history` (
   `version_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ucm_item_id` int(10) unsigned NOT NULL,
@@ -5909,6 +6093,7 @@ DELETE FROM `dogs_ucm_history`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_updates
+DROP TABLE IF EXISTS `dogs_updates`;
 CREATE TABLE IF NOT EXISTS `dogs_updates` (
   `update_id` int(11) NOT NULL AUTO_INCREMENT,
   `update_site_id` int(11) DEFAULT '0',
@@ -5934,6 +6119,7 @@ DELETE FROM `dogs_updates`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_update_sites
+DROP TABLE IF EXISTS `dogs_update_sites`;
 CREATE TABLE IF NOT EXISTS `dogs_update_sites` (
   `update_site_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
@@ -5956,6 +6142,7 @@ INSERT INTO `dogs_update_sites` (`update_site_id`, `name`, `type`, `location`, `
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_update_sites_extensions
+DROP TABLE IF EXISTS `dogs_update_sites_extensions`;
 CREATE TABLE IF NOT EXISTS `dogs_update_sites_extensions` (
   `update_site_id` int(11) NOT NULL DEFAULT '0',
   `extension_id` int(11) NOT NULL DEFAULT '0',
@@ -5974,6 +6161,7 @@ INSERT INTO `dogs_update_sites_extensions` (`update_site_id`, `extension_id`) VA
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_usergroups
+DROP TABLE IF EXISTS `dogs_usergroups`;
 CREATE TABLE IF NOT EXISTS `dogs_usergroups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Adjacency List Reference Id',
@@ -6004,6 +6192,7 @@ INSERT INTO `dogs_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_users
+DROP TABLE IF EXISTS `dogs_users`;
 CREATE TABLE IF NOT EXISTS `dogs_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -6032,13 +6221,14 @@ CREATE TABLE IF NOT EXISTS `dogs_users` (
 DELETE FROM `dogs_users`;
 /*!40000 ALTER TABLE `dogs_users` DISABLE KEYS */;
 INSERT INTO `dogs_users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`, `otpKey`, `otep`, `requireReset`) VALUES
-	(784, 'Super User', 'admin', 'zatulenko@gmail.com', '$2y$10$7E7bc53LW240v3IQgxqsxeAsN7COWdQG4MzyXSaTMoJhGrPY.2nXq', 0, 1, '2018-10-05 08:34:45', '2018-11-09 07:08:15', '0', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
+	(784, 'Super User', 'admin', 'zatulenko@gmail.com', '$2y$10$7E7bc53LW240v3IQgxqsxeAsN7COWdQG4MzyXSaTMoJhGrPY.2nXq', 0, 1, '2018-10-05 08:34:45', '2018-11-09 08:25:57', '0', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
 	(785, 'test', 'test', 'test@mail.ru', '$2y$10$4YDroBqTShV7HZa2wUygh.7h7vzv55VoQ.XKUhalgPB6DGVL5v9zu', 0, 0, '2018-10-11 12:23:53', '2018-11-01 09:19:23', '', '{}', '0000-00-00 00:00:00', 0, '', '', 0),
 	(786, 'pitomnik', 'pitomnik', 'pitomnik@mail.ru', '$2y$10$yYyRGUy.9Yplad4WV914ieY7xSghacwy1eaPOkcr5E8ZF9uiQAenO', 0, 0, '2018-10-14 06:15:02', '2018-10-31 09:35:52', '', '{}', '0000-00-00 00:00:00', 0, '', '', 0);
 /*!40000 ALTER TABLE `dogs_users` ENABLE KEYS */;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_user_keys
+DROP TABLE IF EXISTS `dogs_user_keys`;
 CREATE TABLE IF NOT EXISTS `dogs_user_keys` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6059,6 +6249,7 @@ DELETE FROM `dogs_user_keys`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_user_notes
+DROP TABLE IF EXISTS `dogs_user_notes`;
 CREATE TABLE IF NOT EXISTS `dogs_user_notes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -6087,6 +6278,7 @@ DELETE FROM `dogs_user_notes`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_user_profiles
+DROP TABLE IF EXISTS `dogs_user_profiles`;
 CREATE TABLE IF NOT EXISTS `dogs_user_profiles` (
   `user_id` int(11) NOT NULL,
   `profile_key` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6102,6 +6294,7 @@ DELETE FROM `dogs_user_profiles`;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_user_usergroup_map
+DROP TABLE IF EXISTS `dogs_user_usergroup_map`;
 CREATE TABLE IF NOT EXISTS `dogs_user_usergroup_map` (
   `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__users.id',
   `group_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__usergroups.id',
@@ -6119,6 +6312,7 @@ INSERT INTO `dogs_user_usergroup_map` (`user_id`, `group_id`) VALUES
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_utf8_conversion
+DROP TABLE IF EXISTS `dogs_utf8_conversion`;
 CREATE TABLE IF NOT EXISTS `dogs_utf8_conversion` (
   `converted` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -6132,6 +6326,7 @@ INSERT INTO `dogs_utf8_conversion` (`converted`) VALUES
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_viewlevels
+DROP TABLE IF EXISTS `dogs_viewlevels`;
 CREATE TABLE IF NOT EXISTS `dogs_viewlevels` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
