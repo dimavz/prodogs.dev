@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `dogs_assets` (
   UNIQUE KEY `idx_asset_name` (`name`),
   KEY `idx_lft_rgt` (`lft`,`rgt`),
   KEY `idx_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=268 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=269 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Дамп данных таблицы prodogs.loc.dogs_assets: ~266 rows (приблизительно)
 DELETE FROM `dogs_assets`;
@@ -824,9 +824,9 @@ INSERT INTO `dogs_extensions` (`extension_id`, `package_id`, `name`, `type`, `el
 	(449, 0, 'plg_authentication_cookie', 'plugin', 'cookie', 'authentication', 0, 1, 1, 0, '{"name":"plg_authentication_cookie","type":"plugin","creationDate":"July 2013","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"PLG_AUTH_COOKIE_XML_DESCRIPTION","group":"","filename":"cookie"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(450, 0, 'plg_twofactorauth_yubikey', 'plugin', 'yubikey', 'twofactorauth', 0, 0, 1, 0, '{"name":"plg_twofactorauth_yubikey","type":"plugin","creationDate":"September 2013","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.2.0","description":"PLG_TWOFACTORAUTH_YUBIKEY_XML_DESCRIPTION","group":"","filename":"yubikey"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(451, 0, 'plg_search_tags', 'plugin', 'tags', 'search', 0, 1, 1, 0, '{"name":"plg_search_tags","type":"plugin","creationDate":"March 2014","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"PLG_SEARCH_TAGS_XML_DESCRIPTION","group":"","filename":"tags"}', '{"search_limit":"50","show_tagged_items":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-	(452, 0, 'plg_system_updatenotification', 'plugin', 'updatenotification', 'system', 0, 1, 1, 0, '{"name":"plg_system_updatenotification","type":"plugin","creationDate":"May 2015","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_SYSTEM_UPDATENOTIFICATION_XML_DESCRIPTION","group":"","filename":"updatenotification"}', '{"lastrun":1541399111}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(452, 0, 'plg_system_updatenotification', 'plugin', 'updatenotification', 'system', 0, 1, 1, 0, '{"name":"plg_system_updatenotification","type":"plugin","creationDate":"May 2015","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_SYSTEM_UPDATENOTIFICATION_XML_DESCRIPTION","group":"","filename":"updatenotification"}', '{"lastrun":1541746962}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(453, 0, 'plg_editors-xtd_module', 'plugin', 'module', 'editors-xtd', 0, 1, 1, 0, '{"name":"plg_editors-xtd_module","type":"plugin","creationDate":"October 2015","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_MODULE_XML_DESCRIPTION","group":"","filename":"module"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-	(454, 0, 'plg_system_stats', 'plugin', 'stats', 'system', 0, 1, 1, 0, '{"name":"plg_system_stats","type":"plugin","creationDate":"November 2013","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_SYSTEM_STATS_XML_DESCRIPTION","group":"","filename":"stats"}', '{"mode":1,"lastrun":1541399207,"unique_id":"646b159ba1414416ca68f2fb7a5938d6af1af090","interval":12}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(454, 0, 'plg_system_stats', 'plugin', 'stats', 'system', 0, 1, 1, 0, '{"name":"plg_system_stats","type":"plugin","creationDate":"November 2013","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_SYSTEM_STATS_XML_DESCRIPTION","group":"","filename":"stats"}', '{"mode":1,"lastrun":1541747276,"unique_id":"646b159ba1414416ca68f2fb7a5938d6af1af090","interval":12}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(455, 0, 'plg_installer_packageinstaller', 'plugin', 'packageinstaller', 'installer', 0, 1, 1, 1, '{"name":"plg_installer_packageinstaller","type":"plugin","creationDate":"May 2016","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.6.0","description":"PLG_INSTALLER_PACKAGEINSTALLER_PLUGIN_XML_DESCRIPTION","group":"","filename":"packageinstaller"}', '', '', '', 0, '0000-00-00 00:00:00', 1, 0),
 	(456, 0, 'PLG_INSTALLER_FOLDERINSTALLER', 'plugin', 'folderinstaller', 'installer', 0, 1, 1, 1, '{"name":"PLG_INSTALLER_FOLDERINSTALLER","type":"plugin","creationDate":"May 2016","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.6.0","description":"PLG_INSTALLER_FOLDERINSTALLER_PLUGIN_XML_DESCRIPTION","group":"","filename":"folderinstaller"}', '', '', '', 0, '0000-00-00 00:00:00', 2, 0),
 	(457, 0, 'PLG_INSTALLER_URLINSTALLER', 'plugin', 'urlinstaller', 'installer', 0, 1, 1, 1, '{"name":"PLG_INSTALLER_URLINSTALLER","type":"plugin","creationDate":"May 2016","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.6.0","description":"PLG_INSTALLER_URLINSTALLER_PLUGIN_XML_DESCRIPTION","group":"","filename":"urlinstaller"}', '', '', '', 0, '0000-00-00 00:00:00', 3, 0),
@@ -1379,7 +1379,7 @@ CREATE TABLE IF NOT EXISTS `dogs_finder_taxonomy` (
   KEY `idx_parent_published` (`parent_id`,`state`,`access`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
--- Дамп данных таблицы prodogs.loc.dogs_finder_taxonomy: ~1 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_finder_taxonomy: ~0 rows (приблизительно)
 DELETE FROM `dogs_finder_taxonomy`;
 /*!40000 ALTER TABLE `dogs_finder_taxonomy` DISABLE KEYS */;
 INSERT INTO `dogs_finder_taxonomy` (`id`, `parent_id`, `title`, `state`, `access`, `ordering`) VALUES
@@ -2865,7 +2865,7 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_hits` (
   PRIMARY KEY (`id`),
   KEY `idx_record` (`record_id`),
   KEY `idex_user` (`section_id`,`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы prodogs.loc.dogs_js_res_hits: 36 rows
 DELETE FROM `dogs_js_res_hits`;
@@ -4179,7 +4179,7 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_packs_sections` (
   `section_id` int(11) NOT NULL DEFAULT '0',
   `params` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы prodogs.loc.dogs_js_res_packs_sections: 23 rows
 DELETE FROM `dogs_js_res_packs_sections`;
@@ -4297,9 +4297,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_record` (
   KEY `idx_comment` (`comments`),
   KEY `idx_vote` (`votes_result`),
   FULLTEXT KEY `full` (`fieldsdata`)
-) ENGINE=MyISAM AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_record: 76 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_record: 77 rows
 DELETE FROM `dogs_js_res_record`;
 /*!40000 ALTER TABLE `dogs_js_res_record` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_record` (`id`, `title`, `published`, `access`, `params`, `user_id`, `section_id`, `checked_out`, `checked_out_time`, `ctime`, `extime`, `mtime`, `inittime`, `ftime`, `pubtime`, `type_id`, `hits`, `ordering`, `meta_descr`, `meta_key`, `meta_index`, `alias`, `featured`, `archive`, `ucatid`, `ucatname`, `langs`, `asset_id`, `ip`, `votes`, `favorite_num`, `hidden`, `votes_result`, `exalert`, `access_key`, `categories`, `fieldsdata`, `fields`, `comments`, `tags`, `multirating`, `subscriptions_num`, `version`, `parent_id`, `parent`, `whorepost`, `repostedby`, `newTags`) VALUES
@@ -4460,7 +4460,7 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_record_values` (
   KEY `idx_key` (`field_key`),
   KEY `idx_record` (`record_id`),
   KEY `idx_field` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2124 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2132 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы prodogs.loc.dogs_js_res_record_values: 423 rows
 DELETE FROM `dogs_js_res_record_values`;
@@ -4944,7 +4944,7 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_sections` (
   `categories` int(11) DEFAULT '0',
   `language` char(7) NOT NULL DEFAULT '*',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы prodogs.loc.dogs_js_res_sections: 11 rows
 DELETE FROM `dogs_js_res_sections`;
@@ -4976,9 +4976,9 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_subscribe` (
   PRIMARY KEY (`id`),
   KEY `idx_rf` (`ref_id`),
   KEY `idx_us` (`user_id`,`section_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы prodogs.loc.dogs_js_res_subscribe: 79 rows
+-- Дамп данных таблицы prodogs.loc.dogs_js_res_subscribe: 80 rows
 DELETE FROM `dogs_js_res_subscribe`;
 /*!40000 ALTER TABLE `dogs_js_res_subscribe` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_subscribe` (`id`, `user_id`, `ref_id`, `ctime`, `type`, `params`, `section_id`) VALUES
@@ -5324,13 +5324,13 @@ CREATE TABLE IF NOT EXISTS `dogs_menu` (
   KEY `idx_alias` (`alias`(100)),
   KEY `idx_path` (`path`(100)),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_menu: ~56 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_menu: ~57 rows (приблизительно)
 DELETE FROM `dogs_menu`;
 /*!40000 ALTER TABLE `dogs_menu` DISABLE KEYS */;
 INSERT INTO `dogs_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`) VALUES
-	(1, '', 'Menu_Item_Root', 'root', '', '', '', '', 1, 0, 0, 0, 0, '0000-00-00 00:00:00', 0, 0, '', 0, '', 0, 111, 0, '*', 0),
+	(1, '', 'Menu_Item_Root', 'root', '', '', '', '', 1, 0, 0, 0, 0, '0000-00-00 00:00:00', 0, 0, '', 0, '', 0, 113, 0, '*', 0),
 	(2, 'main', 'com_banners', 'Banners', '', 'Banners', 'index.php?option=com_banners', 'component', 1, 1, 1, 4, 0, '0000-00-00 00:00:00', 0, 0, 'class:banners', 0, '', 1, 10, 0, '*', 1),
 	(3, 'main', 'com_banners', 'Banners', '', 'Banners/Banners', 'index.php?option=com_banners', 'component', 1, 2, 2, 4, 0, '0000-00-00 00:00:00', 0, 0, 'class:banners', 0, '', 2, 3, 0, '*', 1),
 	(4, 'main', 'com_banners_categories', 'Categories', '', 'Banners/Categories', 'index.php?option=com_categories&extension=com_banners', 'component', 1, 2, 2, 6, 0, '0000-00-00 00:00:00', 0, 0, 'class:banners-cat', 0, '', 4, 5, 0, '*', 1),
@@ -5385,7 +5385,8 @@ INSERT INTO `dogs_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `li
 	(132, 'usermenu', 'Мои объявления', 'my-dashboard', '', 'my-dashboard', 'index.php?option=com_cobalt&view=records&layout=user&section_id=9&view_what=created', 'component', 1, 1, 1, 10004, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 105, 106, 0, '*', 0),
 	(133, 'mainmenu', 'Публикации', 'articles', '', 'articles', 'index.php?option=com_cobalt&view=records&section_id=11:publikatsii', 'component', 1, 1, 1, 10004, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu_archive":"0","menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 15, 16, 0, '*', 0),
 	(134, 'mainmenu', 'Словарь собаковода', 'slovar-sobakovoda', '', 'slovar-sobakovoda', 'index.php?option=com_cobalt&view=records&section_id=12:slovar-sobakovoda', 'component', 1, 1, 1, 10004, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu_archive":"0","menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 107, 108, 0, '*', 0),
-	(135, 'adminmenu', 'Словарь собаковода', 'my-dictionary', '', 'my-dictionary', 'index.php?option=com_cobalt&view=records&layout=user&section_id=12&view_what=created', 'component', 1, 1, 1, 10004, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 109, 110, 0, '*', 0);
+	(135, 'adminmenu', 'Словарь собаковода', 'my-dictionary', '', 'my-dictionary', 'index.php?option=com_cobalt&view=records&layout=user&section_id=12&view_what=created', 'component', 1, 1, 1, 10004, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 109, 110, 0, '*', 0),
+	(136, 'adminmenu', 'Импорт Словаря', 'import-slovarya', '', 'import-slovarya', 'index.php?option=com_cobalt&view=import&section_id=12&type_id=20', 'component', 1, 1, 1, 10004, 0, '0000-00-00 00:00:00', 0, 6, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 111, 112, 0, '*', 0);
 /*!40000 ALTER TABLE `dogs_menu` ENABLE KEYS */;
 
 
@@ -5704,7 +5705,7 @@ CREATE TABLE IF NOT EXISTS `dogs_schemas` (
   PRIMARY KEY (`extension_id`,`version_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_schemas: ~1 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_schemas: ~0 rows (приблизительно)
 DELETE FROM `dogs_schemas`;
 /*!40000 ALTER TABLE `dogs_schemas` DISABLE KEYS */;
 INSERT INTO `dogs_schemas` (`extension_id`, `version_id`) VALUES
@@ -5726,12 +5727,14 @@ CREATE TABLE IF NOT EXISTS `dogs_session` (
   KEY `time` (`time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_session: ~2 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_session: ~4 rows (приблизительно)
 DELETE FROM `dogs_session`;
 /*!40000 ALTER TABLE `dogs_session` DISABLE KEYS */;
 INSERT INTO `dogs_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
 	('62mmpgio7hebpsla4ah28ed3n6', 1, 0, '1541403574', 'joomla|s:2240:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyNDE7czo1OiJ0b2tlbiI7czozMjoiWUVKbUlBdmZ6SHROVTl6WHJTZXFOVEV0TFNlNEZDNUsiO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTU0MTQwMTY3ODtzOjQ6Imxhc3QiO2k6MTU0MTQwMzU3MztzOjM6Im5vdyI7aToxNTQxNDAzNTc0O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6MTA6ImNvbV9jb2JhbHQiO086ODoic3RkQ2xhc3MiOjQ6e3M6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6NDp7czo3OiJzZWN0aW9uIjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6ImRhdGEiO047czoyOiJpZCI7YTowOnt9fXM6NDoidHlwZSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoyOiJpZCI7YTowOnt9czo0OiJkYXRhIjtOO31zOjU6ImZpZWxkIjtPOjg6InN0ZENsYXNzIjoyOntzOjI6ImlkIjthOjA6e31zOjQ6ImRhdGEiO047fXM6MTE6InBhY2tzZWN0aW9uIjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6ImRhdGEiO047czoyOiJpZCI7YTowOnt9fX1zOjY6ImZpZWxkcyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo2OiJmaWVsZHMiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoidHlwZSI7aToxMDt9fXM6NToicGFja3MiO086ODoic3RkQ2xhc3MiOjE6e3M6ODoib3JkZXJjb2wiO047fXM6MTI6InBhY2tzZWN0aW9ucyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo0OiJwYWNrIjtpOjI7czo4OiJvcmRlcmNvbCI7Tjt9fXM6OToiY29tX21lbnVzIjtPOjg6InN0ZENsYXNzIjoyOntzOjU6Iml0ZW1zIjtPOjg6InN0ZENsYXNzIjo2OntzOjg6Im1lbnV0eXBlIjtzOjk6ImFkbWlubWVudSI7czo5OiJjbGllbnRfaWQiO2k6MDtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7czo0OiJsaXN0IjthOjQ6e3M6OToiZGlyZWN0aW9uIjtzOjM6ImFzYyI7czo1OiJsaW1pdCI7czoyOiIyMCI7czo4OiJvcmRlcmluZyI7czo1OiJhLmxmdCI7czo1OiJzdGFydCI7ZDowO31zOjk6InB1Ymxpc2hlZCI7czoxOiIxIjtzOjY6ImZpbHRlciI7YToxOntzOjk6InB1Ymxpc2hlZCI7czoxOiIxIjt9fXM6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJpdGVtIjtPOjg6InN0ZENsYXNzIjo0OntzOjQ6ImRhdGEiO047czo0OiJ0eXBlIjtOO3M6NDoibGluayI7TjtzOjI6ImlkIjthOjA6e319fX1zOjExOiJjb21fcGx1Z2lucyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjoxOntzOjY6InBsdWdpbiI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoyOiJpZCI7YTowOnt9czo0OiJkYXRhIjtOO319fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtzOjM6Ijc4NCI7fXM6MTE6ImFwcGxpY2F0aW9uIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6InF1ZXVlIjthOjA6e319fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO30=";', 784, 'admin'),
-	('h8ogcejbvdppg8rbsflh2d37c2', 0, 0, '1541403441', 'joomla|s:3612:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo1OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxNDM7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNTQxMzk5MTE3O3M6NDoibGFzdCI7aToxNTQxNDAzNDQxO3M6Mzoibm93IjtpOjE1NDE0MDM0NDE7fXM6NToidG9rZW4iO3M6MzI6InBna1ZJVTE1YlRGeHBYeTN0aHFEa3RrNTREVUxwaG1DIjt9czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjU6e3M6Nzoic2tpcGVycyI7Tzo4OiJzdGRDbGFzcyI6MTp7czozOiJhbGwiO2E6MDp7fX1zOjY6Imdsb2JhbCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJsaXN0IjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbWl0IjtpOjU7fX1zOjEwOiJjb21fY29iYWx0IjtPOjg6InN0ZENsYXNzIjoxNjp7czo4OiJyZWNvcmRzMSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6MTt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjY6ImZpZWxkcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo4OiJvcmRlcmNvbCI7TjtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6MjI6InJlY29yZHM5X3Nob3dfY2hpbGRyZW4iO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjk7fX1zOjg6InJlY29yZHM5IjtPOjg6InN0ZENsYXNzIjo0OntzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7czo4OiJvcmRlcmNvbCI7TjtzOjk6Im9yZGVyZGlybiI7TjtzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo5O319czo4OiJyZWNvcmRzNiI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6Njt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjk6InJlY29yZHMxMSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6MTE7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czoxMDoiY2F0ZWdvcmllcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo4OiJvcmRlcmNvbCI7TjtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6ODoicmVjb3JkczIiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjI7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czo4OiJyZWNvcmRzNSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6NTt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjg6InJlY29yZHM4IjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo4O31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6OToicmVjb3JkczEyIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxMjt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjE4OiJyZWNvcmRzM18xX2NyZWF0ZWQiO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjM7fX1zOjg6InJlY29yZHMzIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6MTk6InJlY29yZHMxMl8xX2NyZWF0ZWQiO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjEyO319czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImZvcm0iO086ODoic3RkQ2xhc3MiOjI6e3M6MjoiaWQiO2E6MDp7fXM6NDoiZGF0YSI7Tjt9fXM6NToidXNlcnMiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibW9kYWwiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjc6InNlY3Rpb24iO3M6MjoiMTIiO31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fX19czo3OiJjb2JhbHQ4IjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbWl0IjtzOjI6IjIwIjt9czo1OiJ1c2VycyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJsb2dpbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJmb3JtIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6InJldHVybiI7czozNjoiaHR0cDovL3Byb2RvZ3MubG9jL3Nsb3Zhci1zb2Jha292b2RhIjtzOjQ6ImRhdGEiO2E6MDp7fX19fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtzOjM6Ijc4NCI7fXM6MjA6ImNvYmFsdF9sYXN0X2xpc3RfaWRzIjthOjI6e2k6MDtzOjE6IjQiO2k6MTtzOjE6IjEiO31zOjExOiJhcHBsaWNhdGlvbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJxdWV1ZSI7YTowOnt9fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9";', 784, 'admin');
+	('bcodnv2dn0nhal10i8a6ec4q26', 1, 0, '1541747634', 'joomla|s:1404:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxMjtzOjU6InRva2VuIjtzOjMyOiJ4clZRNTdTMUJCRGpIMmFJZ3pUZXU3TUFQZ25DOEJZYiI7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNTQxNzQ3MjcxO3M6NDoibGFzdCI7aToxNTQxNzQ3NjM0O3M6Mzoibm93IjtpOjE1NDE3NDc2MzQ7fX1zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoxMzoiY29tX2luc3RhbGxlciI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo3OiJtZXNzYWdlIjtzOjA6IiI7czoxNzoiZXh0ZW5zaW9uX21lc3NhZ2UiO3M6MDoiIjt9czo5OiJjb21fbWVudXMiO086ODoic3RkQ2xhc3MiOjI6e3M6NToiaXRlbXMiO086ODoic3RkQ2xhc3MiOjQ6e3M6ODoibWVudXR5cGUiO3M6OToiYWRtaW5tZW51IjtzOjk6ImNsaWVudF9pZCI7aTowO3M6MTA6ImxpbWl0c3RhcnQiO2k6MDtzOjQ6Imxpc3QiO2E6NDp7czo5OiJkaXJlY3Rpb24iO3M6MzoiYXNjIjtzOjU6ImxpbWl0IjtzOjI6IjIwIjtzOjg6Im9yZGVyaW5nIjtzOjU6ImEubGZ0IjtzOjU6InN0YXJ0IjtkOjA7fX1zOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiaXRlbSI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo0OiJkYXRhIjtOO3M6NDoidHlwZSI7TjtzOjQ6ImxpbmsiO047fX19fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO3M6MzoiNzg0Ijt9czoxMToiYXBwbGljYXRpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NToicXVldWUiO2E6MDp7fX19fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 784, 'admin'),
+	('h8ogcejbvdppg8rbsflh2d37c2', 0, 0, '1541403441', 'joomla|s:3612:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo1OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxNDM7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNTQxMzk5MTE3O3M6NDoibGFzdCI7aToxNTQxNDAzNDQxO3M6Mzoibm93IjtpOjE1NDE0MDM0NDE7fXM6NToidG9rZW4iO3M6MzI6InBna1ZJVTE1YlRGeHBYeTN0aHFEa3RrNTREVUxwaG1DIjt9czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjU6e3M6Nzoic2tpcGVycyI7Tzo4OiJzdGRDbGFzcyI6MTp7czozOiJhbGwiO2E6MDp7fX1zOjY6Imdsb2JhbCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJsaXN0IjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbWl0IjtpOjU7fX1zOjEwOiJjb21fY29iYWx0IjtPOjg6InN0ZENsYXNzIjoxNjp7czo4OiJyZWNvcmRzMSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6MTt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjY6ImZpZWxkcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo4OiJvcmRlcmNvbCI7TjtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6MjI6InJlY29yZHM5X3Nob3dfY2hpbGRyZW4iO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjk7fX1zOjg6InJlY29yZHM5IjtPOjg6InN0ZENsYXNzIjo0OntzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7czo4OiJvcmRlcmNvbCI7TjtzOjk6Im9yZGVyZGlybiI7TjtzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo5O319czo4OiJyZWNvcmRzNiI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6Njt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjk6InJlY29yZHMxMSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6MTE7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czoxMDoiY2F0ZWdvcmllcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo4OiJvcmRlcmNvbCI7TjtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6ODoicmVjb3JkczIiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjI7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czo4OiJyZWNvcmRzNSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6NTt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjg6InJlY29yZHM4IjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo4O31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6OToicmVjb3JkczEyIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxMjt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjE4OiJyZWNvcmRzM18xX2NyZWF0ZWQiO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjM7fX1zOjg6InJlY29yZHMzIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6MTk6InJlY29yZHMxMl8xX2NyZWF0ZWQiO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjEyO319czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImZvcm0iO086ODoic3RkQ2xhc3MiOjI6e3M6MjoiaWQiO2E6MDp7fXM6NDoiZGF0YSI7Tjt9fXM6NToidXNlcnMiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibW9kYWwiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjc6InNlY3Rpb24iO3M6MjoiMTIiO31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fX19czo3OiJjb2JhbHQ4IjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbWl0IjtzOjI6IjIwIjt9czo1OiJ1c2VycyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJsb2dpbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJmb3JtIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6InJldHVybiI7czozNjoiaHR0cDovL3Byb2RvZ3MubG9jL3Nsb3Zhci1zb2Jha292b2RhIjtzOjQ6ImRhdGEiO2E6MDp7fX19fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtzOjM6Ijc4NCI7fXM6MjA6ImNvYmFsdF9sYXN0X2xpc3RfaWRzIjthOjI6e2k6MDtzOjE6IjQiO2k6MTtzOjE6IjEiO31zOjExOiJhcHBsaWNhdGlvbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJxdWV1ZSI7YTowOnt9fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9";', 784, 'admin'),
+	('rcnr3irct524uko375qamb32j5', 0, 0, '1541747332', 'joomla|s:2068:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyMTtzOjU6InRva2VuIjtzOjMyOiJKRHIyN1JsQUFYM0RiT2hQS1RiWnRHZ2NXSzJCVFUybiI7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNTQxNzQ2OTgyO3M6NDoibGFzdCI7aToxNTQxNzQ3MzMyO3M6Mzoibm93IjtpOjE1NDE3NDczMzI7fX1zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6NTp7czo3OiJza2lwZXJzIjtPOjg6InN0ZENsYXNzIjoxOntzOjM6ImFsbCI7YTowOnt9fXM6NjoiZ2xvYmFsIjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6Imxpc3QiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibGltaXQiO2k6NTt9fXM6MTA6ImNvbV9jb2JhbHQiO086ODoic3RkQ2xhc3MiOjY6e3M6ODoicmVjb3JkczYiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjY7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czo2OiJmaWVsZHMiO086ODoic3RkQ2xhc3MiOjI6e3M6ODoib3JkZXJjb2wiO047czoxMDoibGltaXRzdGFydCI7aTowO31zOjk6InJlY29yZHMxMiI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6MTI7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czoxODoicmVjb3JkczhfMV9jcmVhdGVkIjtPOjg6InN0ZENsYXNzIjoxOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo4O319czo4OiJyZWNvcmRzOCI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoibGltaXRzdGFydCI7aTowO31zOjE5OiJyZWNvcmRzMTJfMV9jcmVhdGVkIjtPOjg6InN0ZENsYXNzIjoxOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxMjt9fX1zOjU6InVzZXJzIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxvZ2luIjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImZvcm0iO086ODoic3RkQ2xhc3MiOjI6e3M6NjoicmV0dXJuIjtzOjM2OiJodHRwOi8vcHJvZG9ncy5sb2Mvc2xvdmFyLXNvYmFrb3ZvZGEiO3M6NDoiZGF0YSI7YTowOnt9fX19czo3OiJjb2JhbHQ4IjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbWl0IjtzOjI6IjIwIjt9fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO3M6MzoiNzg0Ijt9czoyMDoiY29iYWx0X2xhc3RfbGlzdF9pZHMiO2E6Mjp7aTowO3M6MjoiODMiO2k6MTtzOjI6IjgyIjt9fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO30=";', 784, 'admin');
 /*!40000 ALTER TABLE `dogs_session` ENABLE KEYS */;
 
 
@@ -5777,7 +5780,7 @@ CREATE TABLE IF NOT EXISTS `dogs_tags` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_tags: ~1 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_tags: ~0 rows (приблизительно)
 DELETE FROM `dogs_tags`;
 /*!40000 ALTER TABLE `dogs_tags` DISABLE KEYS */;
 INSERT INTO `dogs_tags` (`id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `created_by_alias`, `modified_user_id`, `modified_time`, `images`, `urls`, `hits`, `language`, `version`, `publish_up`, `publish_down`) VALUES
@@ -5946,9 +5949,9 @@ CREATE TABLE IF NOT EXISTS `dogs_update_sites` (
 DELETE FROM `dogs_update_sites`;
 /*!40000 ALTER TABLE `dogs_update_sites` DISABLE KEYS */;
 INSERT INTO `dogs_update_sites` (`update_site_id`, `name`, `type`, `location`, `enabled`, `last_check_timestamp`, `extra_query`) VALUES
-	(1, 'Joomla! Core', 'collection', 'https://update.joomla.org/core/list.xml', 1, 1541399131, ''),
-	(2, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_3.xml', 1, 1540970122, ''),
-	(3, 'Joomla! Update Component Update Site', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1540970142, '');
+	(1, 'Joomla! Core', 'collection', 'https://update.joomla.org/core/list.xml', 1, 1541747297, ''),
+	(2, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_3.xml', 1, 1541747317, ''),
+	(3, 'Joomla! Update Component Update Site', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1541747337, '');
 /*!40000 ALTER TABLE `dogs_update_sites` ENABLE KEYS */;
 
 
@@ -6029,7 +6032,7 @@ CREATE TABLE IF NOT EXISTS `dogs_users` (
 DELETE FROM `dogs_users`;
 /*!40000 ALTER TABLE `dogs_users` DISABLE KEYS */;
 INSERT INTO `dogs_users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`, `otpKey`, `otep`, `requireReset`) VALUES
-	(784, 'Super User', 'admin', 'zatulenko@gmail.com', '$2y$10$7E7bc53LW240v3IQgxqsxeAsN7COWdQG4MzyXSaTMoJhGrPY.2nXq', 0, 1, '2018-10-05 08:34:45', '2018-11-05 07:16:04', '0', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
+	(784, 'Super User', 'admin', 'zatulenko@gmail.com', '$2y$10$7E7bc53LW240v3IQgxqsxeAsN7COWdQG4MzyXSaTMoJhGrPY.2nXq', 0, 1, '2018-10-05 08:34:45', '2018-11-09 07:08:15', '0', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
 	(785, 'test', 'test', 'test@mail.ru', '$2y$10$4YDroBqTShV7HZa2wUygh.7h7vzv55VoQ.XKUhalgPB6DGVL5v9zu', 0, 0, '2018-10-11 12:23:53', '2018-11-01 09:19:23', '', '{}', '0000-00-00 00:00:00', 0, '', '', 0),
 	(786, 'pitomnik', 'pitomnik', 'pitomnik@mail.ru', '$2y$10$yYyRGUy.9Yplad4WV914ieY7xSghacwy1eaPOkcr5E8ZF9uiQAenO', 0, 0, '2018-10-14 06:15:02', '2018-10-31 09:35:52', '', '{}', '0000-00-00 00:00:00', 0, '', '', 0);
 /*!40000 ALTER TABLE `dogs_users` ENABLE KEYS */;
@@ -6120,7 +6123,7 @@ CREATE TABLE IF NOT EXISTS `dogs_utf8_conversion` (
   `converted` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_utf8_conversion: ~1 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_utf8_conversion: ~0 rows (приблизительно)
 DELETE FROM `dogs_utf8_conversion`;
 /*!40000 ALTER TABLE `dogs_utf8_conversion` DISABLE KEYS */;
 INSERT INTO `dogs_utf8_conversion` (`converted`) VALUES
