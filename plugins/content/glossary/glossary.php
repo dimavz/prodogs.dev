@@ -98,6 +98,18 @@ class plgContentGlossary extends JPlugin
 
 			$article->text = preg_replace("/([^\w]?)(". preg_quote($title) .'|'.preg_quote($vall->title).")([^\w]?)/is", $string, $article->text);
 
+			// $text = $article->text;
+			// if($text ==''){
+			// 	print_r($text);
+			// 	exit();
+			// }
+			// else
+			// {
+			// 	echo "Текст пуст";
+			// 	exit();
+			// }
+			
+
 		}
 	}
 }
