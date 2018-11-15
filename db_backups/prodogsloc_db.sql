@@ -24,13 +24,13 @@ CREATE TABLE IF NOT EXISTS `dogs_assets` (
   UNIQUE KEY `idx_asset_name` (`name`),
   KEY `idx_lft_rgt` (`lft`,`rgt`),
   KEY `idx_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=284 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=302 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_assets: ~280 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_assets: ~298 rows (приблизительно)
 DELETE FROM `dogs_assets`;
 /*!40000 ALTER TABLE `dogs_assets` DISABLE KEYS */;
 INSERT INTO `dogs_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `title`, `rules`) VALUES
-	(1, 0, 0, 559, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
+	(1, 0, 0, 595, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
 	(2, 1, 1, 2, 1, 'com_admin', 'com_admin', '{}'),
 	(3, 1, 3, 6, 1, 'com_banners', 'com_banners', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
 	(4, 1, 7, 8, 1, 'com_cache', 'com_cache', '{"core.admin":{"7":1},"core.manage":{"7":1}}'),
@@ -47,44 +47,44 @@ INSERT INTO `dogs_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `ti
 	(15, 1, 35, 36, 1, 'com_media', 'com_media', '{"core.admin":{"7":1},"core.manage":{"6":1},"core.create":{"3":1},"core.delete":{"5":1}}'),
 	(16, 1, 37, 48, 1, 'com_menus', 'com_menus', '{"core.admin":{"7":1}}'),
 	(17, 1, 49, 50, 1, 'com_messages', 'com_messages', '{"core.admin":{"7":1},"core.manage":{"7":1}}'),
-	(18, 1, 51, 134, 1, 'com_modules', 'com_modules', '{"core.admin":{"7":1}}'),
-	(19, 1, 135, 138, 1, 'com_newsfeeds', 'com_newsfeeds', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
-	(20, 1, 139, 140, 1, 'com_plugins', 'com_plugins', '{"core.admin":{"7":1}}'),
-	(21, 1, 141, 142, 1, 'com_redirect', 'com_redirect', '{"core.admin":{"7":1}}'),
-	(22, 1, 143, 144, 1, 'com_search', 'com_search', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
-	(23, 1, 145, 146, 1, 'com_templates', 'com_templates', '{"core.admin":{"7":1}}'),
-	(24, 1, 147, 150, 1, 'com_users', 'com_users', '{"core.admin":{"7":1}}'),
-	(26, 1, 151, 152, 1, 'com_wrapper', 'com_wrapper', '{}'),
+	(18, 1, 51, 170, 1, 'com_modules', 'com_modules', '{"core.admin":{"7":1}}'),
+	(19, 1, 171, 174, 1, 'com_newsfeeds', 'com_newsfeeds', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
+	(20, 1, 175, 176, 1, 'com_plugins', 'com_plugins', '{"core.admin":{"7":1}}'),
+	(21, 1, 177, 178, 1, 'com_redirect', 'com_redirect', '{"core.admin":{"7":1}}'),
+	(22, 1, 179, 180, 1, 'com_search', 'com_search', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
+	(23, 1, 181, 182, 1, 'com_templates', 'com_templates', '{"core.admin":{"7":1}}'),
+	(24, 1, 183, 186, 1, 'com_users', 'com_users', '{"core.admin":{"7":1}}'),
+	(26, 1, 187, 188, 1, 'com_wrapper', 'com_wrapper', '{}'),
 	(27, 8, 18, 19, 2, 'com_content.category.2', 'Uncategorised', '{}'),
 	(28, 3, 4, 5, 2, 'com_banners.category.3', 'Uncategorised', '{}'),
 	(29, 7, 14, 15, 2, 'com_contact.category.4', 'Uncategorised', '{}'),
-	(30, 19, 136, 137, 2, 'com_newsfeeds.category.5', 'Uncategorised', '{}'),
-	(32, 24, 148, 149, 2, 'com_users.category.7', 'Uncategorised', '{}'),
-	(33, 1, 153, 154, 1, 'com_finder', 'com_finder', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
-	(34, 1, 155, 156, 1, 'com_joomlaupdate', 'com_joomlaupdate', '{}'),
-	(35, 1, 157, 158, 1, 'com_tags', 'com_tags', '{}'),
-	(36, 1, 159, 160, 1, 'com_contenthistory', 'com_contenthistory', '{}'),
-	(37, 1, 161, 162, 1, 'com_ajax', 'com_ajax', '{}'),
-	(38, 1, 163, 164, 1, 'com_postinstall', 'com_postinstall', '{}'),
+	(30, 19, 172, 173, 2, 'com_newsfeeds.category.5', 'Uncategorised', '{}'),
+	(32, 24, 184, 185, 2, 'com_users.category.7', 'Uncategorised', '{}'),
+	(33, 1, 189, 190, 1, 'com_finder', 'com_finder', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
+	(34, 1, 191, 192, 1, 'com_joomlaupdate', 'com_joomlaupdate', '{}'),
+	(35, 1, 193, 194, 1, 'com_tags', 'com_tags', '{}'),
+	(36, 1, 195, 196, 1, 'com_contenthistory', 'com_contenthistory', '{}'),
+	(37, 1, 197, 198, 1, 'com_ajax', 'com_ajax', '{}'),
+	(38, 1, 199, 200, 1, 'com_postinstall', 'com_postinstall', '{}'),
 	(39, 18, 52, 53, 2, 'com_modules.module.1', 'Главное меню', '{}'),
-	(40, 18, 54, 55, 2, 'com_modules.module.2', 'Login', '{}'),
-	(41, 18, 56, 57, 2, 'com_modules.module.3', 'Popular Articles', '{}'),
-	(42, 18, 58, 59, 2, 'com_modules.module.4', 'Recently Added Articles', '{}'),
-	(43, 18, 60, 61, 2, 'com_modules.module.8', 'Toolbar', '{}'),
-	(44, 18, 62, 63, 2, 'com_modules.module.9', 'Quick Icons', '{}'),
-	(45, 18, 64, 65, 2, 'com_modules.module.10', 'Logged-in Users', '{}'),
-	(46, 18, 66, 67, 2, 'com_modules.module.12', 'Admin Menu', '{}'),
+	(40, 18, 54, 55, 2, 'com_modules.module.2', 'Логин', '{}'),
+	(41, 18, 56, 57, 2, 'com_modules.module.3', 'Популярные статьи', '{}'),
+	(42, 18, 58, 59, 2, 'com_modules.module.4', 'Недавно добавленные статьи', '{}'),
+	(43, 18, 60, 61, 2, 'com_modules.module.8', 'Панель инструментов', '{}'),
+	(44, 18, 62, 63, 2, 'com_modules.module.9', 'Быстрые иконки', '{}'),
+	(45, 18, 64, 65, 2, 'com_modules.module.10', 'Вошедшие пользователи', '{}'),
+	(46, 18, 66, 67, 2, 'com_modules.module.12', 'Меню Администратора', '{}'),
 	(47, 18, 68, 69, 2, 'com_modules.module.13', 'Admin Submenu', '{}'),
-	(48, 18, 70, 71, 2, 'com_modules.module.14', 'User Status', '{}'),
-	(49, 18, 72, 73, 2, 'com_modules.module.15', 'Title', '{}'),
+	(48, 18, 70, 71, 2, 'com_modules.module.14', 'Статус Пользователя', '{}'),
+	(49, 18, 72, 73, 2, 'com_modules.module.15', 'Заголовок', '{}'),
 	(50, 18, 74, 75, 2, 'com_modules.module.16', 'Login Form', '{}'),
 	(51, 18, 76, 77, 2, 'com_modules.module.17', 'Breadcrumbs', '{}'),
 	(52, 18, 78, 79, 2, 'com_modules.module.79', 'Multilanguage status', '{}'),
-	(53, 18, 80, 81, 2, 'com_modules.module.86', 'Joomla Version', '{}'),
+	(53, 18, 80, 81, 2, 'com_modules.module.86', 'Версия Joomla', '{}'),
 	(54, 16, 38, 39, 2, 'com_menus.menu.1', 'Главное меню', '{}'),
-	(55, 18, 82, 83, 2, 'com_modules.module.87', 'Sample Data', '{}'),
+	(55, 18, 82, 83, 2, 'com_modules.module.87', 'Пример данных', '{}'),
 	(56, 11, 26, 27, 2, 'com_languages.language.2', 'Русский (Россия)', '{}'),
-	(57, 1, 165, 208, 1, 'com_cobalt', 'com_cobalt', '{}'),
+	(57, 1, 201, 244, 1, 'com_cobalt', 'com_cobalt', '{}'),
 	(58, 18, 84, 85, 2, 'com_modules.module.88', 'Категории объявлений', '{}'),
 	(59, 18, 86, 87, 2, 'com_modules.module.89', 'Cobalt - Module - Filters', '{}'),
 	(60, 18, 88, 89, 2, 'com_modules.module.90', 'Cobalt - Module - Who Follows User', '{}'),
@@ -96,91 +96,91 @@ INSERT INTO `dogs_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `ti
 	(66, 18, 100, 101, 2, 'com_modules.module.96', 'Cobalt - Module - Submit Button', '{}'),
 	(67, 18, 102, 103, 2, 'com_modules.module.97', 'Cobalt - Module - Tag Cloud', '{}'),
 	(68, 18, 104, 105, 2, 'com_modules.module.98', 'Cobalt - Module - User Statictics', '{}'),
-	(69, 57, 166, 167, 2, 'com_cobalt.type.1', 'Cobalt Content Type: Собака', '{}'),
-	(70, 1, 209, 210, 1, 'com_cobalt.field.1', 'Изображение', '{}'),
-	(71, 1, 211, 212, 1, 'com_cobalt.field.2', 'Примечание', '{}'),
-	(72, 1, 213, 214, 1, 'com_cobalt.field.3', 'Кличка домашняя', '{}'),
-	(73, 1, 215, 216, 1, 'com_cobalt.field.4', 'Кличка по родословной', '{}'),
-	(74, 1, 217, 218, 1, 'com_cobalt.section.1', '', '{}'),
-	(75, 57, 168, 169, 2, 'com_cobalt.type.2', 'Cobalt Content Type: Порода', '{}'),
-	(76, 1, 219, 220, 1, 'com_cobalt.field.5', 'Изображение породы', '{}'),
-	(77, 1, 221, 222, 1, 'com_cobalt.field.6', 'Описание породы', '{}'),
-	(78, 1, 223, 224, 1, 'com_cobalt.section.2', '', '{}'),
-	(79, 1, 225, 226, 1, 'com_cobalt.field.7', 'Собака', '{}'),
-	(80, 1, 227, 228, 1, 'com_cobalt.field.8', 'Порода', '{}'),
+	(69, 57, 202, 203, 2, 'com_cobalt.type.1', 'Cobalt Content Type: Собака', '{}'),
+	(70, 1, 245, 246, 1, 'com_cobalt.field.1', 'Изображение', '{}'),
+	(71, 1, 247, 248, 1, 'com_cobalt.field.2', 'Примечание', '{}'),
+	(72, 1, 249, 250, 1, 'com_cobalt.field.3', 'Кличка домашняя', '{}'),
+	(73, 1, 251, 252, 1, 'com_cobalt.field.4', 'Кличка по родословной', '{}'),
+	(74, 1, 253, 254, 1, 'com_cobalt.section.1', '', '{}'),
+	(75, 57, 204, 205, 2, 'com_cobalt.type.2', 'Cobalt Content Type: Порода', '{}'),
+	(76, 1, 255, 256, 1, 'com_cobalt.field.5', 'Изображение породы', '{}'),
+	(77, 1, 257, 258, 1, 'com_cobalt.field.6', 'Описание породы', '{}'),
+	(78, 1, 259, 260, 1, 'com_cobalt.section.2', '', '{}'),
+	(79, 1, 261, 262, 1, 'com_cobalt.field.7', 'Собака', '{}'),
+	(80, 1, 263, 264, 1, 'com_cobalt.field.8', 'Порода', '{}'),
 	(81, 16, 40, 41, 2, 'com_menus.menu.2', 'Меню Собаковода', '{}'),
 	(82, 18, 106, 107, 2, 'com_modules.module.99', 'Менеджер Собаковода', '{}'),
-	(83, 1, 229, 230, 1, 'com_cobalt.field.9', 'Пол', '{}'),
-	(84, 1, 231, 232, 1, 'com_cobalt.field.10', 'Дата рождения', '{}'),
-	(85, 1, 233, 234, 1, 'com_cobalt.field.11', 'Дата смерти', '{}'),
-	(86, 1, 235, 236, 1, 'com_cobalt.field.12', 'Номер РКФ/FCI', '{}'),
-	(87, 1, 237, 238, 1, 'com_cobalt.field.13', 'Клеймо/Chip', '{}'),
-	(88, 1, 239, 240, 1, 'com_cobalt.field.14', 'Окрас', '{}'),
-	(89, 1, 241, 242, 1, 'com_cobalt.field.15', 'Высота в холке', '{}'),
-	(90, 1, 243, 244, 1, 'com_cobalt.field.16', 'Вес', '{}'),
-	(91, 1, 245, 246, 1, 'com_cobalt.field.17', 'Место нахождения', '{}'),
-	(92, 57, 170, 171, 2, 'com_cobalt.type.3', 'Cobalt Content Type: Альбом', '{}'),
-	(93, 1, 247, 248, 1, 'com_cobalt.field.18', 'Галлерея', '{}'),
-	(94, 1, 249, 250, 1, 'com_cobalt.section.3', '', '{}'),
-	(95, 1, 251, 252, 1, 'com_cobalt.field.19', 'Описание альбома', '{}'),
-	(96, 1, 253, 254, 1, 'com_cobalt.field.20', 'Собака', '{}'),
-	(97, 1, 255, 256, 1, 'com_cobalt.field.21', 'Альбом', '{}'),
-	(98, 57, 172, 173, 2, 'com_cobalt.type.4', 'Cobalt Content Type: Видеоролик', '{}'),
-	(99, 1, 257, 258, 1, 'com_cobalt.section.4', '', '{}'),
-	(100, 1, 259, 260, 1, 'com_cobalt.field.22', 'Ссылка на видео', '{}'),
-	(101, 1, 261, 262, 1, 'com_cobalt.field.23', 'Описание ролика', '{}'),
-	(102, 1, 263, 264, 1, 'com_cobalt.field.24', 'Собака', '{}'),
-	(103, 1, 265, 266, 1, 'com_cobalt.field.25', 'Видеоролик', '{}'),
-	(104, 57, 174, 175, 2, 'com_cobalt.type.5', 'Cobalt Content Type: Питомник', '{}'),
-	(105, 1, 267, 268, 1, 'com_cobalt.section.5', '', '{}'),
-	(106, 1, 269, 270, 1, 'com_cobalt.field.26', 'Обложка питомника', '{}'),
-	(107, 1, 271, 272, 1, 'com_cobalt.field.27', 'Описание питомника', '{}'),
-	(108, 1, 273, 274, 1, 'com_cobalt.field.28', 'Заводчик', '{}'),
-	(109, 1, 275, 276, 1, 'com_cobalt.field.29', 'E-mail', '{}'),
+	(83, 1, 265, 266, 1, 'com_cobalt.field.9', 'Пол', '{}'),
+	(84, 1, 267, 268, 1, 'com_cobalt.field.10', 'Дата рождения', '{}'),
+	(85, 1, 269, 270, 1, 'com_cobalt.field.11', 'Дата смерти', '{}'),
+	(86, 1, 271, 272, 1, 'com_cobalt.field.12', 'Номер РКФ/FCI', '{}'),
+	(87, 1, 273, 274, 1, 'com_cobalt.field.13', 'Клеймо/Chip', '{}'),
+	(88, 1, 275, 276, 1, 'com_cobalt.field.14', 'Окрас', '{}'),
+	(89, 1, 277, 278, 1, 'com_cobalt.field.15', 'Высота в холке', '{}'),
+	(90, 1, 279, 280, 1, 'com_cobalt.field.16', 'Вес', '{}'),
+	(91, 1, 281, 282, 1, 'com_cobalt.field.17', 'Место нахождения', '{}'),
+	(92, 57, 206, 207, 2, 'com_cobalt.type.3', 'Cobalt Content Type: Альбом', '{}'),
+	(93, 1, 283, 284, 1, 'com_cobalt.field.18', 'Галлерея', '{}'),
+	(94, 1, 285, 286, 1, 'com_cobalt.section.3', '', '{}'),
+	(95, 1, 287, 288, 1, 'com_cobalt.field.19', 'Описание альбома', '{}'),
+	(96, 1, 289, 290, 1, 'com_cobalt.field.20', 'Собака', '{}'),
+	(97, 1, 291, 292, 1, 'com_cobalt.field.21', 'Альбом', '{}'),
+	(98, 57, 208, 209, 2, 'com_cobalt.type.4', 'Cobalt Content Type: Видеоролик', '{}'),
+	(99, 1, 293, 294, 1, 'com_cobalt.section.4', '', '{}'),
+	(100, 1, 295, 296, 1, 'com_cobalt.field.22', 'Ссылка на видео', '{}'),
+	(101, 1, 297, 298, 1, 'com_cobalt.field.23', 'Описание ролика', '{}'),
+	(102, 1, 299, 300, 1, 'com_cobalt.field.24', 'Собака', '{}'),
+	(103, 1, 301, 302, 1, 'com_cobalt.field.25', 'Видеоролик', '{}'),
+	(104, 57, 210, 211, 2, 'com_cobalt.type.5', 'Cobalt Content Type: Питомник', '{}'),
+	(105, 1, 303, 304, 1, 'com_cobalt.section.5', '', '{}'),
+	(106, 1, 305, 306, 1, 'com_cobalt.field.26', 'Обложка питомника', '{}'),
+	(107, 1, 307, 308, 1, 'com_cobalt.field.27', 'Описание питомника', '{}'),
+	(108, 1, 309, 310, 1, 'com_cobalt.field.28', 'Заводчик', '{}'),
+	(109, 1, 311, 312, 1, 'com_cobalt.field.29', 'E-mail', '{}'),
 	(110, 16, 42, 43, 2, 'com_menus.menu.3', 'Меню Питомника', '{}'),
 	(111, 18, 108, 109, 2, 'com_modules.module.100', 'Менеджер Питомника', '{}'),
-	(112, 1, 277, 278, 1, 'com_cobalt.field.30', 'Мобильный телефон', '{}'),
-	(113, 1, 279, 280, 1, 'com_cobalt.field.31', 'Телефон', '{}'),
-	(114, 1, 281, 282, 1, 'com_cobalt.field.32', 'Skype', '{}'),
-	(115, 1, 283, 284, 1, 'com_cobalt.field.33', 'Сайт', '{}'),
-	(116, 1, 285, 286, 1, 'com_cobalt.field.34', 'Местоположение', '{}'),
-	(117, 1, 287, 288, 1, 'com_cobalt.field.35', 'Факс', '{}'),
-	(118, 1, 289, 290, 1, 'com_cobalt.field.36', 'Собака', '{}'),
-	(119, 1, 291, 292, 1, 'com_cobalt.field.37', 'Питомник', '{}'),
-	(120, 1, 293, 294, 1, 'com_cobalt.field.38', 'Питомник', '{}'),
-	(121, 1, 295, 296, 1, 'com_cobalt.field.39', 'Порода', '{}'),
+	(112, 1, 313, 314, 1, 'com_cobalt.field.30', 'Мобильный телефон', '{}'),
+	(113, 1, 315, 316, 1, 'com_cobalt.field.31', 'Телефон', '{}'),
+	(114, 1, 317, 318, 1, 'com_cobalt.field.32', 'Skype', '{}'),
+	(115, 1, 319, 320, 1, 'com_cobalt.field.33', 'Сайт', '{}'),
+	(116, 1, 321, 322, 1, 'com_cobalt.field.34', 'Местоположение', '{}'),
+	(117, 1, 323, 324, 1, 'com_cobalt.field.35', 'Факс', '{}'),
+	(118, 1, 325, 326, 1, 'com_cobalt.field.36', 'Собака', '{}'),
+	(119, 1, 327, 328, 1, 'com_cobalt.field.37', 'Питомник', '{}'),
+	(120, 1, 329, 330, 1, 'com_cobalt.field.38', 'Питомник', '{}'),
+	(121, 1, 331, 332, 1, 'com_cobalt.field.39', 'Порода', '{}'),
 	(122, 16, 44, 45, 2, 'com_menus.menu.4', 'Меню Админа', '{}'),
 	(123, 18, 110, 111, 2, 'com_modules.module.101', 'Меню Админа', '{}'),
-	(124, 1, 297, 298, 1, 'com_fields', 'com_fields', '{}'),
-	(125, 1, 299, 300, 1, 'com_associations', 'com_associations', '{}'),
-	(126, 57, 176, 177, 2, 'com_cobalt.type.6', 'Cobalt Content Type: Новость', '{}'),
-	(127, 1, 301, 302, 1, 'com_cobalt.section.6', '', '{}'),
-	(128, 1, 303, 304, 1, 'com_cobalt.field.40', 'Изображение Новости', '{}'),
-	(129, 1, 305, 306, 1, 'com_cobalt.field.41', 'Содержание новости', '{}'),
-	(130, 57, 178, 179, 2, 'com_cobalt.type.7', 'Cobalt Content Type: Новость Питомника', '{}'),
-	(131, 1, 307, 308, 1, 'com_cobalt.field.44', 'Новость', '{}'),
-	(132, 1, 309, 310, 1, 'com_cobalt.field.45', 'Питомник', '{}'),
-	(133, 1, 311, 312, 1, 'com_cobalt.field.42', 'Изображение Новости', '{}'),
-	(134, 1, 313, 314, 1, 'com_cobalt.field.43', 'Содержание новости', '{}'),
-	(135, 57, 180, 181, 2, 'com_cobalt.type.8', 'Cobalt Content Type: Родословная', '{}'),
-	(136, 1, 315, 316, 1, 'com_cobalt.field.46', 'Номер родословной', '{}'),
-	(137, 1, 317, 318, 1, 'com_cobalt.field.47', 'Дата родословной', '{}'),
-	(138, 1, 319, 320, 1, 'com_cobalt.field.48', 'Фото родословной', '{}'),
-	(139, 1, 321, 322, 1, 'com_cobalt.section.7', '', '{}'),
-	(140, 1, 323, 324, 1, 'com_cobalt.field.49', 'Родословная', '{}'),
-	(141, 1, 325, 326, 1, 'com_cobalt.field.50', 'Собака', '{}'),
-	(142, 1, 327, 328, 1, 'com_cobalt.field.51', 'Организация', '{}'),
-	(143, 1, 329, 330, 1, 'com_cobalt.field.52', 'Родитель', '{}'),
-	(144, 1, 331, 332, 1, 'com_cobalt.field.53', 'Потомок', '{}'),
-	(145, 1, 333, 334, 1, 'com_cobalt.field.54', 'Место рождения', '{}'),
-	(146, 57, 182, 183, 2, 'com_cobalt.type.9', 'Cobalt Content Type: Титул', '{}'),
-	(147, 1, 335, 336, 1, 'com_cobalt.section.8', '', '{}'),
-	(148, 1, 337, 338, 1, 'com_cobalt.field.55', 'Сокращение титула Eng', '{}'),
-	(149, 1, 339, 340, 1, 'com_cobalt.field.56', 'Расшифровка титула', '{}'),
-	(150, 1, 341, 342, 1, 'com_cobalt.field.57', 'Описание титула', '{}'),
-	(151, 1, 343, 344, 1, 'com_cobalt.field.58', 'Сокращение титула Rus', '{}'),
-	(152, 1, 345, 346, 1, 'com_cobalt.field.59', 'Собака', '{}'),
-	(153, 1, 347, 348, 1, 'com_cobalt.field.60', 'Титул', '{}'),
+	(124, 1, 333, 334, 1, 'com_fields', 'com_fields', '{}'),
+	(125, 1, 335, 336, 1, 'com_associations', 'com_associations', '{}'),
+	(126, 57, 212, 213, 2, 'com_cobalt.type.6', 'Cobalt Content Type: Новость', '{}'),
+	(127, 1, 337, 338, 1, 'com_cobalt.section.6', '', '{}'),
+	(128, 1, 339, 340, 1, 'com_cobalt.field.40', 'Изображение Новости', '{}'),
+	(129, 1, 341, 342, 1, 'com_cobalt.field.41', 'Содержание новости', '{}'),
+	(130, 57, 214, 215, 2, 'com_cobalt.type.7', 'Cobalt Content Type: Новость Питомника', '{}'),
+	(131, 1, 343, 344, 1, 'com_cobalt.field.44', 'Новость', '{}'),
+	(132, 1, 345, 346, 1, 'com_cobalt.field.45', 'Питомник', '{}'),
+	(133, 1, 347, 348, 1, 'com_cobalt.field.42', 'Изображение Новости', '{}'),
+	(134, 1, 349, 350, 1, 'com_cobalt.field.43', 'Содержание новости', '{}'),
+	(135, 57, 216, 217, 2, 'com_cobalt.type.8', 'Cobalt Content Type: Родословная', '{}'),
+	(136, 1, 351, 352, 1, 'com_cobalt.field.46', 'Номер родословной', '{}'),
+	(137, 1, 353, 354, 1, 'com_cobalt.field.47', 'Дата родословной', '{}'),
+	(138, 1, 355, 356, 1, 'com_cobalt.field.48', 'Фото родословной', '{}'),
+	(139, 1, 357, 358, 1, 'com_cobalt.section.7', '', '{}'),
+	(140, 1, 359, 360, 1, 'com_cobalt.field.49', 'Родословная', '{}'),
+	(141, 1, 361, 362, 1, 'com_cobalt.field.50', 'Собака', '{}'),
+	(142, 1, 363, 364, 1, 'com_cobalt.field.51', 'Организация', '{}'),
+	(143, 1, 365, 366, 1, 'com_cobalt.field.52', 'Родитель', '{}'),
+	(144, 1, 367, 368, 1, 'com_cobalt.field.53', 'Потомок', '{}'),
+	(145, 1, 369, 370, 1, 'com_cobalt.field.54', 'Место рождения', '{}'),
+	(146, 57, 218, 219, 2, 'com_cobalt.type.9', 'Cobalt Content Type: Титул', '{}'),
+	(147, 1, 371, 372, 1, 'com_cobalt.section.8', '', '{}'),
+	(148, 1, 373, 374, 1, 'com_cobalt.field.55', 'Сокращение титула Eng', '{}'),
+	(149, 1, 375, 376, 1, 'com_cobalt.field.56', 'Расшифровка титула', '{}'),
+	(150, 1, 377, 378, 1, 'com_cobalt.field.57', 'Описание титула', '{}'),
+	(151, 1, 379, 380, 1, 'com_cobalt.field.58', 'Сокращение титула Rus', '{}'),
+	(152, 1, 381, 382, 1, 'com_cobalt.field.59', 'Собака', '{}'),
+	(153, 1, 383, 384, 1, 'com_cobalt.field.60', 'Титул', '{}'),
 	(154, 18, 112, 113, 2, 'com_modules.module.102', 'Кнопка добавить Собаку', '{}'),
 	(155, 18, 114, 115, 2, 'com_modules.module.103', 'Кнопка добавить Родословную', '{}'),
 	(156, 18, 116, 117, 2, 'com_modules.module.104', 'Кнопка добавить Альбом', '{}'),
@@ -189,127 +189,145 @@ INSERT INTO `dogs_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `ti
 	(159, 18, 122, 123, 2, 'com_modules.module.107', 'Кнопка добавить Новость', '{}'),
 	(160, 18, 124, 125, 2, 'com_modules.module.108', 'Кнопка добавить Породу', '{}'),
 	(161, 18, 126, 127, 2, 'com_modules.module.109', 'Кнопка добавить Титул', '{}'),
-	(162, 57, 184, 185, 2, 'com_cobalt.type.10', 'Cobalt Content Type: Щенок', '{}'),
-	(163, 1, 349, 350, 1, 'com_cobalt.field.63', 'Стоимость', '{}'),
-	(164, 1, 351, 352, 1, 'com_cobalt.section.9', '', '{}'),
-	(165, 1, 353, 354, 1, 'com_cobalt.field.67', 'Пол', '{}'),
-	(166, 1, 355, 356, 1, 'com_cobalt.field.79', 'Родители', '{}'),
-	(167, 1, 357, 358, 1, 'com_cobalt.field.75', 'Галлерея', '{}'),
-	(168, 1, 359, 360, 1, 'com_cobalt.field.76', 'Видеоролик', '{}'),
-	(169, 1, 361, 362, 1, 'com_cobalt.field.74', 'Адресс', '{}'),
-	(170, 1, 363, 364, 1, 'com_cobalt.field.83', 'Щенок', '{}'),
-	(171, 1, 365, 366, 1, 'com_cobalt.field.65', 'Порода', '{}'),
-	(172, 1, 367, 368, 1, 'com_cobalt.field.84', 'Щенок', '{}'),
-	(173, 1, 369, 370, 1, 'com_cobalt.field.78', 'Родословная', '{}'),
-	(174, 1, 371, 372, 1, 'com_cobalt.field.85', 'Щенок', '{}'),
-	(175, 1, 373, 374, 1, 'com_cobalt.field.86', 'Щенок', '{}'),
-	(176, 1, 375, 376, 1, 'com_cobalt.field.82', 'Титул', '{}'),
-	(177, 1, 377, 378, 1, 'com_cobalt.field.87', 'Щенок', '{}'),
-	(178, 1, 379, 380, 1, 'com_cobalt.field.77', 'Питомник', '{}'),
-	(179, 1, 381, 382, 1, 'com_cobalt.field.66', 'Дата рождения', '{}'),
-	(180, 1, 383, 384, 1, 'com_cobalt.field.68', 'Дата смерти', '{}'),
-	(181, 1, 385, 386, 1, 'com_cobalt.field.64', 'Кличка по родословной', '{}'),
-	(182, 1, 387, 388, 1, 'com_cobalt.field.69', 'Номер РКФ/FCI', '{}'),
-	(183, 1, 389, 390, 1, 'com_cobalt.field.70', 'Клеймо/Chip', '{}'),
-	(184, 1, 391, 392, 1, 'com_cobalt.field.71', 'Окрас', '{}'),
-	(185, 1, 393, 394, 1, 'com_cobalt.category.8', 'Продажа щенков', '{}'),
-	(186, 1, 395, 396, 1, 'com_cobalt.category.9', 'Вязка, знакомства', '{}'),
-	(187, 1, 397, 398, 1, 'com_cobalt.category.10', 'Груминг,стрижки собак', '{}'),
-	(188, 1, 399, 400, 1, 'com_cobalt.category.11', 'Дрессировка собак', '{}'),
-	(189, 1, 401, 402, 1, 'com_cobalt.category.12', 'Розыск собаки', '{}'),
-	(190, 1, 403, 404, 1, 'com_cobalt.category.13', 'Ищу хозяина', '{}'),
-	(191, 1, 405, 406, 1, 'com_cobalt.category.14', 'Товары для собак', '{}'),
-	(192, 1, 407, 408, 1, 'com_cobalt.category.15', 'Прочие объявления', '{}'),
-	(193, 1, 409, 410, 1, 'com_cobalt.field.89', 'Телефон', '{}'),
-	(194, 1, 411, 412, 1, 'com_cobalt.field.90', 'Мобильный', '{}'),
-	(195, 1, 413, 414, 1, 'com_cobalt.field.91', 'Факс', '{}'),
-	(196, 1, 415, 416, 1, 'com_cobalt.field.92', 'ISQ', '{}'),
-	(197, 1, 417, 418, 1, 'com_cobalt.field.93', 'Skype', '{}'),
-	(198, 1, 419, 420, 1, 'com_cobalt.field.94', 'E-mail', '{}'),
-	(199, 1, 421, 422, 1, 'com_cobalt.field.95', 'Контактное лицо', '{}'),
-	(200, 57, 186, 187, 2, 'com_cobalt.type.12', 'Cobalt Content Type: Вязка', '{}'),
-	(201, 1, 423, 424, 1, 'com_cobalt.field.62', 'Примечание', '{}'),
-	(202, 1, 425, 426, 1, 'com_cobalt.field.96', 'Объявление о вязке', '{}'),
-	(203, 1, 427, 428, 1, 'com_cobalt.field.97', 'Собака', '{}'),
-	(204, 1, 429, 430, 1, 'com_cobalt.field.98', 'Вязка', '{}'),
-	(205, 1, 431, 432, 1, 'com_cobalt.field.99', 'E-mail', '{}'),
-	(206, 1, 433, 434, 1, 'com_cobalt.field.100', 'Мобильный', '{}'),
-	(207, 1, 435, 436, 1, 'com_cobalt.field.101', 'Телефон', '{}'),
-	(208, 1, 437, 438, 1, 'com_cobalt.field.102', 'Факс', '{}'),
-	(209, 1, 439, 440, 1, 'com_cobalt.field.103', 'Skype', '{}'),
-	(210, 1, 441, 442, 1, 'com_cobalt.field.104', 'ICQ', '{}'),
-	(211, 1, 443, 444, 1, 'com_cobalt.field.105', 'Фото', '{}'),
-	(212, 1, 445, 446, 1, 'com_cobalt.field.106', 'Местоположение', '{}'),
-	(213, 1, 447, 448, 1, 'com_cobalt.field.107', 'Контактное лицо', '{}'),
-	(214, 57, 188, 189, 2, 'com_cobalt.type.13', 'Cobalt Content Type: Груминг', '{}'),
-	(215, 1, 449, 450, 1, 'com_cobalt.field.108', 'Содержание объявления', '{}'),
-	(216, 1, 451, 452, 1, 'com_cobalt.field.116', 'Фото', '{}'),
-	(217, 1, 453, 454, 1, 'com_cobalt.field.119', 'Галлерея работ', '{}'),
-	(218, 1, 455, 456, 1, 'com_cobalt.field.120', 'Сайт', '{}'),
-	(219, 1, 457, 458, 1, 'com_cobalt.field.112', 'Телефон', '{}'),
-	(220, 1, 459, 460, 1, 'com_cobalt.field.113', 'Факс', '{}'),
-	(221, 1, 461, 462, 1, 'com_cobalt.field.114', 'Skype', '{}'),
-	(222, 1, 463, 464, 1, 'com_cobalt.field.115', 'ICQ', '{}'),
-	(223, 1, 465, 466, 1, 'com_cobalt.field.121', 'Видеоролик', '{}'),
-	(224, 1, 467, 468, 1, 'com_cobalt.field.118', 'Контактное лицо', '{}'),
-	(225, 57, 190, 191, 2, 'com_cobalt.type.14', 'Cobalt Content Type: Дрессировка', '{}'),
+	(162, 57, 220, 221, 2, 'com_cobalt.type.10', 'Cobalt Content Type: Щенок', '{}'),
+	(163, 1, 385, 386, 1, 'com_cobalt.field.63', 'Стоимость', '{}'),
+	(164, 1, 387, 388, 1, 'com_cobalt.section.9', '', '{}'),
+	(165, 1, 389, 390, 1, 'com_cobalt.field.67', 'Пол', '{}'),
+	(166, 1, 391, 392, 1, 'com_cobalt.field.79', 'Родители', '{}'),
+	(167, 1, 393, 394, 1, 'com_cobalt.field.75', 'Галлерея', '{}'),
+	(168, 1, 395, 396, 1, 'com_cobalt.field.76', 'Видеоролик', '{}'),
+	(169, 1, 397, 398, 1, 'com_cobalt.field.74', 'Адресс', '{}'),
+	(170, 1, 399, 400, 1, 'com_cobalt.field.83', 'Щенок', '{}'),
+	(171, 1, 401, 402, 1, 'com_cobalt.field.65', 'Порода', '{}'),
+	(172, 1, 403, 404, 1, 'com_cobalt.field.84', 'Щенок', '{}'),
+	(173, 1, 405, 406, 1, 'com_cobalt.field.78', 'Родословная', '{}'),
+	(174, 1, 407, 408, 1, 'com_cobalt.field.85', 'Щенок', '{}'),
+	(175, 1, 409, 410, 1, 'com_cobalt.field.86', 'Щенок', '{}'),
+	(176, 1, 411, 412, 1, 'com_cobalt.field.82', 'Титул', '{}'),
+	(177, 1, 413, 414, 1, 'com_cobalt.field.87', 'Щенок', '{}'),
+	(178, 1, 415, 416, 1, 'com_cobalt.field.77', 'Питомник', '{}'),
+	(179, 1, 417, 418, 1, 'com_cobalt.field.66', 'Дата рождения', '{}'),
+	(180, 1, 419, 420, 1, 'com_cobalt.field.68', 'Дата смерти', '{}'),
+	(181, 1, 421, 422, 1, 'com_cobalt.field.64', 'Кличка по родословной', '{}'),
+	(182, 1, 423, 424, 1, 'com_cobalt.field.69', 'Номер РКФ/FCI', '{}'),
+	(183, 1, 425, 426, 1, 'com_cobalt.field.70', 'Клеймо/Chip', '{}'),
+	(184, 1, 427, 428, 1, 'com_cobalt.field.71', 'Окрас', '{}'),
+	(185, 1, 429, 430, 1, 'com_cobalt.category.8', 'Продажа щенков', '{}'),
+	(186, 1, 431, 432, 1, 'com_cobalt.category.9', 'Вязка, знакомства', '{}'),
+	(187, 1, 433, 434, 1, 'com_cobalt.category.10', 'Груминг,стрижки собак', '{}'),
+	(188, 1, 435, 436, 1, 'com_cobalt.category.11', 'Дрессировка собак', '{}'),
+	(189, 1, 437, 438, 1, 'com_cobalt.category.12', 'Розыск собаки', '{}'),
+	(190, 1, 439, 440, 1, 'com_cobalt.category.13', 'Ищу хозяина', '{}'),
+	(191, 1, 441, 442, 1, 'com_cobalt.category.14', 'Товары для собак', '{}'),
+	(192, 1, 443, 444, 1, 'com_cobalt.category.15', 'Прочие объявления', '{}'),
+	(193, 1, 445, 446, 1, 'com_cobalt.field.89', 'Телефон', '{}'),
+	(194, 1, 447, 448, 1, 'com_cobalt.field.90', 'Мобильный', '{}'),
+	(195, 1, 449, 450, 1, 'com_cobalt.field.91', 'Факс', '{}'),
+	(196, 1, 451, 452, 1, 'com_cobalt.field.92', 'ISQ', '{}'),
+	(197, 1, 453, 454, 1, 'com_cobalt.field.93', 'Skype', '{}'),
+	(198, 1, 455, 456, 1, 'com_cobalt.field.94', 'E-mail', '{}'),
+	(199, 1, 457, 458, 1, 'com_cobalt.field.95', 'Контактное лицо', '{}'),
+	(200, 57, 222, 223, 2, 'com_cobalt.type.12', 'Cobalt Content Type: Вязка', '{}'),
+	(201, 1, 459, 460, 1, 'com_cobalt.field.62', 'Примечание', '{}'),
+	(202, 1, 461, 462, 1, 'com_cobalt.field.96', 'Объявление о вязке', '{}'),
+	(203, 1, 463, 464, 1, 'com_cobalt.field.97', 'Собака', '{}'),
+	(204, 1, 465, 466, 1, 'com_cobalt.field.98', 'Вязка', '{}'),
+	(205, 1, 467, 468, 1, 'com_cobalt.field.99', 'E-mail', '{}'),
+	(206, 1, 469, 470, 1, 'com_cobalt.field.100', 'Мобильный', '{}'),
+	(207, 1, 471, 472, 1, 'com_cobalt.field.101', 'Телефон', '{}'),
+	(208, 1, 473, 474, 1, 'com_cobalt.field.102', 'Факс', '{}'),
+	(209, 1, 475, 476, 1, 'com_cobalt.field.103', 'Skype', '{}'),
+	(210, 1, 477, 478, 1, 'com_cobalt.field.104', 'ICQ', '{}'),
+	(211, 1, 479, 480, 1, 'com_cobalt.field.105', 'Фото', '{}'),
+	(212, 1, 481, 482, 1, 'com_cobalt.field.106', 'Местоположение', '{}'),
+	(213, 1, 483, 484, 1, 'com_cobalt.field.107', 'Контактное лицо', '{}'),
+	(214, 57, 224, 225, 2, 'com_cobalt.type.13', 'Cobalt Content Type: Груминг', '{}'),
+	(215, 1, 485, 486, 1, 'com_cobalt.field.108', 'Содержание объявления', '{}'),
+	(216, 1, 487, 488, 1, 'com_cobalt.field.116', 'Фото', '{}'),
+	(217, 1, 489, 490, 1, 'com_cobalt.field.119', 'Галлерея работ', '{}'),
+	(218, 1, 491, 492, 1, 'com_cobalt.field.120', 'Сайт', '{}'),
+	(219, 1, 493, 494, 1, 'com_cobalt.field.112', 'Телефон', '{}'),
+	(220, 1, 495, 496, 1, 'com_cobalt.field.113', 'Факс', '{}'),
+	(221, 1, 497, 498, 1, 'com_cobalt.field.114', 'Skype', '{}'),
+	(222, 1, 499, 500, 1, 'com_cobalt.field.115', 'ICQ', '{}'),
+	(223, 1, 501, 502, 1, 'com_cobalt.field.121', 'Видеоролик', '{}'),
+	(224, 1, 503, 504, 1, 'com_cobalt.field.118', 'Контактное лицо', '{}'),
+	(225, 57, 226, 227, 2, 'com_cobalt.type.14', 'Cobalt Content Type: Дрессировка', '{}'),
 	(226, 16, 46, 47, 2, 'com_menus.menu.5', 'Меню Пользователя', '{}'),
 	(227, 18, 128, 129, 2, 'com_modules.module.110', 'Меню Пользователя', '{}'),
-	(228, 1, 469, 470, 1, 'com_cobalt.field.132', 'Контактное лицо', '{}'),
-	(229, 57, 192, 193, 2, 'com_cobalt.type.15', 'Cobalt Content Type: Розыск собаки', '{}'),
-	(230, 1, 471, 472, 1, 'com_cobalt.field.135', 'Объявление о розыске', '{}'),
-	(231, 1, 473, 474, 1, 'com_cobalt.field.146', 'Внимание!!! Розыск', '{}'),
-	(232, 1, 475, 476, 1, 'com_cobalt.field.136', 'Собака', '{}'),
-	(233, 1, 477, 478, 1, 'com_cobalt.field.145', 'Контактное лицо', '{}'),
-	(234, 1, 479, 480, 1, 'com_cobalt.field.147', 'Место пропажи', '{}'),
-	(235, 1, 481, 482, 1, 'com_cobalt.field.148', 'Дата пропажи', '{}'),
-	(236, 57, 194, 195, 2, 'com_cobalt.type.16', 'Cobalt Content Type: Ищу хозяина', '{}'),
-	(237, 1, 483, 484, 1, 'com_cobalt.field.150', 'Галлерея', '{}'),
-	(238, 1, 485, 486, 1, 'com_cobalt.field.157', 'Фото', '{}'),
-	(239, 1, 487, 488, 1, 'com_cobalt.field.158', 'Местоположение', '{}'),
-	(240, 1, 489, 490, 1, 'com_cobalt.field.162', 'Дата находки', '{}'),
-	(241, 1, 491, 492, 1, 'com_cobalt.field.149', 'Содержание объявления', '{}'),
-	(242, 1, 493, 494, 1, 'com_cobalt.field.163', 'Место находки', '{}'),
-	(243, 1, 495, 496, 1, 'com_cobalt.field.164', 'Тип объявления', '{}'),
-	(244, 1, 497, 498, 1, 'com_cobalt.field.165', 'Заголовок объявления', '{}'),
-	(245, 57, 196, 197, 2, 'com_cobalt.type.17', 'Cobalt Content Type: Товар', '{}'),
-	(246, 1, 499, 500, 1, 'com_cobalt.field.181', 'Тип объявления', '{}'),
-	(247, 1, 501, 502, 1, 'com_cobalt.field.179', 'Разместить объявление до даты', '{}'),
-	(248, 1, 503, 504, 1, 'com_cobalt.field.166', 'Описание товара', '{}'),
-	(249, 1, 505, 506, 1, 'com_cobalt.field.174', 'Фото товара', '{}'),
-	(250, 1, 507, 508, 1, 'com_cobalt.field.183', 'Стоимость товара', '{}'),
-	(251, 1, 509, 510, 1, 'com_cobalt.field.182', 'Название товара', '{}'),
-	(252, 1, 511, 512, 1, 'com_cobalt.field.176', 'Контактное лицо', '{}'),
-	(253, 57, 198, 199, 2, 'com_cobalt.type.18', 'Cobalt Content Type: Прочее', '{}'),
-	(254, 1, 513, 514, 1, 'com_cobalt.field.192', 'Фото', '{}'),
-	(255, 1, 515, 516, 1, 'com_cobalt.field.184', 'Содержание объявления', '{}'),
-	(256, 1, 517, 518, 1, 'com_cobalt.field.200', 'Заголовок объявления', '{}'),
-	(257, 1, 519, 520, 1, 'com_cobalt.field.194', 'Контактное лицо', '{}'),
-	(258, 1, 521, 522, 1, 'com_cobalt.field.61', 'Основное фото', '{}'),
-	(259, 57, 200, 201, 2, 'com_cobalt.type.19', 'Cobalt Content Type: Статья', '{}'),
-	(260, 1, 523, 524, 1, 'com_cobalt.section.11', '', '{}'),
-	(261, 1, 525, 526, 1, 'com_cobalt.field.202', 'Содержание статьи', '{}'),
-	(262, 1, 527, 528, 1, 'com_cobalt.field.201', 'Изображение', '{}'),
-	(263, 1, 529, 530, 1, 'com_cobalt.category.16', 'Уход и воспитание', '{}'),
-	(264, 1, 531, 532, 1, 'com_cobalt.category.17', 'Полезные советы', '{}'),
+	(228, 1, 505, 506, 1, 'com_cobalt.field.132', 'Контактное лицо', '{}'),
+	(229, 57, 228, 229, 2, 'com_cobalt.type.15', 'Cobalt Content Type: Розыск собаки', '{}'),
+	(230, 1, 507, 508, 1, 'com_cobalt.field.135', 'Объявление о розыске', '{}'),
+	(231, 1, 509, 510, 1, 'com_cobalt.field.146', 'Внимание!!! Розыск', '{}'),
+	(232, 1, 511, 512, 1, 'com_cobalt.field.136', 'Собака', '{}'),
+	(233, 1, 513, 514, 1, 'com_cobalt.field.145', 'Контактное лицо', '{}'),
+	(234, 1, 515, 516, 1, 'com_cobalt.field.147', 'Место пропажи', '{}'),
+	(235, 1, 517, 518, 1, 'com_cobalt.field.148', 'Дата пропажи', '{}'),
+	(236, 57, 230, 231, 2, 'com_cobalt.type.16', 'Cobalt Content Type: Ищу хозяина', '{}'),
+	(237, 1, 519, 520, 1, 'com_cobalt.field.150', 'Галлерея', '{}'),
+	(238, 1, 521, 522, 1, 'com_cobalt.field.157', 'Фото', '{}'),
+	(239, 1, 523, 524, 1, 'com_cobalt.field.158', 'Местоположение', '{}'),
+	(240, 1, 525, 526, 1, 'com_cobalt.field.162', 'Дата находки', '{}'),
+	(241, 1, 527, 528, 1, 'com_cobalt.field.149', 'Содержание объявления', '{}'),
+	(242, 1, 529, 530, 1, 'com_cobalt.field.163', 'Место находки', '{}'),
+	(243, 1, 531, 532, 1, 'com_cobalt.field.164', 'Тип объявления', '{}'),
+	(244, 1, 533, 534, 1, 'com_cobalt.field.165', 'Заголовок объявления', '{}'),
+	(245, 57, 232, 233, 2, 'com_cobalt.type.17', 'Cobalt Content Type: Товар', '{}'),
+	(246, 1, 535, 536, 1, 'com_cobalt.field.181', 'Тип объявления', '{}'),
+	(247, 1, 537, 538, 1, 'com_cobalt.field.179', 'Разместить объявление до даты', '{}'),
+	(248, 1, 539, 540, 1, 'com_cobalt.field.166', 'Описание товара', '{}'),
+	(249, 1, 541, 542, 1, 'com_cobalt.field.174', 'Фото товара', '{}'),
+	(250, 1, 543, 544, 1, 'com_cobalt.field.183', 'Стоимость товара', '{}'),
+	(251, 1, 545, 546, 1, 'com_cobalt.field.182', 'Название товара', '{}'),
+	(252, 1, 547, 548, 1, 'com_cobalt.field.176', 'Контактное лицо', '{}'),
+	(253, 57, 234, 235, 2, 'com_cobalt.type.18', 'Cobalt Content Type: Прочее', '{}'),
+	(254, 1, 549, 550, 1, 'com_cobalt.field.192', 'Фото', '{}'),
+	(255, 1, 551, 552, 1, 'com_cobalt.field.184', 'Содержание объявления', '{}'),
+	(256, 1, 553, 554, 1, 'com_cobalt.field.200', 'Заголовок объявления', '{}'),
+	(257, 1, 555, 556, 1, 'com_cobalt.field.194', 'Контактное лицо', '{}'),
+	(258, 1, 557, 558, 1, 'com_cobalt.field.61', 'Основное фото', '{}'),
+	(259, 57, 236, 237, 2, 'com_cobalt.type.19', 'Cobalt Content Type: Статья', '{}'),
+	(260, 1, 559, 560, 1, 'com_cobalt.section.11', '', '{}'),
+	(261, 1, 561, 562, 1, 'com_cobalt.field.202', 'Содержание статьи', '{}'),
+	(262, 1, 563, 564, 1, 'com_cobalt.field.201', 'Изображение', '{}'),
+	(263, 1, 565, 566, 1, 'com_cobalt.category.16', 'Уход и воспитание', '{}'),
+	(264, 1, 567, 568, 1, 'com_cobalt.category.17', 'Полезные советы', '{}'),
 	(265, 18, 130, 131, 2, 'com_modules.module.111', 'Категории публикаций', '{}'),
-	(266, 57, 202, 203, 2, 'com_cobalt.type.20', 'Cobalt Content Type: Определение', '{}'),
-	(267, 1, 533, 534, 1, 'com_cobalt.field.203', 'Описание', '{}'),
-	(268, 1, 535, 536, 1, 'com_cobalt.section.12', '', '{}'),
+	(266, 57, 238, 239, 2, 'com_cobalt.type.20', 'Cobalt Content Type: Определение', '{}'),
+	(267, 1, 569, 570, 1, 'com_cobalt.field.203', 'Описание', '{}'),
+	(268, 1, 571, 572, 1, 'com_cobalt.section.12', '', '{}'),
 	(270, 18, 132, 133, 2, 'com_modules.module.113', 'RSS рассылка', '{}'),
-	(271, 57, 204, 205, 2, 'com_cobalt.type.21', 'Cobalt Content Type: Ветклиника', '{}'),
-	(272, 1, 537, 538, 1, 'com_cobalt.field.204', 'Режим работы', '{}'),
-	(273, 1, 539, 540, 1, 'com_cobalt.field.212', 'Логотип', '{}'),
-	(274, 1, 541, 542, 1, 'com_cobalt.field.216', 'Видеоролик', '{}'),
-	(275, 1, 543, 544, 1, 'com_cobalt.field.213', 'Местоположение', '{}'),
-	(276, 1, 545, 546, 1, 'com_cobalt.field.217', 'Перечень услуг', '{}'),
-	(277, 1, 547, 548, 1, 'com_cobalt.section.13', '', '{}'),
-	(278, 1, 549, 550, 1, 'com_cobalt.field.218', 'Описание', '{}'),
-	(279, 1, 551, 552, 1, 'com_cobalt.field.206', 'E-mail', '{}'),
-	(280, 57, 206, 207, 2, 'com_cobalt.type.22', 'Cobalt Content Type: Зоомагазин', '{}'),
-	(281, 1, 553, 554, 1, 'com_cobalt.field.220', 'Перечень групп товаров', '{}'),
-	(282, 1, 555, 556, 1, 'com_cobalt.section.14', '', '{}'),
-	(283, 1, 557, 558, 1, 'com_community', 'Community', '{}');
+	(271, 57, 240, 241, 2, 'com_cobalt.type.21', 'Cobalt Content Type: Ветклиника', '{}'),
+	(272, 1, 573, 574, 1, 'com_cobalt.field.204', 'Режим работы', '{}'),
+	(273, 1, 575, 576, 1, 'com_cobalt.field.212', 'Логотип', '{}'),
+	(274, 1, 577, 578, 1, 'com_cobalt.field.216', 'Видеоролик', '{}'),
+	(275, 1, 579, 580, 1, 'com_cobalt.field.213', 'Местоположение', '{}'),
+	(276, 1, 581, 582, 1, 'com_cobalt.field.217', 'Перечень услуг', '{}'),
+	(277, 1, 583, 584, 1, 'com_cobalt.section.13', '', '{}'),
+	(278, 1, 585, 586, 1, 'com_cobalt.field.218', 'Описание', '{}'),
+	(279, 1, 587, 588, 1, 'com_cobalt.field.206', 'E-mail', '{}'),
+	(280, 57, 242, 243, 2, 'com_cobalt.type.22', 'Cobalt Content Type: Зоомагазин', '{}'),
+	(281, 1, 589, 590, 1, 'com_cobalt.field.220', 'Перечень групп товаров', '{}'),
+	(282, 1, 591, 592, 1, 'com_cobalt.section.14', '', '{}'),
+	(283, 1, 593, 594, 1, 'com_community', 'Community', '{"community.profileedit":{"6":1},"community.profileeditstate":{"6":1},"community.groupcreate":{"6":1,"2":1},"community.groupdelete":{"6":1},"community.groupedit":{"6":1},"community.groupeditstate":{"6":1},"community.eventcreate":{"6":1,"2":1},"community.eventdelete":{"6":1},"community.eventedit":{"6":1},"community.eventeditstate":{"6":1},"community.photocreate":{"6":1,"2":1},"community.photodelete":{"6":1},"community.photoedit":{"6":1},"community.photoeditstate":{"6":1},"community.videocreate":{"6":1,"2":1},"community.videodelete":{"6":1},"community.videoedit":{"6":1},"community.videoeditstate":{"6":1},"community.postcommentcreate":{"6":1,"2":1},"community.postcommentdelete":{"6":1},"community.postcommentedit":{"6":1},"core.manage":{"6":1},"core.admin":{"7":1,"6":1},"community.friendrequest":{"6":1,"2":1},"community.filesharingcreate":{"6":1,"2":1}}'),
+	(284, 18, 134, 135, 2, 'com_modules.module.114', 'JS Activity Stream', '{}'),
+	(285, 18, 136, 137, 2, 'com_modules.module.115', 'JS Discussions', '{}'),
+	(286, 18, 138, 139, 2, 'com_modules.module.116', 'JS Events', '{}'),
+	(287, 18, 140, 141, 2, 'com_modules.module.117', 'JS Events Calendar', '{}'),
+	(288, 18, 142, 143, 2, 'com_modules.module.118', 'JS Groups', '{}'),
+	(289, 18, 144, 145, 2, 'com_modules.module.119', 'JS Hello Me', '{}'),
+	(290, 18, 146, 147, 2, 'com_modules.module.120', 'Новые участники', '{}'),
+	(291, 18, 148, 149, 2, 'com_modules.module.121', 'JS Members Search', '{}'),
+	(292, 18, 150, 151, 2, 'com_modules.module.122', 'JS Nearby Events Search', '{}'),
+	(293, 18, 152, 153, 2, 'com_modules.module.123', 'JS Notifications', '{}'),
+	(294, 18, 154, 155, 2, 'com_modules.module.124', 'JS Photo Comments', '{}'),
+	(295, 18, 156, 157, 2, 'com_modules.module.125', 'JS Photos', '{}'),
+	(296, 18, 158, 159, 2, 'com_modules.module.126', 'JS Statistics', '{}'),
+	(297, 18, 160, 161, 2, 'com_modules.module.127', 'JS Top Members', '{}'),
+	(298, 18, 162, 163, 2, 'com_modules.module.128', 'JS Video Comments', '{}'),
+	(299, 18, 164, 165, 2, 'com_modules.module.129', 'JS Videos', '{}'),
+	(300, 18, 166, 167, 2, 'com_modules.module.130', 'День Рождения', '{}'),
+	(301, 18, 168, 169, 2, 'com_modules.module.131', 'JS Toolbar', '{}');
 /*!40000 ALTER TABLE `dogs_assets` ENABLE KEYS */;
 
 
@@ -473,6 +491,1571 @@ INSERT INTO `dogs_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `lev
 	(5, 30, 1, 7, 8, 1, 'uncategorised', 'com_newsfeeds', 'Uncategorised', 'uncategorised', '', '', 1, 0, '0000-00-00 00:00:00', 1, '{"category_layout":"","image":""}', '', '', '{"author":"","robots":""}', 784, '2018-10-05 08:34:45', 0, '0000-00-00 00:00:00', 0, '*', 1),
 	(7, 32, 1, 9, 10, 1, 'uncategorised', 'com_users', 'Uncategorised', 'uncategorised', '', '', 1, 0, '0000-00-00 00:00:00', 1, '{"category_layout":"","image":""}', '', '', '{"author":"","robots":""}', 784, '2018-10-05 08:34:45', 0, '0000-00-00 00:00:00', 0, '*', 1);
 /*!40000 ALTER TABLE `dogs_categories` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_activities
+CREATE TABLE IF NOT EXISTS `dogs_community_activities` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `actor` int(10) unsigned NOT NULL,
+  `target` int(10) unsigned NOT NULL,
+  `title` text CHARACTER SET utf8mb4 NOT NULL,
+  `content` text CHARACTER SET utf8mb4 NOT NULL,
+  `app` varchar(200) NOT NULL,
+  `verb` varchar(200) NOT NULL,
+  `cid` int(10) NOT NULL,
+  `groupid` int(10) DEFAULT NULL,
+  `eventid` int(10) DEFAULT NULL,
+  `group_access` tinyint(4) NOT NULL DEFAULT '0',
+  `event_access` tinyint(4) NOT NULL DEFAULT '0',
+  `created` datetime NOT NULL,
+  `access` tinyint(3) unsigned NOT NULL,
+  `params` text NOT NULL,
+  `points` int(4) NOT NULL DEFAULT '1',
+  `archived` tinyint(3) NOT NULL,
+  `location` text NOT NULL,
+  `latitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `longitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `comment_id` int(10) NOT NULL,
+  `comment_type` varchar(200) NOT NULL,
+  `like_id` int(10) NOT NULL,
+  `like_type` varchar(200) NOT NULL,
+  `actors` text NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `actor` (`actor`),
+  KEY `target` (`target`),
+  KEY `app` (`app`),
+  KEY `created` (`created`),
+  KEY `archived` (`archived`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_activities: 0 rows
+DELETE FROM `dogs_community_activities`;
+/*!40000 ALTER TABLE `dogs_community_activities` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_activities` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_activities_hide
+CREATE TABLE IF NOT EXISTS `dogs_community_activities_hide` (
+  `activity_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_activities_hide: 0 rows
+DELETE FROM `dogs_community_activities_hide`;
+/*!40000 ALTER TABLE `dogs_community_activities_hide` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_activities_hide` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_apps
+CREATE TABLE IF NOT EXISTS `dogs_community_apps` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `userid` int(10) unsigned NOT NULL,
+  `apps` varchar(200) NOT NULL,
+  `ordering` int(10) unsigned NOT NULL,
+  `position` varchar(50) NOT NULL DEFAULT 'content',
+  `params` text NOT NULL,
+  `privacy` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_userid` (`userid`),
+  KEY `idx_user_apps` (`userid`,`apps`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_apps: 2 rows
+DELETE FROM `dogs_community_apps`;
+/*!40000 ALTER TABLE `dogs_community_apps` DISABLE KEYS */;
+INSERT INTO `dogs_community_apps` (`id`, `userid`, `apps`, `ordering`, `position`, `params`, `privacy`) VALUES
+	(3, 785, 'mycontacts', 0, 'sidebar-top', '{"home_address":"","city":"\\u041c\\u0438\\u043d\\u0441\\u043a","postal_code":"","country":"\\u0411\\u0435\\u043b\\u0430\\u0440\\u0443\\u0441\\u044c","phone_number":"","mobile_number":"","fax_number":"","my_company":"","work_address":"","website":"","department":"","job_title":"","main_im_id":"","skype":"","icq":"","yim":"","appid":"3","appname":"mycontacts"}', '0'),
+	(4, 785, 'myfriends', 0, 'sidebar-top-stacked', '{"count":"10","appid":"4","appname":"myfriends"}', '0');
+/*!40000 ALTER TABLE `dogs_community_apps` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_avatar
+CREATE TABLE IF NOT EXISTS `dogs_community_avatar` (
+  `id` int(10) unsigned NOT NULL,
+  `apptype` varchar(255) NOT NULL,
+  `path` text NOT NULL,
+  `type` tinyint(3) unsigned NOT NULL COMMENT '0 = small, 1 = medium, 2=large',
+  UNIQUE KEY `id` (`id`,`apptype`,`type`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_avatar: 0 rows
+DELETE FROM `dogs_community_avatar`;
+/*!40000 ALTER TABLE `dogs_community_avatar` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_avatar` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_badges
+CREATE TABLE IF NOT EXISTS `dogs_community_badges` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(64) NOT NULL,
+  `points` int(11) NOT NULL DEFAULT '0',
+  `image` varchar(256) NOT NULL,
+  `published` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_badges: ~6 rows (приблизительно)
+DELETE FROM `dogs_community_badges`;
+/*!40000 ALTER TABLE `dogs_community_badges` DISABLE KEYS */;
+INSERT INTO `dogs_community_badges` (`id`, `title`, `points`, `image`, `published`) VALUES
+	(1, '0', 0, 'png', 1),
+	(2, '50', 50, 'png', 1),
+	(3, '100', 100, 'png', 1),
+	(4, '200', 200, 'png', 1),
+	(5, '350', 350, 'png', 1),
+	(6, '600', 600, 'png', 1);
+/*!40000 ALTER TABLE `dogs_community_badges` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_blocklist
+CREATE TABLE IF NOT EXISTS `dogs_community_blocklist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `blocked_userid` int(11) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userid` (`userid`),
+  KEY `blocked_userid` (`blocked_userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_blocklist: 0 rows
+DELETE FROM `dogs_community_blocklist`;
+/*!40000 ALTER TABLE `dogs_community_blocklist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_blocklist` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_chat
+CREATE TABLE IF NOT EXISTS `dogs_community_chat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` char(50) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `last_msg` int(11) NOT NULL,
+  `params` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_chat: 0 rows
+DELETE FROM `dogs_community_chat`;
+/*!40000 ALTER TABLE `dogs_community_chat` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_chat` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_chat_activity
+CREATE TABLE IF NOT EXISTS `dogs_community_chat_activity` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chat_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `action` char(50) NOT NULL,
+  `content` text NOT NULL,
+  `params` text NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_chat_id` (`chat_id`),
+  KEY `idx_user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_chat_activity: 0 rows
+DELETE FROM `dogs_community_chat_activity`;
+/*!40000 ALTER TABLE `dogs_community_chat_activity` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_chat_activity` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_chat_participants
+CREATE TABLE IF NOT EXISTS `dogs_community_chat_participants` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chat_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `enabled` int(11) NOT NULL DEFAULT '1',
+  `mute` int(1) NOT NULL DEFAULT '0',
+  `params` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_chat_id` (`chat_id`),
+  KEY `idx_user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_chat_participants: 0 rows
+DELETE FROM `dogs_community_chat_participants`;
+/*!40000 ALTER TABLE `dogs_community_chat_participants` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_chat_participants` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_config
+CREATE TABLE IF NOT EXISTS `dogs_community_config` (
+  `name` varchar(64) NOT NULL,
+  `params` longtext NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_config: 2 rows
+DELETE FROM `dogs_community_config`;
+/*!40000 ALTER TABLE `dogs_community_config` DISABLE KEYS */;
+INSERT INTO `dogs_community_config` (`name`, `params`) VALUES
+	('dbversion', '26'),
+	('config', '{"enablereporting":"1","maxReport":"50","notifyMaxReport":"","enableguestreporting":"0","predefinedreports":"Spamming \\/ Advertisement\\\\nProfanity \\/ Inappropriate content.\\\\nAbusive.","guestsearch":"1","advanced_search_radius":"0","advanced_search_units":"metric","privacy_search_email":"0","sendemailonpageload":"0","archive_activity_max_day":"1","archive_activity_limit":"1500","newtab":"0","sortactivitybylastupdate":"0","overrideactivityprivacy":"0","allmemberactivitycomment":"0","file_sharing_activity":"0","file_sharing_activity_max":"8","file_sharing_activity_ext":"zip,txt,pdf,doc,docx,ppt,xls","file_sharing_limit_per_upload":"10","likes_groups":"1","likes_events":"1","likes_photo":"1","likes_videos":"1","likes_profile":"1","sitename":"\\u0421\\u043e\\u043e\\u0431\\u0449\\u0435\\u0441\\u0442\\u0432\\u043e \\u043b\\u044e\\u0431\\u0438\\u0442\\u0435\\u043b\\u0435\\u0439 \\u0441\\u043e\\u0431\\u0430\\u043a","enablesharethis":"1","shareviaemail":"1","notifications_ajax_enable_refresh":"1","notifications_ajax_refresh_interval":"30000","wallediting":"1","lockprofilewalls":"1","lockvideoswalls":"0","lockphotoswalls":"1","lockgroupwalls":"1","lockeventwalls":"1","enable_refresh":"1","stream_refresh_interval":"30000","stream_default_comments":"3","prev_comment_load":"10","stream_comment_length":"150","daylightsavingoffset":"0","htmlemail":"1","copyrightemail":"ProDogs.Info - \\u0432\\u0441\\u0451 \\u043e \\u0441\\u043e\\u0431\\u0430\\u043a\\u0430\\u0445 \\u0438 \\u0434\\u043b\\u044f \\u0441\\u043e\\u0431\\u0430\\u043a","statusmaxchar":"400","streamlocation":"1","statusemoticon":"1","profile_multiprofile":"1","alphabetfiltering":"1","cfgSection":"site","network_keywords":"","show_toolbar":"1","displayname":"name","pagination":"12","activitydateformat":"lapse","allowhtml":"1","showactivityavatar":"1","streamcontentlength":"150","singularnumber":"1","maxactivities":"20","frontpageactivitydefault":"all","showactivitystream":"2","custom_activity":"1","infinitescroll":"1","autoloadtrigger":"100","show_featured":"1","featureduserslimit":"10","featuredvideoslimit":"10","featuredgroupslimit":"10","featuredalbumslimit":"10","featuredeventslimit":"10","featured_stream":"1","stream_frontpage_featured":"2","stream_profile_featured":"2","stream_group_featured":"2","stream_event_featured":"2","enablemood":"1","enable_badges":"1","num_photo_per_upload_stream":"8","enablephotos":"0","enable_animated_gif":"0","photouploadlimit":"500","photosmapdefault":"0","maxuploadsize":"8","deleteoriginalphotos":"0","magickPath":"","autoalbumcover":"1","photos_auto_rotate":"1","output_image_quality":"80","album_mode":"1","enable_photos_location":"1","photo_watermark":"0","min_width_img_watermark":"500","min_height_img_watermark":"500","watermark_position":"left_top","enablevideos":"0","enableguestsearchvideos":"1","enableprofilevideo":"0","enablevideosupload":"0","videouploadlimit":"500","videosmapdefault":"0","deleteoriginalvideos":"0","videofolder":"images","maxvideouploadsize":"8","ffmpegPath":"","flvtool2":"","qscale":"11","videosSize":"480x360","videosThumbSize":"320x180","enablevideosthumbbigsize":"0","customCommandForVideo":"","enablevideopseudostream":"0","videodebug":"0","video_mode":"0","video_native":"1","enable_zencoder":"0","zencoder_api_key":"","enablegroups":"0","enableguestsearchgroups":"1","moderategroupcreation":"0","creategroups":"1","groupcreatelimit":"300","groupphotos":"1","groupphotouploadlimit":"500","groupvideos":"1","groupvideouploadlimit":"500","group_events":"1","createannouncement":"1","creatediscussion":"1","groupdiscussnotification":"0","file_sharing_group":"1","groupdiscussfilesharing":"1","groupbulletinfilesharing":"1","discussionfilelimit":"500","filemaxuploadsize":"8","file_sharing_group_ext":"zip,txt,pdf,doc,docx,ppt,xls","file_sharing_limit_per_upload_group":"10","enableevents":"0","enableguestsearchevents":"1","event_moderation":"0","createevents":"1","eventcreatelimit":"300","enablerepeat":"0","eventphotos":"1","eventphotouploadlimit":"500","eventvideos":"1","eventvideouploadlimit":"500","eventexportical":"1","event_import_ical":"1","eventshowmap":"1","eventshowampm":"1","eventshowtimezone":"0","file_sharing_event":"1","file_sharing_event_max":"8","file_sharing_event_ext":"zip,txt,pdf,doc,docx,ppt,xls","file_sharing_limit_per_upload_event":"10","default_profile_tab":"0","activityLimit":"15","show_profile_card":"1","use_gravatar":"0","memberlist_show_distance":"0","memberlist_show_friends_button":"1","memberlist_show_profile_info":"0","memberlist_show_friends_count":"1","memberlist_matchmaking_mode":"0","memberlist_matchmaking_fieldcodegender":"FIELD_GENDER","privacyprofile":"0","privacyfriends":"30","privacyphotos":"0","privacyvideos":"0","privacy_groups_list":"0","privacy_show_admins":"0","maxnotification":"20","etype_groups_notify_admin":"1","notif_groups_notify_admin":"1","etype_user_profile_delete":"1","notif_user_profile_delete":"1","etype_system_reports_threshold":"1","notif_system_reports_threshold":"1","etype_profile_activity_add_comment":"1","notif_profile_activity_add_comment":"1","etype_profile_activity_reply_comment":"1","notif_profile_activity_reply_comment":"1","etype_profile_status_update":"1","notif_profile_status_update":"1","etype_profile_like":"1","notif_profile_like":"1","etype_profile_stream_like":"1","notif_profile_stream_like":"1","etype_profle_digest_email":"1","notif_profle_digest_email":"0","etype_friends_request_connection":"1","notif_friends_request_connection":"1","etype_friends_create_connection":"1","notif_friends_create_connection":"1","etype_inbox_create_message":"1","notif_inbox_create_message":"1","etype_users_tagged":"1","notif_users_tagged":"1","etype_system_messaging":"1","notif_system_messaging":"1","enablepm":"1","enablechatbar":"0","enablereadstatus":"1","message_file_sharing":"1","message_file_maxsize":"2","message_total_initial_display":"10","message_total_loaded_display":"10","message_recall_minutes":"5","message_pooling_time_active":"30","message_pooling_time_inactive":"30","unreadmessagenoti":"1","message_show_timestamp":"1","message_time_format":"g:i A","message_sidebar_softlimit":"15","enableavataruploadregister":"1","enableterms":"0","registrationTerms":"","enablegdpr":"0","check_register_multiple_email":"0","alloweddomains":"","denieddomains":"","profile_deletion":"1","nocaptcha":"0","nocaptchapublic":"","nocaptchaprivate":"","nocaptchatheme":"light","invite_only":"0","invite_only_request":"0","invite_registation_limit":"0"}');
+/*!40000 ALTER TABLE `dogs_community_config` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_connection
+CREATE TABLE IF NOT EXISTS `dogs_community_connection` (
+  `connection_id` int(11) NOT NULL AUTO_INCREMENT,
+  `connect_from` int(11) NOT NULL,
+  `connect_to` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  `group` int(11) NOT NULL,
+  `msg` text NOT NULL,
+  `created` datetime DEFAULT NULL,
+  PRIMARY KEY (`connection_id`),
+  KEY `connect_from` (`connect_from`,`connect_to`,`status`,`group`),
+  KEY `idx_connect_to` (`connect_to`),
+  KEY `idx_connect_from` (`connect_from`),
+  KEY `idx_connect_tofrom` (`connect_to`,`connect_from`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_connection: 0 rows
+DELETE FROM `dogs_community_connection`;
+/*!40000 ALTER TABLE `dogs_community_connection` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_connection` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_connect_users
+CREATE TABLE IF NOT EXISTS `dogs_community_connect_users` (
+  `connectid` bigint(20) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `userid` int(11) NOT NULL,
+  PRIMARY KEY (`connectid`),
+  KEY `type` (`type`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_connect_users: 0 rows
+DELETE FROM `dogs_community_connect_users`;
+/*!40000 ALTER TABLE `dogs_community_connect_users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_connect_users` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_digest_email
+CREATE TABLE IF NOT EXISTS `dogs_community_digest_email` (
+  `user_id` int(11) NOT NULL,
+  `total_sent` int(11) NOT NULL,
+  `last_sent` timestamp NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_digest_email: 0 rows
+DELETE FROM `dogs_community_digest_email`;
+/*!40000 ALTER TABLE `dogs_community_digest_email` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_digest_email` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_engagement
+CREATE TABLE IF NOT EXISTS `dogs_community_engagement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `action` varchar(64) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `week` tinyint(3) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_engagement: 0 rows
+DELETE FROM `dogs_community_engagement`;
+/*!40000 ALTER TABLE `dogs_community_engagement` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_engagement` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_events
+CREATE TABLE IF NOT EXISTS `dogs_community_events` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `parent` int(11) NOT NULL COMMENT 'parent for recurring event',
+  `catid` int(11) unsigned NOT NULL,
+  `contentid` int(11) unsigned DEFAULT '0' COMMENT '0 - if type == profile, else it hold the group id',
+  `type` varchar(255) NOT NULL DEFAULT 'profile' COMMENT 'profile, group',
+  `title` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `location` text NOT NULL,
+  `summary` text CHARACTER SET utf8mb4 NOT NULL,
+  `unlisted` tinyint(1) NOT NULL,
+  `description` text CHARACTER SET utf8mb4,
+  `creator` int(11) unsigned NOT NULL,
+  `startdate` datetime NOT NULL,
+  `enddate` datetime NOT NULL,
+  `permission` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT '0 - Open (Anyone can mark attendence), 1 - Private (Only invited can mark attendence)',
+  `avatar` varchar(255) DEFAULT NULL,
+  `thumb` varchar(255) DEFAULT NULL,
+  `cover` text NOT NULL,
+  `invitedcount` int(11) unsigned DEFAULT '0',
+  `confirmedcount` int(11) unsigned DEFAULT '0' COMMENT 'treat this as member count as well',
+  `declinedcount` int(11) unsigned DEFAULT '0',
+  `maybecount` int(11) unsigned DEFAULT '0',
+  `wallcount` int(11) unsigned DEFAULT '0',
+  `ticket` int(11) unsigned DEFAULT '0' COMMENT 'Represent how many guest can be joined or invited.',
+  `allowinvite` tinyint(1) unsigned DEFAULT '1' COMMENT '0 - guest member cannot invite thier friends to join. 1 - yes, guest member can invite any of thier friends to join.',
+  `created` datetime DEFAULT NULL,
+  `hits` int(11) unsigned DEFAULT '0',
+  `published` int(11) unsigned DEFAULT '1',
+  `latitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `longitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `offset` varchar(5) DEFAULT NULL,
+  `allday` tinyint(11) NOT NULL DEFAULT '0',
+  `repeat` varchar(50) DEFAULT NULL COMMENT 'null,daily,weekly,monthly',
+  `repeatend` date NOT NULL,
+  `storage` varchar(64) NOT NULL DEFAULT 'file',
+  `params` text CHARACTER SET utf8mb4 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_creator` (`creator`),
+  KEY `idx_period` (`startdate`,`enddate`),
+  KEY `idx_type` (`type`),
+  KEY `idx_catid` (`catid`),
+  KEY `idx_published` (`published`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_events: 0 rows
+DELETE FROM `dogs_community_events`;
+/*!40000 ALTER TABLE `dogs_community_events` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_events` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_events_category
+CREATE TABLE IF NOT EXISTS `dogs_community_events_category` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `parent` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_events_category: 3 rows
+DELETE FROM `dogs_community_events_category`;
+/*!40000 ALTER TABLE `dogs_community_events_category` DISABLE KEYS */;
+INSERT INTO `dogs_community_events_category` (`id`, `parent`, `name`, `description`) VALUES
+	(1, 0, 'General', 'General events'),
+	(2, 0, 'Birthday', 'Birthday events'),
+	(3, 0, 'Party', 'Party events');
+/*!40000 ALTER TABLE `dogs_community_events_category` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_events_members
+CREATE TABLE IF NOT EXISTS `dogs_community_events_members` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `eventid` int(11) unsigned NOT NULL,
+  `memberid` int(11) unsigned NOT NULL,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '[Join / Invite]: 0 - [pending approval/pending invite], 1 - [approved/confirmed], 2 - [rejected/declined], 3 - [maybe/maybe], 4 - [blocked/blocked]',
+  `permission` tinyint(1) unsigned NOT NULL DEFAULT '3' COMMENT '1 - creator, 2 - admin, 3 - member',
+  `invited_by` int(11) unsigned DEFAULT '0',
+  `approval` tinyint(1) unsigned DEFAULT '0' COMMENT '0 - no approval required, 1 - required admin approval',
+  `created` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_eventid` (`eventid`),
+  KEY `idx_status` (`status`),
+  KEY `idx_invitedby` (`invited_by`),
+  KEY `idx_permission` (`eventid`,`permission`),
+  KEY `idx_member_event` (`eventid`,`memberid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_events_members: 0 rows
+DELETE FROM `dogs_community_events_members`;
+/*!40000 ALTER TABLE `dogs_community_events_members` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_events_members` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_event_stats
+CREATE TABLE IF NOT EXISTS `dogs_community_event_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `eid` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `count` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `params` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_event_stats: 0 rows
+DELETE FROM `dogs_community_event_stats`;
+/*!40000 ALTER TABLE `dogs_community_event_stats` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_event_stats` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_featured
+CREATE TABLE IF NOT EXISTS `dogs_community_featured` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cid` int(11) NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `target_id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_featured: 0 rows
+DELETE FROM `dogs_community_featured`;
+/*!40000 ALTER TABLE `dogs_community_featured` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_featured` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_fields
+CREATE TABLE IF NOT EXISTS `dogs_community_fields` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) NOT NULL,
+  `ordering` int(11) DEFAULT '0',
+  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `min` int(5) NOT NULL,
+  `max` int(5) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `tips` text NOT NULL,
+  `visible` tinyint(1) DEFAULT '0',
+  `required` tinyint(1) DEFAULT '0',
+  `searchable` tinyint(1) DEFAULT '1',
+  `registration` tinyint(1) DEFAULT '1',
+  `options` text,
+  `fieldcode` varchar(255) NOT NULL,
+  `params` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fieldcode` (`fieldcode`)
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_fields: 13 rows
+DELETE FROM `dogs_community_fields`;
+/*!40000 ALTER TABLE `dogs_community_fields` DISABLE KEYS */;
+INSERT INTO `dogs_community_fields` (`id`, `type`, `ordering`, `published`, `min`, `max`, `name`, `tips`, `visible`, `required`, `searchable`, `registration`, `options`, `fieldcode`, `params`) VALUES
+	(1, 'group', 1, 1, 10, 100, 'Основная информация', 'Basic information for user', 1, 1, 1, 1, '', '', ''),
+	(2, 'gender', 3, 1, 0, 0, 'Пол', '', 1, 1, 1, 1, 'COM_COMMUNITY_MALE\nCOM_COMMUNITY_FEMALE', 'FIELD_GENDER', '{"readonly":"0","style":""}'),
+	(3, 'birthdate', 4, 1, 0, 0, 'Дата рождения', '', 1, 0, 1, 1, '', 'FIELD_BIRTHDATE', '{"display":"date","readonly":"0","maxrange":"","minrange":"","date_format":""}'),
+	(4, 'textarea', 5, 1, 0, 0, 'Обо мне', '', 1, 0, 1, 1, '', 'FIELD_ABOUTME', '{"readonly":"0","min_char":"","max_char":"","style":""}'),
+	(5, 'location', 6, 1, 0, 0, 'Местоположение', '', 1, 0, 1, 1, '', 'FIELD_LOCATION', '{"readonly":"0","style":""}'),
+	(6, 'group', 7, 1, 10, 100, 'Контакты', 'Specify your contact details', 1, 1, 1, 0, '', '', ''),
+	(7, 'text', 8, 1, 0, 0, 'Мобильный телефон', '', 1, 0, 1, 0, '', 'FIELD_MOBILE', '{"readonly":"0","min_char":"","max_char":"","maxlength":"","style":""}'),
+	(8, 'text', 9, 1, 0, 0, 'Телефон', '', 1, 0, 1, 0, '', 'FIELD_LANDPHONE', '{"readonly":"0","min_char":"","max_char":"","maxlength":"","style":""}'),
+	(9, 'url', 10, 1, 0, 0, 'Сайт', '', 1, 0, 1, 0, '', 'FIELD_WEBSITE', '{"readonly":"0","min_char":"","max_char":"","maxlength":"","style":""}'),
+	(10, 'group', 11, 1, 10, 100, 'Образование', 'Educations', 1, 0, 1, 0, '', '', ''),
+	(11, 'text', 12, 1, 0, 0, 'Школа / Университет', '', 1, 0, 1, 0, '', 'FIELD_COLLEGE', '{"readonly":"0","min_char":"","max_char":"","maxlength":"","style":""}'),
+	(12, 'text', 13, 1, 0, 0, 'Год выпуска', '', 1, 0, 1, 0, '', 'FIELD_GRADUATION', '{"readonly":"0","min_char":"","max_char":"","maxlength":"","style":""}'),
+	(13, 'text', 2, 1, 0, 0, 'Наименование', '', 1, 1, 1, 1, '', 'FIELD_NAME', '{"readonly":"0","min_char":"","max_char":"","maxlength":"","style":""}');
+/*!40000 ALTER TABLE `dogs_community_fields` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_fields_values
+CREATE TABLE IF NOT EXISTS `dogs_community_fields_values` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `field_id` int(10) NOT NULL,
+  `value` text CHARACTER SET utf8mb4 NOT NULL,
+  `access` tinyint(3) NOT NULL DEFAULT '0',
+  `params` mediumtext CHARACTER SET utf8mb4 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `field_id` (`field_id`),
+  KEY `user_id` (`user_id`),
+  KEY `idx_user_fieldid` (`user_id`,`field_id`),
+  KEY `access` (`access`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_fields_values: 5 rows
+DELETE FROM `dogs_community_fields_values`;
+/*!40000 ALTER TABLE `dogs_community_fields_values` DISABLE KEYS */;
+INSERT INTO `dogs_community_fields_values` (`id`, `user_id`, `field_id`, `value`, `access`, `params`) VALUES
+	(1, 785, 2, 'COM_COMMUNITY_MALE', 10, ''),
+	(2, 785, 3, '1975-5-26 23:59:59', 10, '{"hideyear":false}'),
+	(3, 785, 4, 'Бла бла бла', 10, ''),
+	(10, 786, 13, 'CristalFamily', 0, ''),
+	(20, 787, 13, 'ЗооМир', 0, '');
+/*!40000 ALTER TABLE `dogs_community_fields_values` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_files
+CREATE TABLE IF NOT EXISTS `dogs_community_files` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `groupid` int(11) NOT NULL,
+  `discussionid` int(11) NOT NULL,
+  `bulletinid` int(11) NOT NULL,
+  `eventid` int(11) NOT NULL,
+  `profileid` int(11) NOT NULL,
+  `messageid` int(11) NOT NULL,
+  `actid` int(11) DEFAULT NULL,
+  `filepath` varchar(255) NOT NULL,
+  `filesize` int(11) NOT NULL,
+  `hits` int(11) NOT NULL,
+  `storage` varchar(64) NOT NULL,
+  `creator` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `discussionid` (`discussionid`),
+  KEY `groupid` (`groupid`),
+  KEY `creator` (`creator`),
+  KEY `bulletinid` (`bulletinid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_files: 0 rows
+DELETE FROM `dogs_community_files`;
+/*!40000 ALTER TABLE `dogs_community_files` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_files` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_groups
+CREATE TABLE IF NOT EXISTS `dogs_community_groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `published` tinyint(1) NOT NULL,
+  `ownerid` int(11) NOT NULL,
+  `categoryid` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `description` text CHARACTER SET utf8mb4 NOT NULL,
+  `summary` text CHARACTER SET utf8mb4 NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `website` varchar(255) NOT NULL,
+  `approvals` tinyint(1) NOT NULL,
+  `unlisted` tinyint(1) NOT NULL,
+  `created` datetime NOT NULL,
+  `avatar` text NOT NULL,
+  `thumb` text NOT NULL,
+  `cover` text NOT NULL,
+  `discusscount` int(11) NOT NULL DEFAULT '0',
+  `wallcount` int(11) NOT NULL DEFAULT '0',
+  `membercount` int(11) NOT NULL DEFAULT '0',
+  `params` text CHARACTER SET utf8mb4 NOT NULL,
+  `hits` int(11) NOT NULL,
+  `storage` varchar(64) NOT NULL DEFAULT 'file',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_groups: 0 rows
+DELETE FROM `dogs_community_groups`;
+/*!40000 ALTER TABLE `dogs_community_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_groups` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_groups_bulletins
+CREATE TABLE IF NOT EXISTS `dogs_community_groups_bulletins` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `groupid` int(11) NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `published` tinyint(1) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `message` text CHARACTER SET utf8mb4 NOT NULL,
+  `date` datetime NOT NULL,
+  `params` text CHARACTER SET utf8mb4 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `groupid` (`groupid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_groups_bulletins: 0 rows
+DELETE FROM `dogs_community_groups_bulletins`;
+/*!40000 ALTER TABLE `dogs_community_groups_bulletins` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_groups_bulletins` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_groups_category
+CREATE TABLE IF NOT EXISTS `dogs_community_groups_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_groups_category: 5 rows
+DELETE FROM `dogs_community_groups_category`;
+/*!40000 ALTER TABLE `dogs_community_groups_category` DISABLE KEYS */;
+INSERT INTO `dogs_community_groups_category` (`id`, `parent`, `name`, `description`) VALUES
+	(1, 0, 'General', 'General group category.'),
+	(2, 0, 'Internet', 'Internet group category.'),
+	(3, 0, 'Business', 'Business group category'),
+	(4, 0, 'Automotive', 'Automotive group category'),
+	(5, 0, 'Music', 'Music group category');
+/*!40000 ALTER TABLE `dogs_community_groups_category` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_groups_discuss
+CREATE TABLE IF NOT EXISTS `dogs_community_groups_discuss` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parentid` int(11) NOT NULL DEFAULT '0',
+  `groupid` int(11) NOT NULL,
+  `creator` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `title` text CHARACTER SET utf8mb4 NOT NULL,
+  `message` text CHARACTER SET utf8mb4 NOT NULL,
+  `lastreplied` datetime NOT NULL,
+  `lock` tinyint(1) NOT NULL DEFAULT '0',
+  `params` text CHARACTER SET utf8mb4 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `groupid` (`groupid`),
+  KEY `parentid` (`parentid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_groups_discuss: 0 rows
+DELETE FROM `dogs_community_groups_discuss`;
+/*!40000 ALTER TABLE `dogs_community_groups_discuss` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_groups_discuss` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_groups_invite
+CREATE TABLE IF NOT EXISTS `dogs_community_groups_invite` (
+  `groupid` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `creator` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_groups_invite: 0 rows
+DELETE FROM `dogs_community_groups_invite`;
+/*!40000 ALTER TABLE `dogs_community_groups_invite` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_groups_invite` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_groups_members
+CREATE TABLE IF NOT EXISTS `dogs_community_groups_members` (
+  `groupid` int(11) NOT NULL,
+  `memberid` int(11) NOT NULL,
+  `approved` int(11) NOT NULL,
+  `permissions` int(1) NOT NULL,
+  KEY `groupid` (`groupid`),
+  KEY `idx_memberid` (`memberid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_groups_members: 0 rows
+DELETE FROM `dogs_community_groups_members`;
+/*!40000 ALTER TABLE `dogs_community_groups_members` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_groups_members` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_group_stats
+CREATE TABLE IF NOT EXISTS `dogs_community_group_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gid` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `count` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `params` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_group_stats: 0 rows
+DELETE FROM `dogs_community_group_stats`;
+/*!40000 ALTER TABLE `dogs_community_group_stats` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_group_stats` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_hashtag
+CREATE TABLE IF NOT EXISTS `dogs_community_hashtag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tag` varchar(128) NOT NULL,
+  `params` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tag` (`tag`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_hashtag: ~0 rows (приблизительно)
+DELETE FROM `dogs_community_hashtag`;
+/*!40000 ALTER TABLE `dogs_community_hashtag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_hashtag` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_invitations
+CREATE TABLE IF NOT EXISTS `dogs_community_invitations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `callback` varchar(255) NOT NULL,
+  `cid` int(11) NOT NULL,
+  `users` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_invitations: 0 rows
+DELETE FROM `dogs_community_invitations`;
+/*!40000 ALTER TABLE `dogs_community_invitations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_invitations` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_likes
+CREATE TABLE IF NOT EXISTS `dogs_community_likes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `element` varchar(200) NOT NULL,
+  `uid` int(10) NOT NULL,
+  `like` text NOT NULL,
+  `dislike` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `element` (`element`,`uid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_likes: 0 rows
+DELETE FROM `dogs_community_likes`;
+/*!40000 ALTER TABLE `dogs_community_likes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_likes` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_location_cache
+CREATE TABLE IF NOT EXISTS `dogs_community_location_cache` (
+  `address` varchar(255) NOT NULL,
+  `latitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `longitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `data` text NOT NULL,
+  `status` varchar(2) NOT NULL,
+  `created` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_location_cache: 0 rows
+DELETE FROM `dogs_community_location_cache`;
+/*!40000 ALTER TABLE `dogs_community_location_cache` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_location_cache` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_mailq
+CREATE TABLE IF NOT EXISTS `dogs_community_mailq` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `recipient` text NOT NULL,
+  `subject` text CHARACTER SET utf8mb4 NOT NULL,
+  `body` text CHARACTER SET utf8mb4 NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  `created` datetime NOT NULL,
+  `template` varchar(64) NOT NULL,
+  `email_type` text,
+  `params` text CHARACTER SET utf8mb4 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `status` (`status`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_mailq: 0 rows
+DELETE FROM `dogs_community_mailq`;
+/*!40000 ALTER TABLE `dogs_community_mailq` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_mailq` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_memberlist
+CREATE TABLE IF NOT EXISTS `dogs_community_memberlist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text NOT NULL,
+  `description` text NOT NULL,
+  `condition` varchar(255) NOT NULL,
+  `avataronly` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_memberlist: 0 rows
+DELETE FROM `dogs_community_memberlist`;
+/*!40000 ALTER TABLE `dogs_community_memberlist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_memberlist` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_memberlist_criteria
+CREATE TABLE IF NOT EXISTS `dogs_community_memberlist_criteria` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `listid` int(11) NOT NULL,
+  `field` varchar(255) NOT NULL,
+  `condition` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `listid` (`listid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_memberlist_criteria: 0 rows
+DELETE FROM `dogs_community_memberlist_criteria`;
+/*!40000 ALTER TABLE `dogs_community_memberlist_criteria` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_memberlist_criteria` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_moods
+CREATE TABLE IF NOT EXISTS `dogs_community_moods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) NOT NULL,
+  `description` varchar(128) NOT NULL,
+  `image` varchar(256) DEFAULT NULL,
+  `custom` tinyint(4) NOT NULL,
+  `published` tinyint(4) NOT NULL DEFAULT '1',
+  `allowcustomtext` tinyint(4) NOT NULL DEFAULT '0',
+  `ordering` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_moods: ~44 rows (приблизительно)
+DELETE FROM `dogs_community_moods`;
+/*!40000 ALTER TABLE `dogs_community_moods` DISABLE KEYS */;
+INSERT INTO `dogs_community_moods` (`id`, `title`, `description`, `image`, `custom`, `published`, `allowcustomtext`, `ordering`) VALUES
+	(1, 'happy', 'COM_COMMUNITY_MOOD_HAPPY', NULL, 0, 1, 0, 0),
+	(2, 'meh', 'COM_COMMUNITY_MOOD_MEH', NULL, 0, 1, 0, 0),
+	(3, 'sad', 'COM_COMMUNITY_MOOD_SAD', NULL, 0, 1, 0, 0),
+	(4, 'loved', 'COM_COMMUNITY_MOOD_LOVED', NULL, 0, 1, 0, 0),
+	(5, 'excited', 'COM_COMMUNITY_MOOD_EXCITED', NULL, 0, 1, 0, 0),
+	(6, 'pretty', 'COM_COMMUNITY_MOOD_PRETTY', NULL, 0, 1, 0, 0),
+	(7, 'tired', 'COM_COMMUNITY_MOOD_TIRED', NULL, 0, 1, 0, 0),
+	(8, 'angry', 'COM_COMMUNITY_MOOD_ANGRY', NULL, 0, 1, 0, 0),
+	(9, 'speachless', 'COM_COMMUNITY_MOOD_SPEACHLESS', NULL, 0, 1, 0, 0),
+	(10, 'shocked', 'COM_COMMUNITY_MOOD_SHOCKED', NULL, 0, 1, 0, 0),
+	(11, 'irretated', 'COM_COMMUNITY_MOOD_IRRETATED', NULL, 0, 1, 0, 0),
+	(12, 'sick', 'COM_COMMUNITY_MOOD_SICK', NULL, 0, 1, 0, 0),
+	(13, 'annoyed', 'COM_COMMUNITY_MOOD_ANNOYED', NULL, 0, 1, 0, 0),
+	(14, 'relieved', 'COM_COMMUNITY_MOOD_RELIEVED', NULL, 0, 1, 0, 0),
+	(15, 'blessed', 'COM_COMMUNITY_MOOD_BLESSED', NULL, 0, 1, 0, 0),
+	(16, 'bored', 'COM_COMMUNITY_MOOD_BORED', NULL, 0, 1, 0, 0),
+	(19, 'COM_COMMUNITY_MOOD_SHORT_HAPPY', 'COM_COMMUNITY_MOOD_HAPPY', 'png', 1, 1, 0, 0),
+	(20, 'COM_COMMUNITY_MOOD_SHORT_SAD', 'COM_COMMUNITY_MOOD_SAD', 'png', 1, 1, 0, 0),
+	(21, 'COM_COMMUNITY_MOOD_SHORT_COOL', 'COM_COMMUNITY_MOOD_COOL', 'png', 1, 1, 0, 0),
+	(22, 'COM_COMMUNITY_MOOD_SHORT_IRRITATED', 'COM_COMMUNITY_MOOD_IRRITATED', 'png', 1, 1, 0, 0),
+	(23, 'COM_COMMUNITY_MOOD_SHORT_ANNOYED', 'COM_COMMUNITY_MOOD_ANNOYED', 'png', 1, 1, 0, 0),
+	(24, 'COM_COMMUNITY_MOOD_SHORT_SHOCKED', 'COM_COMMUNITY_MOOD_SHOCKED', 'png', 1, 1, 0, 0),
+	(25, 'COM_COMMUNITY_MOOD_SHORT_AMUSED', 'COM_COMMUNITY_MOOD_AMUSED', 'png', 1, 1, 0, 0),
+	(26, 'COM_COMMUNITY_MOOD_SHORT_SPEECHLESS', 'COM_COMMUNITY_MOOD_SPEECHLESS', 'png', 1, 1, 0, 0),
+	(27, 'COM_COMMUNITY_MOOD_SHORT_RICH', 'COM_COMMUNITY_MOOD_RICH', 'png', 1, 1, 0, 0),
+	(28, 'COM_COMMUNITY_MOOD_SHORT_CHEEKY', 'COM_COMMUNITY_MOOD_CHEEKY', 'png', 1, 1, 0, 0),
+	(29, 'COM_COMMUNITY_MOOD_SHORT_ANGRY', 'COM_COMMUNITY_MOOD_ANGRY', 'png', 1, 1, 0, 0),
+	(30, 'COM_COMMUNITY_MOOD_SHORT_HUNGRY', 'COM_COMMUNITY_MOOD_HUNGRY', 'png', 1, 1, 0, 0),
+	(31, 'COM_COMMUNITY_MOOD_SHORT_FESTIVE', 'COM_COMMUNITY_MOOD_FESTIVE', 'png', 1, 1, 0, 0),
+	(32, 'COM_COMMUNITY_MOOD_SHORT_ROYAL', 'COM_COMMUNITY_MOOD_ROYAL', 'png', 1, 1, 0, 0),
+	(33, 'COM_COMMUNITY_MOOD_SHORT_LOVE', 'COM_COMMUNITY_MOOD_LOVE', 'png', 1, 1, 0, 0),
+	(34, 'COM_COMMUNITY_MOOD_SHORT_AFRAID', 'COM_COMMUNITY_MOOD_AFRAID', 'png', 1, 1, 0, 0),
+	(35, 'COM_COMMUNITY_MOOD_SHORT_POWERFUL', 'COM_COMMUNITY_MOOD_POWERFUL', 'png', 1, 1, 0, 0),
+	(36, 'COM_COMMUNITY_MOOD_SHORT_INVISIBLE', 'COM_COMMUNITY_MOOD_INVISIBLE', 'png', 1, 1, 0, 0),
+	(37, 'COM_COMMUNITY_MOOD_SHORT_SWEET', 'COM_COMMUNITY_MOOD_SWEET', 'png', 1, 1, 0, 0),
+	(38, 'COM_COMMUNITY_MOOD_SHORT_THIRSTY', 'COM_COMMUNITY_MOOD_THIRSTY', 'png', 1, 1, 0, 0),
+	(39, 'COM_COMMUNITY_MOOD_SHORT_CLEAN', 'COM_COMMUNITY_MOOD_CLEAN', 'png', 1, 1, 0, 0),
+	(40, 'COM_COMMUNITY_MOOD_SHORT_WATCHING', 'COM_COMMUNITY_MOOD_WATCHING', 'png', 1, 1, 0, 0),
+	(41, 'COM_COMMUNITY_MOOD_SHORT_BORED', 'COM_COMMUNITY_MOOD_BORED', 'png', 1, 1, 0, 0),
+	(42, 'COM_COMMUNITY_MOOD_SHORT_BUMMED', 'COM_COMMUNITY_MOOD_BUMMED', 'png', 1, 1, 0, 0),
+	(43, 'COM_COMMUNITY_MOOD_SHORT_INNOVATIVE', 'COM_COMMUNITY_MOOD_INNOVATIVE', 'png', 1, 1, 0, 0),
+	(44, 'COM_COMMUNITY_MOOD_SHORT_LUCKY', 'COM_COMMUNITY_MOOD_LUCKY', 'png', 1, 1, 0, 0),
+	(45, 'COM_COMMUNITY_MOOD_SHORT_FOCUSED', 'COM_COMMUNITY_MOOD_FOCUSED', 'png', 1, 1, 0, 0),
+	(46, 'COM_COMMUNITY_MOOD_SHORT_SURFING', 'COM_COMMUNITY_MOOD_SURFING', 'png', 1, 1, 0, 0);
+/*!40000 ALTER TABLE `dogs_community_moods` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_msg
+CREATE TABLE IF NOT EXISTS `dogs_community_msg` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `from` int(10) unsigned NOT NULL,
+  `parent` int(10) unsigned NOT NULL,
+  `deleted` tinyint(3) unsigned DEFAULT '0',
+  `from_name` varchar(45) NOT NULL,
+  `posted_on` datetime DEFAULT NULL,
+  `subject` tinytext CHARACTER SET utf8mb4 NOT NULL,
+  `body` text CHARACTER SET utf8mb4 NOT NULL,
+  `migrated` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_msg: 0 rows
+DELETE FROM `dogs_community_msg`;
+/*!40000 ALTER TABLE `dogs_community_msg` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_msg` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_msg_recepient
+CREATE TABLE IF NOT EXISTS `dogs_community_msg_recepient` (
+  `msg_id` int(10) unsigned NOT NULL,
+  `msg_parent` int(10) unsigned NOT NULL DEFAULT '0',
+  `msg_from` int(10) unsigned NOT NULL,
+  `to` int(10) unsigned NOT NULL,
+  `bcc` tinyint(3) unsigned DEFAULT '0',
+  `is_read` tinyint(3) unsigned DEFAULT '0',
+  `deleted` tinyint(3) unsigned DEFAULT '0',
+  UNIQUE KEY `un` (`msg_id`,`to`),
+  KEY `msg_id` (`msg_id`),
+  KEY `to` (`to`),
+  KEY `idx_isread_to_deleted` (`is_read`,`to`,`deleted`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_msg_recepient: 0 rows
+DELETE FROM `dogs_community_msg_recepient`;
+/*!40000 ALTER TABLE `dogs_community_msg_recepient` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_msg_recepient` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_notifications
+CREATE TABLE IF NOT EXISTS `dogs_community_notifications` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `actor` int(11) NOT NULL,
+  `target` int(11) NOT NULL,
+  `content` text CHARACTER SET utf8mb4 NOT NULL,
+  `type` varchar(200) NOT NULL,
+  `cmd_type` text NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  `created` datetime NOT NULL,
+  `params` text CHARACTER SET utf8mb4 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `created` (`created`),
+  KEY `status` (`status`),
+  KEY `type` (`type`),
+  KEY `target` (`target`),
+  KEY `actor` (`actor`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_notifications: 0 rows
+DELETE FROM `dogs_community_notifications`;
+/*!40000 ALTER TABLE `dogs_community_notifications` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_notifications` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_oauth
+CREATE TABLE IF NOT EXISTS `dogs_community_oauth` (
+  `userid` int(11) NOT NULL,
+  `requesttoken` text NOT NULL,
+  `accesstoken` text NOT NULL,
+  `app` varchar(255) NOT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_oauth: 0 rows
+DELETE FROM `dogs_community_oauth`;
+/*!40000 ALTER TABLE `dogs_community_oauth` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_oauth` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_photos
+CREATE TABLE IF NOT EXISTS `dogs_community_photos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `albumid` int(11) NOT NULL,
+  `caption` text CHARACTER SET utf8mb4 NOT NULL,
+  `published` tinyint(1) NOT NULL,
+  `creator` int(11) NOT NULL,
+  `permissions` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `thumbnail` varchar(255) NOT NULL,
+  `original` varchar(255) NOT NULL,
+  `filesize` int(11) NOT NULL DEFAULT '0',
+  `storage` varchar(64) NOT NULL DEFAULT 'file',
+  `created` datetime NOT NULL,
+  `ordering` int(11) NOT NULL DEFAULT '0',
+  `hits` int(11) NOT NULL DEFAULT '0',
+  `status` varchar(200) NOT NULL,
+  `params` text CHARACTER SET utf8mb4 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `albumid` (`albumid`),
+  KEY `idx_storage` (`storage`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_photos: 0 rows
+DELETE FROM `dogs_community_photos`;
+/*!40000 ALTER TABLE `dogs_community_photos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_photos` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_photos_albums
+CREATE TABLE IF NOT EXISTS `dogs_community_photos_albums` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `photoid` int(11) NOT NULL,
+  `creator` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `description` text CHARACTER SET utf8mb4 NOT NULL,
+  `permissions` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `groupid` int(11) NOT NULL DEFAULT '0',
+  `eventid` int(11) NOT NULL DEFAULT '0',
+  `hits` int(11) NOT NULL DEFAULT '0',
+  `location` text CHARACTER SET utf8mb4 NOT NULL,
+  `latitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `longitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `default` tinyint(1) NOT NULL DEFAULT '0',
+  `params` text CHARACTER SET utf8mb4 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `creator` (`creator`),
+  KEY `idx_type` (`type`),
+  KEY `idx_albumtype` (`id`,`type`),
+  KEY `idx_creatortype` (`creator`,`type`),
+  KEY `idx_groupid` (`groupid`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_photos_albums: 6 rows
+DELETE FROM `dogs_community_photos_albums`;
+/*!40000 ALTER TABLE `dogs_community_photos_albums` DISABLE KEYS */;
+INSERT INTO `dogs_community_photos_albums` (`id`, `photoid`, `creator`, `name`, `description`, `permissions`, `created`, `path`, `type`, `groupid`, `eventid`, `hits`, `location`, `latitude`, `longitude`, `default`, `params`) VALUES
+	(1, 0, 787, 'test2 аватар', '', '0', '2018-11-15 12:09:24', 'images/avatar/profile/', 'profile.avatar', 0, 0, 0, '', 255.000000, 255.000000, 0, '{"count":"0","lastupdated":"2018-11-15 13:17:15","thumbnail":"components\\/com_community\\/assets\\/photo_thumb.png"}'),
+	(2, 0, 787, 'Обложка', '', '0', '2018-11-15 12:09:24', 'images/cover/profile/787/', 'profile.Cover', 0, 0, 0, '', 255.000000, 255.000000, 0, '{"count":"0","lastupdated":"2018-11-15 13:17:15","thumbnail":"components\\/com_community\\/assets\\/photo_thumb.png"}'),
+	(3, 0, 787, 'Лента фото', '', '0', '2018-11-15 12:09:24', 'images/photos/787/', 'profile', 0, 0, 0, '', 255.000000, 255.000000, 1, '{"count":"0","lastupdated":"2018-11-15 12:09:24"}'),
+	(4, 0, 788, 'test3 аватар', '', '0', '2018-11-15 12:20:27', 'images/avatar/profile/', 'profile.avatar', 0, 0, 0, '', 255.000000, 255.000000, 0, '{"count":"0","lastupdated":"2018-11-15 13:01:09","thumbnail":"components\\/com_community\\/assets\\/photo_thumb.png"}'),
+	(5, 0, 788, 'Обложка', '', '0', '2018-11-15 12:20:27', 'images/cover/profile/788/', 'profile.Cover', 0, 0, 0, '', 255.000000, 255.000000, 0, '{"count":"0","lastupdated":"2018-11-15 13:01:09","thumbnail":"components\\/com_community\\/assets\\/photo_thumb.png"}'),
+	(6, 0, 788, 'Лента фото', '', '0', '2018-11-15 12:20:27', 'images/photos/788/', 'profile', 0, 0, 0, '', 255.000000, 255.000000, 1, '{"count":"0","lastupdated":"2018-11-15 14:20:50","thumbnail":"components\\/com_community\\/assets\\/photo_thumb.png"}');
+/*!40000 ALTER TABLE `dogs_community_photos_albums` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_photos_tag
+CREATE TABLE IF NOT EXISTS `dogs_community_photos_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `photoid` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `position` varchar(50) NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_photoid` (`photoid`),
+  KEY `idx_userid` (`userid`),
+  KEY `idx_created_by` (`created_by`),
+  KEY `idx_photo_user` (`photoid`,`userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_photos_tag: 0 rows
+DELETE FROM `dogs_community_photos_tag`;
+/*!40000 ALTER TABLE `dogs_community_photos_tag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_photos_tag` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_photos_tokens
+CREATE TABLE IF NOT EXISTS `dogs_community_photos_tokens` (
+  `userid` int(11) NOT NULL,
+  `token` varchar(200) NOT NULL,
+  `datetime` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_photos_tokens: 0 rows
+DELETE FROM `dogs_community_photos_tokens`;
+/*!40000 ALTER TABLE `dogs_community_photos_tokens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_photos_tokens` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_photo_stats
+CREATE TABLE IF NOT EXISTS `dogs_community_photo_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `count` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `params` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_photo_stats: 0 rows
+DELETE FROM `dogs_community_photo_stats`;
+/*!40000 ALTER TABLE `dogs_community_photo_stats` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_photo_stats` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_profiles
+CREATE TABLE IF NOT EXISTS `dogs_community_profiles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` text CHARACTER SET utf8mb4 NOT NULL,
+  `approvals` tinyint(3) NOT NULL,
+  `published` tinyint(3) NOT NULL,
+  `avatar` text NOT NULL,
+  `watermark` text NOT NULL,
+  `watermark_hash` varchar(255) NOT NULL,
+  `watermark_location` text NOT NULL,
+  `thumb` text NOT NULL,
+  `created` datetime NOT NULL,
+  `create_groups` tinyint(1) DEFAULT '1',
+  `create_events` int(11) DEFAULT '1',
+  `profile_lock` tinyint(1) DEFAULT '0',
+  `ordering` int(11) NOT NULL,
+  `params` text,
+  PRIMARY KEY (`id`),
+  KEY `approvals` (`approvals`,`published`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_profiles: 5 rows
+DELETE FROM `dogs_community_profiles`;
+/*!40000 ALTER TABLE `dogs_community_profiles` DISABLE KEYS */;
+INSERT INTO `dogs_community_profiles` (`id`, `name`, `description`, `approvals`, `published`, `avatar`, `watermark`, `watermark_hash`, `watermark_location`, `thumb`, `created`, `create_groups`, `create_events`, `profile_lock`, `ordering`, `params`) VALUES
+	(1, 'Владелец собаки', 'Этот профиль подходит тем, кто имеет одну или несколько собак и не занимается их профессиональным разведением. ', 0, 1, 'images/watermarks/509e00d3a5f42847850871b4.jpg', '', '', '', 'images/watermarks/thumb_509e00d3a5f42847850871b4.jpg', '2018-11-15 11:56:44', 1, 1, 0, 1, '{"userGroup":["10"],"groupid":""}'),
+	(2, 'Питомник', 'Этот профиль предназначен для тех людей, которые занимаются профессиональным разведением определённых пород собак', 0, 1, 'images/watermarks/1d57eca3830a1001ff2b0d7f.jpg', '', '', '', 'images/watermarks/thumb_1d57eca3830a1001ff2b0d7f.jpg', '2018-11-15 11:58:31', 1, 1, 0, 2, '{"userGroup":["11"],"groupid":""}'),
+	(3, 'Ветеринарная клиника', 'Этот профиль предназначен для учреждений, которые оказывают медицинскую помощь собакам', 0, 1, '', '', '', '', '', '2018-11-15 12:00:49', 1, 1, 0, 3, '{"userGroup":["12"],"groupid":""}'),
+	(4, 'Зоомагазин', 'Этот профиль предназначен для магазинов осуществляющих продажу товаров для собак', 0, 1, '', '', '', '', '', '2018-11-15 12:02:00', 1, 1, 0, 4, '{"userGroup":["13"],"groupid":""}'),
+	(5, 'Выставка', 'Этот профиль предназначен для организаторов выставок собак', 0, 1, '', '', '', '', '', '2018-11-15 12:02:50', 1, 1, 0, 5, '{"userGroup":["14"],"groupid":""}');
+/*!40000 ALTER TABLE `dogs_community_profiles` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_profiles_fields
+CREATE TABLE IF NOT EXISTS `dogs_community_profiles_fields` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent` int(11) NOT NULL,
+  `field_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `multiprofile_id` (`parent`),
+  KEY `field_id` (`field_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_profiles_fields: 9 rows
+DELETE FROM `dogs_community_profiles_fields`;
+/*!40000 ALTER TABLE `dogs_community_profiles_fields` DISABLE KEYS */;
+INSERT INTO `dogs_community_profiles_fields` (`id`, `parent`, `field_id`) VALUES
+	(18, 1, 6),
+	(50, 3, 1),
+	(54, 5, 1),
+	(66, 5, 13),
+	(65, 4, 13),
+	(52, 4, 1),
+	(48, 2, 1),
+	(64, 3, 13),
+	(63, 2, 13);
+/*!40000 ALTER TABLE `dogs_community_profiles_fields` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_profile_stats
+CREATE TABLE IF NOT EXISTS `dogs_community_profile_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `count` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `params` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_profile_stats: 6 rows
+DELETE FROM `dogs_community_profile_stats`;
+/*!40000 ALTER TABLE `dogs_community_profile_stats` DISABLE KEYS */;
+INSERT INTO `dogs_community_profile_stats` (`id`, `uid`, `type`, `count`, `date`, `params`, `created_at`) VALUES
+	(1, 785, 'view', 5, '2018-11-15', '', '2018-11-15 11:39:58'),
+	(2, 785, 'points', 1, '2018-11-15', '', '2018-11-15 15:29:41'),
+	(3, 788, 'view', 3, '2018-11-15', '', '2018-11-15 16:01:09'),
+	(4, 784, 'view', 1, '2018-11-15', '', '2018-11-15 16:07:47'),
+	(5, 786, 'view', 2, '2018-11-15', '', '2018-11-15 16:11:04'),
+	(6, 787, 'view', 4, '2018-11-15', '', '2018-11-15 16:17:15');
+/*!40000 ALTER TABLE `dogs_community_profile_stats` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_register
+CREATE TABLE IF NOT EXISTS `dogs_community_register` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `token` varchar(200) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `firstname` varchar(180) NOT NULL,
+  `lastname` varchar(180) NOT NULL,
+  `username` varchar(150) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `created` datetime DEFAULT NULL,
+  `ip` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_register: 4 rows
+DELETE FROM `dogs_community_register`;
+/*!40000 ALTER TABLE `dogs_community_register` DISABLE KEYS */;
+INSERT INTO `dogs_community_register` (`id`, `token`, `name`, `firstname`, `lastname`, `username`, `email`, `password`, `created`, `ip`) VALUES
+	(6, 'kzoMMW9OQgGSCD6rsE7xIXLKZx4EirlT', 'test4', '', '', 'test4', 'test4@mail.ru', '59c287db50f4e545f67bd26287208051:bcafBHlop3yym3ZfhWoEmZbHvGc2CoYk', '2018-11-15 13:25:01', '127.0.0.1'),
+	(5, 'kzoMMW9OQgGSCD6rsE7xIXLKZx4EirlT', 'test4', '', '', 'test4', 'test4@mail.ru', '1dcc9c606d2064b2d17949a2f8e67320:U0Y63bngtKY17ytfbs98C6dkbW1VXgeU', '2018-11-15 13:25:01', '127.0.0.1'),
+	(7, 'xDSlTatvh23wBzY0LLeubtyAEMVPsGyc', 'test4', '', '', 'test4', 'test4@mail.ru', 'e60ec62d5bbf8e8359d9db9602851ce1:YmscyjfHHcwWoffUNTSTjaUB3xCo7QfL', '2018-11-15 13:27:15', '127.0.0.1'),
+	(8, 'xDSlTatvh23wBzY0LLeubtyAEMVPsGyc', 'test4', '', '', 'test4', 'test4@mail.ru', '2b9406c1bd91c8d195de6a7873c5f436:XV5aQacGt1yCIy4MfdcrZDyrJFOCZa3D', '2018-11-15 13:27:15', '127.0.0.1');
+/*!40000 ALTER TABLE `dogs_community_register` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_register_auth_token
+CREATE TABLE IF NOT EXISTS `dogs_community_register_auth_token` (
+  `token` varchar(200) NOT NULL,
+  `ip` varchar(255) NOT NULL,
+  `auth_key` varchar(200) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`token`),
+  KEY `ip` (`ip`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_register_auth_token: 8 rows
+DELETE FROM `dogs_community_register_auth_token`;
+/*!40000 ALTER TABLE `dogs_community_register_auth_token` DISABLE KEYS */;
+INSERT INTO `dogs_community_register_auth_token` (`token`, `ip`, `auth_key`, `created`) VALUES
+	('fGi8icqQJDDXTdZMtGijXCyP44FUMJ4Y', '127.0.0.1', '211e1e385541f95d56154f6cede4e525', '2018-11-15 13:25:10'),
+	('kzoMMW9OQgGSCD6rsE7xIXLKZx4EirlT', '127.0.0.1', '64ef87d6fa2ca4d8df61bda6a3b74d0d', '2018-11-15 13:24:38'),
+	('Zun5W2aYx1jYxjZADT1lcmnCgz7SWFJR', '127.0.0.1', '17f08dad56f3fbfd68e11248108cf7a4', '2018-11-15 13:25:18'),
+	('LsVz2t4lwzPe6ttdAiCHOS3wGDTQPLyx', '127.0.0.1', 'df77f918e2bca2e5c8d6b7d8b8c668ab', '2018-11-15 13:26:17'),
+	('l3t5A1GDafV93121ikjVs0Zq2rI2lVJC', '127.0.0.1', '70b84241eec42cd9bcc72b8a77fd0d13', '2018-11-15 13:26:19'),
+	('DhTTNgc1kVkc1F1dtEAd5O2jo4h2mEBP', '127.0.0.1', '47bd95820a10ff35141bd6971e53d751', '2018-11-15 13:26:32'),
+	('0PlXuVYSDRAXx6KFplN02qcURx6F0KQM', '127.0.0.1', 'fa5e196a4ab27f217bbae36969247a80', '2018-11-15 13:26:34'),
+	('xDSlTatvh23wBzY0LLeubtyAEMVPsGyc', '127.0.0.1', 'bc70bb1798f109e40e88846ec3af1b4d', '2018-11-15 13:26:50');
+/*!40000 ALTER TABLE `dogs_community_register_auth_token` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_reports
+CREATE TABLE IF NOT EXISTS `dogs_community_reports` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniquestring` varchar(200) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `status` int(1) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_reports: 0 rows
+DELETE FROM `dogs_community_reports`;
+/*!40000 ALTER TABLE `dogs_community_reports` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_reports` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_reports_actions
+CREATE TABLE IF NOT EXISTS `dogs_community_reports_actions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `reportid` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `method` varchar(255) NOT NULL,
+  `parameters` varchar(255) NOT NULL,
+  `defaultaction` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_reports_actions: 0 rows
+DELETE FROM `dogs_community_reports_actions`;
+/*!40000 ALTER TABLE `dogs_community_reports_actions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_reports_actions` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_reports_reporter
+CREATE TABLE IF NOT EXISTS `dogs_community_reports_reporter` (
+  `reportid` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `ip` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_reports_reporter: 0 rows
+DELETE FROM `dogs_community_reports_reporter`;
+/*!40000 ALTER TABLE `dogs_community_reports_reporter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_reports_reporter` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_storage_s3
+CREATE TABLE IF NOT EXISTS `dogs_community_storage_s3` (
+  `storageid` varchar(255) NOT NULL,
+  `resource_path` varchar(255) NOT NULL,
+  UNIQUE KEY `storageid` (`storageid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_storage_s3: 0 rows
+DELETE FROM `dogs_community_storage_s3`;
+/*!40000 ALTER TABLE `dogs_community_storage_s3` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_storage_s3` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_tags
+CREATE TABLE IF NOT EXISTS `dogs_community_tags` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `element` varchar(200) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `cid` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `tag` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_tags: 0 rows
+DELETE FROM `dogs_community_tags`;
+/*!40000 ALTER TABLE `dogs_community_tags` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_tags` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_tags_words
+CREATE TABLE IF NOT EXISTS `dogs_community_tags_words` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tag` varchar(200) NOT NULL,
+  `count` int(11) NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_tags_words: 0 rows
+DELETE FROM `dogs_community_tags_words`;
+/*!40000 ALTER TABLE `dogs_community_tags_words` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_tags_words` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_theme
+CREATE TABLE IF NOT EXISTS `dogs_community_theme` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(32) NOT NULL,
+  `value` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `key` (`key`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_theme: ~0 rows (приблизительно)
+DELETE FROM `dogs_community_theme`;
+/*!40000 ALTER TABLE `dogs_community_theme` DISABLE KEYS */;
+INSERT INTO `dogs_community_theme` (`id`, `key`, `value`) VALUES
+	(1, 'scss-default', '{"colors":{"scss-color-primary":"5677FC","scss-color-secondary":"259B24","scss-color-neutral":"ECF0F1","scss-color-important":"E74C3C","scss-color-info":"E67E22","scss-color-background":"ECF0F1","scss-color-toolbar":"F5F7F7","scss-color-focus-background":"FFFFFF","scss-color-postbox":"FFFFFF","scss-color-postbox-tab":"F5F5F5","scss-color-module-background":"FFFFFF","scss-color-moduletab-background":"E0E7E8","scss-color-dropdown-background":"FFFFFF","scss-color-dropdown-border":"E3E5E7"},"general":{"scss-stream-position":"right","scss-button-style":"flat","scss-avatar-shape":"circle","scss-avatar-style":"bordered"}}'),
+	(2, 'settings', '{"profile":{"tagline":"[{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"2\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"3\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"4\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"}]","1":{"tagline":"[{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"}]"},"2":{"tagline":"[{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"}]"},"3":{"tagline":"[{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"}]"},"4":{"tagline":"[{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"}]"},"5":{"tagline":"[{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"},{\\"spacebefore\\":\\"\\",\\"before\\":\\"\\",\\"field\\":\\"\\",\\"after\\":\\"\\",\\"spaceafter\\":\\"0\\"}]"}},"general":[],"group":[],"event":[]}');
+/*!40000 ALTER TABLE `dogs_community_theme` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_thirdparty_wall_options
+CREATE TABLE IF NOT EXISTS `dogs_community_thirdparty_wall_options` (
+  `name` varchar(255) NOT NULL,
+  `notification_cmd` varchar(255) NOT NULL,
+  `object_name` varchar(255) NOT NULL,
+  `params` text NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_thirdparty_wall_options: 0 rows
+DELETE FROM `dogs_community_thirdparty_wall_options`;
+/*!40000 ALTER TABLE `dogs_community_thirdparty_wall_options` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_thirdparty_wall_options` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_userpoints
+CREATE TABLE IF NOT EXISTS `dogs_community_userpoints` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rule_name` varchar(255) NOT NULL DEFAULT '',
+  `rule_description` text NOT NULL,
+  `rule_plugin` varchar(255) NOT NULL DEFAULT '',
+  `action_string` varchar(255) NOT NULL DEFAULT '',
+  `component` varchar(255) NOT NULL DEFAULT '',
+  `access` tinyint(1) NOT NULL DEFAULT '1',
+  `points` int(11) NOT NULL DEFAULT '0',
+  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `system` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_userpoints: 59 rows
+DELETE FROM `dogs_community_userpoints`;
+/*!40000 ALTER TABLE `dogs_community_userpoints` DISABLE KEYS */;
+INSERT INTO `dogs_community_userpoints` (`id`, `rule_name`, `rule_description`, `rule_plugin`, `action_string`, `component`, `access`, `points`, `published`, `system`) VALUES
+	(1, 'Profile Application Added', 'Assign number of points and determine whether an activity stream item will be created when user adds a profile application.', 'com_community', 'application.add', '', 1, 0, 1, 1),
+	(2, 'Profile Application Removed', 'Assign number of points and determine whether an activity stream item will be created when user removes a profile application.', 'com_community', 'application.remove', '', 1, 0, 0, 1),
+	(3, 'Photo Upload', 'Assign number of points for the photo upload action and determine if an activity stream item will be created.', 'com_community', 'photo.upload', '', 1, 0, 1, 1),
+	(4, 'New Group Created', 'Assign number of points when a user creates a new group and determines if an activity stream item will be created.', 'com_community', 'group.create', '', 1, 3, 1, 1),
+	(5, 'New Group Discussion', 'Assign number of points when a user opens a new discussion in group and determine if an activity stream item for this action will be created.', 'com_community', 'group.discussion.create', '', 1, 2, 1, 1),
+	(6, 'User Leave The Group', 'Deduct points when a registered user leaves a group. * There is no activity stream item for this action.', 'com_community', 'group.leave', '', 1, -1, 1, 1),
+	(7, 'Friend Request Is Approved', 'Assign number of points when user approves a friend request and determine if an activity stream item for this action will be created.', 'com_community', 'friends.request.approve', '', 1, 1, 1, 1),
+	(8, 'New Photo Album Created', 'Assign number of points when a user creates new album and determine if an activity stream item for this action will be created.', 'com_community', 'album.create', '', 1, 1, 1, 1),
+	(9, 'Post Group Comment', 'Assign a number of points when a user posst from a group\'s share box and determine if to create an activity stream item for this action.', 'com_community', 'group.wall.create', '', 1, 1, 1, 1),
+	(10, 'Join Group', 'Assign a number of points when user joins the group and determine if to create an activity stream item for this action.', 'com_community', 'group.join', '', 1, 1, 1, 1),
+	(11, 'Reply Group\'s Discussion', 'Assign a number of points when a registered user replies on a group\'s discussion and determine if to create an activity stream item for this action.', 'com_community', 'group.discussion.reply', '', 1, 1, 1, 1),
+	(12, 'Comment Profile From Share Box', 'Assign a number of points when a user posts from a Share Box on other people\'s profiles and determine if to create an activity stream item for this action.', 'com_community', 'profile.wall.create', '', 1, 1, 1, 1),
+	(13, 'Post Status From Share Box', 'Assign a number of points when a user posts a status from a Share Box and determine if to create an activity stream item for this action.', 'com_community', 'profile.status.update', '', 1, 1, 1, 1),
+	(14, 'Profile Updated', 'Assign a number of points when a profile is updated. There is no activity stream item for this action.', 'com_community', 'profile.save', '', 1, 1, 1, 1),
+	(15, 'Group Updated', 'Assign a number of points when a user updates the group information and determine if to create an activity stream item for this action.', 'com_community', 'group.updated', '', 1, 1, 1, 1),
+	(16, 'Change Group Avatar', 'Assign a number of points when a group admin or owner changes its avatar.', 'com_community', 'group.avatar.upload', '', 1, 0, 1, 1),
+	(17, 'Create Group\'s Announcement', 'Assign a number of points when a user publishes a new announcement in a group and determine if to create an activity stream item for this action.', 'com_community', 'group.news.create', '', 1, 1, 1, 1),
+	(18, 'Comment Photo', 'Assign number of points when a new photo comment is added and determine if to create an activity stream item for this action', 'com_community', 'photos.wall.create', '', 1, 1, 1, 1),
+	(19, 'Remove Friend', 'Deduct points when a registered user removes a friend. There is no activity stream item for this action', 'com_community', 'friends.remove', '', 1, 0, 1, 1),
+	(20, 'Change Profile Picture', 'Assign a number of points when a user changes a profile picture and determine if to create an activity stream item for this action', 'com_community', 'profile.avatar.upload', '', 1, 1, 0, 1),
+	(21, 'Update Profile Privacy', 'Assign a number of points when user update profile privacy. There is no activity stream item for this action.', 'com_community', 'profile.privacy.update', '', 1, 0, 1, 1),
+	(22, 'Reply Private Message', 'Give points when a user replies to a private message. Activity stream items for this action do not exist.', 'com_community', 'inbox.message.reply', '', 1, 0, 1, 1),
+	(23, 'New Private Message', 'Give points when a user sends a new private message.', 'com_community', 'inbox.message.send', '', 1, 0, 1, 1),
+	(24, 'Remove Group Member', 'Assign a number of points when a group owner or admin user removes a group memeber.', 'com_community', 'group.member.remove', '', 1, 0, 1, 1),
+	(25, 'Delete Announcement', 'Deduct points when a user removes an announcement in group.', 'com_community', 'group.news.remove', '', 1, 0, 1, 1),
+	(26, 'Remove Wall Comment', 'Deduct points to the original poster when a wall comment is removed.', 'com_community', 'wall.remove', '', 1, 0, 1, 1),
+	(27, 'Delete Photo Album', 'Deduct points when a user deletes a photo album.', 'com_community', 'album.remove', '', 1, 0, 1, 1),
+	(28, 'Delete Photo', 'Deduct points when a user deletes a photo.', 'com_community', 'photo.remove', '', 1, 0, 1, 1),
+	(29, 'Event Updated', 'Assign a number of points when a user updates event information.', 'com_community', 'events.update', '', 1, 1, 1, 1),
+	(30, 'Post Event Wall', 'Give points when registered user post wall on event.', 'com_community', 'event.wall.create', '', 1, 1, 1, 1),
+	(31, 'Remove video', 'Deduct points when user remove a video.', 'com_community', 'video.remove', '', 1, -1, 1, 1),
+	(32, 'Add video', 'Add points when user adds a video.', 'com_community', 'video.add', '', 1, 1, 1, 1),
+	(33, 'Add Event', 'Add points when user created new event.', 'com_community', 'events.create', '', 1, 1, 1, 1),
+	(34, 'Like photo', 'Add points when usegr like a photo', 'com_community', 'photo.like', '', 1, 1, 1, 1),
+	(35, 'Like album', 'Add points when user like an album', 'com_community', 'album.like', '', 1, 1, 1, 1),
+	(36, 'Like videos', 'Add points when user like a video', 'com_community', 'videos.like', '', 1, 1, 1, 1),
+	(37, 'Like profile', 'Add points when user like a profile', 'com_community', 'profile.like', '', 1, 1, 1, 1),
+	(38, 'Like profile status', 'Add points when user like a profile status', 'com_community', 'profile.stream.like', '', 1, 1, 1, 1),
+	(39, 'Change profile cover', 'Add points when user change the profile cover photo', 'com_community', 'profile.cover.upload', '', 1, 1, 1, 1),
+	(40, 'Change group cover', 'Add points when user change the group cover photo', 'com_community', 'group.cover.upload', '', 1, 1, 1, 1),
+	(41, 'Change event cover', 'Add points when user change the event cover photo', 'com_community', 'event.cover.upload', '', 1, 1, 1, 1),
+	(42, 'Comment album', 'Add points of points when new album comment is added', 'com_community', 'albums.comment', '', 1, 1, 1, 1),
+	(43, 'Comment video', 'Add points of points when new video comment is added', 'com_community', 'videos.comment', '', 1, 1, 1, 1),
+	(44, 'Like group', 'Add points when user like a group', 'com_community', 'groups.like', '', 1, 1, 1, 1),
+	(45, 'Like event', 'Add points when user like a event', 'com_community', 'events.like', '', 1, 1, 1, 1),
+	(46, 'Unlike photo', 'Deduct points when user unlike a photo', 'com_community', 'photo.unlike', '', 1, -1, 1, 1),
+	(47, 'Unlike album', 'Deduct points when user unlike an album', 'com_community', 'album.unlike', '', 1, -1, 1, 1),
+	(48, 'Unlike video', 'Deduct points when user unlike a video', 'com_community', 'videos.unlike', '', 1, -1, 1, 1),
+	(49, 'Unlike group', 'Deduct points when user unlike a group', 'com_community', 'groups.unlike', '', 1, -1, 1, 1),
+	(50, 'Unlike event', 'Deduct points when user unlike a event', 'com_community', 'events.unlike', '', 1, -1, 1, 1),
+	(51, 'Unlike profile', 'Deduct points when user unlike a profile', 'com_community', 'profile.unlike', '', 1, -1, 1, 1),
+	(52, 'Unlike profile status', 'Deduct points when user unlike a profile status', 'com_community', 'profile.stream.unlike', '', 1, -1, 1, 1),
+	(53, 'Attend event', 'Add points when user attended to event', 'com_community', 'events.attend', '', 1, 1, 1, 1),
+	(54, 'Wont Attend event', 'Deduct points when user attended to event', 'com_community', 'events.wontattend', '', 1, -1, 1, 1),
+	(55, 'Profile featured', 'Add points when site admin featured profile', 'com_community', 'users.featured', '', 1, 1, 1, 1),
+	(56, 'Album featured', 'Add points when site admin featured album', 'com_community', 'albums.featured', '', 1, 1, 1, 1),
+	(57, 'Video featured', 'Add points when site admin featured video', 'com_community', 'videos.featured', '', 1, 1, 1, 1),
+	(58, 'Group featured', 'Add points when site admin featured group', 'com_community', 'groups.featured', '', 1, 1, 1, 1),
+	(59, 'Event featured', 'Add points when site admin featured event', 'com_community', 'events.featured', '', 1, 1, 1, 1);
+/*!40000 ALTER TABLE `dogs_community_userpoints` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_users
+CREATE TABLE IF NOT EXISTS `dogs_community_users` (
+  `userid` int(11) NOT NULL,
+  `status` text NOT NULL,
+  `status_access` int(11) NOT NULL DEFAULT '0',
+  `points` int(11) NOT NULL,
+  `posted_on` datetime NOT NULL,
+  `avatar` text NOT NULL,
+  `thumb` text NOT NULL,
+  `cover` text NOT NULL,
+  `invite` int(11) NOT NULL DEFAULT '0',
+  `params` text NOT NULL,
+  `view` int(11) NOT NULL DEFAULT '0',
+  `friends` text NOT NULL,
+  `groups` text NOT NULL,
+  `events` text NOT NULL,
+  `friendcount` int(11) NOT NULL DEFAULT '0',
+  `alias` varchar(255) NOT NULL,
+  `latitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `longitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `profile_id` int(11) NOT NULL DEFAULT '0',
+  `storage` varchar(64) NOT NULL DEFAULT 'file',
+  `watermark_hash` varchar(255) NOT NULL,
+  `search_email` tinyint(1) NOT NULL DEFAULT '1',
+  `default_avatar` tinyint(1) NOT NULL DEFAULT '1',
+  `usergroup` tinytext,
+  PRIMARY KEY (`userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_users: 5 rows
+DELETE FROM `dogs_community_users`;
+/*!40000 ALTER TABLE `dogs_community_users` DISABLE KEYS */;
+INSERT INTO `dogs_community_users` (`userid`, `status`, `status_access`, `points`, `posted_on`, `avatar`, `thumb`, `cover`, `invite`, `params`, `view`, `friends`, `groups`, `events`, `friendcount`, `alias`, `latitude`, `longitude`, `profile_id`, `storage`, `watermark_hash`, `search_email`, `default_avatar`, `usergroup`) VALUES
+	(786, '', 0, 0, '0000-00-00 00:00:00', 'images/watermarks/509e00d3a5f42847850871b4.jpg', 'images/watermarks/thumb_509e00d3a5f42847850871b4.jpg', '', 0, '{"notifyEmailSystem":1,"privacyPrivateMessage":10,"privacyFriendRequest":10,"privacyProfileView":"0","privacyPhotoView":"0","privacyFriendsView":"30","privacyGroupsView":"0","privacyVideoView":"0","notifyEmailMessage":1,"notifyEmailApps":1,"notifyWallComment":0,"invitorId":0,"notif_groups_notify_admin":1,"etype_groups_notify_admin":1,"notif_user_profile_delete":1,"etype_user_profile_delete":1,"notif_system_reports_threshold":1,"etype_system_reports_threshold":1,"notif_profile_activity_add_comment":1,"etype_profile_activity_add_comment":1,"notif_profile_activity_reply_comment":1,"etype_profile_activity_reply_comment":1,"notif_profile_status_update":1,"etype_profile_status_update":1,"notif_profile_like":1,"etype_profile_like":1,"notif_profile_stream_like":1,"etype_profile_stream_like":1,"notif_profle_digest_email":0,"etype_profle_digest_email":1,"notif_friends_request_connection":1,"etype_friends_request_connection":1,"notif_friends_create_connection":1,"etype_friends_create_connection":1,"notif_inbox_create_message":1,"etype_inbox_create_message":1,"notif_users_tagged":1,"etype_users_tagged":1,"notif_groups_invite":1,"etype_groups_invite":1,"notif_groups_discussion_reply":1,"etype_groups_discussion_reply":1,"notif_groups_wall_create":1,"etype_groups_wall_create":1,"notif_groups_create_discussion":1,"etype_groups_create_discussion":1,"notif_groups_create_news":1,"etype_groups_create_news":1,"notif_groups_create_album":1,"etype_groups_create_album":1,"notif_groups_create_video":1,"etype_groups_create_video":1,"notif_groups_create_event":1,"etype_groups_create_event":1,"notif_groups_sendmail":1,"etype_groups_sendmail":1,"notif_groups_member_approved":1,"etype_groups_member_approved":1,"notif_groups_member_join":1,"etype_groups_member_join":1,"notif_groups_notify_creator":1,"etype_groups_notify_creator":1,"notif_groups_discussion_newfile":1,"etype_groups_discussion_newfile":1,"notif_groups_activity_add_comment":1,"etype_groups_activity_add_comment":1,"notif_events_notify_admin":1,"etype_events_notify_admin":1,"notif_events_invite":1,"etype_events_invite":1,"notif_events_invitation_approved":1,"etype_events_invitation_approved":1,"notif_events_sendmail":1,"etype_events_sendmail":1,"notif_event_notify_creator":0,"etype_event_notify_creator":0,"notif_event_join_request":1,"etype_event_join_request":1,"notif_events_activity_add_comment":0,"etype_events_activity_add_comment":0,"notif_events_wall_create":1,"etype_events_wall_create":1,"notif_videos_submit_wall":1,"etype_videos_submit_wall":1,"notif_videos_reply_wall":1,"etype_videos_reply_wall":1,"notif_videos_tagging":1,"etype_videos_tagging":1,"notif_videos_like":1,"etype_videos_like":1,"notif_videos_convert_success":1,"etype_videos_convert_success":1,"notif_photos_submit_wall":1,"etype_photos_submit_wall":1,"notif_photos_reply_wall":1,"etype_photos_reply_wall":1,"notif_photos_tagging":1,"etype_photos_tagging":1,"notif_photos_like":1,"etype_photos_like":1,"notif_system_messaging":1,"etype_system_messaging":1,"postFacebookStatus":0,"lastnotificationlist":"2018-11-15 13:55:28","daylightsavingoffset":"0"}', 2, '', '', '', 0, '786:pitomnik', 255.000000, 255.000000, 2, 'file', '', 1, 1, NULL),
+	(785, '', 0, 1, '0000-00-00 00:00:00', 'images/watermarks/509e00d3a5f42847850871b4.jpg', 'images/watermarks/thumb_509e00d3a5f42847850871b4.jpg', '', 0, '{"notifyEmailSystem":1,"privacyPrivateMessage":"10","privacyFriendRequest":"10","privacyProfileView":"0","privacyPhotoView":"0","privacyFriendsView":"30","privacyGroupsView":"0","privacyVideoView":"0","notifyEmailMessage":1,"notifyEmailApps":1,"notifyWallComment":0,"invitorId":0,"postFacebookStatus":0,"lastnotificationlist":"2018-11-15 14:10:41","daylightsavingoffset":"0","mobileView":null,"profileLikes":"1","showOnlineStatus":"1","etype_profile_activity_add_comment":"1","notif_profile_activity_add_comment":"1","etype_profile_activity_reply_comment":"1","notif_profile_activity_reply_comment":"1","etype_profile_status_update":"1","notif_profile_status_update":"1","etype_profile_like":"1","notif_profile_like":"1","etype_profile_stream_like":"1","notif_profile_stream_like":"1","etype_profle_digest_email":"1","notif_profle_digest_email":"0","etype_friends_request_connection":"1","notif_friends_request_connection":"1","etype_friends_create_connection":"1","notif_friends_create_connection":"1","etype_inbox_create_message":"1","notif_inbox_create_message":"1","etype_users_tagged":"1","notif_users_tagged":"1","etype_groups_invite":"1","notif_groups_invite":"1","etype_groups_discussion_reply":"1","notif_groups_discussion_reply":"1","etype_groups_wall_create":"1","notif_groups_wall_create":"1","etype_groups_create_discussion":"1","notif_groups_create_discussion":"1","etype_groups_create_news":"1","notif_groups_create_news":"1","etype_groups_create_album":"1","notif_groups_create_album":"1","etype_groups_create_video":"1","notif_groups_create_video":"1","etype_groups_create_event":"1","notif_groups_create_event":"1","etype_groups_sendmail":"1","notif_groups_sendmail":"1","etype_groups_member_approved":"1","notif_groups_member_approved":"1","etype_groups_member_join":"1","notif_groups_member_join":"1","etype_groups_notify_creator":"1","notif_groups_notify_creator":"1","etype_groups_discussion_newfile":"1","notif_groups_discussion_newfile":"1","etype_groups_activity_add_comment":"1","notif_groups_activity_add_comment":"1","etype_events_invite":"1","notif_events_invite":"1","etype_events_invitation_approved":"1","notif_events_invitation_approved":"1","etype_events_sendmail":"1","notif_events_sendmail":"1","etype_event_notify_creator":"0","notif_event_notify_creator":"0","etype_event_join_request":"1","notif_event_join_request":"1","etype_events_activity_add_comment":"0","notif_events_activity_add_comment":"0","etype_events_wall_create":"1","notif_events_wall_create":"1","etype_videos_submit_wall":"1","notif_videos_submit_wall":"1","etype_videos_reply_wall":"1","notif_videos_reply_wall":"1","etype_videos_tagging":"1","notif_videos_tagging":"1","etype_videos_like":"1","notif_videos_like":"1","etype_videos_convert_success":"1","notif_videos_convert_success":"1","etype_photos_submit_wall":"1","notif_photos_submit_wall":"1","etype_photos_reply_wall":"1","notif_photos_reply_wall":"1","etype_photos_tagging":"1","notif_photos_tagging":"1","etype_photos_like":"1","notif_photos_like":"1","etype_system_messaging":"1","notif_system_messaging":"1","search_email":0}', 5, '', '', '', 0, '785test', 255.000000, 255.000000, 1, 'file', '', 0, 1, '10'),
+	(784, '', 0, 0, '0000-00-00 00:00:00', 'images/watermarks/509e00d3a5f42847850871b4.jpg', 'images/watermarks/thumb_509e00d3a5f42847850871b4.jpg', '', 0, '{"notifyEmailSystem":1,"privacyPrivateMessage":10,"privacyFriendRequest":10,"privacyProfileView":"0","privacyPhotoView":"0","privacyFriendsView":"30","privacyGroupsView":"0","privacyVideoView":"0","notifyEmailMessage":1,"notifyEmailApps":1,"notifyWallComment":0,"invitorId":0,"postFacebookStatus":0}', 1, '', '', '', 0, '784:super-user', 255.000000, 255.000000, 0, 'file', '', 1, 1, NULL),
+	(787, '', 0, 0, '0000-00-00 00:00:00', 'images/watermarks/509e00d3a5f42847850871b4.jpg', 'images/watermarks/thumb_509e00d3a5f42847850871b4.jpg', '', 0, '{"notifyEmailSystem":1,"privacyPrivateMessage":10,"privacyFriendRequest":10,"privacyProfileView":"0","privacyPhotoView":"0","privacyFriendsView":"30","privacyGroupsView":"0","privacyVideoView":"0","notifyEmailMessage":1,"notifyEmailApps":1,"notifyWallComment":0,"invitorId":0,"notif_groups_notify_admin":1,"etype_groups_notify_admin":1,"notif_user_profile_delete":1,"etype_user_profile_delete":1,"notif_system_reports_threshold":1,"etype_system_reports_threshold":1,"notif_profile_activity_add_comment":1,"etype_profile_activity_add_comment":1,"notif_profile_activity_reply_comment":1,"etype_profile_activity_reply_comment":1,"notif_profile_status_update":1,"etype_profile_status_update":1,"notif_profile_like":1,"etype_profile_like":1,"notif_profile_stream_like":1,"etype_profile_stream_like":1,"notif_profle_digest_email":0,"etype_profle_digest_email":1,"notif_friends_request_connection":1,"etype_friends_request_connection":1,"notif_friends_create_connection":1,"etype_friends_create_connection":1,"notif_inbox_create_message":1,"etype_inbox_create_message":1,"notif_users_tagged":1,"etype_users_tagged":1,"notif_groups_invite":1,"etype_groups_invite":1,"notif_groups_discussion_reply":1,"etype_groups_discussion_reply":1,"notif_groups_wall_create":1,"etype_groups_wall_create":1,"notif_groups_create_discussion":1,"etype_groups_create_discussion":1,"notif_groups_create_news":1,"etype_groups_create_news":1,"notif_groups_create_album":1,"etype_groups_create_album":1,"notif_groups_create_video":1,"etype_groups_create_video":1,"notif_groups_create_event":1,"etype_groups_create_event":1,"notif_groups_sendmail":1,"etype_groups_sendmail":1,"notif_groups_member_approved":1,"etype_groups_member_approved":1,"notif_groups_member_join":1,"etype_groups_member_join":1,"notif_groups_notify_creator":1,"etype_groups_notify_creator":1,"notif_groups_discussion_newfile":1,"etype_groups_discussion_newfile":1,"notif_groups_activity_add_comment":1,"etype_groups_activity_add_comment":1,"notif_events_notify_admin":1,"etype_events_notify_admin":1,"notif_events_invite":1,"etype_events_invite":1,"notif_events_invitation_approved":1,"etype_events_invitation_approved":1,"notif_events_sendmail":1,"etype_events_sendmail":1,"notif_event_notify_creator":0,"etype_event_notify_creator":0,"notif_event_join_request":1,"etype_event_join_request":1,"notif_events_activity_add_comment":0,"etype_events_activity_add_comment":0,"notif_events_wall_create":1,"etype_events_wall_create":1,"notif_videos_submit_wall":1,"etype_videos_submit_wall":1,"notif_videos_reply_wall":1,"etype_videos_reply_wall":1,"notif_videos_tagging":1,"etype_videos_tagging":1,"notif_videos_like":1,"etype_videos_like":1,"notif_videos_convert_success":1,"etype_videos_convert_success":1,"notif_photos_submit_wall":1,"etype_photos_submit_wall":1,"notif_photos_reply_wall":1,"etype_photos_reply_wall":1,"notif_photos_tagging":1,"etype_photos_tagging":1,"notif_photos_like":1,"etype_photos_like":1,"notif_system_messaging":1,"etype_system_messaging":1,"postFacebookStatus":0,"daylightsavingoffset":"0"}', 4, '', '', '', 0, '787:test2', 255.000000, 255.000000, 4, 'file', '', 1, 1, '11'),
+	(788, '', 0, 0, '0000-00-00 00:00:00', '', '', '', 0, '{"notifyEmailSystem":1,"privacyPrivateMessage":10,"privacyFriendRequest":10,"privacyProfileView":"0","privacyPhotoView":"0","privacyFriendsView":"30","privacyGroupsView":"0","privacyVideoView":"0","notifyEmailMessage":1,"notifyEmailApps":1,"notifyWallComment":0,"invitorId":0,"notif_groups_notify_admin":1,"etype_groups_notify_admin":1,"notif_user_profile_delete":1,"etype_user_profile_delete":1,"notif_system_reports_threshold":1,"etype_system_reports_threshold":1,"notif_profile_activity_add_comment":1,"etype_profile_activity_add_comment":1,"notif_profile_activity_reply_comment":1,"etype_profile_activity_reply_comment":1,"notif_profile_status_update":1,"etype_profile_status_update":1,"notif_profile_like":1,"etype_profile_like":1,"notif_profile_stream_like":1,"etype_profile_stream_like":1,"notif_profle_digest_email":0,"etype_profle_digest_email":1,"notif_friends_request_connection":1,"etype_friends_request_connection":1,"notif_friends_create_connection":1,"etype_friends_create_connection":1,"notif_inbox_create_message":1,"etype_inbox_create_message":1,"notif_users_tagged":1,"etype_users_tagged":1,"notif_groups_invite":1,"etype_groups_invite":1,"notif_groups_discussion_reply":1,"etype_groups_discussion_reply":1,"notif_groups_wall_create":1,"etype_groups_wall_create":1,"notif_groups_create_discussion":1,"etype_groups_create_discussion":1,"notif_groups_create_news":1,"etype_groups_create_news":1,"notif_groups_create_album":1,"etype_groups_create_album":1,"notif_groups_create_video":1,"etype_groups_create_video":1,"notif_groups_create_event":1,"etype_groups_create_event":1,"notif_groups_sendmail":1,"etype_groups_sendmail":1,"notif_groups_member_approved":1,"etype_groups_member_approved":1,"notif_groups_member_join":1,"etype_groups_member_join":1,"notif_groups_notify_creator":1,"etype_groups_notify_creator":1,"notif_groups_discussion_newfile":1,"etype_groups_discussion_newfile":1,"notif_groups_activity_add_comment":1,"etype_groups_activity_add_comment":1,"notif_events_notify_admin":1,"etype_events_notify_admin":1,"notif_events_invite":1,"etype_events_invite":1,"notif_events_invitation_approved":1,"etype_events_invitation_approved":1,"notif_events_sendmail":1,"etype_events_sendmail":1,"notif_event_notify_creator":0,"etype_event_notify_creator":0,"notif_event_join_request":1,"etype_event_join_request":1,"notif_events_activity_add_comment":0,"etype_events_activity_add_comment":0,"notif_events_wall_create":1,"etype_events_wall_create":1,"notif_videos_submit_wall":1,"etype_videos_submit_wall":1,"notif_videos_reply_wall":1,"etype_videos_reply_wall":1,"notif_videos_tagging":1,"etype_videos_tagging":1,"notif_videos_like":1,"etype_videos_like":1,"notif_videos_convert_success":1,"etype_videos_convert_success":1,"notif_photos_submit_wall":1,"etype_photos_submit_wall":1,"notif_photos_reply_wall":1,"etype_photos_reply_wall":1,"notif_photos_tagging":1,"etype_photos_tagging":1,"notif_photos_like":1,"etype_photos_like":1,"notif_system_messaging":1,"etype_system_messaging":1,"postFacebookStatus":0,"daylightsavingoffset":"0"}', 3, '', '', '', 0, '788:vetklinika', 255.000000, 255.000000, 3, 'file', '', 1, 1, '12');
+/*!40000 ALTER TABLE `dogs_community_users` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_user_invites
+CREATE TABLE IF NOT EXISTS `dogs_community_user_invites` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `reason` text NOT NULL,
+  `actionby` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_user_invites: 0 rows
+DELETE FROM `dogs_community_user_invites`;
+/*!40000 ALTER TABLE `dogs_community_user_invites` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_user_invites` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_user_status
+CREATE TABLE IF NOT EXISTS `dogs_community_user_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `status` text NOT NULL,
+  `posted_on` int(11) NOT NULL,
+  `location` text NOT NULL,
+  `latitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `longitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  PRIMARY KEY (`id`),
+  KEY `userid` (`userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_user_status: 0 rows
+DELETE FROM `dogs_community_user_status`;
+/*!40000 ALTER TABLE `dogs_community_user_status` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_user_status` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_videos
+CREATE TABLE IF NOT EXISTS `dogs_community_videos` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
+  `type` varchar(200) NOT NULL DEFAULT 'file',
+  `video_id` varchar(200) DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 NOT NULL,
+  `creator` int(11) unsigned NOT NULL,
+  `creator_type` varchar(200) NOT NULL DEFAULT 'user',
+  `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `permissions` varchar(255) NOT NULL DEFAULT '0',
+  `category_id` int(11) unsigned NOT NULL,
+  `hits` int(11) unsigned NOT NULL DEFAULT '0',
+  `published` tinyint(3) NOT NULL DEFAULT '1',
+  `featured` tinyint(3) NOT NULL DEFAULT '0',
+  `duration` float unsigned DEFAULT '0',
+  `status` varchar(200) NOT NULL DEFAULT 'pending',
+  `thumb` varchar(255) DEFAULT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  `groupid` int(11) unsigned NOT NULL DEFAULT '0',
+  `eventid` int(11) unsigned NOT NULL DEFAULT '0',
+  `filesize` int(11) NOT NULL DEFAULT '0',
+  `storage` varchar(64) NOT NULL DEFAULT 'file',
+  `location` text CHARACTER SET utf8mb4 NOT NULL,
+  `latitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `longitude` float(10,6) NOT NULL DEFAULT '255.000000',
+  `params` text CHARACTER SET utf8mb4 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `creator` (`creator`),
+  KEY `idx_groupid` (`groupid`),
+  KEY `idx_storage` (`storage`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_videos: 0 rows
+DELETE FROM `dogs_community_videos`;
+/*!40000 ALTER TABLE `dogs_community_videos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_videos` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_videos_category
+CREATE TABLE IF NOT EXISTS `dogs_community_videos_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `published` tinyint(3) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_videos_category: 1 rows
+DELETE FROM `dogs_community_videos_category`;
+/*!40000 ALTER TABLE `dogs_community_videos_category` DISABLE KEYS */;
+INSERT INTO `dogs_community_videos_category` (`id`, `parent`, `name`, `description`, `published`) VALUES
+	(1, 0, 'Общее', 'General video channel', 1);
+/*!40000 ALTER TABLE `dogs_community_videos_category` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_videos_tag
+CREATE TABLE IF NOT EXISTS `dogs_community_videos_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `videoid` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `position` text NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_videos_tag: 0 rows
+DELETE FROM `dogs_community_videos_tag`;
+/*!40000 ALTER TABLE `dogs_community_videos_tag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_videos_tag` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_video_stats
+CREATE TABLE IF NOT EXISTS `dogs_community_video_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vid` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `count` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `params` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_video_stats: 0 rows
+DELETE FROM `dogs_community_video_stats`;
+/*!40000 ALTER TABLE `dogs_community_video_stats` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_video_stats` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица prodogs.loc.dogs_community_wall
+CREATE TABLE IF NOT EXISTS `dogs_community_wall` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `contentid` int(10) unsigned NOT NULL DEFAULT '0',
+  `post_by` int(10) unsigned NOT NULL DEFAULT '0',
+  `ip` varchar(45) NOT NULL,
+  `comment` text CHARACTER SET utf8mb4 NOT NULL,
+  `date` varchar(45) NOT NULL,
+  `published` tinyint(1) unsigned NOT NULL,
+  `type` varchar(200) NOT NULL,
+  `params` text CHARACTER SET utf8mb4 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `contentid` (`contentid`),
+  KEY `type` (`type`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы prodogs.loc.dogs_community_wall: 0 rows
+DELETE FROM `dogs_community_wall`;
+/*!40000 ALTER TABLE `dogs_community_wall` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dogs_community_wall` ENABLE KEYS */;
 
 
 -- Дамп структуры для таблица prodogs.loc.dogs_contact_details
@@ -705,9 +2288,9 @@ CREATE TABLE IF NOT EXISTS `dogs_extensions` (
   KEY `element_clientid` (`element`,`client_id`),
   KEY `element_folder_clientid` (`element`,`folder`,`client_id`),
   KEY `extension` (`type`,`element`,`folder`,`client_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10081 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10122 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_extensions: ~245 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_extensions: ~276 rows (приблизительно)
 DELETE FROM `dogs_extensions`;
 /*!40000 ALTER TABLE `dogs_extensions` DISABLE KEYS */;
 INSERT INTO `dogs_extensions` (`extension_id`, `package_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `manifest_cache`, `params`, `custom_data`, `system_data`, `checked_out`, `checked_out_time`, `ordering`, `state`) VALUES
@@ -744,7 +2327,7 @@ INSERT INTO `dogs_extensions` (`extension_id`, `package_id`, `name`, `type`, `el
 	(33, 0, 'com_fields', 'component', 'com_fields', '', 1, 1, 1, 0, '{"name":"com_fields","type":"component","creationDate":"March 2016","author":"Joomla! Project","copyright":"(C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.7.0","description":"COM_FIELDS_XML_DESCRIPTION","group":"","filename":"fields"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(34, 0, 'com_associations', 'component', 'com_associations', '', 1, 1, 1, 0, '{"name":"com_associations","type":"component","creationDate":"Januar 2017","author":"Joomla! Project","copyright":"(C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.7.0","description":"COM_ASSOCIATIONS_XML_DESCRIPTION","group":""}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(102, 0, 'LIB_PHPUTF8', 'library', 'phputf8', '', 0, 1, 1, 1, '{"name":"LIB_PHPUTF8","type":"library","creationDate":"2006","author":"Harry Fuecks","copyright":"Copyright various authors","authorEmail":"hfuecks@gmail.com","authorUrl":"http:\\/\\/sourceforge.net\\/projects\\/phputf8","version":"0.5","description":"LIB_PHPUTF8_XML_DESCRIPTION","group":"","filename":"phputf8"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-	(103, 0, 'LIB_JOOMLA', 'library', 'joomla', '', 0, 1, 1, 1, '{"name":"LIB_JOOMLA","type":"library","creationDate":"2008","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"https:\\/\\/www.joomla.org","version":"13.1","description":"LIB_JOOMLA_XML_DESCRIPTION","group":"","filename":"joomla"}', '{"mediaversion":"f3ac471fcd11043167fde3c1fa355c47"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(103, 0, 'LIB_JOOMLA', 'library', 'joomla', '', 0, 1, 1, 1, '{"name":"LIB_JOOMLA","type":"library","creationDate":"2008","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"https:\\/\\/www.joomla.org","version":"13.1","description":"LIB_JOOMLA_XML_DESCRIPTION","group":"","filename":"joomla"}', '{"mediaversion":"5dec67945382487fcda5eb8a3ebd0715"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(104, 0, 'LIB_IDNA', 'library', 'idna_convert', '', 0, 1, 1, 1, '{"name":"LIB_IDNA","type":"library","creationDate":"2004","author":"phlyLabs","copyright":"2004-2011 phlyLabs Berlin, http:\\/\\/phlylabs.de","authorEmail":"phlymail@phlylabs.de","authorUrl":"http:\\/\\/phlylabs.de","version":"0.8.0","description":"LIB_IDNA_XML_DESCRIPTION","group":"","filename":"idna_convert"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(105, 0, 'FOF', 'library', 'fof', '', 0, 1, 1, 1, '{"name":"FOF","type":"library","creationDate":"2015-04-22 13:15:32","author":"Nicholas K. Dionysopoulos \\/ Akeeba Ltd","copyright":"(C)2011-2015 Nicholas K. Dionysopoulos","authorEmail":"nicholas@akeebabackup.com","authorUrl":"https:\\/\\/www.akeebabackup.com","version":"2.4.3","description":"LIB_FOF_XML_DESCRIPTION","group":"","filename":"fof"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(106, 0, 'LIB_PHPASS', 'library', 'phpass', '', 0, 1, 1, 1, '{"name":"LIB_PHPASS","type":"library","creationDate":"2004-2006","author":"Solar Designer","copyright":"","authorEmail":"solar@openwall.com","authorUrl":"http:\\/\\/www.openwall.com\\/phpass\\/","version":"0.3","description":"LIB_PHPASS_XML_DESCRIPTION","group":"","filename":"phpass"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
@@ -838,7 +2421,7 @@ INSERT INTO `dogs_extensions` (`extension_id`, `package_id`, `name`, `type`, `el
 	(449, 0, 'plg_authentication_cookie', 'plugin', 'cookie', 'authentication', 0, 1, 1, 0, '{"name":"plg_authentication_cookie","type":"plugin","creationDate":"July 2013","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"PLG_AUTH_COOKIE_XML_DESCRIPTION","group":"","filename":"cookie"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(450, 0, 'plg_twofactorauth_yubikey', 'plugin', 'yubikey', 'twofactorauth', 0, 0, 1, 0, '{"name":"plg_twofactorauth_yubikey","type":"plugin","creationDate":"September 2013","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.2.0","description":"PLG_TWOFACTORAUTH_YUBIKEY_XML_DESCRIPTION","group":"","filename":"yubikey"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(451, 0, 'plg_search_tags', 'plugin', 'tags', 'search', 0, 1, 1, 0, '{"name":"plg_search_tags","type":"plugin","creationDate":"March 2014","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"PLG_SEARCH_TAGS_XML_DESCRIPTION","group":"","filename":"tags"}', '{"search_limit":"50","show_tagged_items":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-	(452, 0, 'plg_system_updatenotification', 'plugin', 'updatenotification', 'system', 0, 1, 1, 0, '{"name":"plg_system_updatenotification","type":"plugin","creationDate":"May 2015","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_SYSTEM_UPDATENOTIFICATION_XML_DESCRIPTION","group":"","filename":"updatenotification"}', '{"lastrun":1542265078}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(452, 0, 'plg_system_updatenotification', 'plugin', 'updatenotification', 'system', 0, 1, 1, 0, '{"name":"plg_system_updatenotification","type":"plugin","creationDate":"May 2015","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_SYSTEM_UPDATENOTIFICATION_XML_DESCRIPTION","group":"","filename":"updatenotification"}', '{"lastrun":1542286680}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(453, 0, 'plg_editors-xtd_module', 'plugin', 'module', 'editors-xtd', 0, 1, 1, 0, '{"name":"plg_editors-xtd_module","type":"plugin","creationDate":"October 2015","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_MODULE_XML_DESCRIPTION","group":"","filename":"module"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(454, 0, 'plg_system_stats', 'plugin', 'stats', 'system', 0, 1, 1, 0, '{"name":"plg_system_stats","type":"plugin","creationDate":"November 2013","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.5.0","description":"PLG_SYSTEM_STATS_XML_DESCRIPTION","group":"","filename":"stats"}', '{"mode":1,"lastrun":1542265103,"unique_id":"646b159ba1414416ca68f2fb7a5938d6af1af090","interval":12}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(455, 0, 'plg_installer_packageinstaller', 'plugin', 'packageinstaller', 'installer', 0, 1, 1, 1, '{"name":"plg_installer_packageinstaller","type":"plugin","creationDate":"May 2016","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2018 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.6.0","description":"PLG_INSTALLER_PACKAGEINSTALLER_PLUGIN_XML_DESCRIPTION","group":"","filename":"packageinstaller"}', '', '', '', 0, '0000-00-00 00:00:00', 1, 0),
@@ -879,7 +2462,7 @@ INSERT INTO `dogs_extensions` (`extension_id`, `package_id`, `name`, `type`, `el
 	(10001, 10002, 'CobaltRussianBackend', 'language', 'ru-RU', '', 1, 1, 0, 0, '{"name":"Cobalt Russian [Backend]","type":"language","creationDate":"2012-07-08","author":"MintJoomla","copyright":"Copyright (C) 2005 - 2012 MintJoomla.","authorEmail":"info@mintjoomla.com","authorUrl":"www.mintjoomla.com","version":"8.341","description":"Russian Language for Cobalt 8 by AsmuZ","group":"","filename":"install"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(10002, 0, 'Cobalt Russian Language', 'package', 'pkg_ru-RU', '', 0, 1, 1, 0, '{"name":"Cobalt Russian Language","type":"package","creationDate":"\\u041d\\u0435\\u0438\\u0437\\u0432\\u0435\\u0441\\u0442\\u043d\\u044b\\u0439","author":"\\u041d\\u0435\\u0438\\u0437\\u0432\\u0435\\u0441\\u0442\\u043d\\u044b\\u0439","copyright":"","authorEmail":"","authorUrl":"","version":"8.341","description":"Russian Language for Cobalt 8 by AsmuZ","group":"","filename":"pkg_ru-RU"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(10003, 10075, 'Cobalt - Field - Uploads', 'file', 'uploads', '', 0, 1, 0, 0, '{"name":"Cobalt - Field - Uploads","type":"file","creationDate":"March 2012","author":"MintJoomla","copyright":"(c) 2012 MintJoomla","authorEmail":"support@mintjoomla.com","authorUrl":"http:\\/\\/www.mintjoomla.com","version":"8.28","description":"Cobalt - Field - Uploads: This is advanced uploads field","group":""}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-	(10004, 10075, 'com_cobalt', 'component', 'com_cobalt', '', 1, 1, 0, 0, '{"name":"com_cobalt","type":"component","creationDate":"November 2011","author":"MintJoomla","copyright":" (c) 2005-2012 MintJoomla","authorEmail":"support@mintjoomla.com","authorUrl":"http:\\/\\/www.mintjoomla.com","version":"8.742","description":"","group":"","filename":"cobalt"}', '{"general_upload":"uploads","folder_format":"Y-m","community":"G:\\\\OpenServer\\\\domains\\\\prodogs.loc\\\\components\\\\com_cobalt\\\\library\\\\php\\\\community\\/com_cobalt","moderator":"784","captcha":"recaptcha","general_copyright":"0","compatibility":"1","general_help":"1","gravatar":"1","cron_key":"","map_key":"AIzaSyAjjtBLrwGaA65Z4IaeT0u8gj_syhS9M1Q","sef_router":"main_router.php","sef_category":"0","filter_nofollow":"1","separator":":","robots":"","author":"","rights":"","metakey":"","metadesc":"","censor":"1","censor_words":"fuck, porn, porno, bitch","censor_replace":"CENSORED"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10004, 10075, 'com_cobalt', 'component', 'com_cobalt', '', 1, 1, 0, 0, '{"name":"com_cobalt","type":"component","creationDate":"November 2011","author":"MintJoomla","copyright":" (c) 2005-2012 MintJoomla","authorEmail":"support@mintjoomla.com","authorUrl":"http:\\/\\/www.mintjoomla.com","version":"8.742","description":"","group":"","filename":"cobalt"}', '{"general_upload":"uploads","folder_format":"Y-m","community":"G:\\\\OpenServer\\\\domains\\\\prodogs.loc\\\\components\\\\com_cobalt\\\\library\\\\php\\\\community\\/com_community","moderator":"784","captcha":"recaptcha","general_copyright":"0","compatibility":"1","general_help":"1","gravatar":"1","cron_key":"","map_key":"AIzaSyAjjtBLrwGaA65Z4IaeT0u8gj_syhS9M1Q","sef_router":"main_router.php","sef_category":"0","filter_nofollow":"1","separator":":","robots":"","author":"","rights":"","metakey":"","metadesc":"","censor":"1","censor_words":"fuck, porn, porno, bitch","censor_replace":"CENSORED"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(10005, 10075, 'Cobalt - Package - Library', 'library', 'mint', '', 0, 1, 1, 0, '{"name":"Cobalt - Package - Library","type":"library","creationDate":"November 2012","author":"MintJoomla","copyright":"Copyright (C) 2012","authorEmail":"support@mintjoomla.com","authorUrl":"www.mintjoomla.com","version":"8.111","description":"\\n    \\n\\tThis is MintJoomla - Cobal t8 Library Pack\\n\\t\\n\\t","group":"","filename":"mint"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(10006, 10075, 'Cobalt - Module - Categories', 'module', 'mod_cobalt_category', '', 0, 1, 0, 0, '{"name":"Cobalt - Module - Categories","type":"module","creationDate":"March 2012","author":"MintJoomla","copyright":"Copyright (C) 2005 - 2012 MintJoomla (http:\\/\\/www.mintjoomla.com). All rights reserved.","authorEmail":"support@mintjoomla.com","authorUrl":"http:\\/\\/www.mintjoomla.com","version":"8.45","description":" Cobalt Categories Module ","group":"","filename":"mod_cobalt_category"}', '{"section_id":"","init_cat":"","show_section":"2","cat_empty":"1","cat_nums":"current","mode":"2","order":"1","subcat_limit":"5","section_class":"","header_text":"","footer_text":"","class_sfx":"","moduleclass_sfx":"","records":"0","records_limit":"5","orderby":"r.ctime DESC","levels":"Category","select_width":"150"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(10007, 10075, 'Cobalt - Module - Filters', 'module', 'mod_cobalt_filters', '', 0, 1, 0, 0, '{"name":"Cobalt - Module - Filters","type":"module","creationDate":"March 2012","author":"MintJoomla","copyright":"Copyright (C) 2005 - 2012 MintJoomla (http:\\/\\/www.mintjoomla.com). All rights reserved.","authorEmail":"support@mintjoomla.com","authorUrl":"http:\\/\\/www.mintjoomla.com","version":"8.52","description":" Cobalt - Filters ","group":"","filename":"mod_cobalt_filters"}', '{"section_id":"","show_icons":"1","form_hide":"1","field_id_exclude":"","filter_fields_template":"module","filter_search":"1","filter_type_type":"1","filter_users_type":"1","filter_category_type":"1","filter_empty_cats":"1","filter_tags_type":"1","type_label":"Content Type","user_label":"Author","category_label":"Category","tag_label":"Tags","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
@@ -955,7 +2538,48 @@ INSERT INTO `dogs_extensions` (`extension_id`, `package_id`, `name`, `type`, `el
 	(10077, 0, 'Cobalt - Additional Templates', 'file', 'install', '', 0, 1, 0, 0, '{"name":"Cobalt - Additional Templates","type":"file","creationDate":"March 2012","author":"MintJoomla","copyright":"(c) 2012 MintJoomla","authorEmail":"support@mintjoomla.com","authorUrl":"http:\\/\\/www.mintjoomla.com","version":"8.1090","description":"Cobalt 8 - Additional templates","group":""}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(10078, 0, 'Cobalt - Field - AK Image', 'file', 'akimage', '', 0, 1, 0, 0, '{"name":"Cobalt - Field - AK Image","type":"file","creationDate":"August 2014","author":"Idea by AsmuZ. Made by Alexander Khmelnitskiy","copyright":"(c) 2014 alexander.khmelnitskiy.ua","authorEmail":"info@alexander.khmelnitskiy","authorUrl":"http:\\/\\/alexander.khmelnitskiy.ua","version":"1.0","description":"\\n            \\n            Cobalt - Field - AK Image by <a href=\\"http:\\/\\/alexander.khmelnitskiy.ua\\" target=\\"_blank\\">alexander.khmelnitskiy.ua<\\/a><br \\/><br \\/>Idea by <a href=\\"http:\\/\\/asmuz.ru\\" target=\\"_blank\\">www.AsmuZ.ru<\\/a>\\n            \\n        ","group":""}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(10079, 0, 'pjo_petigree_free', 'template', 'pjo_petigree_free', '', 0, 1, 1, 0, '{"name":"pjo_petigree_free","type":"template","creationDate":"2016","author":"pickjoomla","copyright":"copyright (c) 2016 pickjoomla.com","authorEmail":"info@pickjoomla.com","authorUrl":"http:\\/\\/www.pickjoomla.com","version":"3.6","description":"\\n\\n<link href=\\"..\\/templates\\/pjo_petigree_free\\/css\\/admin.css\\" rel=\\"stylesheet\\" type=\\"text\\/css\\" media=\\"all\\" \\/>\\n<div class=\\"temp_description\\">\\n<p>\\n<b>\\nJoomla Template (FREE LIMITED FEATURES) compatible with all 3.x versions and latest version 3.6.x ...<br><br>\\n\\n<a href=\\"http:\\/\\/demo4.pickjoomla.com\\/?template=pjo_petigree\\" target=\\"_blank\\">DEMO<\\/a> \\/\\n<a href=\\"http:\\/\\/www.pickjoomla.com\\" target=\\"_blank\\">WEBSITE<\\/a> \\/\\n<a href=\\"http:\\/\\/www.pickjoomla.com\\/free-templates\\" target=\\"_blank\\">MORE FREE TEMPLATES<\\/a> \\/\\n<a href=\\"http:\\/\\/www.pickjoomla.com\\/support\\" target=\\"_blank\\">CONTACT<\\/a> \\/\\n<a href=\\"http:\\/\\/www.pickjoomla.com\\/pjo-petigree\\" target=\\"_blank\\">FULL VERSION LINK<\\/a> \\n<\\/b>\\n<\\/p>\\n<\\/div>\\n<p><\\/p>\\n<img src=\\"..\\/templates\\/pjo_petigree_free\\/template_thumbnail.png\\" border=\\"0\\" title=\\"\\" alt=\\"\\"\\/>\\n<p><\\/p>\\n\\n","group":"","filename":"templateDetails"}', '{"hornav_menu":"mainmenu","logoFile":"","sitetitle":"","sitedescription":"","comp_info":"","my_favicon":"","resp_options":"enable","rtl_option":"enable","analyticsCode":"","menuid":"0","slideshow_delay":"4000","slideshow_duration":"1000","slideshow_effects":"fade","slideshow_layout":"with_col","slidetext1":"","article1_1":"","article1_2":"","article1_3":"","slidetext2":"","article2_1":"","article2_2":"","article2_3":"","slidetext3":"","article3_1":"","article3_2":"","article3_3":"","slidetext4":"","article4_1":"","article4_2":"","article4_3":"","slidetext5":"","article5_1":"","article5_2":"","article5_3":"","slidetext6":"","article6_1":"","article6_2":"","article6_3":"","slidetext7":"","article7_1":"","article7_2":"","article7_3":"","slidetext8":"","article8_1":"","article8_2":"","article8_3":"","slidetext9":"","article9_1":"","article9_2":"","article9_3":"","slidetext10":"","article10_1":"","article10_2":"","article10_3":"","display_social_links":"no","item_twitter_sw":"1","item_twitter":"https:\\/\\/twitter.com\\/","item_facebook_sw":"1","item_facebook":"https:\\/\\/www.facebook.com\\/","item_google_sw":"1","item_google":"https:\\/\\/plus.google.com\\/","item_linkedin_sw":"1","item_linkedin":"http:\\/\\/www.linkedin.com\\/","maxWidth":"960px","sidebar_size":"medium","temp_layout":"left-content-right","hornav_height":"","slideshow_height":"","mod_top_height":"","mod_content_height":"","mod_bottom_height":"","mod_footer_height":"","top_module_style":"default","bottom_module_style":"default","body_bg_image_file":"","header_bg_image_file":"","nav_bg_image_file":"","module_bg_image_file":"","footer_bg_image_file":"","slideshow_bg_image_file":"","template_bg_color":"","template_inner_bg_color":"","header_bg_color":"","hornav_bg_color":"","hornav_active_bg_color":"","module_top_bg_color":"","module_sidebar_bg_color":"","module_content_bg_color":"","module_shifting_bg_color":"","module_bottom_bg_color":"","footer_bg_color":"","module_slidepanel_bg_color":"","slideshow_bg_color":"","socialicons_bg_color":"","template_bg_opacity":"1.0","template_inner_bg_opacity":"0.0","header_bg_opacity":"1.0","hornav_bg_opacity":"1.0","modules_bg_opacity":"1.0","shifting_bg_opacity":"1.0","footer_bg_opacity":"1.0","slidepanel_bg_opacity":"0.9","slideshow_bg_opacity":"0.7","socialicons_bg_opacity":"1.0","body_bg_repeat_option":"","header_bg_repeat_option":"","hor_nav_bg_repeat_option":"","mainbody_bg_repeat_option":"","modules_bg_repeat_option":"","footer_bg_repeat_option":"","slideshow_bg_repeat_option":"","body_bg_image_default":"","header_bg_image_default":"","nav_bg_image_default":"","mainbody_bg_image_default":"","module_bg_image_default":"","footer_bg_image_default":"","template_text_color":"","header_text_color":"","mainbody_text_color":"","module_sidebar_text_color":"","module_top_text_color":"","module_shifting_text_color":"","module_bottom_text_color":"","module_footer_text_color":"","slidepanel_text_color":"","socialicons_text_color":"","template_links_color":"","header_links_color":"","hornav_font_color":"","hornav_active_text_color":"","module_top_links_color":"","mainbody_links_color":"","module_sidebar_links_color":"","module_shifting_links_color":"","module_bottom_links_color":"","module_footer_links_color":"","slidepanel_links_color":"","enable_disable_mainbody":"enable","menuid_mainbody_no_dm":"0","font_size":"","menu_font_size":"","mainbody_title_font_size":"","module_h3_font_size":"","body_fontstyle":"Arial","googleFont_body":"1","googleFontName_body":"Coda","googleFont_titles":"1","googleFontName_titles":"Fjalla One","nagivation_font_weight":"","modules_font_weight":"","menu_text_transform":"","modules_text_transform":"","custom_css":"","responsive_menu_text":"Select a page","animate_scroll_option":"enable","css_animate_effect0":"bounceInDown","css_animate_effect_menu":"bounceInDown","css_animate_effect2":"bounceInUp","css_animate_effect3":"bounceInLeft","css_animate_effect4":"bounceInDown","css_animate_effect5":"bounceInLeft","css_animate_effect6":"bounceInDown","css_animate_effect7":"bounceInLeft","css_animate_effect8":"bounceInDown","scroll_delay":"3s","img_effect":"disable","jquery_noconflict":"enable","check_mootools":"disable","load_mootools_extern":"disable","mootools_extern_version":"1.2.1","fix_strict_error":"disable"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-	(10080, 0, 'Community', 'component', 'com_community', '', 1, 1, 0, 0, '{"name":"Community","type":"component","creationDate":"July 2011","author":"JomSocial Team","copyright":"Copyright 2008 by Slashes & Dots Sdn Bhd. All rights reserved","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/www.jomsocial.com","version":"4.5.8","description":"JomSocial is a social networking component for Joomla!","group":"","filename":"community"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0);
+	(10080, 0, 'Community', 'component', 'com_community', '', 1, 1, 0, 0, '{"name":"Community","type":"component","creationDate":"July 2011","author":"JomSocial Team","copyright":"Copyright 2008 by Slashes & Dots Sdn Bhd. All rights reserved","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/www.jomsocial.com","version":"4.5.8","description":"JomSocial is a social networking component for Joomla!","group":"","filename":"community"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10081, 0, 'com_community - ru-RU', 'file', 'com_community-ru-RU', '', 0, 1, 0, 0, '{"name":"com_community - ru-RU","type":"file","creationDate":"05.12.2017","author":"compojoom","copyright":"\\u00a9 2008-2017 - compojoom-com. All rights reserved!","authorEmail":"yoursite@yoursite.com","authorUrl":"https:\\/\\/compojoom.com","version":"2017-12-05-10-33-59","description":"\\n        This package was auto generated with CTransifex(https:\\/\\/compojoom.com). We\'ve grabbed the latest language files for our extension from transifex.com.\\n        Special thanks to OpenTranslators (http:\\/\\/opentranslators.org) for helping us with this translation!\\n    ","group":""}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10082, 0, 'System - JomSocial System', 'plugin', 'jomsocial.system', 'system', 0, 1, 1, 0, '{"name":"System - JomSocial System","type":"plugin","creationDate":"July 2011","author":"JomSocial Team","copyright":"Copyright 2008 - 2010 by Slashes & Dots Sdn Bhd. All rights reserved","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/www.jomsocial.com","version":"4.5.8","description":"\\n\\t\\tAjax System for Joomla, JomSocial.com\\n\\t","group":"","filename":"jomsocial.system"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10083, 0, 'JomSocial Article Comments', 'plugin', 'articlecomments', 'content', 0, 0, 1, 0, '{"name":"JomSocial Article Comments","type":"plugin","creationDate":"Oct 2016","author":"JomSocial Team","copyright":"Copyright 2008 - 2016 by iJoomla, Inc. - All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/www.jomsocial.com","version":"4.5.8","description":"PLG_CONTENT_ARTICLECOMMENTS_XML_DESCRIPTION","group":"","filename":"articlecomments"}', '[]', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10084, 0, 'PLG_COMMUNITY_ARTICLENOTIFICATIONS_TITLE', 'plugin', 'articlenotifications', 'community', 0, 0, 1, 0, '{"name":"PLG_COMMUNITY_ARTICLENOTIFICATIONS_TITLE","type":"plugin","creationDate":"Oct 2016","author":"JomSocial Team","copyright":"Copyright 2008 - 2016 by iJoomla, Inc. - All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/www.jomsocial.com","version":"4.5.8","description":"PLG_COMMUNITY_ARTICLENOTIFICATIONS_XML_DESCRIPTION","group":"","filename":"articlenotifications"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10085, 0, 'System - Jomsocial Chat Bar', 'plugin', 'jomsocialchatbar', 'system', 0, 0, 1, 0, '{"name":"System - Jomsocial Chat Bar","type":"plugin","creationDate":"Oct 10 2017","author":"JomSocial Team","copyright":"Copyright (C) 2008 - 2017 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_JOMSOCIALCHATBAT_XML_DESCRIPTION","group":"","filename":"jomsocialchatbar"}', '{"chat_bar_position":"right","remember_last_state":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10086, 0, 'System - Jomsocial Redirect', 'plugin', 'jomsocialredirect', 'system', 0, 1, 1, 0, '{"name":"System - Jomsocial Redirect","type":"plugin","creationDate":"Aug 11 2011","author":"JomSocial Team","copyright":"Copyright 2008 - 2010 by Slashes & Dots Sdn Bhd. All rights reserved","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"","group":"","filename":"jomsocialredirect"}', '{"override_com_user_registration":"1","redirect_previous":"0","redirect_login":"1","redirect_login_message_show":"1","redirect_login_msg":"LOGIN_SUCCESSFUL","redirect_login_failed":"1","redirect_login_failed_message_show":"1","redirect_login_failed_msg":"LOGIN_FAILED","redirect_logout":"1","redirect_register_message_show":"1","redirect_registration_msg":"REDIRECTED_TO_COMMUNITY_REGISTRATION"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10087, 0, 'User - Jomsocial User', 'plugin', 'jomsocialuser', 'user', 0, 1, 1, 0, '{"name":"User - Jomsocial User","type":"plugin","creationDate":"March 2011","author":"JomSocial","copyright":"Copyright 2008 - 2010 by Slashes & Dots Sdn Bhd. All rights reserved","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/www.jomsocial.com","version":"4.5.8","description":"PLG_JOMSOCIALUSER_XML_DESCRIPTION","group":"","filename":"jomsocialuser"}', '{"delete_jommla_contact":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10088, 0, 'PLG_MUTUALFRIENDS_TITLE', 'plugin', 'mutualfriends', 'community', 0, 1, 1, 0, '{"name":"PLG_MUTUALFRIENDS_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_MUTUALFRIENDS_XML_DESCRIPTION","group":"","filename":"mutualfriends"}', '{"title_override":"","favicon":"","desc_override":"","count":"12","coreapp":"0","position":"content","hide_empty":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10089, 0, 'PLG_MYARTICLES_TITLE', 'plugin', 'myarticles', 'community', 0, 0, 1, 0, '{"name":"PLG_MYARTICLES_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_MYARTICLES_XML_DESCRIPTION","group":"","filename":"myarticles"}', '{"title_override":"","favicon":"","desc_override":"","count":"12","coreapp":"0","position":"content","hide_empty":"1","limit":"50"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10090, 0, 'PLG_MYCONTACTS_TITLE', 'plugin', 'mycontacts', 'community', 0, 1, 1, 0, '{"name":"PLG_MYCONTACTS_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_MYCONTACTS_XML_DESCRIPTION","group":"","filename":"mycontacts"}', '{"title_override":"","favicon":"","desc_override":"","coreapp":"0","position":"content","hide_empty":"1","hide_empty_fields":"1","home_address":"1","city":"1","postal_code":"1","country":"1","phone_number":"1","mobile_number":"1","fax_number":"1","website":"1","my_company":"1","work_address":"1","comp_website":"1","department":"1","job_title":"1","main_im_id":"1","im_list":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10091, 0, 'PLG_MYEVENTS_TITLE', 'plugin', 'myevents', 'community', 0, 0, 1, 0, '{"name":"PLG_MYEVENTS_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_MYEVENTS_XML_DESCRIPTION","group":"","filename":"myevents"}', '{"title_override":"","favicon":"","desc_override":"","count":"12","coreapp":"0","position":"content","hide_empty":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10092, 0, 'PLG_MYFRIENDS_TITLE', 'plugin', 'myfriends', 'community', 0, 1, 1, 0, '{"name":"PLG_MYFRIENDS_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_MYFRIENDS_XML_DESCRIPTION","group":"","filename":"myfriends"}', '{"title_override":"","favicon":"","desc_override":"","count":"12","coreapp":"0","position":"content","hide_empty":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10093, 0, 'PLG_FRIENDSLOCATION_TITLE', 'plugin', 'myfriendslocation', 'community', 0, 0, 1, 0, '{"name":"PLG_FRIENDSLOCATION_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_FRIENDSLOCATION_XML_DESCRIPTION","group":"","filename":"myfriendslocation"}', '{"title_override":"","favicon":"","desc_override":"","count":"10","coreapp":"0","position":"content","hide_empty":"0","address_field_code":"0","town_field_code":"0","zip_field_code":"0","state_field_code":"0","country_field_code":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10094, 0, 'PLG_MYGOOGLEADS_TITLE', 'plugin', 'mygoogleads', 'community', 0, 1, 1, 0, '{"name":"PLG_MYGOOGLEADS_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_GOOGLE_XML_DESCRIPTION","group":"","filename":"mygoogleads"}', '{"title_override":"","favicon":"","desc_override":"","coreapp":"0","position":"content"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10095, 0, 'PLG_MYGROUPS_TITLE', 'plugin', 'mygroups', 'community', 0, 0, 1, 0, '{"name":"PLG_MYGROUPS_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_MYGROUPS_XML_DESCRIPTION","group":"","filename":"mygroups"}', '{"title_override":"","favicon":"","desc_override":"","count":"5","coreapp":"0","position":"content","hide_empty":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10096, 0, 'PLG_KUNENA_TITLE', 'plugin', 'mykunenaposts', 'community', 0, 0, 1, 0, '{"name":"PLG_KUNENA_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_KUNENA_XML_DESCRIPTION","group":"","filename":"mykunenaposts"}', '{"title_override":"","favicon":"","desc_override":"","count":"6","coreapp":"0","position":"content","hide_empty":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10097, 0, 'PLG_COMMUNITY_MYLATESTPHOTOS_TITLE', 'plugin', 'mylatestphotos', 'community', 0, 0, 1, 0, '{"name":"PLG_COMMUNITY_MYLATESTPHOTOS_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_COMMUNITY_MYLATESTPHOTOS_XML_DESCRIPTION","group":"","filename":"mylatestphotos"}', '{"title_override":"","favicon":"","desc_override":"","count":"10","coreapp":"0","position":"content","hide_empty":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10098, 0, 'PLG_MYRSSFEEDS_TITLE', 'plugin', 'myrssfeeds', 'community', 0, 0, 1, 0, '{"name":"PLG_MYRSSFEEDS_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_MYRSSFEEDS_XML_DESCRIPTION","group":"","filename":"myrssfeeds"}', '{"title_override":"","favicon":"","desc_override":"","coreapp":"0","position":"content"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10099, 0, 'PLG_MYTAGGEDVIDEOS_TITLE', 'plugin', 'mytaggedvideos', 'community', 0, 0, 1, 0, '{"name":"PLG_MYTAGGEDVIDEOS_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_MYTAGGEDVIDEOS_XML_DESCRIPTION","group":"","filename":"mytaggedvideos"}', '{"title_override":"","favicon":"","desc_override":"","count":"6","coreapp":"0","position":"content","hide_empty":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10100, 0, 'PLG_MYVIDEOS_TITLE', 'plugin', 'myvideos', 'community', 0, 0, 1, 0, '{"name":"PLG_MYVIDEOS_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_MYVIDEOS_XML_DESCRIPTION","group":"","filename":"myvideos"}', '{"title_override":"","favicon":"","desc_override":"","count":"12","coreapp":"0","position":"content","hide_empty":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10101, 0, 'PLG_TWITTER_XML_TITLE', 'plugin', 'twitter', 'community', 0, 0, 1, 0, '{"name":"PLG_TWITTER_XML_TITLE","type":"plugin","creationDate":"July 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"PLG_TWITTER_XML_DESCRIPTION","group":"","filename":"twitter"}', '{"title_override":"","favicon":"","desc_override":"","coreapp":"0","position":"content","consumerKey":"","consumerSecret":""}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10102, 0, 'PLG_WALLS_TITLE', 'plugin', 'walls', 'community', 0, 1, 1, 0, '{"name":"PLG_WALLS_TITLE","type":"plugin","creationDate":"March 2011","author":"JomSocial Team","copyright":"Copyright 2008 - 2013 by iJoomla, Inc. - All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/www.jomsocial.com","version":"4.5.8","description":"PLG_WALLS_XML_DESCRIPTION","group":"","filename":"walls"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10103, 0, 'PLG_WORDFILTER_TITLE', 'plugin', 'wordfilter', 'community', 0, 1, 1, 0, '{"name":"PLG_WORDFILTER_TITLE","type":"plugin","creationDate":"March 2011","author":"JomSocial Team","copyright":"Copyright 2008 - 2013 by iJoomla, Inc. - All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/www.jomsocial.com","version":"4.5.8","description":"PLG_WORDFILTER_XML_DESCRIPTION","group":"","filename":"wordfilter"}', '{"replacement":"*\\u0446\\u0435\\u043d\\u0437\\u0443\\u0440\\u0430*","badwords":"fuck,shit,\\u043f\\u0438\\u0437\\u0434\\u0430,\\u0445\\u0443\\u0439, \\u0431\\u043b\\u044f\\u0434\\u044c, \\u0443\\u0435\\u0431\\u043e\\u043a"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10104, 0, 'JS Activity Stream', 'module', 'mod_community_activitystream', '', 0, 1, 0, 0, '{"name":"JS Activity Stream","type":"module","creationDate":"June 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Activity stream module for JomSocial","group":"","filename":"mod_community_activitystream"}', '{"stream_type":"0","limit":"20","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10105, 0, 'JS Discussions', 'module', 'mod_community_discussions', '', 0, 1, 0, 0, '{"name":"JS Discussions","type":"module","creationDate":"June 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Discussions module for JomSocial","group":"","filename":"mod_community_discussions"}', '{"displaysetting":"0","show_private_discussion":"1","show_avatar":"0","limit":"10","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10106, 0, 'JS Events', 'module', 'mod_community_events', '', 0, 1, 0, 0, '{"name":"JS Events","type":"module","creationDate":"April 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Events module for JomSocial. Display upcoming and current events.","group":"","filename":"mod_community_events"}', '{"displaysetting":"0","filter_by":"0","limit":"5","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10107, 0, 'JS Events Calendar', 'module', 'mod_community_eventscalendar', '', 0, 1, 0, 0, '{"name":"JS Events Calendar","type":"module","creationDate":"April 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Events Calendar module for JomSocial","group":"","filename":"mod_community_eventscalendar"}', '{"displaysetting":"0","firstday":"0","dateformat":"0","timeformat":"0","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10108, 0, 'JS Groups', 'module', 'mod_community_groups', '', 0, 1, 0, 0, '{"name":"JS Groups","type":"module","creationDate":"April 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Groups module for JomSocial","group":"","filename":"mod_community_groups"}', '{"displaysetting":"0","filter_by":"0","limit":"5","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10109, 0, 'JS Hello Me', 'module', 'mod_community_hellome', '', 0, 1, 0, 0, '{"name":"JS Hello Me","type":"module","creationDate":"April 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Profile module for JomSocial","group":"","filename":"mod_community_hellome"}', '{"show_avatar":"1","show_name":"1","show_badge":"1","show_notifications":"1","show_menu":"1","show_logout":"1","show_facebook":"1","show_forgotpwd":"1","show_forgotusr":"1","show_activation":"1","remember_me":"1","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10110, 0, 'JS Members', 'module', 'mod_community_members', '', 0, 1, 0, 0, '{"name":"JS Members","type":"module","creationDate":"April 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Members module for JomSocial","group":"","filename":"mod_community_members"}', '{"profile_filter":"0","avatars_number":"4","sorting":"0","respect_online":"1","show_total_members":"1","limit":"12","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10111, 0, 'JS Members Search', 'module', 'mod_community_memberssearch', '', 0, 1, 0, 0, '{"name":"JS Members Search","type":"module","creationDate":"April 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Member search module for JomSocial","group":"","filename":"mod_community_memberssearch"}', '{"search_layout":"0","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10112, 0, 'JS Nearby Events Search', 'module', 'mod_community_nearbyevents', '', 0, 1, 0, 0, '{"name":"JS Nearby Events Search","type":"module","creationDate":"April 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 JomSocial. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/www.jomsocial.com","version":"4.5.8","description":"Nearby events search module for JomSocial","group":"","filename":"mod_community_nearbyevents"}', '{"event_nearby_radius":"10","eventradiusmeasure":"miles","auto_detect_location":"1","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10113, 0, 'JS Notifications', 'module', 'mod_community_notifications', '', 0, 1, 0, 0, '{"name":"JS Notifications","type":"module","creationDate":"June 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Notifications module for JomSocial","group":"","filename":"mod_community_notifications"}', '{"show_notification":"1","show_privatemsg":"1","show_request":"1","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10114, 0, 'JS Photo Comments', 'module', 'mod_community_photocomments', '', 0, 1, 0, 0, '{"name":"JS Photo Comments","type":"module","creationDate":"June 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Photo comments module for JomSocial","group":"","filename":"mod_community_photocomments"}', '{"album_type":"0","show_image":"1","limit":"10","char_limit":"50","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10115, 0, 'JS Photos', 'module', 'mod_community_photos', '', 0, 1, 0, 0, '{"name":"JS Photos","type":"module","creationDate":"April 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Photo module for JomSocial","group":"","filename":"mod_community_photos"}', '{"display_type":"1","category_type":"0","filter_by":"0","limit":"20","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10116, 0, 'JS Statistics', 'module', 'mod_community_statistics', '', 0, 1, 0, 0, '{"name":"JS Statistics","type":"module","creationDate":"June 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Statistics module for JomSocial","group":"","filename":"mod_community_statistics"}', '{"show_groups":"1","show_discussions":"1","show_announcements":"1","show_upcoming_events":"1","show_albums":"1","show_photos":"1","show_videos":"1","show_activities":"1","show_walls":"1","show_members":"1","show_males":"1","show_females":"1","show_unspecified":"1","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10117, 0, 'JS Top Members', 'module', 'mod_community_topmembers', '', 0, 1, 0, 0, '{"name":"JS Top Members","type":"module","creationDate":"June 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Top Members module for JomSocial","group":"","filename":"mod_community_topmembers"}', '{"sort_by":"0","timespan":"0","custom_days":"7","limit":"10","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10118, 0, 'JS Video Comments', 'module', 'mod_community_videocomments', '', 0, 1, 0, 0, '{"name":"JS Video Comments","type":"module","creationDate":"June 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Video comments module for JomSocial","group":"","filename":"mod_community_videocomments"}', '{"video_type":"0","show_image":"2","limit":"10","char_limit":"50","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10119, 0, 'JS Videos', 'module', 'mod_community_videos', '', 0, 1, 0, 0, '{"name":"JS Videos","type":"module","creationDate":"June 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.8","description":"Videos module for JomSocial","group":"","filename":"mod_community_videos"}', '{"category_type":"0","filter_by":"0","limit":"6","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10120, 0, 'JS Birthday', 'module', 'mod_community_birthdays', '', 0, 1, 0, 0, '{"name":"JS Birthday","type":"module","creationDate":"April 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.5","description":"Birthday module for JomSocial","group":"","filename":"mod_community_birthdays"}', '{"show":"1","days":"3","show_age":"1","limit":"3","dateformat":"l, F j","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(10121, 0, 'JS Toolbar', 'module', 'mod_community_bar', '', 0, 1, 0, 0, '{"name":"JS Toolbar","type":"module","creationDate":"April 2015","author":"iJoomla","copyright":"Copyright (C) 2008 - 2015 iJoomla. All rights reserved.","authorEmail":"support@jomsocial.com","authorUrl":"http:\\/\\/jomsocial.com","version":"4.5.5","description":"Toolbar module for JomSocial","group":"","filename":"mod_community_bar"}', '{"toolbar_logo":"","toolbar_logosm":"","logo_url":"http:\\/\\/www.jomsocial.com","show_search":"1","show_facebook":"1","show_forgotpwd":"1","show_forgotusr":"1","show_activation":"1","remember_me":"1","greeting":"","cache":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0);
 /*!40000 ALTER TABLE `dogs_extensions` ENABLE KEYS */;
 
 
@@ -2267,7 +3891,7 @@ INSERT INTO `dogs_js_res_fields` (`id`, `key`, `label`, `type_id`, `field_type`,
 	(72, 'kd6b39b5f062c11650671f274f86505d1', 'Высота в холке', 10, 'digits', '{"core":{"show_intro":"0","show_full":"1","show_feed":"0","show_compare":"0","required":"0","searchable":"0","description":"","xml_tag_name":"","field_class":"","show_lable":"3","label_break":"0","lable_class":"","icon":"size.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"default.php","template_output_full":"default.php","sortable":"0","template_filter":"default.php","template_filter_module":"default.php","filter_enable":"0","filter_hide":"0","filter_descr":"","filter_worn":"Between %s and %s","label_min":"Min","label_max":"Max","steps":"1","decimals_num":"2","max_num":"10","separator":",","dseparator":".","val_min":"","val_max":"","prepend":"","append":"\\u0441\\u043c"},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, 11, 1, 21, 89, 0, 784),
 	(73, 'k3fc02380a476e4a6d7e9e00cea29daf3', 'Вес', 10, 'digits', '{"core":{"show_intro":"0","show_full":"1","show_feed":"0","show_compare":"0","required":"0","searchable":"0","description":"","xml_tag_name":"","field_class":"","show_lable":"3","label_break":"0","lable_class":"","icon":"weight.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"default.php","template_output_full":"default.php","sortable":"0","template_filter":"default.php","template_filter_module":"default.php","filter_enable":"0","filter_hide":"0","filter_descr":"","filter_worn":"Between %s and %s","label_min":"Min","label_max":"Max","steps":"1","decimals_num":"2","max_num":"10","separator":",","dseparator":".","val_min":"","val_max":"","prepend":"","append":"\\u043a\\u0433"},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, 12, 1, 21, 90, 0, 784),
 	(74, 'k25fbb77b215d4897ebfc1266a7f16296', 'Адресс', 10, 'geo', '{"core":{"show_intro":"0","show_full":"1","show_feed":"0","show_compare":"0","required":"1","searchable":"0","description":"","xml_tag_name":"","field_class":"","show_lable":"3","label_break":"0","lable_class":"","icon":"marker.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"default.php","template_output_full":"default.php","template_filter":"default.php","template_filter_module":"default.php","filter_enable":"0","filter_hide":"0","filter_descr":"","filter_distance":"1","filter_radius":"20","filter_address":"1","filter_marker":"1","adr_enter":"1","address":{"company":{"show":"0","req":"0","icon":"1"},"person":{"show":"0","req":"0","icon":"1"},"address1":{"show":"0","req":"0","icon":"1"},"address2":{"show":"0","req":"0","icon":"1"},"city":{"show":"3","req":"1","icon":"1"},"state":{"show":"0","req":"0","icon":"1"},"zip":{"show":"0","req":"0","icon":"1"},"country":{"show":"3","req":"1","icon":"1"}},"contacts":{"tel":{"show":"0","req":"0","icon":"1"},"mob":{"show":"0","req":"0","icon":"1"},"fax":{"show":"0","req":"0","icon":"1"},"icq":{"show":"0","req":"0","icon":"1"},"skype":{"show":"0","req":"0","icon":"1"},"google":{"show":"0","req":"0","icon":"1"},"yahoo":{"show":"0","req":"0","icon":"1"},"msn":{"show":"0","req":"0","icon":"1"},"aol":{"show":"0","req":"0","icon":"1"}},"links":{"web":{"show":"0","req":"0","icon":"1"},"facebook":{"show":"0","req":"0","icon":"1"},"twitter":{"show":"0","req":"0","icon":"1"},"linkin":{"show":"0","req":"0","icon":"1"},"google":{"show":"0","req":"0","icon":"1"},"youtube":{"show":"0","req":"0","icon":"1"},"odnoclasnik":{"show":"0","req":"0","icon":"1"}},"links_labels":"0","adr_view":"1","adr_title":"2","qr_code_address":"0","qr_code_geo":"0","qr_width_address":"250","qr_width_geo":"120","map_marker":"2","map_require":"1","map_style":"","map_width":"100%","map_height":"300px","map_lat":"42.293564192170095","map_lng":"-33.33983659744263","map_zoom":"2","map_find_position":"1","map_manual_position":"3","map_whoicon":"0","map_icon_src":{"dir":"mini","icon":"marker-small-red.png"},"template_marker":"default.php","map_view":"1","map_dwidth":"100%","map_dheight":"300px","map_client":"2","sv_view":"1","sv_client":"2","sv_layout":"1","map_lat_lng":"1","template_window":"default.php"},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, 8, 1, 27, 169, 0, 784),
-	(75, 'k83636956507d2391b2014b9af42162d5', 'Галлерея', 10, 'gallery', '{"core":{"show_intro":"0","show_full":"1","show_feed":"0","show_compare":"0","required":"0","searchable":"0","description":"","xml_tag_name":"","field_class":"","show_lable":"1","label_break":"0","lable_class":"","icon":"images-stack.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"list.php","template_output_full":"full-bootstrap-carousel.php","method":"auto","file_formats":"jpg, png, jpeg, gif, bmp","max_count":"0","max_size":"2048","autostart":"1","subfolder":"gallery","delete_access":"1","allow_edit_title":"1","sort":"0 ASC","lightbox_click_list":"0","lightbox_click_full":"0","original_width":"1024","original_height":"1024","download_all":"0","full_width":"800","full_height":"600","full_quality":"100","full_mode":"6","full_stretch":"0","thumbs_list_width":"100","thumbs_list_height":"100","thumbs_list_quality":"80","thumbs_list_mode":"1","thumbs_list_stretch":"0","thumbs_list_random":"1","thumbs_list_theme":"book.css","thumbs_resize_mode":"1","column_width":"600","max_height":"250","image_in_row":"5","image_padding":"2","image_border":"2","image_border_color":"#e0e0e0","image_border_radius":"5","image_shadow":"inset 0px 0px 10px 5px rgba(0, 0, 0, 0.3)","thumbs_width":"100","thumbs_height":"100","thumbs_quality":"80","thumbs_background_color":"#FFFFFF","thumbs_mode":"1","thumbs_stretch":"0","show_mode":"gallerybox","theme":"Dark","rate_access":"1","tmpl_rating":"crown.6d9f2e5a27db65397604e3b50d420f01","allow_comments":"2","allow_info":"2","show_avatar":"1","avatar_width":"40","avatar_height":"40","show_comment_avatar":"1","comment_avatar_width":"20","comment_avatar_height":"20","show_username":"0","comment_author":"1","record_author":"1","allow_download":"1","count_views":"1","show_location":"1","subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","subscription":["<br \\/><b>Warning<\\/b>:  htmlspecialchars() expects parameter 1 to be string, array given in <b>G:\\\\OpenServer\\\\domains\\\\prodogs.loc\\\\layouts\\\\joomla\\\\form\\\\field\\\\text.php<\\/b> on line <b>82<\\/b><br \\/>"],"subscription_msg":"You cannot download this file. You have to be subscribed member","subscription_redirect":"1","can_select_subscr":"0"},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 784, '2018-10-17 13:56:33', 1, 0, 1, 23, 167, 0, 784),
+	(75, 'k83636956507d2391b2014b9af42162d5', 'Галлерея', 10, 'gallery', '{"core":{"show_intro":"0","show_full":"1","show_feed":"0","show_compare":"0","required":"0","searchable":"0","description":"","xml_tag_name":"","field_class":"","show_lable":"1","label_break":"0","lable_class":"","icon":"images-stack.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"list.php","template_output_full":"full-bootstrap-carousel.php","method":"auto","file_formats":"jpg, png, jpeg, gif, bmp","max_count":"0","max_size":"2048","autostart":"1","subfolder":"gallery","delete_access":"1","allow_edit_title":"1","sort":"0 ASC","lightbox_click_list":"0","lightbox_click_full":"0","original_width":"1024","original_height":"1024","download_all":"0","full_width":"800","full_height":"600","full_quality":"100","full_mode":"6","full_stretch":"0","thumbs_list_width":"100","thumbs_list_height":"100","thumbs_list_quality":"80","thumbs_list_mode":"1","thumbs_list_stretch":"0","thumbs_list_random":"1","thumbs_list_theme":"book.css","thumbs_resize_mode":"1","column_width":"600","max_height":"250","image_in_row":"5","image_padding":"2","image_border":"2","image_border_color":"#e0e0e0","image_border_radius":"5","image_shadow":"inset 0px 0px 10px 5px rgba(0, 0, 0, 0.3)","thumbs_width":"100","thumbs_height":"100","thumbs_quality":"80","thumbs_background_color":"#FFFFFF","thumbs_mode":"1","thumbs_stretch":"0","show_mode":"gallerybox","theme":"Dark","rate_access":"1","tmpl_rating":"crown.6d9f2e5a27db65397604e3b50d420f01","allow_comments":"2","allow_info":"2","show_avatar":"1","avatar_width":"40","avatar_height":"40","show_comment_avatar":"1","comment_avatar_width":"20","comment_avatar_height":"20","show_username":"0","comment_author":"1","record_author":"1","allow_download":"1","count_views":"1","show_location":"1","subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","subscription":["<br \\/><b>Warning<\\/b>:  htmlspecialchars() expects parameter 1 to be string, array given in <b>G:\\\\OpenServer\\\\domains\\\\prodogs.loc\\\\layouts\\\\joomla\\\\form\\\\field\\\\text.php<\\/b> on line <b>82<\\/b><br \\/>"],"subscription_msg":"You cannot download this file. You have to be subscribed member","subscription_redirect":"1","can_select_subscr":"0"},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, 0, 1, 23, 167, 0, 784),
 	(76, 'kf3896c025afd54e75f781adabab17f68', 'Видеоролик', 10, 'video', '{"core":{"show_intro":"0","show_full":"1","show_feed":"0","show_compare":"0","required":"0","searchable":"0","description":"","xml_tag_name":"","field_class":"","show_lable":"1","label_break":"0","lable_class":"","icon":"clapperboard.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"default.php","template_output_full":"default.php","command":"c:\\\\ffmpeg\\\\bin\\\\ffmpeg.exe","file_formats":"avi, mp4, mpeg, flv, ogv","only_one":"0","upload":"0","allow_download":"1","method":"auto","default_width":"640","max_count":"0","max_size":"10240","autostart":"1","subfolder":"video","delete_access":"1","allow_edit_title":"1","allow_add_descr":"1","sort":"0 ASC","listbar":"1","listbar_position":"right","listbar_width":"200","embed":"1","embed_max_count":"1","link":"1","link_max_count":"1","adapters":["youtube","vimeo","metacafe","screencast","bing","yahoo"],"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","subscription":[""],"subscription_msg":"You cannot download this file. You have to be subscribed member","subscription_redirect":"1","can_select_subscr":"0"},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, 0, 1, 24, 168, 0, 784),
 	(77, 'k90f63ffd997ec26953ec77896c25f1d3', 'Питомник', 10, 'child', '{"core":{"show_intro":"0","show_full":"1","show_feed":"0","show_compare":"0","required":"0","searchable":"0","description":"","xml_tag_name":"","field_class":"","show_lable":"1","label_break":"0","lable_class":"","icon":"home.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"default.php","template_output_full":"default.php","template_filter":"default.php","template_filter_module":"default.php","filter_enable":"0","filter_hide":"0","filter_descr":"","filter_style":"2","filter_show_number":"1","filter_linkage":"1","filter_user_strict":"0","filter_tip":"Show all records where %s is equal to %s","parent_field":"87","parent_type":"5","parent_section":"5","strict_to_user":"1","strict_to_user_mode":"3","show_relate":"0","multi_parent":"0","multi_limit":"10","notify_add":"2","notify_attach":"2","input_mode":"5","input_sort":"","max_result":"10","control_width":"750","control_height":"500","control_label":"\\u0423\\u0441\\u0442\\u0430\\u043d\\u043e\\u0432\\u0438\\u0442\\u044c \\u041f\\u0438\\u0442\\u043e\\u043c\\u043d\\u0438\\u043a","add_more_access":"3","add_more_access_auth":"1","add_more_access_list":"1","add_more_access_full":"1","add_return":"back","invite_add_more":"Add New","add_existing":"3","add_existing_auth":"1","add_existing_access_list":"1","add_existing_access_full":"1","add_existing_width":"750","add_existing_height":"500","add_existing_label":"Attach Existing","tmpl_list":"","tmpl_full":"","orderby":"r.ctime ASC","limit_list":"10","limit_full":"20","show_list_all":"2","invite_view_more":"Show All...","show_list_all_full":"1","show_list_all_list":"1","show_list_type":"1"},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, 0, 1, 25, 178, 0, 784),
 	(78, 'ke7365a29eca33a23eaf9d74686421771', 'Родословная', 10, 'parent', '{"core":{"show_intro":"0","show_full":"1","show_feed":"0","show_compare":"0","required":"0","searchable":"0","description":"","xml_tag_name":"","field_class":"","show_lable":"1","label_break":"0","lable_class":"","icon":"medal.png","field_view_access":"1","field_view_message":"You cannot view this field","field_submit_access":"1","field_submit_message":"You cannot submit this field","field_edit_access":"1","field_edit_message":"You cannot edit this field"},"params":{"template_input":"default.php","template_output_list":"default.php","template_output_full":"default.php","template_filter":"default.php","template_filter_module":"default.php","filter_enable":"0","filter_hide":"0","filter_descr":"","filter_style":"2","filter_show_number":"1","filter_linkage":"1","filter_user_strict":"0","filter_tip":"Show all records where %s is equal to %s","child_field":"84","child_section":"7","strict_to_user":"1","strict_to_user_mode":"3","show_relate":"0","multi_limit":"1","notify_add":"2","notify_attach":"2","input_mode":"5","input_sort":"","max_result":"10","control_width":"750","control_height":"500","control_label":"\\u041f\\u0440\\u0438\\u043a\\u0440\\u0435\\u043f\\u0438\\u0442\\u044c \\u0420\\u043e\\u0434\\u043e\\u0441\\u043b\\u043e\\u0432\\u043d\\u0443\\u044e","add_more_access":"3","add_more_access_auth":"1","add_more_access_list":"1","add_more_access_full":"1","add_return":"back","invite_add_more":"\\u0414\\u043e\\u0431\\u0430\\u0432\\u0438\\u0442\\u044c \\u0420\\u043e\\u0434\\u043e\\u0441\\u043b\\u043e\\u0432\\u043d\\u0443\\u044e","add_existing":"3","add_existing_auth":"1","add_existing_access_list":"1","add_existing_access_full":"1","add_existing_width":"750","add_existing_height":"500","add_existing_label":"\\u0412\\u044b\\u0431\\u0440\\u0430\\u0442\\u044c \\u0420\\u043e\\u0434\\u043e\\u0441\\u043b\\u043e\\u0432\\u043d\\u0443\\u044e","show_delete_button":"3","tmpl_list":"","tmpl_full":"blog.9f98d375782bddefaa2c04a8725a68dc","orderby":"r.ctime ASC","limit_full":"20","limit_list":"10","show_list_all":"2","invite_view_more":"Show All...","show_list_all_full":"1","show_list_all_list":"1","show_list_type":"1"},"emerald":{"subscr_skip":"3","subscr_skip_author":"1","subscr_skip_moderator":"1","field_display_subscription_msg":"You can view this field only if article author has subscription.","field_display_subscription_count":"0","field_view_subscription_msg":"Only our paid members can view this field.","field_view_subscription_count":"0","field_submit_subscription_msg":"Only our paid members can vew add this field.","field_submit_subscription_count":"0","field_edit_subscription_msg":"Only our paid members can edit this field.","field_edit_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, 0, 1, 26, 173, 0, 784),
@@ -4479,7 +6103,7 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_types` (
 DELETE FROM `dogs_js_res_types`;
 /*!40000 ALTER TABLE `dogs_js_res_types` DISABLE KEYS */;
 INSERT INTO `dogs_js_res_types` (`id`, `name`, `params`, `checked_out`, `checked_out_time`, `published`, `description`, `form`, `user_id`, `asset_id`, `language`) VALUES
-	(1, 'Собака', '{"properties":{"item_itemid":"107","item_compare":"0","item_can_favorite":"2","item_can_moderate":"3","item_edit":"1","item_delete":"1","allow_extend":"0","allow_hide":"0","default_extend":"10","item_expire_access":"3","tmpl_article":"default.4a242b334da9ed7171fb7cbcb131ddd3","tmpl_articleform":"myform.2967357db578fbc748ee4718c7beb4c2","tmpl_rating":"crown.5cab6d56e8a6bef4c347be21eb61c4a0","tmpl_comment":"default.8064df5d07edaf24f64a84119edd0f8e","item_can_view_tag":"1","item_can_add_tag":"-1","item_can_attach_tag":"3","item_tag_htmltags":"h1, h2, h3, h4, h5, h6, strong, em, b, i, big","item_tag_relevance":"0","item_tag_num":"0","item_tags_max":"25","item_title_unique":"0","item_title":"2","item_title_composite":"[8] \\u043f\\u043e \\u043a\\u043b\\u0438\\u0447\\u043a\\u0435 [3], \\u043f\\u043e\\u043b [9]","item_title_limit":"0","rate_access":"0","rate_access_author":"0","rate_mode":"1","rate_smart_before":"60","rate_smart_minimum":"5","rate_multirating":"0","rate_multirating_options":"","rate_multirating_tmpl":"default.php","rate_multirating_sort":"2"},"submission":{"submission":"2","can_edit":"-1","access":"1","public_edit":"1","autopublish":"1","edit_autopublish":"1","redirect":"1","redirect_url":"","submit_msg":"JLIB_APPLICATION","save_msg":"JLIB_APPLICATION","default_expire":"0","public_alert":"1","limits_total":"0","limits_day":"0","allow_category":"1","first_category":"0","multi_category":"0","multi_max_num":"3","robots":""},"category_limit":{"allow":"1","category_limit_mode":"0","show_restricted":"0"},"comments":{"comments":""},"audit":{"audit_date_format":"","audit_date_custom":"h:i A, d M Y","versioning":"0","versioning_max":"10","audit_log":"0","itemid":"","al1":{"on":"1","msg":"CAUDLOG1"},"al2":{"on":"1","msg":"CAUDLOG2"},"al26":{"on":"1","msg":"CAUDLOG26"},"al3":{"on":"1","msg":"CAUDLOG3"},"al4":{"on":"1","msg":"CAUDLOG4"},"al5":{"on":"1","msg":"CAUDLOG5"},"al6":{"on":"1","msg":"CAUDLOG6"},"al7":{"on":"1","msg":"CAUDLOG7"},"al8":{"on":"1","msg":"CAUDLOG8"},"al9":{"on":"1","msg":"CAUDLOG9"},"al10":{"on":"1","msg":"CAUDLOG10"},"al25":{"on":"1","msg":"CAUDLOG25"},"al12":{"on":"1","msg":"CAUDLOG12"},"al13":{"on":"1","msg":"CAUDLOG13"},"al14":{"on":"1","msg":"CAUDLOG14"},"al15":{"on":"1","msg":"CAUDLOG15"},"al16":{"on":"1","msg":"CAUDLOG16"},"al17":{"on":"1","msg":"CAUDLOG17"},"al18":{"on":"1","msg":"CAUDLOG18"},"al19":{"on":"1","msg":"CAUDLOG19"},"al20":{"on":"1","msg":"CAUDLOG20"},"al27":{"on":"1","msg":"CAUDLOG27"},"al28":{"on":"1","msg":"CAUDLOG28"},"al29":{"on":"1","msg":"CAUDLOG29"},"al30":{"on":"1","msg":"CAUDLOG30"},"al32":{"on":"1","msg":"CAUDLOG31"}},"emerald":{"subscr_skip":"3","subscr_author_skip":"1","subscr_moderator_skip":"1","type_display_subscription_msg":"You cannot see this article because article author subscritpion has expired.","type_display_subscription_count":"0","type_view_subscription_msg":"You cannot see this article because your subscritpion has expired.","type_view_subscription_count":"0","type_submit_subscription_msg":"To submit you need to be subscribed user and have following subscriptions","type_ulimit_subscription_count":"0","type_ulimit_count":"10","type_edit_subscription_msg":"To edit you need to be subscribed user and have folowing subscriptions","type_comment_subscription_msg":"To comment you need to be subscribed user and have folowing subscriptions","type_multicat_subscription_msg":"To submit this item to multiple categories you have to be subscribed member.","type_feature_subscription_msg":"To make record featured you need to be subscribed user and have folowing subscriptions","type_feature_subscription_time":"30","type_feature_unfeature":"2","type_extend_subscription_msg":"To prolong you need to be subscribed user and have folowing subscriptions","type_extend_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, '', 'form-19eab8ba3a68a8cf039e2c92567a614215387379', 784, 69, '*'),
+	(1, 'Собака', '{"properties":{"item_itemid":"107","item_compare":"0","item_can_favorite":"2","item_can_moderate":"3","item_edit":"1","item_delete":"1","allow_extend":"0","allow_hide":"0","default_extend":"10","item_expire_access":"3","tmpl_article":"default.4a242b334da9ed7171fb7cbcb131ddd3","tmpl_articleform":"myform.2967357db578fbc748ee4718c7beb4c2","tmpl_rating":"crown.5cab6d56e8a6bef4c347be21eb61c4a0","tmpl_comment":"default.8064df5d07edaf24f64a84119edd0f8e","item_can_view_tag":"1","item_can_add_tag":"-1","item_can_attach_tag":"3","item_tag_htmltags":"h1, h2, h3, h4, h5, h6, strong, em, b, i, big","item_tag_relevance":"0","item_tag_num":"0","item_tags_max":"25","item_title_unique":"0","item_title":"2","item_title_composite":"[8] \\u043f\\u043e \\u043a\\u043b\\u0438\\u0447\\u043a\\u0435 [3], \\u043f\\u043e\\u043b [9]","item_title_limit":"0","rate_access":"0","rate_access_author":"0","rate_mode":"1","rate_smart_before":"60","rate_smart_minimum":"5","rate_multirating":"0","rate_multirating_options":"","rate_multirating_tmpl":"default.php","rate_multirating_sort":"2"},"submission":{"submission":"7","can_edit":"-1","access":"1","public_edit":"1","autopublish":"1","edit_autopublish":"1","redirect":"1","redirect_url":"","submit_msg":"JLIB_APPLICATION","save_msg":"JLIB_APPLICATION","default_expire":"0","public_alert":"1","limits_total":"0","limits_day":"0","allow_category":"1","first_category":"0","multi_category":"0","multi_max_num":"3","robots":""},"category_limit":{"allow":"1","category_limit_mode":"0","show_restricted":"0"},"comments":{"comments":""},"audit":{"audit_date_format":"","audit_date_custom":"h:i A, d M Y","versioning":"0","versioning_max":"10","audit_log":"0","itemid":"","al1":{"on":"1","msg":"CAUDLOG1"},"al2":{"on":"1","msg":"CAUDLOG2"},"al26":{"on":"1","msg":"CAUDLOG26"},"al3":{"on":"1","msg":"CAUDLOG3"},"al4":{"on":"1","msg":"CAUDLOG4"},"al5":{"on":"1","msg":"CAUDLOG5"},"al6":{"on":"1","msg":"CAUDLOG6"},"al7":{"on":"1","msg":"CAUDLOG7"},"al8":{"on":"1","msg":"CAUDLOG8"},"al9":{"on":"1","msg":"CAUDLOG9"},"al10":{"on":"1","msg":"CAUDLOG10"},"al25":{"on":"1","msg":"CAUDLOG25"},"al12":{"on":"1","msg":"CAUDLOG12"},"al13":{"on":"1","msg":"CAUDLOG13"},"al14":{"on":"1","msg":"CAUDLOG14"},"al15":{"on":"1","msg":"CAUDLOG15"},"al16":{"on":"1","msg":"CAUDLOG16"},"al17":{"on":"1","msg":"CAUDLOG17"},"al18":{"on":"1","msg":"CAUDLOG18"},"al19":{"on":"1","msg":"CAUDLOG19"},"al20":{"on":"1","msg":"CAUDLOG20"},"al27":{"on":"1","msg":"CAUDLOG27"},"al28":{"on":"1","msg":"CAUDLOG28"},"al29":{"on":"1","msg":"CAUDLOG29"},"al30":{"on":"1","msg":"CAUDLOG30"},"al32":{"on":"1","msg":"CAUDLOG31"}},"emerald":{"subscr_skip":"3","subscr_author_skip":"1","subscr_moderator_skip":"1","type_display_subscription_msg":"You cannot see this article because article author subscritpion has expired.","type_display_subscription_count":"0","type_view_subscription_msg":"You cannot see this article because your subscritpion has expired.","type_view_subscription_count":"0","type_submit_subscription_msg":"To submit you need to be subscribed user and have following subscriptions","type_ulimit_subscription_count":"0","type_ulimit_count":"10","type_edit_subscription_msg":"To edit you need to be subscribed user and have folowing subscriptions","type_comment_subscription_msg":"To comment you need to be subscribed user and have folowing subscriptions","type_multicat_subscription_msg":"To submit this item to multiple categories you have to be subscribed member.","type_feature_subscription_msg":"To make record featured you need to be subscribed user and have folowing subscriptions","type_feature_subscription_time":"30","type_feature_unfeature":"2","type_extend_subscription_msg":"To prolong you need to be subscribed user and have folowing subscriptions","type_extend_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, '', 'form-19eab8ba3a68a8cf039e2c92567a614215387379', 784, 69, '*'),
 	(2, 'Порода', '{"properties":{"item_itemid":"","item_compare":"0","item_can_favorite":"2","item_can_moderate":"3","item_edit":"1","item_delete":"1","allow_extend":"0","allow_hide":"0","default_extend":"10","item_expire_access":"3","tmpl_article":"default.e636a2bbc5d0568b2034a3c95d7fdafa","tmpl_articleform":"myform.f487e77e41033a0fed2e3584408b6d8a","tmpl_rating":"default.c495295ab0968178f39003bb1a109c64","tmpl_comment":"default.d3d87f0207a70de9c04c9ea037b50349","item_can_view_tag":"1","item_can_add_tag":"-1","item_can_attach_tag":"3","item_tag_htmltags":"h1, h2, h3, h4, h5, h6, strong, em, b, i, big","item_tag_relevance":"0","item_tag_num":"0","item_tags_max":"25","item_title_unique":"0","item_title":"1","item_title_composite":"","item_title_limit":"0","rate_access":"2","rate_access_author":"0","rate_mode":"3","rate_smart_before":"60","rate_smart_minimum":"5","rate_multirating":"1","rate_multirating_options":"\\u0421\\u043a\\u043b\\u043e\\u043d\\u043d\\u043e\\u0441\\u0442\\u044c \\u043a \\u0434\\u0440\\u0435\\u0441\\u0441\\u0438\\u0440\\u043e\\u0432\\u043a\\u0435\\r\\n\\u0423\\u043c\\r\\n\\u041b\\u0438\\u043d\\u044c\\u043a\\u0430\\r\\n\\u0421\\u0442\\u043e\\u0440\\u043e\\u0436\\u0435\\u0432\\u044b\\u0435 \\u043a\\u0430\\u0447\\u0435\\u0441\\u0442\\u0432\\u0430\\r\\n\\u041e\\u0445\\u0440\\u0430\\u043d\\u043d\\u044b\\u0435 \\u043a\\u0430\\u0447\\u0435\\u0441\\u0442\\u0432\\u0430\\r\\n\\u041f\\u043e\\u043f\\u0443\\u043b\\u044f\\u0440\\u043d\\u043e\\u0441\\u0442\\u044c\\r\\n\\u0420\\u0430\\u0437\\u043c\\u0435\\u0440\\r\\n\\u0410\\u0434\\u0436\\u0438\\u043b\\u0438\\u0442\\u0438\\r\\n\\u041e\\u0442\\u043d\\u043e\\u0448\\u0435\\u043d\\u0438\\u0435 \\u043a \\u0434\\u0435\\u0442\\u044f\\u043c","rate_multirating_tmpl":"default.php","rate_multirating_sort":"2"},"submission":{"submission":"3","can_edit":"-1","access":"1","public_edit":"1","autopublish":"1","edit_autopublish":"1","redirect":"1","redirect_url":"","submit_msg":"JLIB_APPLICATION","save_msg":"JLIB_APPLICATION","default_expire":"0","public_alert":"1","limits_total":"0","limits_day":"0","allow_category":"1","first_category":"0","multi_category":"0","multi_max_num":"3","robots":""},"category_limit":{"allow":"1","category_limit_mode":"0","show_restricted":"0"},"comments":{"comments":""},"audit":{"audit_date_format":"","audit_date_custom":"h:i A, d M Y","versioning":"0","versioning_max":"10","audit_log":"0","itemid":"","al1":{"on":"1","msg":"CAUDLOG1"},"al2":{"on":"1","msg":"CAUDLOG2"},"al26":{"on":"1","msg":"CAUDLOG26"},"al3":{"on":"1","msg":"CAUDLOG3"},"al4":{"on":"1","msg":"CAUDLOG4"},"al5":{"on":"1","msg":"CAUDLOG5"},"al6":{"on":"1","msg":"CAUDLOG6"},"al7":{"on":"1","msg":"CAUDLOG7"},"al8":{"on":"1","msg":"CAUDLOG8"},"al9":{"on":"1","msg":"CAUDLOG9"},"al10":{"on":"1","msg":"CAUDLOG10"},"al25":{"on":"1","msg":"CAUDLOG25"},"al12":{"on":"1","msg":"CAUDLOG12"},"al13":{"on":"1","msg":"CAUDLOG13"},"al14":{"on":"1","msg":"CAUDLOG14"},"al15":{"on":"1","msg":"CAUDLOG15"},"al16":{"on":"1","msg":"CAUDLOG16"},"al17":{"on":"1","msg":"CAUDLOG17"},"al18":{"on":"1","msg":"CAUDLOG18"},"al19":{"on":"1","msg":"CAUDLOG19"},"al20":{"on":"1","msg":"CAUDLOG20"},"al27":{"on":"1","msg":"CAUDLOG27"},"al28":{"on":"1","msg":"CAUDLOG28"},"al29":{"on":"1","msg":"CAUDLOG29"},"al30":{"on":"1","msg":"CAUDLOG30"},"al32":{"on":"1","msg":"CAUDLOG31"}},"emerald":{"subscr_skip":"3","subscr_author_skip":"1","subscr_moderator_skip":"1","type_display_subscription_msg":"You cannot see this article because article author subscritpion has expired.","type_display_subscription_count":"0","type_view_subscription_msg":"You cannot see this article because your subscritpion has expired.","type_view_subscription_count":"0","type_submit_subscription_msg":"To submit you need to be subscribed user and have following subscriptions","type_ulimit_subscription_count":"0","type_ulimit_count":"10","type_edit_subscription_msg":"To edit you need to be subscribed user and have folowing subscriptions","type_comment_subscription_msg":"To comment you need to be subscribed user and have folowing subscriptions","type_multicat_subscription_msg":"To submit this item to multiple categories you have to be subscribed member.","type_feature_subscription_msg":"To make record featured you need to be subscribed user and have folowing subscriptions","type_feature_subscription_time":"30","type_feature_unfeature":"2","type_extend_subscription_msg":"To prolong you need to be subscribed user and have folowing subscriptions","type_extend_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, '', 'form-0efa8d8891630e92be964408f3b0abfa15389790', 784, 75, '*'),
 	(3, 'Альбом', '{"properties":{"item_itemid":"","item_compare":"0","item_can_favorite":"2","item_can_moderate":"3","item_edit":"1","item_delete":"1","allow_extend":"0","allow_hide":"0","default_extend":"10","item_expire_access":"3","tmpl_article":"default.cff7ed88ee58d40bf5f82f7e6c883e77","tmpl_articleform":"myform.192b2213bcd60dfe895c751ca5d3e60c","tmpl_rating":"crown.0f43ce83be8487de599449a17441fde8","tmpl_comment":"default.e129bb6c4035db976ca50cb9d7ce92ef","item_can_view_tag":"1","item_can_add_tag":"2","item_can_attach_tag":"2","item_tag_htmltags":"h1, h2, h3, h4, h5, h6, strong, em, b, i, big","item_tag_relevance":"0","item_tag_num":"0","item_tags_max":"25","item_title_unique":"0","item_title":"1","item_title_composite":"","item_title_limit":"0","rate_access":"0","rate_access_author":"0","rate_mode":"1","rate_smart_before":"60","rate_smart_minimum":"5","rate_multirating":"0","rate_multirating_options":"","rate_multirating_tmpl":"default.php","rate_multirating_sort":"2"},"submission":{"submission":"2","can_edit":"-1","access":"1","public_edit":"1","autopublish":"1","edit_autopublish":"1","redirect":"1","redirect_url":"","submit_msg":"JLIB_APPLICATION","save_msg":"JLIB_APPLICATION","default_expire":"0","public_alert":"1","limits_total":"0","limits_day":"0","allow_category":"1","first_category":"0","multi_category":"0","multi_max_num":"3","robots":""},"category_limit":{"allow":"1","category_limit_mode":"0","show_restricted":"0"},"comments":{"comments":""},"audit":{"audit_date_format":"","audit_date_custom":"h:i A, d M Y","versioning":"0","versioning_max":"10","audit_log":"0","itemid":"","al1":{"on":"1","msg":"CAUDLOG1"},"al2":{"on":"1","msg":"CAUDLOG2"},"al26":{"on":"1","msg":"CAUDLOG26"},"al3":{"on":"1","msg":"CAUDLOG3"},"al4":{"on":"1","msg":"CAUDLOG4"},"al5":{"on":"1","msg":"CAUDLOG5"},"al6":{"on":"1","msg":"CAUDLOG6"},"al7":{"on":"1","msg":"CAUDLOG7"},"al8":{"on":"1","msg":"CAUDLOG8"},"al9":{"on":"1","msg":"CAUDLOG9"},"al10":{"on":"1","msg":"CAUDLOG10"},"al25":{"on":"1","msg":"CAUDLOG25"},"al12":{"on":"1","msg":"CAUDLOG12"},"al13":{"on":"1","msg":"CAUDLOG13"},"al14":{"on":"1","msg":"CAUDLOG14"},"al15":{"on":"1","msg":"CAUDLOG15"},"al16":{"on":"1","msg":"CAUDLOG16"},"al17":{"on":"1","msg":"CAUDLOG17"},"al18":{"on":"1","msg":"CAUDLOG18"},"al19":{"on":"1","msg":"CAUDLOG19"},"al20":{"on":"1","msg":"CAUDLOG20"},"al27":{"on":"1","msg":"CAUDLOG27"},"al28":{"on":"1","msg":"CAUDLOG28"},"al29":{"on":"1","msg":"CAUDLOG29"},"al30":{"on":"1","msg":"CAUDLOG30"},"al32":{"on":"1","msg":"CAUDLOG31"}},"emerald":{"subscr_skip":"3","subscr_author_skip":"1","subscr_moderator_skip":"1","type_display_subscription_msg":"You cannot see this article because article author subscritpion has expired.","type_display_subscription_count":"0","type_view_subscription_msg":"You cannot see this article because your subscritpion has expired.","type_view_subscription_count":"0","type_submit_subscription_msg":"To submit you need to be subscribed user and have following subscriptions","type_ulimit_subscription_count":"0","type_ulimit_count":"10","type_edit_subscription_msg":"To edit you need to be subscribed user and have folowing subscriptions","type_comment_subscription_msg":"To comment you need to be subscribed user and have folowing subscriptions","type_multicat_subscription_msg":"To submit this item to multiple categories you have to be subscribed member.","type_feature_subscription_msg":"To make record featured you need to be subscribed user and have folowing subscriptions","type_feature_subscription_time":"30","type_feature_unfeature":"2","type_extend_subscription_msg":"To prolong you need to be subscribed user and have folowing subscriptions","type_extend_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, '', 'form-b9407ae097882e620f6c9bd7e50c62be15392659', 784, 92, '*'),
 	(4, 'Видеоролик', '{"properties":{"item_itemid":"","item_compare":"0","item_can_favorite":"2","item_can_moderate":"3","item_edit":"1","item_delete":"1","allow_extend":"0","allow_hide":"0","default_extend":"10","item_expire_access":"3","tmpl_article":"default.29cf4e28ca9024c306f935e49287a133","tmpl_articleform":"myform.91c4c8855190ef8b10b974c16a717d2f","tmpl_rating":"crown.094f0af78eafabd975ca715171d960a3","tmpl_comment":"default.7d1c417db99cafc2a438d0c9baf981d4","item_can_view_tag":"1","item_can_add_tag":"2","item_can_attach_tag":"2","item_tag_htmltags":"h1, h2, h3, h4, h5, h6, strong, em, b, i, big","item_tag_relevance":"0","item_tag_num":"0","item_tags_max":"25","item_title_unique":"0","item_title":"1","item_title_composite":"","item_title_limit":"0","rate_access":"1","rate_access_author":"0","rate_mode":"1","rate_smart_before":"60","rate_smart_minimum":"5","rate_multirating":"0","rate_multirating_options":"","rate_multirating_tmpl":"default.php","rate_multirating_sort":"2"},"submission":{"submission":"2","can_edit":"-1","access":"1","public_edit":"1","autopublish":"1","edit_autopublish":"1","redirect":"1","redirect_url":"","submit_msg":"JLIB_APPLICATION","save_msg":"JLIB_APPLICATION","default_expire":"0","public_alert":"1","limits_total":"0","limits_day":"0","allow_category":"1","first_category":"0","multi_category":"0","multi_max_num":"3","robots":""},"category_limit":{"allow":"1","category_limit_mode":"0","show_restricted":"0"},"comments":{"comments":""},"audit":{"audit_date_format":"","audit_date_custom":"h:i A, d M Y","versioning":"0","versioning_max":"10","audit_log":"0","itemid":"","al1":{"on":"1","msg":"CAUDLOG1"},"al2":{"on":"1","msg":"CAUDLOG2"},"al26":{"on":"1","msg":"CAUDLOG26"},"al3":{"on":"1","msg":"CAUDLOG3"},"al4":{"on":"1","msg":"CAUDLOG4"},"al5":{"on":"1","msg":"CAUDLOG5"},"al6":{"on":"1","msg":"CAUDLOG6"},"al7":{"on":"1","msg":"CAUDLOG7"},"al8":{"on":"1","msg":"CAUDLOG8"},"al9":{"on":"1","msg":"CAUDLOG9"},"al10":{"on":"1","msg":"CAUDLOG10"},"al25":{"on":"1","msg":"CAUDLOG25"},"al12":{"on":"1","msg":"CAUDLOG12"},"al13":{"on":"1","msg":"CAUDLOG13"},"al14":{"on":"1","msg":"CAUDLOG14"},"al15":{"on":"1","msg":"CAUDLOG15"},"al16":{"on":"1","msg":"CAUDLOG16"},"al17":{"on":"1","msg":"CAUDLOG17"},"al18":{"on":"1","msg":"CAUDLOG18"},"al19":{"on":"1","msg":"CAUDLOG19"},"al20":{"on":"1","msg":"CAUDLOG20"},"al27":{"on":"1","msg":"CAUDLOG27"},"al28":{"on":"1","msg":"CAUDLOG28"},"al29":{"on":"1","msg":"CAUDLOG29"},"al30":{"on":"1","msg":"CAUDLOG30"},"al32":{"on":"1","msg":"CAUDLOG31"}},"emerald":{"subscr_skip":"3","subscr_author_skip":"1","subscr_moderator_skip":"1","type_display_subscription_msg":"You cannot see this article because article author subscritpion has expired.","type_display_subscription_count":"0","type_view_subscription_msg":"You cannot see this article because your subscritpion has expired.","type_view_subscription_count":"0","type_submit_subscription_msg":"To submit you need to be subscribed user and have following subscriptions","type_ulimit_subscription_count":"0","type_ulimit_count":"10","type_edit_subscription_msg":"To edit you need to be subscribed user and have folowing subscriptions","type_comment_subscription_msg":"To comment you need to be subscribed user and have folowing subscriptions","type_multicat_subscription_msg":"To submit this item to multiple categories you have to be subscribed member.","type_feature_subscription_msg":"To make record featured you need to be subscribed user and have folowing subscriptions","type_feature_subscription_time":"30","type_feature_unfeature":"2","type_extend_subscription_msg":"To prolong you need to be subscribed user and have folowing subscriptions","type_extend_subscription_count":"0"}}', 0, '0000-00-00 00:00:00', 1, '', 'form-2904010431bfe713c61c14d9bb7446aa15392683', 784, 98, '*'),
@@ -4641,9 +6265,9 @@ CREATE TABLE IF NOT EXISTS `dogs_menu` (
   KEY `idx_alias` (`alias`(100)),
   KEY `idx_path` (`path`(100)),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=163 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_menu: ~62 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_menu: ~83 rows (приблизительно)
 DELETE FROM `dogs_menu`;
 /*!40000 ALTER TABLE `dogs_menu` DISABLE KEYS */;
 INSERT INTO `dogs_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`) VALUES
@@ -4708,7 +6332,28 @@ INSERT INTO `dogs_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `li
 	(138, 'mainmenu', 'О собаках', 'o-sobakakh', '', 'o-sobakakh', 'index.php?Itemid=', 'alias', 1, 1, 1, 0, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"aliasoptions":"108","menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1}', 17, 28, 0, '*', 0),
 	(139, 'mainmenu', 'Ветеринарные клинники', 'veterinarnye-klinniki', '', 'veterinarnye-klinniki', 'index.php?option=com_cobalt&view=records&section_id=13:veterinarnye-klinniki', 'component', 1, 1, 1, 10004, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu_archive":"0","menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 117, 118, 0, '*', 0),
 	(140, 'mainmenu', 'Зоомагазины', 'zoomagaziny', '', 'zoomagaziny', 'index.php?option=com_cobalt&view=records&section_id=14:zoomagaziny', 'component', 1, 1, 1, 10004, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu_archive":"0","menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 119, 120, 0, '*', 0),
-	(141, 'main', 'COM_COMMUNITY', 'com-community', '', 'com-community', 'index.php?option=com_community', 'component', 1, 1, 1, 10080, 0, '0000-00-00 00:00:00', 0, 1, 'components/com_community/assets/icons/community-favicon.png', 0, '{}', 121, 122, 0, '', 1);
+	(141, 'main', 'COM_COMMUNITY', 'com-community', '', 'com-community', 'index.php?option=com_community', 'component', 1, 1, 1, 10080, 0, '0000-00-00 00:00:00', 0, 1, 'components/com_community/assets/icons/community-favicon.png', 0, '{}', 121, 122, 0, '', 1),
+	(142, 'mainmenu', 'Сообщество', 'jomsocial', '', 'jomsocial', 'index.php?option=com_community&view=frontpage', 'component', 1, 1, 1, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 124, 125, 0, '*', 0),
+	(143, 'jomsocial', 'Профиль', 'profile', '', 'profile', 'index.php?option=com_community&view=profile', 'component', 1, 1, 1, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 126, 143, 0, '*', 0),
+	(144, 'jomsocial', 'Изменить изображение профиля', 'change-profile-picture', '', 'profile/change-profile-picture', 'index.php?option=com_community&view=profile&task=uploadAvatar', 'component', 1, 143, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 127, 128, 0, '*', 0),
+	(145, 'jomsocial', 'Изменить видео профиля ', 'change-profile-video', '', 'profile/change-profile-video', 'index.php?option=com_community&view=profile&task=linkVideo', 'component', 1, 143, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 129, 130, 0, '*', 0),
+	(146, 'jomsocial', 'Редактировать Профиль', 'edit-profile', '', 'profile/edit-profile', 'index.php?option=com_community&view=profile&task=edit', 'component', 1, 143, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 131, 132, 0, '*', 0),
+	(147, 'jomsocial', 'Редактировать Аккаунт', 'edit-details', '', 'profile/edit-details', 'index.php?option=com_community&view=profile&task=editDetails', 'component', 1, 143, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 133, 134, 0, '*', 0),
+	(148, 'jomsocial', 'Приватность', 'privacy', '', 'profile/privacy', 'index.php?option=com_community&view=profile&task=privacy', 'component', 1, 143, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 135, 136, 0, '*', 0),
+	(149, 'jomsocial', 'Настройки', 'preferences', '', 'profile/preferences', 'index.php?option=com_community&view=profile&task=preferences', 'component', 1, 143, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 137, 138, 0, '*', 0),
+	(150, 'jomsocial', 'Настройка моей страницы', 'customize-my-page', '', 'profile/customize-my-page', 'index.php?option=com_community&view=profile&task=editPage', 'component', 1, 143, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 139, 140, 0, '*', 0),
+	(151, 'jomsocial', 'Уведомления', 'notifications', '', 'profile/notifications', 'index.php?option=com_community&view=profile&task=notifications', 'component', 1, 143, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 141, 142, 0, '*', 0),
+	(152, 'jomsocial', 'Сообщество', 'members', '', 'members', 'index.php?option=com_community&view=search&task=browse', 'component', 1, 1, 1, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 144, 149, 0, '*', 0),
+	(153, 'jomsocial', 'Все участники', 'all-members', '', 'members/all-members', 'index.php?option=com_community&view=search&task=browse', 'component', 1, 152, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 145, 146, 0, '*', 0),
+	(154, 'jomsocial', 'Расширенный поиск', 'advanced-search', '', 'members/advanced-search', 'index.php?option=com_community&view=search&task=advancesearch', 'component', 1, 152, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 147, 148, 0, '*', 0),
+	(155, 'jomsocial', 'Друзья', 'friends', '', 'friends', 'index.php?option=com_community&view=friends', 'component', 1, 1, 1, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 150, 157, 0, '*', 0),
+	(156, 'jomsocial', 'Все друзья', 'all-friends', '', 'friends/all-friends', 'index.php?option=com_community&view=friends', 'component', 1, 155, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 151, 152, 0, '*', 0),
+	(157, 'jomsocial', 'Запросы на дружбу', 'request-sent', '', 'friends/request-sent', 'index.php?option=com_community&view=friends&task=sent', 'component', 1, 155, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 153, 154, 0, '*', 0),
+	(158, 'jomsocial', 'В ожидании моего одобрения', 'pending-my-approval', '', 'friends/pending-my-approval', 'index.php?option=com_community&view=friends&task=pending', 'component', 1, 155, 2, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 155, 156, 0, '*', 0),
+	(159, 'jomsocial', 'Группы', 'groups', '', 'groups', 'index.php?option=com_community&view=groups', 'component', 1, 1, 1, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 158, 159, 0, '*', 0),
+	(160, 'jomsocial', 'Фото', 'photos', '', 'photos', 'index.php?option=com_community&view=photos', 'component', 1, 1, 1, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 160, 161, 0, '*', 0),
+	(161, 'jomsocial', 'Видео', 'videos', '', 'videos', 'index.php?option=com_community&view=videos', 'component', 1, 1, 1, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 162, 163, 0, '*', 0),
+	(162, 'jomsocial', 'События', 'events', '', 'events', 'index.php?option=com_community&view=events', 'component', 1, 1, 1, 10080, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_image_css":"","menu_text":1,"menu_show":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 164, 165, 0, '*', 0);
 /*!40000 ALTER TABLE `dogs_menu` ENABLE KEYS */;
 
 
@@ -4722,7 +6367,7 @@ CREATE TABLE IF NOT EXISTS `dogs_menu_types` (
   `client_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_menutype` (`menutype`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Дамп данных таблицы prodogs.loc.dogs_menu_types: ~5 rows (приблизительно)
 DELETE FROM `dogs_menu_types`;
@@ -4732,7 +6377,8 @@ INSERT INTO `dogs_menu_types` (`id`, `asset_id`, `menutype`, `title`, `descripti
 	(2, 81, 'dogsmenu', 'Меню Собаковода', 'Меню для владельца собак', 0),
 	(3, 110, 'pitomnikmenu', 'Меню Питомника', '', 0),
 	(4, 122, 'adminmenu', 'Меню Админа', '', 0),
-	(5, 226, 'usermenu', 'Меню Пользователя', '', 0);
+	(5, 226, 'usermenu', 'Меню Пользователя', '', 0),
+	(6, 0, 'jomsocial', 'JomSocial toolbar', 'Toolbar items for JomSocial toolbar', 0);
 /*!40000 ALTER TABLE `dogs_menu_types` ENABLE KEYS */;
 
 
@@ -4795,39 +6441,39 @@ CREATE TABLE IF NOT EXISTS `dogs_modules` (
   KEY `published` (`published`,`access`),
   KEY `newsfeeds` (`module`,`published`),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=132 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_modules: ~41 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_modules: ~59 rows (приблизительно)
 DELETE FROM `dogs_modules`;
 /*!40000 ALTER TABLE `dogs_modules` DISABLE KEYS */;
 INSERT INTO `dogs_modules` (`id`, `asset_id`, `title`, `note`, `content`, `ordering`, `position`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `published`, `module`, `access`, `showtitle`, `params`, `client_id`, `language`) VALUES
-	(1, 39, 'Главное меню', '', '', 1, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menu', 1, 1, '{"menutype":"mainmenu","base":"","startLevel":1,"endLevel":0,"showAllChildren":1,"tag_id":"","class_sfx":"","window_open":"","layout":"_:default","moduleclass_sfx":"_menu","cache":1,"cache_time":900,"cachemode":"itemid","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
-	(2, 40, 'Login', '', '', 1, 'login', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_login', 1, 1, '', 1, '*'),
-	(3, 41, 'Popular Articles', '', '', 3, 'cpanel', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_popular', 3, 1, '{"count":"5","catid":"","user_id":"0","layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*'),
-	(4, 42, 'Recently Added Articles', '', '', 4, 'cpanel', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_latest', 3, 1, '{"count":"5","ordering":"c_dsc","catid":"","user_id":"0","layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*'),
-	(8, 43, 'Toolbar', '', '', 1, 'toolbar', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_toolbar', 3, 1, '', 1, '*'),
-	(9, 44, 'Quick Icons', '', '', 1, 'icon', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_quickicon', 3, 1, '', 1, '*'),
-	(10, 45, 'Logged-in Users', '', '', 2, 'cpanel', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_logged', 3, 1, '{"count":"5","name":"1","layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*'),
-	(12, 46, 'Admin Menu', '', '', 1, 'menu', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menu', 3, 1, '{"layout":"","moduleclass_sfx":"","shownew":"1","showhelp":"1","cache":"0"}', 1, '*'),
+	(1, 39, 'Главное меню', '', '', 2, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menu', 1, 1, '{"menutype":"mainmenu","base":"","startLevel":1,"endLevel":0,"showAllChildren":1,"tag_id":"","class_sfx":"","window_open":"","layout":"_:default","moduleclass_sfx":"_menu","cache":1,"cache_time":900,"cachemode":"itemid","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(2, 40, 'Логин', '', '', 1, 'login', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_login', 1, 1, '{"usesecure":0,"layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 1, '*'),
+	(3, 41, 'Популярные статьи', '', '', 3, 'cpanel', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_popular', 3, 1, '{"count":5,"catid":"","user_id":"0","layout":"_:default","moduleclass_sfx":"","automatic_title":0,"module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 1, '*'),
+	(4, 42, 'Недавно добавленные статьи', '', '', 4, 'cpanel', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_latest', 3, 1, '{"count":5,"ordering":"c_dsc","catid":"","user_id":"0","layout":"_:default","moduleclass_sfx":"","automatic_title":0,"module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 1, '*'),
+	(8, 43, 'Панель инструментов', '', '', 1, 'toolbar', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_toolbar', 3, 1, '{"layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 1, '*'),
+	(9, 44, 'Быстрые иконки', '', '', 1, 'icon', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_quickicon', 3, 1, '{"context":"mod_quickicon","layout":"_:default","moduleclass_sfx":"","cache":1,"cache_time":900,"module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 1, '*'),
+	(10, 45, 'Вошедшие пользователи', '', '', 2, 'cpanel', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_logged', 3, 1, '{"count":5,"name":1,"layout":"_:default","moduleclass_sfx":"","automatic_title":0,"module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 1, '*'),
+	(12, 46, 'Меню Администратора', '', '', 1, 'menu', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menu', 3, 1, '{"menutype":"*","preset":"joomla","check":1,"shownew":1,"showhelp":1,"forum_url":false,"layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 1, '*'),
 	(13, 47, 'Admin Submenu', '', '', 1, 'submenu', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_submenu', 3, 1, '', 1, '*'),
-	(14, 48, 'User Status', '', '', 2, 'status', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_status', 3, 1, '', 1, '*'),
-	(15, 49, 'Title', '', '', 1, 'title', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_title', 3, 1, '', 1, '*'),
-	(16, 50, 'Login Form', '', '', 28, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_login', 1, 1, '{"greeting":"1","name":"0"}', 0, '*'),
+	(14, 48, 'Статус Пользователя', '', '', 2, 'status', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_status', 3, 1, '{"show_viewsite":1,"show_viewadmin":0,"show_loggedin_users":1,"show_loggedin_users_admin":1,"show_messages":1,"layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 1, '*'),
+	(15, 49, 'Заголовок', '', '', 1, 'title', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_title', 3, 1, '{"layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 1, '*'),
+	(16, 50, 'Login Form', '', '', 28, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_login', 5, 1, '{"pretext":"","posttext":"","login":"","logout":"","greeting":1,"name":0,"profilelink":0,"usesecure":0,"usetext":0,"layout":"_:default","moduleclass_sfx":"","cache":0,"module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
 	(17, 51, 'Breadcrumbs', '', '', 1, 'position-2', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_breadcrumbs', 1, 1, '{"moduleclass_sfx":"","showHome":"1","homeText":"","showComponent":"1","separator":"","cache":"0","cache_time":"0","cachemode":"itemid"}', 0, '*'),
 	(79, 52, 'Multilanguage status', '', '', 1, 'status', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_multilangstatus', 3, 1, '{"layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*'),
-	(86, 53, 'Joomla Version', '', '', 1, 'footer', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_version', 3, 1, '{"format":"short","product":"1","layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*'),
-	(87, 55, 'Sample Data', '', '', 0, 'cpanel', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_sampledata', 6, 1, '{}', 1, '*'),
-	(88, 58, 'Категории объявлений', '', '', 3, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_cobalt_category', 1, 1, '{"section_id":"9","init_cat":"","layout":"_:default","show_section":"2","cat_empty":"1","cat_nums":"current","mode":"2","order":"1","subcat_limit":"5","section_class":"","header_text":"","footer_text":"","class_sfx":"","moduleclass_sfx":"","records":"0","records_limit":"5","orderby":"ctime ASC","levels":"Category","select_width":"150","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
-	(89, 59, 'Cobalt - Module - Filters', '', '', 5, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_filters', 1, 1, '{"section_id":"1","show_icons":"1","form_hide":"1","filter_fields_template":"module","filter_search":"1","filter_type_type":"1","filter_users_type":"1","filter_category_type":"1","filter_empty_cats":"1","filter_tags_type":"1","layout":"_:collapse","type_label":"Content Type","user_label":"Author","category_label":"Category","tag_label":"Tags","moduleclass_sfx":"","cache":"0","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
-	(90, 60, 'Cobalt - Module - Who Follows User', '', '', 7, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_followers', 1, 1, '{"ava_style":"img-polaroid","ava_size":"32","limit":"10","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
-	(91, 61, 'Cobalt - Module - Whom User Follows', '', '', 8, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_ifollow', 1, 1, '{"ava_style":"img-polaroid","ava_size":"32","limit":"10","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
-	(92, 62, 'Cobalt - Module - Notifications', '', '', 9, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_notifications', 1, 1, '{"layout":"_:bootstrap-notify","moduleclass_sfx":"","height":"200","time":"3","limit":"5","noti_width":"320","noti_position":"bottom-right","noti_style":"bangTidy","ntmoo_parent":"","ntmoo_width":"300","ntmoo_height":"50","ntmoo_time":"5000","ntmoo_updtime":"60","ntmoo_sticky":"true","ntmoo_locationv":"top","ntmoo_locationh":"right","ntmoo_positionv":"10","ntmoo_positionh":"10","ntmoo_margin":"5","ntmoo_opacity_time":"750","ntmoo_close_time":"750","ntmoo_scroll_time":"250","ntmoo_opacity":"0.95","ntmoo_class":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(86, 53, 'Версия Joomla', '', '', 1, 'footer', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_version', 3, 1, '{"format":"short","product":1,"layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 1, '*'),
+	(87, 55, 'Пример данных', '', '', 1, 'cpanel', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_sampledata', 6, 1, '{"layout":"_:default","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 1, '*'),
+	(88, 58, 'Категории объявлений', '', '', 4, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_cobalt_category', 1, 1, '{"section_id":"9","init_cat":"","layout":"_:default","show_section":"2","cat_empty":"1","cat_nums":"current","mode":"2","order":"1","subcat_limit":"5","section_class":"","header_text":"","footer_text":"","class_sfx":"","moduleclass_sfx":"","records":"0","records_limit":"5","orderby":"ctime ASC","levels":"Category","select_width":"150","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(89, 59, 'Cobalt - Module - Filters', '', '', 6, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_filters', 1, 1, '{"section_id":"1","show_icons":"1","form_hide":"1","filter_fields_template":"module","filter_search":"1","filter_type_type":"1","filter_users_type":"1","filter_category_type":"1","filter_empty_cats":"1","filter_tags_type":"1","layout":"_:collapse","type_label":"Content Type","user_label":"Author","category_label":"Category","tag_label":"Tags","moduleclass_sfx":"","cache":"0","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(90, 60, 'Cobalt - Module - Who Follows User', '', '', 8, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_followers', 1, 1, '{"ava_style":"img-polaroid","ava_size":"32","limit":"10","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(91, 61, 'Cobalt - Module - Whom User Follows', '', '', 9, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_ifollow', 1, 1, '{"ava_style":"img-polaroid","ava_size":"32","limit":"10","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(92, 62, 'Cobalt - Module - Notifications', '', '', 10, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_notifications', 1, 1, '{"layout":"_:bootstrap-notify","moduleclass_sfx":"","height":"200","time":"3","limit":"5","noti_width":"320","noti_position":"bottom-right","noti_style":"bangTidy","ntmoo_parent":"","ntmoo_width":"300","ntmoo_height":"50","ntmoo_time":"5000","ntmoo_updtime":"60","ntmoo_sticky":"true","ntmoo_locationv":"top","ntmoo_locationh":"right","ntmoo_positionv":"10","ntmoo_positionh":"10","ntmoo_margin":"5","ntmoo_opacity_time":"750","ntmoo_close_time":"750","ntmoo_scroll_time":"250","ntmoo_opacity":"0.95","ntmoo_class":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
 	(93, 63, 'Cobalt - Module - Article Participants', '', '', 13, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_participants', 1, 1, '{"ava_style":"img-polaroid","ava_size":"32","limit":"10","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
 	(94, 64, 'Cobalt - Module - Records', '', '', 14, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_records', 1, 1, '{"section_id":"8","types":["","9"],"orderby":"r.ctime DESC","view_what":"all","rsection_id":"1","field_src":"k8caa3dbc44f45fb88449b9860f77e8b8","field_value":"","fvco":"= \'{0}\'","ndays":"5","catids":"","cat_restrict":"0","user_restrict":"0","tmpl":"","norecords":"","limit":"5","lang_mode":"0","force_itemid":"0","moduleclass_sfx":"","cache":"1","cache_time":"900","cachemode":"itemid","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
 	(95, 65, 'Cobalt - Module - Section Statictics', '', '', 15, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_sectionstatistics', 1, 1, '{"section_id":"1","current_section":"1","records_num":"1","comments_num":"1","authors_num":"1","members_num":"1","views_num":"1","use_anonim":"1","layout":"_:default","moduleclass_sfx":"","records_num_label":"\\u041f\\u0443\\u0431\\u043b\\u0438\\u043a\\u0430\\u0446\\u0438\\u0439","comments_num_label":"\\u041a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0430\\u0440\\u0438\\u0435\\u0432","authors_num_label":"\\u0410\\u0432\\u0442\\u043e\\u0440\\u043e\\u0432","members_num_label":"\\u0423\\u0447\\u0430\\u0441\\u0442\\u043d\\u0438\\u043a\\u043e\\u0432","views_num_label":"\\u041f\\u0440\\u043e\\u0441\\u043c\\u043e\\u0442\\u0440\\u043e\\u0432","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
 	(96, 66, 'Cobalt - Module - Submit Button', '', '', 16, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_submitbutton', 2, 1, '{"section_id":"9","types":["10","12","13"],"display":"0","category":"1","follow":"1","label":"\\u0414\\u043e\\u0431\\u0430\\u0432\\u0438\\u0442\\u044c %s","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
-	(97, 67, 'Cobalt - Module - Tag Cloud', '', '', 10, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_tagcloud', 1, 1, '{"section_id":"11","cat_ids":"","depends_on_cat":"0","depends_on_user":"0","tmpl":"default.php","ordering":"RAND()","time_period":"default_time","show_section_name":"0","item_tag_num":"0","html_tags":"H1, H2, H3, H4, H5, H6, strong, b, em, big, small","limit":"50","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
-	(98, 68, 'Cobalt - Module - User Statictics', '', '', 11, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_userstatistics', 1, 1, '{"section_id":"11","current_section":"0","created":"1","comments_left":"1","commented":"1","readers":"1","use_anonim":"1","visited":"1","rating_average":"1","whofollow":"1","followed":"1","whofavorited":"1","favorited":"1","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(97, 67, 'Cobalt - Module - Tag Cloud', '', '', 11, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_tagcloud', 1, 1, '{"section_id":"11","cat_ids":"","depends_on_cat":"0","depends_on_user":"0","tmpl":"default.php","ordering":"RAND()","time_period":"default_time","show_section_name":"0","item_tag_num":"0","html_tags":"H1, H2, H3, H4, H5, H6, strong, b, em, big, small","limit":"50","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(98, 68, 'Cobalt - Module - User Statictics', '', '', 12, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_cobalt_userstatistics', 1, 1, '{"section_id":"11","current_section":"0","created":"1","comments_left":"1","commented":"1","readers":"1","use_anonim":"1","visited":"1","rating_average":"1","whofollow":"1","followed":"1","whofavorited":"1","favorited":"1","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
 	(99, 82, 'Менеджер Собаковода', '', '', 22, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menu', 2, 1, '{"menutype":"dogsmenu","base":"","startLevel":1,"endLevel":0,"showAllChildren":1,"tag_id":"","class_sfx":"","window_open":"","layout":"_:default","moduleclass_sfx":"","cache":1,"cache_time":900,"cachemode":"itemid","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
 	(100, 111, 'Менеджер Питомника', '', '', 27, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menu', 2, 1, '{"menutype":"pitomnikmenu","base":"","startLevel":1,"endLevel":0,"showAllChildren":1,"tag_id":"","class_sfx":"","window_open":"","layout":"_:default","moduleclass_sfx":"","cache":1,"cache_time":900,"cachemode":"itemid","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
 	(101, 123, 'Меню Админа', '', '', 19, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menu', 6, 1, '{"menutype":"adminmenu","base":"","startLevel":1,"endLevel":0,"showAllChildren":1,"tag_id":"","class_sfx":"","window_open":"","layout":"_:default","moduleclass_sfx":"","cache":1,"cache_time":900,"cachemode":"itemid","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
@@ -4839,9 +6485,27 @@ INSERT INTO `dogs_modules` (`id`, `asset_id`, `title`, `note`, `content`, `order
 	(107, 159, 'Кнопка добавить Новость', '', '', 26, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_cobalt_submitbutton', 1, 0, '{"section_id":"6","types":["7"],"display":"0","category":"0","follow":"0","label":"\\u0414\\u043e\\u0431\\u0430\\u0432\\u0438\\u0442\\u044c \\u041d\\u043e\\u0432\\u043e\\u0441\\u0442\\u044c","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
 	(108, 160, 'Кнопка добавить Породу', '', '', 17, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_cobalt_submitbutton', 6, 0, '{"section_id":"2","types":["","2"],"display":"0","category":"0","follow":"0","label":"\\u0414\\u043e\\u0431\\u0430\\u0432\\u0438\\u0442\\u044c \\u041f\\u043e\\u0440\\u043e\\u0434\\u0443","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
 	(109, 161, 'Кнопка добавить Титул', '', '', 18, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_cobalt_submitbutton', 6, 0, '{"section_id":"8","types":["9"],"display":"0","category":"0","follow":"0","label":"\\u0414\\u043e\\u0431\\u0430\\u0432\\u0438\\u0442\\u044c \\u0422\\u0438\\u0442\\u0443\\u043b","layout":"_:default","moduleclass_sfx":"","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
-	(110, 227, 'Меню Пользователя', '', '', 4, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menu', 2, 1, '{"menutype":"usermenu","base":"","startLevel":1,"endLevel":0,"showAllChildren":1,"tag_id":"","class_sfx":"","window_open":"","layout":"_:default","moduleclass_sfx":"","cache":1,"cache_time":900,"cachemode":"itemid","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
-	(111, 265, 'Категории публикаций', '', '', 6, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_cobalt_category', 1, 1, '{"section_id":"11","init_cat":"","layout":"_:default","show_section":"2","cat_empty":"1","cat_nums":"current","mode":"2","order":"1","subcat_limit":"5","section_class":"","header_text":"","footer_text":"","class_sfx":"","moduleclass_sfx":"","records":"0","records_limit":"5","orderby":"ctime ASC","levels":"Category","select_width":"150","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
-	(113, 270, 'RSS рассылка', '', '', 1, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_syndicate', 1, 0, '{"display_text":1,"text":"","format":"rss","layout":"_:default","moduleclass_sfx":"","cache":0,"module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*');
+	(110, 227, 'Меню Пользователя', '', '', 5, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menu', 2, 1, '{"menutype":"usermenu","base":"","startLevel":1,"endLevel":0,"showAllChildren":1,"tag_id":"","class_sfx":"","window_open":"","layout":"_:default","moduleclass_sfx":"","cache":1,"cache_time":900,"cachemode":"itemid","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(111, 265, 'Категории публикаций', '', '', 7, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_cobalt_category', 1, 1, '{"section_id":"11","init_cat":"","layout":"_:default","show_section":"2","cat_empty":"1","cat_nums":"current","mode":"2","order":"1","subcat_limit":"5","section_class":"","header_text":"","footer_text":"","class_sfx":"","moduleclass_sfx":"","records":"0","records_limit":"5","orderby":"ctime ASC","levels":"Category","select_width":"150","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(113, 270, 'RSS рассылка', '', '', 3, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_syndicate', 1, 0, '{"display_text":1,"text":"","format":"rss","layout":"_:default","moduleclass_sfx":"","cache":0,"module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(114, 284, 'JS Activity Stream', '', '', 0, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_activitystream', 1, 1, '', 0, '*'),
+	(115, 285, 'JS Discussions', '', '', 0, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_discussions', 1, 1, '', 0, '*'),
+	(116, 286, 'JS Events', '', '', 1, 'js_side_frontpage_bottom', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_events', 1, 1, '{"default":""}', 0, '*'),
+	(117, 287, 'JS Events Calendar', '', '', 0, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_eventscalendar', 1, 1, '', 0, '*'),
+	(118, 288, 'JS Groups', '', '', 1, 'js_side_frontpage_bottom', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_groups', 1, 1, '{"default":""}', 0, '*'),
+	(119, 289, 'JS Hello Me', '', '', 1, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_community_hellome', 2, 0, '{"show_avatar":"1","show_name":"1","show_badge":"0","show_notifications":"1","show_menu":"0","show_logout":"1","show_facebook":"1","show_forgotpwd":"1","show_forgotusr":"1","show_activation":"1","remember_me":"1","logout":"","login":"143","layout":"_:default","moduleclass_sfx":"","cache":"0","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(120, 290, 'Новые участники', '', '', 1, 'js_side_frontpage_top', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_community_members', 1, 1, '{"profile_filter":"0","avatars_number":"4","jsprofiletypes":"0","sorting":"0","respect_online":"1","show_total_members":"1","limit":"12","layout":"_:default","moduleclass_sfx":"","cache":"0","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(121, 291, 'JS Members Search', '', '', 0, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_memberssearch', 1, 1, '', 0, '*'),
+	(122, 292, 'JS Nearby Events Search', '', '', 0, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_nearbyevents', 1, 1, '', 0, '*'),
+	(123, 293, 'JS Notifications', '', '', 0, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_notifications', 1, 1, '', 0, '*'),
+	(124, 294, 'JS Photo Comments', '', '', 0, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_photocomments', 1, 1, '', 0, '*'),
+	(125, 295, 'JS Photos', '', '', 1, 'js_side_frontpage', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_photos', 1, 1, '{"default":""}', 0, '*'),
+	(126, 296, 'JS Statistics', '', '', 0, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_statistics', 1, 1, '', 0, '*'),
+	(127, 297, 'JS Top Members', '', '', 0, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_topmembers', 1, 1, '', 0, '*'),
+	(128, 298, 'JS Video Comments', '', '', 0, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_videocomments', 1, 1, '', 0, '*'),
+	(129, 299, 'JS Videos', '', '', 1, 'js_side_frontpage', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_videos', 1, 1, '{"default":""}', 0, '*'),
+	(130, 300, 'День Рождения', '', '', 1, 'js_side_frontpage', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_community_birthdays', 1, 1, '{"show":"1","jsbirthday":"3","days":"3","show_age":"1","limit":"3","dateformat":"l, F j","layout":"_:default","moduleclass_sfx":"","cache":"0","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(131, 301, 'JS Toolbar', '', '', 1, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_community_bar', 1, 1, '{"toolbar_logo":"","toolbar_logosm":"","logo_url":"http:\\/\\/www.jomsocial.com","show_search":"0","show_facebook":"1","show_forgotpwd":"1","show_forgotusr":"1","show_activation":"1","remember_me":"1","logout":"","login":"","greeting":"","configurationmenu":["143","144"],"layout":"_:default","moduleclass_sfx":"","cache":"0","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*');
 /*!40000 ALTER TABLE `dogs_modules` ENABLE KEYS */;
 
 
@@ -4852,7 +6516,7 @@ CREATE TABLE IF NOT EXISTS `dogs_modules_menu` (
   PRIMARY KEY (`moduleid`,`menuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_modules_menu: ~51 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_modules_menu: ~59 rows (приблизительно)
 DELETE FROM `dogs_modules_menu`;
 /*!40000 ALTER TABLE `dogs_modules_menu` DISABLE KEYS */;
 INSERT INTO `dogs_modules_menu` (`moduleid`, `menuid`) VALUES
@@ -4906,7 +6570,15 @@ INSERT INTO `dogs_modules_menu` (`moduleid`, `menuid`) VALUES
 	(109, 129),
 	(110, 0),
 	(111, 133),
-	(113, 0);
+	(113, 0),
+	(116, 0),
+	(118, 0),
+	(119, 0),
+	(120, 0),
+	(125, 0),
+	(129, 0),
+	(130, 0),
+	(131, 0);
 /*!40000 ALTER TABLE `dogs_modules_menu` ENABLE KEYS */;
 
 
@@ -5058,14 +6730,12 @@ CREATE TABLE IF NOT EXISTS `dogs_session` (
   KEY `time` (`time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_session: ~4 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_session: ~2 rows (приблизительно)
 DELETE FROM `dogs_session`;
 /*!40000 ALTER TABLE `dogs_session` DISABLE KEYS */;
 INSERT INTO `dogs_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
-	('60fuq8lalkg3s5aj8l3c1a3qh5', 0, 0, '1542206820', 'joomla|s:3116:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo1OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTozMzk7czo1OiJ0b2tlbiI7czozMjoiRG11T3JVRUlEN01ZUDRwVnk2OUNVZ0pBY2UzUW9CcUEiO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTU0MjE5OTEwODtzOjQ6Imxhc3QiO2k6MTU0MjIwNjgyMDtzOjM6Im5vdyI7aToxNTQyMjA2ODIwO319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjQ6e3M6Nzoic2tpcGVycyI7Tzo4OiJzdGRDbGFzcyI6MTp7czozOiJhbGwiO2E6MDp7fX1zOjY6Imdsb2JhbCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJsaXN0IjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbWl0IjtpOjU7fX1zOjEwOiJjb21fY29iYWx0IjtPOjg6InN0ZENsYXNzIjoxMjp7czo4OiJyZWNvcmRzNiI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6Njt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjY6ImZpZWxkcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo4OiJvcmRlcmNvbCI7TjtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6ODoicmVjb3JkczEiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjE7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czoyMjoicmVjb3Jkczlfc2hvd19jaGlsZHJlbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6OTt9fXM6ODoicmVjb3JkczkiO086ODoic3RkQ2xhc3MiOjQ6e3M6MTA6ImxpbWl0c3RhcnQiO2k6MDtzOjg6Im9yZGVyY29sIjtOO3M6OToib3JkZXJkaXJuIjtOO3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjk7fX1zOjk6InJlY29yZHMxMSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InNlY3Rpb25faWQiO2k6MTE7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czoxMDoiY2F0ZWdvcmllcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo4OiJvcmRlcmNvbCI7TjtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6OToicmVjb3JkczEzIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxMzt9czoxMDoibGltaXRzdGFydCI7aTowO31zOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiZm9ybSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoyOiJpZCI7TjtzOjQ6ImRhdGEiO047fX1zOjg6InJlY29yZHM1IjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aTo1O31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6OToic2VjdGlvbjEzIjtPOjg6InN0ZENsYXNzIjo2OntzOjEzOiJmaWx0ZXJfc2VhcmNoIjtzOjA6IiI7czoxMToiZmlsdGVyX3R5cGUiO047czoxMDoiZmlsdGVyX3RhZyI7YTowOnt9czoxMToiZmlsdGVyX3VzZXIiO2E6MDp7fXM6MTA6ImZpbHRlcl9jYXQiO2E6MDp7fXM6NDA6ImZpbHRlcl9rODAxMTI0OWZlMWE0NWQ5ZDIzMTNjNDdkNTA4NTcyOGIiO047fXM6OToicmVjb3JkczE0IjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxNDt9czoxMDoibGltaXRzdGFydCI7aTowO319czo1OiJ1c2VycyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJsb2dpbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJmb3JtIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6InJldHVybiI7czo0MDoiaHR0cDovL3Byb2RvZ3MubG9jL3ZldGVyaW5hcm55ZS1rbGlubmlraSI7czo0OiJkYXRhIjthOjA6e319fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7czozOiI3ODUiO31zOjIwOiJjb2JhbHRfbGFzdF9saXN0X2lkcyI7YTowOnt9czoxMToiYXBwbGljYXRpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NToicXVldWUiO2E6MDp7fX19fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 785, 'test'),
-	('6b3hmsa0jamml6vmrc9nqmcud7', 1, 0, '1542266162', 'joomla|s:1308:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxMDtzOjU6InRpbWVyIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InN0YXJ0IjtpOjE1NDIyNjUwNzg7czo0OiJsYXN0IjtpOjE1NDIyNjYxNjI7czozOiJub3ciO2k6MTU0MjI2NjE2Mjt9czo1OiJ0b2tlbiI7czozMjoiS0s3UWt5RlFoR05adXF0WTFLYndJdFhKTDliVjNObk8iO31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMzoiY29tX2luc3RhbGxlciI7Tzo4OiJzdGRDbGFzcyI6NDp7czo3OiJtZXNzYWdlIjtzOjA6IiI7czoxNzoiZXh0ZW5zaW9uX21lc3NhZ2UiO3M6MDoiIjtzOjY6Im1hbmFnZSI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo2OiJmaWx0ZXIiO2E6NTp7czo2OiJzZWFyY2giO3M6MDoiIjtzOjY6InN0YXR1cyI7czowOiIiO3M6OToiY2xpZW50X2lkIjtzOjA6IiI7czo0OiJ0eXBlIjtzOjY6InBsdWdpbiI7czo2OiJmb2xkZXIiO3M6MDoiIjt9czo0OiJsaXN0IjthOjI6e3M6MTI6ImZ1bGxvcmRlcmluZyI7czo4OiJuYW1lIEFTQyI7czo1OiJsaW1pdCI7czoyOiIyMCI7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czoxMjoicmVkaXJlY3RfdXJsIjtOO319czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7czozOiI3ODQiO31zOjExOiJhcHBsaWNhdGlvbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJxdWV1ZSI7YTowOnt9fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9";', 784, 'admin'),
-	('85vo5pinotl5f07s6di18r7o63', 1, 0, '1542206653', 'joomla|s:2736:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTozMjg7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNTQyMTk5MzMyO3M6NDoibGFzdCI7aToxNTQyMjA2NjUzO3M6Mzoibm93IjtpOjE1NDIyMDY2NTM7fXM6NToidG9rZW4iO3M6MzI6InNrV1BVbzdJSFd4c1hra0ZwMEI2YmlrcURVbVg4REdFIjt9czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjQ6e3M6MTM6ImNvbV9pbnN0YWxsZXIiO086ODoic3RkQ2xhc3MiOjI6e3M6NzoibWVzc2FnZSI7czowOiIiO3M6MTc6ImV4dGVuc2lvbl9tZXNzYWdlIjtzOjA6IiI7fXM6OToiY29tX21lbnVzIjtPOjg6InN0ZENsYXNzIjoyOntzOjU6Iml0ZW1zIjtPOjg6InN0ZENsYXNzIjo0OntzOjg6Im1lbnV0eXBlIjtzOjg6Im1haW5tZW51IjtzOjk6ImNsaWVudF9pZCI7aTowO3M6NDoibGlzdCI7YTo0OntzOjk6ImRpcmVjdGlvbiI7czozOiJhc2MiO3M6NToibGltaXQiO3M6MjoiMjAiO3M6ODoib3JkZXJpbmciO3M6NToiYS5sZnQiO3M6NToic3RhcnQiO2Q6MDt9czo1OiJtb2RhbCI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo4OiJtZW51dHlwZSI7czowOiIiO3M6OToiY2xpZW50X2lkIjtpOjA7czo0OiJsaXN0IjthOjQ6e3M6OToiZGlyZWN0aW9uIjtzOjM6ImFzYyI7czo1OiJsaW1pdCI7czoyOiIyMCI7czo4OiJvcmRlcmluZyI7czo1OiJhLmxmdCI7czo1OiJzdGFydCI7ZDowO319fXM6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJpdGVtIjtPOjg6InN0ZENsYXNzIjo0OntzOjQ6ImRhdGEiO047czo0OiJ0eXBlIjtOO3M6NDoibGluayI7TjtzOjI6ImlkIjthOjA6e319fX1zOjEwOiJjb21fY29iYWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjY6ImZpZWxkcyI7Tzo4OiJzdGRDbGFzcyI6NDp7czo2OiJmaWVsZHMiO086ODoic3RkQ2xhc3MiOjI6e3M6NDoidHlwZSI7aToyMjtzOjY6InNlYXJjaCI7czowOiIiO31zOjg6Im9yZGVyY29sIjtzOjEwOiJmLm9yZGVyaW5nIjtzOjk6Im9yZGVyZGlybiI7czozOiJhc2MiO3M6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czo2OiJncm91cHMiO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZ3JvdXBzIjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6InR5cGUiO2k6MjI7czo2OiJyZXR1cm4iO3M6MDoiIjt9fXM6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6NDp7czo0OiJ0eXBlIjtPOjg6InN0ZENsYXNzIjoyOntzOjI6ImlkIjthOjI6e2k6MDtpOjEzO2k6MTtpOjIxO31zOjQ6ImRhdGEiO047fXM6NToiZmllbGQiO086ODoic3RkQ2xhc3MiOjI6e3M6MjoiaWQiO2E6MDp7fXM6NDoiZGF0YSI7Tjt9czo1OiJncm91cCI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoyOiJpZCI7YTowOnt9czo0OiJkYXRhIjtOO31zOjc6InNlY3Rpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiZGF0YSI7Tjt9fXM6NToidHlwZXMiO086ODoic3RkQ2xhc3MiOjQ6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjY6InNlYXJjaCI7czowOiIiO31zOjg6Im9yZGVyY29sIjtzOjY6ImEubmFtZSI7czo5OiJvcmRlcmRpcm4iO3M6MzoiYXNjIjtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fX1zOjY6Imdsb2JhbCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJsaXN0IjtPOjg6InN0ZENsYXNzIjoxOntzOjU6ImxpbWl0IjtpOjIwO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO3M6MzoiNzg0Ijt9czoxMToiYXBwbGljYXRpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NToicXVldWUiO2E6MDp7fX19fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 784, 'admin'),
-	('u1u6cugldk6084i124lkdbqkg3', 0, 1, '1542265970', 'joomla|s:1680:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxNztzOjU6InRpbWVyIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InN0YXJ0IjtpOjE1NDIyNjUxMTc7czo0OiJsYXN0IjtpOjE1NDIyNjUxMzA7czozOiJub3ciO2k6MTU0MjI2NTk3MDt9czo1OiJ0b2tlbiI7czozMjoiSEMwcXFJbXIyaWxudkRmaWZ0dDdDdVVDUEp2OHZQcWsiO31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJza2lwZXJzIjtPOjg6InN0ZENsYXNzIjoxOntzOjM6ImFsbCI7YTowOnt9fXM6NjoiZ2xvYmFsIjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6Imxpc3QiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibGltaXQiO2k6NTt9fXM6MTA6ImNvbV9jb2JhbHQiO086ODoic3RkQ2xhc3MiOjU6e3M6ODoicmVjb3JkczYiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjY7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czo2OiJmaWVsZHMiO086ODoic3RkQ2xhc3MiOjI6e3M6ODoib3JkZXJjb2wiO047czoxMDoibGltaXRzdGFydCI7aTowO31zOjg6InJlY29yZHMxIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImZpbHRlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoic2VjdGlvbl9pZCI7aToxO31zOjEwOiJsaW1pdHN0YXJ0IjtpOjA7fXM6MjI6InJlY29yZHM5X3Nob3dfY2hpbGRyZW4iO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjk7fX1zOjg6InJlY29yZHM5IjtPOjg6InN0ZENsYXNzIjozOntzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7czo4OiJvcmRlcmNvbCI7TjtzOjk6Im9yZGVyZGlybiI7Tjt9fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fXM6MjA6ImNvYmFsdF9sYXN0X2xpc3RfaWRzIjthOjI6e2k6MDtzOjE6IjciO2k6MTtzOjE6IjIiO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 0, '');
+	('f69elndfabgs5bn46gai35q010', 0, 0, '1542293656', 'joomla|s:1420:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo3OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo1ODtzOjU6InRpbWVyIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InN0YXJ0IjtpOjE1NDIyOTMzNzg7czo0OiJsYXN0IjtpOjE1NDIyOTM2NTY7czozOiJub3ciO2k6MTU0MjI5MzY1Njt9czo1OiJ0b2tlbiI7czozMjoiRnB2NmVqVHRiV3ljN2NBajRmUXhnTUJWNjVoSjJJYnQiO31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJza2lwZXJzIjtPOjg6InN0ZENsYXNzIjoxOntzOjM6ImFsbCI7YTowOnt9fXM6NjoiZ2xvYmFsIjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6Imxpc3QiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibGltaXQiO2k6NTt9fXM6MTA6ImNvbV9jb2JhbHQiO086ODoic3RkQ2xhc3MiOjI6e3M6ODoicmVjb3JkczYiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJzZWN0aW9uX2lkIjtpOjY7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9czo2OiJmaWVsZHMiO086ODoic3RkQ2xhc3MiOjI6e3M6ODoib3JkZXJjb2wiO047czoxMDoibGltaXRzdGFydCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO3M6MzoiNzg0Ijt9czoxNjoiam9tc29jaWFsX3VzZXJpcCI7czo5OiIxMjcuMC4wLjEiO3M6MjA6ImNvYmFsdF9sYXN0X2xpc3RfaWRzIjthOjE6e2k6MDtzOjE6IjYiO31zOjExOiJhcHBsaWNhdGlvbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJxdWV1ZSI7YTowOnt9fXM6ODoidmlldy03ODciO2I6MTt9fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 784, 'admin'),
+	('tkp8o6a2q5b5rt2jitss0ul094', 1, 0, '1542293516', 'joomla|s:5508:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjoxODp7czo3OiJzZXNzaW9uIjtPOjg6InN0ZENsYXNzIjozOntzOjc6ImNvdW50ZXIiO2k6ODEzO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTU0MjI3OTkxMjtzOjQ6Imxhc3QiO2k6MTU0MjI5MzQ5NztzOjM6Im5vdyI7aToxNTQyMjkzNTE2O31zOjU6InRva2VuIjtzOjMyOiJTbjFGUHIxQm5QMFFOZlVXOWRMcklGZkZ0cFVQRUZBcCI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjoxMTp7czoxMzoiY29tX2luc3RhbGxlciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJtZXNzYWdlIjtzOjA6IiI7czoxNzoiZXh0ZW5zaW9uX21lc3NhZ2UiO3M6MDoiIjtzOjEyOiJyZWRpcmVjdF91cmwiO047fXM6MTE6ImNvbV9tb2R1bGVzIjtPOjg6InN0ZENsYXNzIjozOntzOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6NjoibW9kdWxlIjtPOjg6InN0ZENsYXNzIjoyOntzOjI6ImlkIjthOjA6e31zOjQ6ImRhdGEiO047fX1zOjM6ImFkZCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo2OiJtb2R1bGUiO086ODoic3RkQ2xhc3MiOjI6e3M6MTI6ImV4dGVuc2lvbl9pZCI7TjtzOjY6InBhcmFtcyI7Tjt9fXM6NzoibW9kdWxlcyI7Tzo4OiJzdGRDbGFzcyI6NDp7czo2OiJmaWx0ZXIiO2E6Nzp7czo2OiJzZWFyY2giO3M6MDoiIjtzOjU6InN0YXRlIjtzOjE6IjEiO3M6ODoicG9zaXRpb24iO3M6MDoiIjtzOjY6Im1vZHVsZSI7czowOiIiO3M6ODoibWVudWl0ZW0iO3M6MDoiIjtzOjY6ImFjY2VzcyI7czowOiIiO3M6ODoibGFuZ3VhZ2UiO3M6MDoiIjt9czo5OiJjbGllbnRfaWQiO2k6MDtzOjQ6Imxpc3QiO2E6Mjp7czoxMjoiZnVsbG9yZGVyaW5nIjtzOjE0OiJhLm9yZGVyaW5nIEFTQyI7czo1OiJsaW1pdCI7czoyOiIyMCI7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9fXM6MTA6ImNvbV9jb2JhbHQiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJ0eXBlIjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6ImRhdGEiO047czoyOiJpZCI7YTowOnt9fX19czo5OiJjb21fdXNlcnMiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo1OiJsZXZlbCI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo0OiJkYXRhIjtOO3M6MjoiaWQiO2E6MDp7fX1zOjU6Imdyb3VwIjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6ImRhdGEiO047czoyOiJpZCI7YTowOnt9fX19czoxNDoiY29tX2NhdGVnb3JpZXMiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6ImNhdGVnb3JpZXMiO086ODoic3RkQ2xhc3MiOjE6e3M6NToidXNlcnMiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmlsdGVyIjtPOjg6InN0ZENsYXNzIjoxOntzOjk6ImV4dGVuc2lvbiI7czo5OiJjb21fdXNlcnMiO31zOjQ6Imxpc3QiO2E6NDp7czo5OiJkaXJlY3Rpb24iO3M6MzoiYXNjIjtzOjU6ImxpbWl0IjtzOjI6IjIwIjtzOjg6Im9yZGVyaW5nIjtzOjU6ImEubGZ0IjtzOjU6InN0YXJ0IjtkOjA7fX19fXM6MTA6ImNvbV9maWVsZHMiO086ODoic3RkQ2xhc3MiOjI6e3M6NjoiZmllbGRzIjtPOjg6InN0ZENsYXNzIjoyOntzOjc6ImNvbnRleHQiO3M6MTQ6ImNvbV91c2Vycy51c2VyIjtzOjQ6Imxpc3QiO2E6NDp7czo5OiJkaXJlY3Rpb24iO3M6MzoiYXNjIjtzOjU6ImxpbWl0IjtzOjI6IjIwIjtzOjg6Im9yZGVyaW5nIjtzOjEwOiJhLm9yZGVyaW5nIjtzOjU6InN0YXJ0IjtkOjA7fX1zOjY6Imdyb3VwcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo3OiJjb250ZXh0IjtzOjE0OiJjb21fdXNlcnMudXNlciI7czo0OiJsaXN0IjthOjQ6e3M6OToiZGlyZWN0aW9uIjtzOjM6ImFzYyI7czo1OiJsaW1pdCI7czoyOiIyMCI7czo4OiJvcmRlcmluZyI7czoxMDoiYS5vcmRlcmluZyI7czo1OiJzdGFydCI7ZDowO319fXM6OToiY29tX21lbnVzIjtPOjg6InN0ZENsYXNzIjoyOntzOjU6Iml0ZW1zIjtPOjg6InN0ZENsYXNzIjo0OntzOjg6Im1lbnV0eXBlIjtzOjk6ImpvbXNvY2lhbCI7czo5OiJjbGllbnRfaWQiO2k6MDtzOjEwOiJsaW1pdHN0YXJ0IjtpOjA7czo0OiJsaXN0IjthOjQ6e3M6OToiZGlyZWN0aW9uIjtzOjM6ImFzYyI7czo1OiJsaW1pdCI7czoyOiIyMCI7czo4OiJvcmRlcmluZyI7czo1OiJhLmxmdCI7czo1OiJzdGFydCI7ZDowO319czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6Iml0ZW0iO086ODoic3RkQ2xhc3MiOjQ6e3M6MjoiaWQiO2E6MDp7fXM6NDoiZGF0YSI7TjtzOjQ6InR5cGUiO047czo0OiJsaW5rIjtOO319fXM6MTA6ImNvbV9jb25maWciO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiY29uZmlnIjtPOjg6InN0ZENsYXNzIjoxOntzOjY6Imdsb2JhbCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJkYXRhIjtOO319fXM6MTE6ImNvbV9wbHVnaW5zIjtPOjg6InN0ZENsYXNzIjoyOntzOjc6InBsdWdpbnMiO086ODoic3RkQ2xhc3MiOjM6e3M6NjoiZmlsdGVyIjthOjQ6e3M6Njoic2VhcmNoIjtzOjA6IiI7czo3OiJlbmFibGVkIjtzOjE6IjEiO3M6NjoiZm9sZGVyIjtzOjk6ImNvbW11bml0eSI7czo2OiJhY2Nlc3MiO3M6MDoiIjt9czoxMDoibGltaXRzdGFydCI7aTowO3M6NDoibGlzdCI7YTo0OntzOjEyOiJmdWxsb3JkZXJpbmciO3M6MTA6ImZvbGRlciBBU0MiO3M6NToibGltaXQiO3M6MjoiMjAiO3M6OToic29ydFRhYmxlIjtzOjY6ImZvbGRlciI7czoxNDoiZGlyZWN0aW9uVGFibGUiO3M6MzoiQVNDIjt9fXM6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo2OiJwbHVnaW4iO086ODoic3RkQ2xhc3MiOjI6e3M6MjoiaWQiO2E6MDp7fXM6NDoiZGF0YSI7Tjt9fX1zOjEzOiJjb21fY29tbXVuaXR5IjtPOjg6InN0ZENsYXNzIjoyOntzOjU6InVzZXJzIjtPOjg6InN0ZENsYXNzIjo1OntzOjQ6Imxpc3QiO086ODoic3RkQ2xhc3MiOjE6e3M6NToibGltaXQiO2k6MjA7fXM6Njoic2VhcmNoIjtzOjA6IiI7czo4OiJ1c2VydHlwZSI7aTowO3M6MTI6ImZpbHRlcl9vcmRlciI7czo0OiJuYW1lIjtzOjE2OiJmaWx0ZXJfb3JkZXJfRGlyIjtzOjM6ImFzYyI7fXM6MTI6Im11bHRpcHJvZmlsZSI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoibGltaXRzdGFydCI7aTowO319czo2OiJnbG9iYWwiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoibGlzdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJsaW1pdCI7aToyMDt9fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtzOjM6Ijc4NCI7fXM6MTY6ImpvbXNvY2lhbF91c2VyaXAiO3M6OToiMTI3LjAuMC4xIjtzOjExOiJhcHBsaWNhdGlvbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJxdWV1ZSI7YTowOnt9fXM6MjI6Imlqb29tbGFfbGF0ZXN0X3ZlcnNpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NzoidmVyc2lvbiI7czowOiIiO31zOjEyOiJqb21zb2NpYWx4bWwiO086ODoic3RkQ2xhc3MiOjU6e3M6NzoidmVyc2lvbiI7aTowO3M6NToiYnVpbGQiO2k6MDtzOjc6InVwZGF0ZWQiO2k6MDtzOjEyOiJjaGFuZ2Vsb2dVUkwiO2k6MDtzOjE0OiJpbnN0cnVjdGlvblVSTCI7aTowO31zOjE4OiJ1c2VyX3N0YXR1c19maWx0ZXIiO2k6MjtzOjE2OiJ1c2VyX3R5cGVfZmlsdGVyIjtzOjk6ImpvbXNvY2lhbCI7czoxODoidXNlcl9zZWFyY2hfZmlsdGVyIjtzOjA6IiI7czoxOToidXNlcl9wcm9maWxlX2ZpbHRlciI7aTowO3M6MTA6InVzZXJfbGltaXQiO2k6MjA7czoxNToidXNlcl9saW1pdHN0YXJ0IjtpOjA7czo4OiJwb3N0RGF0YSI7TjtzOjI3OiJwZW5kaW5naW52aXRlX3N0YXR1c19maWx0ZXIiO2k6MDtzOjI3OiJwZW5kaW5naW52aXRlX3NlYXJjaF9maWx0ZXIiO3M6MDoiIjtzOjE5OiJwZW5kaW5naW52aXRlX2xpbWl0IjtpOjIwO3M6MjQ6InBlbmRpbmdpbnZpdGVfbGltaXRzdGFydCI7aTowO319czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9";', 784, 'admin');
 /*!40000 ALTER TABLE `dogs_session` ENABLE KEYS */;
 
 
@@ -5275,16 +6945,18 @@ CREATE TABLE IF NOT EXISTS `dogs_update_sites` (
   `last_check_timestamp` bigint(20) DEFAULT '0',
   `extra_query` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT '',
   PRIMARY KEY (`update_site_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Update Sites';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Update Sites';
 
--- Дамп данных таблицы prodogs.loc.dogs_update_sites: ~4 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_update_sites: ~6 rows (приблизительно)
 DELETE FROM `dogs_update_sites`;
 /*!40000 ALTER TABLE `dogs_update_sites` DISABLE KEYS */;
 INSERT INTO `dogs_update_sites` (`update_site_id`, `name`, `type`, `location`, `enabled`, `last_check_timestamp`, `extra_query`) VALUES
-	(1, 'Joomla! Core', 'collection', 'https://update.joomla.org/core/list.xml', 1, 1542265098, ''),
-	(2, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_3.xml', 1, 1542199376, ''),
-	(3, 'Joomla! Update Component Update Site', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1542199396, ''),
-	(4, 'JomSocial', 'extension', 'https://www.jomsocial.com/updates/community_update.xml', 1, 0, '');
+	(1, 'Joomla! Core', 'collection', 'https://update.joomla.org/core/list.xml', 1, 1542289241, ''),
+	(2, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_3.xml', 1, 1542289261, ''),
+	(3, 'Joomla! Update Component Update Site', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1542289281, ''),
+	(4, 'JomSocial', 'extension', 'https://www.jomsocial.com/updates/community_update.xml', 1, 1542289296, ''),
+	(5, 'JS Birthdays', 'extension', 'https://www.jomsocial.com/updates/jsbirthdays_update.xml', 1, 0, ''),
+	(6, 'JS Toolbar', 'extension', 'https://www.jomsocial.com/updates/jstoolbar_update.xml', 1, 0, '');
 /*!40000 ALTER TABLE `dogs_update_sites` ENABLE KEYS */;
 
 
@@ -5295,7 +6967,7 @@ CREATE TABLE IF NOT EXISTS `dogs_update_sites_extensions` (
   PRIMARY KEY (`update_site_id`,`extension_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Links extensions to update sites';
 
--- Дамп данных таблицы prodogs.loc.dogs_update_sites_extensions: ~5 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_update_sites_extensions: ~7 rows (приблизительно)
 DELETE FROM `dogs_update_sites_extensions`;
 /*!40000 ALTER TABLE `dogs_update_sites_extensions` DISABLE KEYS */;
 INSERT INTO `dogs_update_sites_extensions` (`update_site_id`, `extension_id`) VALUES
@@ -5303,7 +6975,9 @@ INSERT INTO `dogs_update_sites_extensions` (`update_site_id`, `extension_id`) VA
 	(2, 802),
 	(2, 10002),
 	(3, 28),
-	(4, 10080);
+	(4, 10080),
+	(5, 10120),
+	(6, 10121);
 /*!40000 ALTER TABLE `dogs_update_sites_extensions` ENABLE KEYS */;
 
 
@@ -5319,21 +6993,26 @@ CREATE TABLE IF NOT EXISTS `dogs_usergroups` (
   KEY `idx_usergroup_title_lookup` (`title`),
   KEY `idx_usergroup_adjacency_lookup` (`parent_id`),
   KEY `idx_usergroup_nested_set_lookup` (`lft`,`rgt`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_usergroups: ~9 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_usergroups: ~14 rows (приблизительно)
 DELETE FROM `dogs_usergroups`;
 /*!40000 ALTER TABLE `dogs_usergroups` DISABLE KEYS */;
 INSERT INTO `dogs_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
-	(1, 0, 1, 18, 'Public'),
-	(2, 1, 8, 15, 'Registered'),
+	(1, 0, 1, 28, 'Public'),
+	(2, 1, 8, 25, 'Registered'),
 	(3, 2, 9, 14, 'Author'),
 	(4, 3, 10, 13, 'Editor'),
 	(5, 4, 11, 12, 'Publisher'),
 	(6, 1, 4, 7, 'Manager'),
 	(7, 6, 5, 6, 'Administrator'),
-	(8, 1, 16, 17, 'Super Users'),
-	(9, 1, 2, 3, 'Guest');
+	(8, 1, 26, 27, 'Super Users'),
+	(9, 1, 2, 3, 'Guest'),
+	(10, 2, 17, 18, 'Владельцы собак'),
+	(11, 2, 23, 24, 'Питомники'),
+	(12, 2, 15, 16, 'Ветеринарные клиники'),
+	(13, 2, 21, 22, 'Зоомагазины'),
+	(14, 2, 19, 20, 'Выставки');
 /*!40000 ALTER TABLE `dogs_usergroups` ENABLE KEYS */;
 
 
@@ -5360,15 +7039,17 @@ CREATE TABLE IF NOT EXISTS `dogs_users` (
   KEY `idx_block` (`block`),
   KEY `username` (`username`),
   KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=787 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=789 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_users: ~3 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_users: ~5 rows (приблизительно)
 DELETE FROM `dogs_users`;
 /*!40000 ALTER TABLE `dogs_users` DISABLE KEYS */;
 INSERT INTO `dogs_users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`, `otpKey`, `otep`, `requireReset`) VALUES
-	(784, 'Super User', 'admin', 'zatulenko@gmail.com', '$2y$10$7E7bc53LW240v3IQgxqsxeAsN7COWdQG4MzyXSaTMoJhGrPY.2nXq', 0, 1, '2018-10-05 08:34:45', '2018-11-15 06:58:22', '0', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
-	(785, 'test', 'test', 'test@mail.ru', '$2y$10$4YDroBqTShV7HZa2wUygh.7h7vzv55VoQ.XKUhalgPB6DGVL5v9zu', 0, 0, '2018-10-11 12:23:53', '2018-11-14 13:09:59', '', '{}', '0000-00-00 00:00:00', 0, '', '', 0),
-	(786, 'pitomnik', 'pitomnik', 'pitomnik@mail.ru', '$2y$10$yYyRGUy.9Yplad4WV914ieY7xSghacwy1eaPOkcr5E8ZF9uiQAenO', 0, 0, '2018-10-14 06:15:02', '2018-10-31 09:35:52', '', '{}', '0000-00-00 00:00:00', 0, '', '', 0);
+	(784, 'Super User', 'admin', 'zatulenko@gmail.com', '$2y$10$7E7bc53LW240v3IQgxqsxeAsN7COWdQG4MzyXSaTMoJhGrPY.2nXq', 0, 1, '2018-10-05 08:34:45', '2018-11-15 14:49:47', '0', '{"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":"","update_cache_list":1}', '0000-00-00 00:00:00', 0, '', '', 0),
+	(785, 'test', 'test', 'test@mail.ru', '$2y$10$4YDroBqTShV7HZa2wUygh.7h7vzv55VoQ.XKUhalgPB6DGVL5v9zu', 0, 0, '2018-10-11 12:23:53', '2018-11-15 14:49:07', '', '{"update_cache_list":1,"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
+	(786, 'pitomnik', 'pitomnik', 'pitomnik@mail.ru', '$2y$10$yYyRGUy.9Yplad4WV914ieY7xSghacwy1eaPOkcr5E8ZF9uiQAenO', 0, 0, '2018-10-14 06:15:02', '2018-11-15 14:48:12', '', '{"update_cache_list":1,"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
+	(787, 'zooshop', 'zooshop', 'zooshop@mail.ru', '$2y$10$F4TP.xVzmN8VdZVXwwJXs.rITocPa4DVyypGajZwqUxt.wWiaBBy.', 0, 0, '2018-11-15 12:09:24', '0000-00-00 00:00:00', '', '{"update_cache_list":1,"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0),
+	(788, 'vetklinika', 'vetklinika', 'vetklinika@mail.ru', '$2y$10$nAyW7jmUJZAc2GvYsIEK2eRnp15XJKX0FK3LoZIlr/0fb/aOW0O8e', 0, 0, '2018-11-15 12:20:27', '2018-11-15 14:27:17', 'a2980124963f585680ede9c3e6254e80', '{"update_cache_list":1,"admin_style":"","admin_language":"","language":"","editor":"","helpsite":"","timezone":""}', '0000-00-00 00:00:00', 0, '', '', 0);
 /*!40000 ALTER TABLE `dogs_users` ENABLE KEYS */;
 
 
@@ -5442,13 +7123,18 @@ CREATE TABLE IF NOT EXISTS `dogs_user_usergroup_map` (
   PRIMARY KEY (`user_id`,`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_user_usergroup_map: ~3 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_user_usergroup_map: ~8 rows (приблизительно)
 DELETE FROM `dogs_user_usergroup_map`;
 /*!40000 ALTER TABLE `dogs_user_usergroup_map` DISABLE KEYS */;
 INSERT INTO `dogs_user_usergroup_map` (`user_id`, `group_id`) VALUES
 	(784, 8),
 	(785, 2),
-	(786, 2);
+	(785, 10),
+	(786, 2),
+	(787, 2),
+	(787, 11),
+	(788, 2),
+	(788, 12);
 /*!40000 ALTER TABLE `dogs_user_usergroup_map` ENABLE KEYS */;
 
 
@@ -5473,9 +7159,9 @@ CREATE TABLE IF NOT EXISTS `dogs_viewlevels` (
   `rules` varchar(5120) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded access control.',
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_assetgroup_title_lookup` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы prodogs.loc.dogs_viewlevels: ~5 rows (приблизительно)
+-- Дамп данных таблицы prodogs.loc.dogs_viewlevels: ~10 rows (приблизительно)
 DELETE FROM `dogs_viewlevels`;
 /*!40000 ALTER TABLE `dogs_viewlevels` DISABLE KEYS */;
 INSERT INTO `dogs_viewlevels` (`id`, `title`, `ordering`, `rules`) VALUES
@@ -5483,7 +7169,12 @@ INSERT INTO `dogs_viewlevels` (`id`, `title`, `ordering`, `rules`) VALUES
 	(2, 'Registered', 2, '[6,2,8]'),
 	(3, 'Special', 3, '[6,3,8]'),
 	(5, 'Guest', 1, '[9]'),
-	(6, 'Super Users', 4, '[8]');
+	(6, 'Super Users', 4, '[8]'),
+	(7, 'Владелец собаки', 0, '[10,11]'),
+	(8, 'Питомник', 0, '[11]'),
+	(9, 'Ветеринарная клиника', 0, '[12]'),
+	(10, 'Зоомагазин', 0, '[13]'),
+	(11, 'Выставка', 0, '[14]');
 /*!40000 ALTER TABLE `dogs_viewlevels` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
