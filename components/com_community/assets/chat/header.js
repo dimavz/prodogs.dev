@@ -24,6 +24,7 @@
 
         initialize: function () {
             this.$info = this.$('.joms-js--chat-header-info');
+            this.$button = this.$info.find('.joms-js--chat-new-message');
             this.$recipients = this.$info.find('.joms-chat__recipents');
             this.$selector = this.$('.joms-js--chat-header-selector');
             this.$selected = this.$selector.find('.joms-chat-selected');
@@ -37,7 +38,17 @@
             joms_observer.add_action('chat_selector_show', this.selectorShow, 1, 0, this);
             joms_observer.add_action('chat_selector_reset', this.selectorReset, 1, 0, this);
             joms_observer.add_action('chat_update_info', this.updateChatInfo, 1, 0, this);
+            joms_observer.add_action('chat_hide_new_message_button', this.hideNewMessageButton, 1, 0, this);
+            joms_observer.add_action('chat_show_new_message_button', this.showNewMessageButton, 1, 0, this);
             joms_observer.add_action('chat_render_option_dropdown', this.renderOptionDropdown, 1, 3, this);
+        },
+
+        hideNewMessageButton: function() {
+            this.$button.css('visibility', 'hidden');
+        },
+
+        showNewMessageButton: function() {
+            this.$button.css('visibility', '');
         },
 
         bindActionToMobilePopup: function(e) {
@@ -66,8 +77,9 @@
 
         changeActiveGroupChatName: function() {
             var name = prompt(joms_lang.COM_COMMUNITY_CHAT_NAME_OF_CONVERSATION, '');
-            var MAX_CHAR = 250;
-            if (!name) {
+            var MAX_CHAR = 250,
+                MIN_CHAR = 4;
+            if (name && name.length < MIN_CHAR) {
                 alert(joms_lang.COM_COMMUNITY_CHAT_NAME_OF_CONVERSATION_SHOULD_NOT_BE_EMPTY);
             } else if (name && name.length > MAX_CHAR ) {
                 alert(joms_lang.COM_COMMUNITY_CHAT_NAME_OF_CONVERSATION_SHOULD_BE_LESS_THAN_250_CHARACTERS);

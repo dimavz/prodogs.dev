@@ -21,7 +21,7 @@
     require_once JPATH_ROOT.'/administrator/components/com_community/installer.updater.php';
 
 
-    define('DBVERSION', '26'); // update db based on its version, remember to increase to 27 for next version
+    define('DBVERSION', '27'); // update db based on its version, remember to increase to 28 for next version
     define("JOOMLA_MENU_PARENT", 'parent_id');
     define("JOOMLA_MENU_COMPONENT_ID", 'component_id');
     define("JOOMLA_MENU_LEVEL", 'level');
@@ -429,6 +429,10 @@
 
             if(CommunityDefaultItem::checkDefaultCategories('videos')){
                 CommunityDefaultItem::addDefaultVideosCategories();
+            }
+
+            if(CommunityDefaultItem::checkDefaultCategories('polls')){
+                CommunityDefaultItem::addDefaultPollsCategories();
             }
 
             if(CommunityDefaultItem::checkDefaultCategories('userpoints')){

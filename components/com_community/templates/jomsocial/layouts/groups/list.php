@@ -71,7 +71,14 @@ $config	= CFactory::getConfig();
         $bulletins = $bulletinModel->getBulletins($group->id);
         $totalBulletin = $bulletinModel->total;
 
-
+        $pollModel = CFactory::getModel('polls');
+        $polls = $pollModel->getAllPolls(null, null, null, null, false, true, $group->id);
+        $totalPolls = 0; 
+        foreach ($polls as $poll) {
+            $totalPolls++;
+        }
+        $showPolls = ($config->get('group_polls') && $config->get('enablepolls') && $params->get('pollspermission',
+            1) >= 1);
 
         // Check if "Invite friends" and "Settings" buttons should be added or not.
         $canInvite = false;
@@ -194,6 +201,18 @@ $config	= CFactory::getConfig();
                             <?php echo ($totalEvents == 1 || $totalEvents == 0)
                                 ? $totalEvents.' '.JText::_('COM_COMMUNITY_EVENTS_COUNT')
                                 : $totalEvents.' '.JText::_('COM_COMMUNITY_EVENTS_COUNT_MANY'); ?>
+                        </a>
+                    </li>
+                <?php } ?>
+                <?php if ($showPolls) { ?>
+                    <li>
+                        <svg class="joms-icon" viewBox="0 0 16 16">
+                            <use xlink:href="<?php echo CRoute::getURI(); ?>#joms-icon-list"></use>
+                        </svg>
+                        <a href="<?php echo CRoute::_('index.php?option=com_community&view=polls&groupid=' . $group->id); ?>">
+                            <?php echo ($totalPolls == 1 || $totalPolls == 0)
+                                ? $totalPolls.' '.JText::_('COM_COMMUNITY_POLLS_COUNT')
+                                : $totalPolls.' '.JText::_('COM_COMMUNITY_POLLS_COUNT_MANY'); ?>
                         </a>
                     </li>
                 <?php } ?>

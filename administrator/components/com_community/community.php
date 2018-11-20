@@ -191,6 +191,7 @@ else
 	$communityController = new CommunityController();
 
 	$groups 	= $communityController->getModel( 'Groups','CommunityAdminModel' );
+	$polls 		= $communityController->getModel( 'Polls','CommunityAdminModel' );
 	$reports	= $communityController->getModel( 'Reports' );
 	$mailque 	= $communityController->getModel( 'MailQueue' );
 	$events		= $communityController->getModel( 'Events' );

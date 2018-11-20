@@ -8,8 +8,8 @@
 		</message>
 		<options var="task">
  			<default name="All Videos" msg="Displays all videos from the site" />
-			<option value="myvideos" name="- My Videos" msg="Displays recent videos from specific user" />
-			<option value="search" name="- Search Videos" msg="Search for videos layout" />
+			<option value="myvideos" name="My Videos" msg="Displays recent videos from specific user" />
+			<option value="search" name="Search Videos" msg="Search for videos layout" />
  		</options>
 	</view>
 	<state>

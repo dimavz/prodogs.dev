@@ -118,6 +118,7 @@ function unlike( id ) {
 function edit( id ) {
     var $stream   = $( '.joms-js--stream-' + id ).eq(0),
         $sbody    = $stream.find('.joms-stream__body'),
+        $colorfulContainer = $sbody.find('.colorful-status__container'),
         $scontent = $sbody.find('[data-type=stream-content]'),
         $seditor  = $sbody.find('[data-type=stream-editor]'),
         $textarea = $seditor.find('textarea'),
@@ -134,6 +135,21 @@ function edit( id ) {
         $textarea.val( origValue );
     });
 
+    if (!$textarea.hasClass('limited') && $colorfulContainer.length) {
+        $textarea.attr('maxlength', 150);
+        $textarea
+        .on('keydown', function(e) {
+            var ENTER = 13;
+            if (e.keyCode === 13) {
+                var numline = $textarea.val().split('\n').length;
+                if (numline === 4) {
+                    e.preventDefault();
+                }
+            }
+        })
+        $textarea.addClass('limited');
+    }
+
     $textarea.focus();
 }
 
@@ -145,10 +161,16 @@ function editSave( id, text, origText ) {
             var $stream   = $('.joms-stream').filter('[data-stream-id=' + id + ']'),
                 $sbody    = $stream.find('.joms-stream__body'),
                 $scontent = $sbody.find('[data-type=stream-content]'),
+                $colorfulContainer = $sbody.find('.colorful-status__container'),
                 $seditor  = $sbody.find('[data-type=stream-editor]'),
                 $textarea = $seditor.find('textarea');
 
             if ( json.success ) {
+                if ($colorfulContainer.length) {
+                    $colorfulContainer.find('.colorful-status__inner').html(json.data)
+                } else {
+                    $scontent.html( '<span>' + json.data + '</span>' );    
+                }
                 $scontent.html( '<span>' + json.data + '</span>' );
                 $textarea.val( json.unparsed );
             } else {
@@ -156,7 +178,7 @@ function editSave( id, text, origText ) {
             }
 
             $seditor.hide();
-            $scontent.show();
+            $colorfulContainer.length || $scontent.show();
         }
     });
 }

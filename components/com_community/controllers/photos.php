@@ -1573,6 +1573,9 @@
             $maxFileSize = $config->get('maxuploadsize') . 'mb';
             $enableLocation = $config->get('enable_photos_location');
 
+            $params = $my->getParams();
+            $permissions = $params->get('privacyPhotoView');
+
             $tmpl = new CTemplate();
             $html = $tmpl
                 ->set('my', $my)
@@ -1584,6 +1587,7 @@
                 ->set('contextId', $contextId)
                 ->set('maxFileSize', $maxFileSize)
                 ->set('enableLocation', $enableLocation)
+                ->set('permissions', $permissions)
                 ->fetch('photos/uploader');
 
             $label = array(

@@ -57,7 +57,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content">', json.message, '</div>',
             '<div class="joms-popup__action">',

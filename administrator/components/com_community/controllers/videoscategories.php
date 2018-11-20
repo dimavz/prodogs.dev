@@ -40,7 +40,13 @@ class CommunityControllerVideosCategories extends CommunityController
 		$row->name			= $data['name'];
 		$row->description	= $data['description'];
 		$row->parent		= $data['parent'];
-		$row->store();
+
+		if (!trim($row->name)) {
+			$response->addAlert(JText::_('COM_COMMUNITY_CATEGORY_EMPTY_NAME_ERROR'));
+			return $response->sendResponse();
+		} else {
+			$row->store();
+		}
 
 		if( $data['id'] != 0 )
 		{

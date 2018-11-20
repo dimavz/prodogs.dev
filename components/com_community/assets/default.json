@@ -2,15 +2,13 @@
     "core": {
         "css": [
             "vendors/magnific-popup/magnific-popup",
-            "source/css/override"
+            "release/css/override"
         ],
         "js": [
-            "vendors/libs.min",
             "vendors/toolkit.min",
             "source/js/utils/observer",
             "release/js/loader",
-            "release_32/js/bundle"
-            
+            "release/js/postbox"
         ]
     }
 }

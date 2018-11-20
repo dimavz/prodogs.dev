@@ -71,7 +71,7 @@ if (count($allAlbums) - $totalFixedAlbum <= 0) {
                         <?php } else if ($context == 'event') { ?>
                         <p class="joms-help"><?php echo JText::_('COM_COMMUNITY_PHOTOS_EVENT_MEDIA_PRIVACY_TIPS'); ?></p>
                         <?php } else { ?>
-                        <?php echo CPrivacy::getHTML('permissions', 0, COMMUNITY_PRIVACY_BUTTON_LARGE, array(), 'select'); ?>
+                        <?php echo CPrivacy::getHTML('permissions', $permissions, COMMUNITY_PRIVACY_BUTTON_LARGE, array(), 'select'); ?>
                         <?php } ?>
                     </div>
                     <div></div>

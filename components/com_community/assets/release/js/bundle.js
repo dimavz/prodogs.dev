@@ -1361,7 +1361,13 @@ return {
 
 })( window, joms.jQuery, function( window, $ ) {
 
-var card, showTimer, hideTimer, cache = {};
+var card, 
+    showTimer = 0, 
+    hideTimer = 0, 
+    animateTimer = 0, 
+    cache = {}, 
+    mouseOver = false,
+    current = 0;
 
 var MOUSEOVER_EVENT = 'mouseover.joms-hcard',
     MOUSEOUT_EVENT = 'mouseout.joms-hcard',
@@ -1372,6 +1378,8 @@ function initialize() {
     if ( joms.mobile ) {
         return;
     }
+
+    createCard();
 
     // Attach handler.
     $( document.body )
@@ -1387,17 +1395,19 @@ function onMouseOver( e ) {
     // Remove title attribute to avoid redundancy.
     img.removeAttr('title');
 
-    if ( !card ) {
-        createCard();
-    }
+    resetCard();
+    
+    mouseOver = true;
+    
+    current = id;
 
     clearTimeout( hideTimer );
 
     if ( cache[id] ) {
         clearTimeout( showTimer );
         showTimer = setTimeout(function() {
-            updateCard( cache[id], img );
-        }, 400 );
+            mouseOver && updateCard( cache[id], img );
+        }, 100 );
         return;
     }
 
@@ -1408,26 +1418,42 @@ function onMouseOver( e ) {
             if ( json.html ) {
                 cache[id] = json.html;
                 clearTimeout( showTimer );
-                updateCard( json.html, img );
+                mouseOver && current == id && updateCard( json.html, img );
             }
         }
     });
 }
 
 function onMouseOut() {
+    mouseOver = false;
     clearTimeout( showTimer );
     hideTimer = setTimeout(function() {
-        card && card.hide();
-    }, 400 );
+        card && resetCard();
+    }, 100 );
 }
 
 function createCard() {
     card = $('<div>Loading...</div>');
-    card.css({ position: 'absolute', zIndex: 2000 });
+    card.css({ 
+        position: 'absolute', 
+        zIndex: 2000, 
+        display: 'none', 
+        opacity:0, 
+        transition: 'opacity 300ms, top 300ms' 
+    });
+
     card.appendTo( document.body );
 
     card.on( MOUSEOVER_EVENT, function() { clearTimeout( hideTimer ); });
     card.on( MOUSEOUT_EVENT, onMouseOut );
+}
+
+function resetCard() {
+    clearTimeout( animateTimer );
+    card && card.css({
+        display: 'none',
+        opacity: 0
+    });
 }
 
 function updateCard( html, img ) {
@@ -1442,19 +1468,27 @@ function updateCard( html, img ) {
         top = offset.top + height + 10;
 
     card.html( html );
-    card.css({
-       top: -10000,
-       left: alignLeft ? offset.left : '',
-       right: alignLeft ? '' : maxWidth - offset.left - width
-    });
-    card.show();
 
     cardHeight = card.height();
+
     if ( top + cardHeight > maxHeight ) {
         top = offset.top - cardHeight - 4;
     }
 
-    card.css({ top: top });
+    card.css({
+       top: top - 10,
+       left: alignLeft ? offset.left : '',
+       right: alignLeft ? '' : maxWidth - offset.left - width,
+       display: 'block',
+       opacity: 0
+    });
+
+    animateTimer = setTimeout(function() {
+        card.css({
+            top: top,
+            opacity: 1
+        })
+    }, 300)
 }
 
 // Exports.
@@ -3509,6 +3543,8 @@ function fetchFriendsInContext() {
         },
         complete: function() {
             window.joms_friends = friends;
+            var event = new Event('JomsFriendsFetched');
+            document.dispatchEvent(event);
         }
     });
 }
@@ -3732,7 +3768,7 @@ function send( e ) {
     if ( text.replace( /^\s+|\s+$/g, '' ) === '' ) {
         attachment = el.siblings('.joms-textarea__attachment');
         if ( !attachment.length || !attachment.is(':visible') ) {
-            alert(joms.getTranslation('COM_COMMUNITY_CANNOT_EDIT_COMMENT_ERROR'));
+            alert(joms_lang.COM_COMMUNITY_CANNOT_EDIT_COMMENT_ERROR);
             return;
         }
     }
@@ -4807,7 +4843,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div>',
             '<div class="joms-popup__content">', ( json.error || json.message ), '</div>',
             '<div class="joms-popup__action">',
@@ -4995,7 +5031,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div>',
             '<div class="joms-popup__content">', ( json.html || json.error ), '</div>',
             '<div class="joms-popup__action">',
@@ -5076,7 +5112,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', (json.title || '&nbsp;'), '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', (json.title || '&nbsp;'), '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.error || json.message ), '</div>',
         '</div>'
     ].join('');
@@ -5151,7 +5187,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', (json.title || '&nbsp;'), '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', (json.title || '&nbsp;'), '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.error || json.message ), '</div>',
         '</div>'
     ].join('');
@@ -5230,7 +5266,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div>',
             '<div class="joms-popup__content">', ( json.error || json.message ), '</div>',
             '<div class="joms-popup__action">',
@@ -5315,7 +5351,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div>',
             '<div class="joms-popup__content">', ( json.error || json.message ), '</div>',
             '<div class="joms-popup__action">',
@@ -5413,7 +5449,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--500">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             json.html,
             '<div class="joms-popup__action">',
@@ -5655,7 +5691,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--500">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div>',
             '<div class="joms-popup__content joms-popup__content--single">', ( json.html || '' ), '</div>',
             '<div class="joms-popup__action">',
@@ -6148,6 +6184,7 @@ function unlike( id ) {
 function edit( id ) {
     var $stream   = $( '.joms-js--stream-' + id ).eq(0),
         $sbody    = $stream.find('.joms-stream__body'),
+        $colorfulContainer = $sbody.find('.colorful-status__container'),
         $scontent = $sbody.find('[data-type=stream-content]'),
         $seditor  = $sbody.find('[data-type=stream-editor]'),
         $textarea = $seditor.find('textarea'),
@@ -6164,6 +6201,21 @@ function edit( id ) {
         $textarea.val( origValue );
     });
 
+    if (!$textarea.hasClass('limited') && $colorfulContainer.length) {
+        $textarea.attr('maxlength', 150);
+        $textarea
+        .on('keydown', function(e) {
+            var ENTER = 13;
+            if (e.keyCode === 13) {
+                var numline = $textarea.val().split('\n').length;
+                if (numline === 4) {
+                    e.preventDefault();
+                }
+            }
+        })
+        $textarea.addClass('limited');
+    }
+
     $textarea.focus();
 }
 
@@ -6175,10 +6227,16 @@ function editSave( id, text, origText ) {
             var $stream   = $('.joms-stream').filter('[data-stream-id=' + id + ']'),
                 $sbody    = $stream.find('.joms-stream__body'),
                 $scontent = $sbody.find('[data-type=stream-content]'),
+                $colorfulContainer = $sbody.find('.colorful-status__container'),
                 $seditor  = $sbody.find('[data-type=stream-editor]'),
                 $textarea = $seditor.find('textarea');
 
             if ( json.success ) {
+                if ($colorfulContainer.length) {
+                    $colorfulContainer.find('.colorful-status__inner').html(json.data)
+                } else {
+                    $scontent.html( '<span>' + json.data + '</span>' );    
+                }
                 $scontent.html( '<span>' + json.data + '</span>' );
                 $textarea.val( json.unparsed );
             } else {
@@ -6186,7 +6244,7 @@ function editSave( id, text, origText ) {
             }
 
             $seditor.hide();
-            $scontent.show();
+            $colorfulContainer.length || $scontent.show();
         }
     });
 }
@@ -7536,7 +7594,7 @@ function render( popup, title, content ) {
 function buildHtml( title, content ) {
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', ( title || '&nbsp;' ), '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', ( title || '&nbsp;' ), '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( content || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -7625,7 +7683,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--500">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || '' ), '</div>',
         '</div>'
     ].join('');
@@ -7683,7 +7741,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE ,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || json.error || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -7744,7 +7802,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || json.error || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -7813,7 +7871,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div data-ui-object="popup-step-1"', ( json.error ? ' class="joms-popup__hide"' : '' ), '>',
             '<div class="joms-popup__content">', json.message, '</div>',
             '<div class="joms-popup__action">',
@@ -7909,7 +7967,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -7989,7 +8047,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -8155,7 +8213,7 @@ function buildHtml( json, type ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || '' ), '</div>',
         action,
         '</div>'
@@ -8231,7 +8289,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--primary joms-button--small" data-ui-object="popup-button-save">', json.btnSave, '</button>',
@@ -8302,7 +8360,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -8398,7 +8456,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single" style="max-height:315px; overflow:auto">', ( json.html || '' ), '</div>',
         action,
         '</div>'
@@ -8624,7 +8682,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         ( json.html || '' ),
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -8693,7 +8751,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<a href="javascript:" class="joms-button--neutral joms-button--small joms-left" data-ui-object="popup-button-cancel">', json.btnNo, '</a> &nbsp;',
@@ -9031,7 +9089,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--500">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         ( json.html || '' ),
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -9115,7 +9173,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content joms-popup__content--single">', ( json.html || '' ), '</div>',
             '<div class="joms-popup__action">',
@@ -9217,7 +9275,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -9293,7 +9351,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -9435,7 +9493,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content">', json.html, form, '</div>',
             '<div class="joms-popup__action">',
@@ -9675,7 +9733,7 @@ function getFriendList( _keyword ) {
 function buildHtml( json ) {
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div data-ui-object="popup-step-1"', ( json.error ? ' class="joms-popup__hide"' : '' ), '>',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -9749,7 +9807,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1 ', ( json.isMember ? 'joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -9824,7 +9882,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -9902,7 +9960,7 @@ function buildHtml( data ) {
     return [
         '<div class="joms-popup joms-popup--dropdown">',
             '<ul class="joms-dropdown">', options, '</ul>',
-            '<button class="mfp-close" type="button" title="Close (Esc)">×</button>',
+            '<button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>',
         '</div>'
     ].join('');
 }
@@ -9962,7 +10020,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || json.error || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -10052,7 +10110,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -10119,7 +10177,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || json.error || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -10214,7 +10272,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--500">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             json.html,
             '<div class="joms-popup__action">',
@@ -10284,7 +10342,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', ( json.title || '' ), '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', ( json.title || '' ), '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || json.message || json.error || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -10348,7 +10406,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', ( json.title || '' ), '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', ( json.title || '' ), '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || json.message || json.error || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -10466,7 +10524,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content">', json.html, form, '</div>',
             '<div class="joms-popup__action">',
@@ -10838,7 +10896,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content ', ( json.btnNext ? '' : 'joms-popup__content--single' ), '">', ( json.error || json.html || '' ), '</div>',
             ( json.btnNext ? '<div class="joms-popup__action">' : '' ),
@@ -10867,7 +10925,7 @@ function buildTfaDialog() {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', (lang.COM_COMMUNITY_AUTHENTICATION_KEY || 'Authentication key'), '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', (lang.COM_COMMUNITY_AUTHENTICATION_KEY || 'Authentication key'), '</div>',
         '<div class="joms-popup__content">',
             '<span>', (lang.COM_COMMUNITY_AUTHENTICATION_KEY_LABEL || 'Insert your two-factor authentication key'), '</span>',
             '<input type="text" class="joms-input" name="secret">',
@@ -10953,7 +11011,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', (json.message || json.error), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -11071,7 +11129,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--600">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         json.html,
         '</div>'
     ].join('');
@@ -11136,7 +11194,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button> &nbsp; </div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button> &nbsp; </div>',
         '<div class="joms-popup__content joms-popup__content--single">', (json.message || json.error), '</div>',
         '</div>'
     ].join('');
@@ -11323,7 +11381,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--500">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         json.html,
         '</div>'
     ].join('');
@@ -11461,7 +11519,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div data-ui-object="popup-step-1"', ( json.error ? ' class="joms-popup__hide"' : '' ), '>',
             '<div class="joms-popup__content">',
                 '<div class="joms-stream__header" style="padding:0">',
@@ -11547,7 +11605,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -11621,7 +11679,7 @@ function buildErrorHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.error || json.message ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -11687,7 +11745,7 @@ function buildErrorHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.error || json.message ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -11784,7 +11842,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div data-ui-object="popup-step-1"', ( json.error ? ' class="joms-popup__hide"' : '' ), '>',
             '<div class="joms-popup__content">', ( json.html || '' ), '</div>',
             '<div class="joms-popup__action">',
@@ -11893,7 +11951,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( error ? ' joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content">',
                 '<div class="joms-stream__header" style="padding:0">',
@@ -12023,7 +12081,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -12254,7 +12312,7 @@ function getFriendList( _keyword ) {
 function buildHtml( json ) {
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div data-ui-object="popup-step-1"', ( json.error ? ' class="joms-popup__hide"' : '' ), '>',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -12365,7 +12423,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -12432,7 +12490,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || json.error || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -12493,7 +12551,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || json.error || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -12588,7 +12646,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--500">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             json.html,
             '<div class="joms-popup__action">',
@@ -12664,7 +12722,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content">', json.html, '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-left joms-js--button-cancel">', json.btnNo, '</button> &nbsp;',
@@ -12791,7 +12849,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -12861,7 +12919,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', ( json.title || '' ), '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', ( json.title || '' ), '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || json.message || json.error || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -12925,7 +12983,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', ( json.title || '' ), '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', ( json.title || '' ), '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || json.message || json.error || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -13162,7 +13220,7 @@ function getFriendList( _keyword ) {
 function buildHtml( json ) {
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div data-ui-object="popup-step-1"', ( json.error ? ' class="joms-popup__hide"' : '' ), '>',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -13390,7 +13448,7 @@ return function( id ) {
     function buildHtml(json) {
         return [
             '<div class="joms-popup joms-popup--whiteblock">',
-            '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+            '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
             '<div data-ui-object="popup-step-1"', (json.error ? ' class="joms-popup__hide"' : ''), '>',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -13489,7 +13547,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1 ', ( json.error ? 'joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content">', ( json.html || '' ), '</div>',
             '<div class="joms-popup__action">',
@@ -13546,7 +13604,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', ( json.title || '' ), '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', ( json.title || '' ), '</div>',
         '<div class="joms-js--step1 ', ( json.error ? 'joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content">', ( json.html || '' ), '</div>',
             '<div class="joms-popup__action">',
@@ -13601,7 +13659,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', ( json.title || '' ), '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', ( json.title || '' ), '</div>',
         '<div class="joms-js--step1 ', ( json.error ? 'joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content">', ( json.html || '' ), '</div>',
             '<div class="joms-popup__action">',
@@ -14840,7 +14898,7 @@ function buildHtml( json ) {
         '</div>',
         '</div>',
         '<div class="joms-popup__comment">', commentHtml, '</div>',
-        '<button class="mfp-close" type="button" title="Close (Esc)">×</button>',
+        '<button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>',
         '</div>',
         '</div>'
     ].join('');
@@ -14852,7 +14910,7 @@ function buildErrorHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', json.error, '</div>',
         '</div>'
     ].join('');
@@ -15093,7 +15151,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content joms-popup__content--single">', json.message, '</div>',
             '<div class="joms-popup__action">',
@@ -15195,7 +15253,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--500">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             json.html,
             '<div class="joms-popup__action">',
@@ -15281,7 +15339,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content">', json.message, '</div>',
             '<div class="joms-popup__action">',
@@ -15364,7 +15422,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content">', json.message, '</div>',
             '<div class="joms-popup__action">',
@@ -15687,7 +15745,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--photoupload">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         json.html,
         '</div>'
     ].join('');
@@ -15749,8 +15807,8 @@ function buildHtml( url ) {
     url = url.replace( 'thumb_', '' );
     return [
         '<div class="joms-popup-wrapper" style="width:100%;height:100%;margin:0 auto;text-align:center">',
-        '<div class="joms-popup" style="max-width:100%;left:auto;right:auto;position:relative;display:inline;top:0">',
-        '<img src="' + url + '" style="width:auto;max-width:100%">',
+        '<div class="joms-popup" style="max-width:100%;left:auto;right:auto;position:relative;top:0;display:none;">',
+        '<img src="' + url + '" style="width:auto;max-width:100%; display:none;">',
         '</div>',
         '</div>'
     ].join('');
@@ -15766,16 +15824,32 @@ var fixResize = joms._.debounce(function() {
         $pop.unwrap();
     }
 
-    setTimeout(function() {
-        var imgHeight = +$img.height(),
-            cntHeight = +$cnt.height();
+    var $mfp = $pop.parents('.mfp-content'),
+        xHeight, ratio, height, width;
 
-        imgHeight = imgHeight && ( imgHeight < cntHeight ) ? '' : cntHeight;
-        $img.css( 'height', imgHeight );
-        setTimeout(function() {
-            $pop.css({ position: 'relative', width: $img.width() });
-        }, 1 );
-    }, 1 );
+    height = $img.get(0).height;
+    width = $img.get(0).width; 
+
+    ratio = width / height;
+
+    xHeight = $mfp.width() / ratio;
+
+    if (xHeight > $mfp.height()) {
+        width = 'auto';
+        height = $mfp.height();
+    } else {
+        width = $mfp.width();
+        height = 'auto';
+    }
+
+    $img.css({
+        display: 'block',
+        height: height,
+        width: width
+    });
+
+    $pop.css({ position: 'relative', width: $img.width() });
+    
 }, 100 );
 
 // Exports.
@@ -15881,7 +15955,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content joms-popup__content--single">', (json.html || ''), '</div>',
             '<div class="joms-popup__action">',
@@ -16029,7 +16103,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--500">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div data-ui-object="popup-step-1"', ( json.error ? ' class="joms-popup__hide"' : '' ), '>',
             (json.html || ''),
             '<div class="joms-popup__action">',
@@ -16164,7 +16238,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -16236,7 +16310,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single" style="max-height:400px;overflow:auto;">', ( json.html || '&nbsp;' ), '</div>',
         '</div>'
     ].join('');
@@ -16315,7 +16389,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content">', ( json.html || json.message ), '</div>',
         action,
         '</div>'
@@ -16374,7 +16448,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -16435,7 +16509,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -16515,7 +16589,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content', ( json.error ? ' joms-popup__content--single' : '' ), '">', ( json.html || json.error ), '</div>',
         action,
         '</div>'
@@ -16593,7 +16667,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content', ( json.error ? ' joms-popup__content--single' : '' ), '">', ( json.html || json.error ), '</div>',
         action,
         '</div>'
@@ -16690,7 +16764,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content">', ( json.error || json.html || json.message ), '</div>',
         action,
         '</div>'
@@ -16770,7 +16844,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content">', ( json.html || json.message ), '</div>',
         '<div class="joms-popup__action">',
         '<a href="javascript:" class="joms-button--neutral joms-button--small joms-left" data-ui-object="popup-button-cancel">', json.btnNo, '</a> &nbsp;',
@@ -16853,7 +16927,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content">', ( json.html || json.message ), '</div>',
         '<div class="joms-popup__action">',
         '<a href="javascript:" class="joms-button--neutral joms-button--small joms-left" data-ui-object="popup-button-cancel">', json.btnNo, '</a> &nbsp;',
@@ -16949,7 +17023,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--500">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             json.html,
             '<div class="joms-popup__action">',
@@ -17037,7 +17111,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content">', ( json.html || json.message ), '</div>',
         '<div class="joms-popup__action">',
         '<a href="javascript:" class="joms-button--neutral joms-button--small joms-left" data-ui-object="popup-button-cancel">', json.btnNo, '</a> &nbsp;',
@@ -17460,7 +17534,7 @@ function buildHtml( json ) {
         '</div>',
         '</div>',
         '<div class="joms-popup__comment"></div>',
-        '<button class="mfp-close" type="button" title="Close (Esc)">×</button>',
+        '<button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>',
         '</div>',
         '</div>'
     ].join('');
@@ -18200,7 +18274,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--videoupload">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         ( json.html ? json.html : '<div class="joms-popup__content joms-popup__content--single">' + json.error + '</div>' ),
         '</div>'
     ].join('');
@@ -18266,7 +18340,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--600">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             '<div class="joms-popup__content joms-popup__content--single">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -18336,7 +18410,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">',
         ( json.message || json.error || '' ),
         ( json.thumbnail ? '<div style="padding-top:10px;"><img src="' + json.thumbnail + '" style="max-width:100%;"></div>' : '' ),
@@ -18418,7 +18492,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -18510,7 +18584,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -18612,7 +18686,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--500">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1', ( json.error ? ' joms-popup__hide' : '' ), '">',
             json.html,
             '<div class="joms-popup__action">',
@@ -18680,7 +18754,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || json.error || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -18743,7 +18817,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || json.error || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',
@@ -18826,7 +18900,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -18868,6 +18942,254 @@ return function( id, user ) {
         'popups/video.removelinkfromprofile'
     ], function() {
         return joms.popup.video;
+    });
+
+})( window, function( window, sub ) {
+
+// Exports.
+return joms._.extend({}, sub );
+
+});
+
+(function( root, factory ) {
+
+    joms.popup || (joms.popup = {});
+    joms.popup.poll || (joms.popup.poll = {});
+    joms.popup.poll.removeoption = factory( root );
+
+    define('popups/poll.removeoption',[ 'utils/popup' ], function() {
+        return joms.popup.poll.removeoption;
+    });
+
+})( window, function() {
+
+var popup, elem, id;
+
+function render( _popup, _id ) {
+    if ( elem ) elem.off();
+    popup = _popup;
+    id = _id;
+
+    joms.ajax({
+        func: 'polls,ajaxConfirmDeletePollOption',
+        data: [ '', id ],
+        callback: function( json ) {
+            popup.items[0] = {
+                type: 'inline',
+                src: buildHtml( json )
+            };
+
+            popup.updateItemHTML();
+
+            elem = popup.contentContainer;
+            elem.on( 'click', '[data-ui-object=popup-button-cancel]', cancel );
+            elem.on( 'click', '[data-ui-object=popup-button-save]', save );
+        }
+    });
+}
+
+function cancel() {
+    elem.off();
+    popup.close();
+}
+
+function save() {
+    joms.ajax({
+        func: 'polls,ajaxDeletePollOption',
+        data: [ '', id ],
+        callback: function( json ) {
+            var item;
+
+            elem.off();
+            popup.close();
+
+            if ( json.success ) {
+                item = joms.jQuery('.joms-poll-item-'+id);
+                item.fadeOut( 500, function() {
+                    item.remove();
+                });
+            }
+        }
+    });
+}
+
+function buildHtml( json ) {
+    json || (json = {});
+
+    return [
+        '<div class="joms-popup joms-popup--whiteblock">',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
+        '<div>',
+            '<div class="joms-popup__content">', ( json.error || json.message ), '</div>',
+            '<div class="joms-popup__action">',
+            '<a href="javascript:" class="joms-button--neutral joms-button--small joms-left" data-ui-object="popup-button-cancel">', json.btnCancel, '</a> &nbsp;',
+            '<button class="joms-button--primary joms-button--small" data-ui-object="popup-button-save">', json.btnYes, '</button>',
+            '</div>',
+        '</div>',
+        '</div>'
+    ].join('');
+}
+
+// Exports.
+return function( id ) {
+    joms.util.popup.prepare(function( mfp ) {
+        render( mfp, id );
+    });
+};
+
+});
+
+(function( root, factory ) {
+
+    joms.popup || (joms.popup = {});
+    joms.popup.poll || (joms.popup.poll = {});
+    joms.popup.poll.delete = factory( root );
+
+    define('popups/poll.delete',[ 'utils/popup' ], function() {
+        return joms.popup.poll.delete;
+    });
+
+})( window, function() {
+
+var popup, elem, id;
+
+function render( _popup, _id ) {
+    if ( elem ) elem.off();
+    popup = _popup;
+    id = _id;
+
+    joms.ajax({
+        func: 'polls,ajaxWarnPollDeletion',
+        data: [ '', id ],
+        callback: function( json ) {
+            popup.items[0] = {
+                type: 'inline',
+                src: buildHtml( json )
+            };
+
+            popup.updateItemHTML();
+
+            elem = popup.contentContainer;
+            elem.on( 'click', '[data-ui-object=popup-button-cancel]', cancel );
+            elem.on( 'click', '[data-ui-object=popup-button-save]', save );
+        }
+    });
+}
+
+function cancel() {
+    elem.off();
+    popup.close();
+}
+
+function save() {
+    joms.ajax({
+        func: 'polls,ajaxDeletePoll',
+        data: [ '', id ],
+        callback: function( json ) {
+            var item;
+
+            elem.off();
+            popup.close();
+            
+            if ( json.success ) {
+                item = joms.jQuery('.joms-poll__item-'+id);
+                item.fadeOut( 500, function() {
+                    item.remove();
+                });
+            }
+        }
+    });
+}
+
+function buildHtml( json ) {
+    json || (json = {});
+
+    return [
+        '<div class="joms-popup joms-popup--whiteblock">',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
+        '<div>',
+            '<div class="joms-popup__content">', ( json.error || json.message ), '</div>',
+            '<div class="joms-popup__action">',
+            '<a href="javascript:" class="joms-button--neutral joms-button--small joms-left" data-ui-object="popup-button-cancel">', json.btnCancel, '</a> &nbsp;',
+            '<button class="joms-button--primary joms-button--small" data-ui-object="popup-button-save">', json.btnYes, '</button>',
+            '</div>',
+        '</div>',
+        '</div>'
+    ].join('');
+}
+
+// Exports.
+return function( id ) {
+    joms.util.popup.prepare(function( mfp ) {
+        render( mfp, id );
+    });
+};
+
+});
+
+(function( root, $, factory ) {
+
+    joms.popup || (joms.popup = {});
+    joms.popup.poll || (joms.popup.poll = {});
+    joms.popup.poll.voted = factory( root, $ );
+
+    define('popups/poll.voted',[ 'utils/popup' ], function() {
+        return joms.popup.poll.voted;
+    });
+
+})( window, joms.jQuery, function( window, $ ) {
+
+var popup, elem, tabAll, tabSelected, btnSelect, btnLoad, id, keyword, start, limit, xhr;
+
+function render( _popup, poll_id, option_id ) {
+    if ( elem ) elem.off();
+    popup = _popup;
+
+    joms.ajax({
+        func: 'polls,ajaxShowVotedUsers',
+        data: [ poll_id, option_id ],
+        callback: function( json ) {
+            popup.items[0] = {
+                type: 'inline',
+                src: buildHtml( json )
+            };
+
+            popup.updateItemHTML();
+        }
+    });
+}
+
+
+function buildHtml( json ) {
+    return [
+        '<div class="joms-popup joms-popup--whiteblock">',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
+        '<div data-ui-object="popup-step-1"', ( json.error ? ' class="joms-popup__hide"' : '' ), '>',
+            '<div class="joms-popup__content">', json.html, '</div>',
+        '</div>',
+        '<div data-ui-object="popup-step-2"', ( json.error ? '' : ' class="joms-popup__hide"' ), '>',
+            '<div class="joms-popup__content joms-popup__content--single" data-ui-object="popup-message">', (json.error || ''), '</div>',
+        '</div>',
+        '</div>'
+    ].join('');
+}
+
+// Exports.
+return function( poll_id, option_id ) {
+    joms.util.popup.prepare(function( mfp ) {
+        render( mfp, poll_id, option_id );
+    });
+};
+
+});
+
+(function( root, factory ) {
+
+    joms.popup || (joms.popup = {});
+    joms.popup.poll = factory( root, joms.popup.poll || {});
+
+    define('popups/poll',[ 'popups/poll.removeoption', 'popups/poll.delete', 'popups/poll.voted' ], function() {
+        return joms.popup.poll;
     });
 
 })( window, function( window, sub ) {
@@ -19074,7 +19396,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock joms-popup--500">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content">', json.html, '</div>',
             '<div class="joms-popup__action">',
@@ -19258,6 +19580,108 @@ return {
 
 });
 
+(function( root, $, factory ) {
+	joms.view || (joms.view = {});
+	joms.view.poll = factory( root, $ );
+})( window, joms.jQuery, function( window, $ ) {
+
+var html;
+
+html = $('#joms-template-poll-option__input').html();
+
+function addOption(elm) {
+	$(html).insertBefore(elm);
+	$('.poll-input').last().focus();
+}
+
+function removeOption(elm) {
+	var $option = $(elm).parents('.joms-poll-option'),
+		$hiddenInput = $option.find('[name="pollItemId[]"]');
+	if ($hiddenInput.length) {
+		var itemid = $hiddenInput.val();
+		joms.popup.poll.removeoption( itemid );
+	} else {
+		$option.remove();
+	}
+}
+
+function deletePoll ( id ) {
+	joms.popup.poll.delete( id );
+}
+
+function vote( poll_id, option_id ) {
+	var $container = $('.joms-poll__container-'+poll_id),
+		$loader = $container.find('.joms-poll__loader'),
+		$option = $container.find('.joms-poll__option-'+option_id),
+		$input = $option.siblings('input'),
+		input_type = $input.attr('type');
+
+	$input.prop('checked', !$input.prop('checked'));
+	ajaxVote(poll_id, option_id);
+}
+
+function inputVote( poll_id, option_id ) {
+	var $container = $('.joms-poll__container-'+poll_id),
+		$loader = $container.find('.joms-poll__loader');
+	
+	ajaxVote(poll_id, option_id);
+}
+
+function clearOtherVote( $container, option_id ) {
+	var $inputs = $container.find('.joms-poll_input').not('.joms-poll_input-'+option_id);
+
+	$inputs.each(function(index, el) {
+		$(el).is(':checked') && $(el).prop('checked', false);
+	});
+}
+
+function ajaxVote( poll_id, option_id ) {
+	var $container = $('.joms-poll__container-'+poll_id),
+		$loader = $container.find('.joms-poll__loader'),
+		$list = $('.joms-poll__option-list-' + poll_id),
+		collapse = $list.attr('data-collapse');
+
+	$loader.fadeIn(300);
+	joms.ajax({
+		func: 'polls,ajaxPollVote',
+		data: [ poll_id, option_id, collapse ],
+		callback: function( json ) {
+			$loader.fadeOut(300);
+			if (json.success) {
+				$container.html(json.html);
+			} else {
+				alert('ajax vote error! Please contact your admin.');
+			}
+		}
+	});
+}
+
+function showVotedUsers( poll_id, option_id ) {
+	joms.popup.poll.voted( poll_id, option_id );
+}
+
+function moreOptions( poll_id ) {
+	var $list = $('.joms-poll__option-list-' + poll_id),
+		$moreBtn = $('.joms-poll__more-' + poll_id);
+	
+	$list.attr('data-collapse', 1);
+	$list.find('li').show();
+	$moreBtn.hide();
+}
+
+return {
+	addOption: addOption,
+	removeOption: removeOption,
+	delete: deletePoll,
+	vote: vote,
+	inputVote: inputVote,
+	showVotedUsers: showVotedUsers,
+	moreOptions: moreOptions
+}
+
+});
+define("views/poll", function(){});
+
 (function( root, factory ) {
 
     joms.api = factory( root );
@@ -19290,9 +19714,11 @@ return {
         'popups/tnc',
         'popups/user',
         'popups/video',
+        'popups/poll',
         'views/cover',
         'views/page',
-        'views/stream'
+        'views/stream',
+        'views/poll'
     ], function() {
         return joms.api;
     });

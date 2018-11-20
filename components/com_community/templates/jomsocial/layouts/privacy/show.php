@@ -14,7 +14,11 @@
         // override all activities item as Public
         $access = 10;
     } else {
-        $access = (isset($stream->access)) ? $stream->access : (isset($activity->access) ? $activity->access : $act->access);
+        if (isset($act->access)) {
+            $access = $act->access;
+        } else {
+            $access = (isset($stream->access)) ? $stream->access : (isset($activity->access) ? $activity->access : $act->access);
+        }
     }
 
     $icon = "earth";

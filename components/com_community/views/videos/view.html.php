@@ -485,7 +485,7 @@ if (!class_exists('CommunityViewVideos')) {
 
             if ((int)$category > 0) {
                 $categoryIds[] = (int)$category;
-                $friendsVideos = false;
+                //$friendsVideos = false;
             }
 
             if($groupId) {

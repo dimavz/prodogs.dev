@@ -233,7 +233,8 @@ if (!class_exists('CAssets')) {
                 'COM_COMMUNITY_CHAT_NAME_OF_CONVERSATION_SHOULD_NOT_BE_EMPTY',
                 'COM_COMMUNITY_CHAT_NAME_OF_CONVERSATION_SHOULD_BE_LESS_THAN_250_CHARACTERS',
                 'COM_COMMUNITY_APPS_LIST_ADDED',
-                'COM_COMMUNITY_CANNOT_EDIT_COMMENT_ERROR'
+                'COM_COMMUNITY_CANNOT_EDIT_COMMENT_ERROR',
+                'COM_COMMUNITY_CLOSE_BUTTON_TITLE'
             );
 
             $translation = array();

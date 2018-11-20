@@ -313,7 +313,7 @@ function buildHtml( json ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-js--step1">',
             '<div class="joms-popup__content ', ( json.btnNext ? '' : 'joms-popup__content--single' ), '">', ( json.error || json.html || '' ), '</div>',
             ( json.btnNext ? '<div class="joms-popup__action">' : '' ),
@@ -342,7 +342,7 @@ function buildTfaDialog() {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', (lang.COM_COMMUNITY_AUTHENTICATION_KEY || 'Authentication key'), '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', (lang.COM_COMMUNITY_AUTHENTICATION_KEY || 'Authentication key'), '</div>',
         '<div class="joms-popup__content">',
             '<span>', (lang.COM_COMMUNITY_AUTHENTICATION_KEY_LABEL || 'Insert your two-factor authentication key'), '</span>',
             '<input type="text" class="joms-input" name="secret">',

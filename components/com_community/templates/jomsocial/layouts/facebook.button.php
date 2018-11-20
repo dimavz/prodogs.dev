@@ -63,13 +63,6 @@ if( typeof window.FB != 'undefined' ) {
 
     $fbScope = array('email');
     $config = CFactory::getConfig();
-    if($config->get('fbconnectupdatestatus')){
-        $fbScope[] = 'user_status';
-        $fbScope[] = 'user_posts';
-    }
-    if($config->get('fbconnectpoststatus')){
-        $fbScope[] = 'publish_actions';
-    }
     if($config->get('fbsignupimport') || $config->get('fbloginimportprofile')){
         $fbScope[] = 'user_birthday';
         $fbScope[] = 'public_profile';

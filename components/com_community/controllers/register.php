@@ -672,8 +672,13 @@ class CommunityRegisterController extends CommunityBaseController
         // Update user location data
         $pModel->updateLocationData($user->id);
 
-        $this->sendEmail('registration_complete', $user, null, $multiprofile->approvals);
+        // Trigger before onAfterUserProfileUpdate
+        $args = array();
+        $args[] = $user->id;
+        $args[] = true;
+        $result = $appsLib->triggerEvent('onAfterProfileUpdate', $args);
 
+        $this->sendEmail('registration_complete', $user, null, $multiprofile->approvals);
 
         // now we need to set it for later avatar upload page
         // do the clear up job for tmp user.

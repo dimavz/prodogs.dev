@@ -108,6 +108,27 @@ abstract class CommunityDefaultItem
 
 		return true;
 	}
+
+	/**
+	 * Add default polls categories
+	 */
+	static public function addDefaultPollsCategories()
+	{
+		$db = JFactory::getDBO();
+
+		$query = 'INSERT INTO '.$db->quoteName('#__community_polls_category') .'(' . $db->quoteName('id') .', ' . $db->quoteName('name') .', ' . $db->quoteName('description') .' )'.
+					' VALUES ( NULL , ' . $db->Quote('General') .', ' . $db->Quote('General poll') .')';
+
+		$db->setQuery( $query );
+
+		try {
+			$db->execute();
+		} catch (Exception $e) {
+			return false;
+		}
+
+		return true;
+	}
 	/**
 	 * Add default Userpoints
 	 */

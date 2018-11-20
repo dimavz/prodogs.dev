@@ -153,7 +153,8 @@ class CommunityModelToolbar extends JCCModel
 					'groups' => $config->get('enablegroups'),
 					'photos' => $config->get('enablephotos'),
 					'videos' => $config->get('enablevideos'),
-					'events' => $config->get('enableevents')
+					'events' => $config->get('enableevents'),
+					'polls' => $config->get('enablepolls')
 					);
 		$subapp = array('linkVideo' => $config->get('enableprofilevideo') );
 

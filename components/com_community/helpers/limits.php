@@ -101,20 +101,36 @@ class CLimitsHelper
 		return false;
 	}
 
-        static public function exceededGroupFileUpload( $groupId )
+    static public function exceededGroupFileUpload( $groupId )
+    {
+        $config                 = CFactory::getConfig();
+        $model                  = CFactory::getModel('files');
+
+        $discussionFileLimit    = $config->get('discussionfilelimit');
+        $totalDiscussionFile    = $model->getGroupFileCount($groupId);
+
+        if( $discussionFileLimit > $totalDiscussionFile && $discussionFileLimit != 0 )
         {
-            $config                 = CFactory::getConfig();
-            $model                  = CFactory::getModel('files');
-
-            $discussionFileLimit    = $config->get('discussionfilelimit');
-            $totalDiscussionFile    = $model->getGroupFileCount($groupId);
-
-            if( $discussionFileLimit > $totalDiscussionFile && $discussionFileLimit != 0 )
-            {
-                return true;
-            }
-            return false;
+            return true;
         }
+        return false;
+    }
+
+    static public function exceededPollCreation( $userId )
+    {   
+        // Get the configuration for poll creation
+        $config     = CFactory::getConfig();
+        $model      = CFactory::getModel( 'polls' );
+
+        $pollLimit = $config->get('pollcreatelimit');
+        $totalPoll = $model->getPollsCreationCount($userId);
+
+        if ($totalPoll >= $pollLimit && $pollLimit != 0) {
+            return true;
+        }
+
+        return false;
+    }
 }
 
 /**

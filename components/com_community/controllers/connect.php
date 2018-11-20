@@ -595,9 +595,9 @@ class CommunityConnectController extends CommunityBaseController {
         // @rule: When administrator disables status imports, we should not allow user to import status
         /* temporary force no import status */
 
-        if (!$config->get('fbconnectupdatestatus')) {
+        //if (!$config->get('fbconnectupdatestatus')) {
             $importStatus = false;
-        }
+        //}
 
         $userId = $this->_getFacebookUID();
         $userInfo = $this->_getFacebookUser();

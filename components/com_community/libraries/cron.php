@@ -44,6 +44,7 @@ class CCron {
             }
         } else {
             /* complete process all tasks */
+            $this->_deleteDeletedUsers();
             $this->_sendEmails();
             $this->processDigestMail();
             $this->_convertVideos();
@@ -1862,5 +1863,35 @@ class CCron {
                 $user->save('params');
             }
         }
+    }
+
+    // remove deleted users from jomsocial table
+    protected function _deleteDeletedUsers() {
+        $db = JFactory::getDbo();
+
+        $sql = 'SELECT a.' . $db->quoteName('userid') . ' FROM ' . $db->quoteName('#__community_users') . ' AS a '
+                . ' LEFT JOIN ' . $db->quoteName('#__users') . ' AS b ON a.' . $db->quoteName('userid') . ' = b.' . $db->quoteName('id')
+                . ' WHERE b.' . $db->quoteName('id') . ' IS NULL';
+
+        $db->setQuery($sql);
+
+        $idObject = $db->loadObjectList();
+       
+        $ids = array();
+        foreach ($idObject as $key => $value) {
+            $ids[] = $value->userid;
+        }
+        
+        if ($ids) {
+            $ids = implode(',', $ids);
+        
+            $sql = 'DELETE' . ' FROM ' . $db->quoteName('#__community_users')
+                . ' WHERE ' . $db->quoteName('userid') . ' IN (' . $ids . ')';
+
+            $db->setQuery($sql);
+            $db->execute();
+        }
+
+        return true;
     }
 }

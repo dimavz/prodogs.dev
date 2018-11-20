@@ -127,6 +127,16 @@ echo $header;
                                     <?php echo JText::_("COM_COMMUNITY_FILTERBAR_FILE"); ?>
                                 </li>
                             <?php } ?>
+                            <?php if ($config->get('enablepolls') == 1) { ?>
+                                <li <?php echo ($filterKey == 'apps' && $filterValue == "polls") ? 'class="active"' : ''; ?>
+                                    data-filter="apps" data-value="polls"
+                                    data-url="<?php echo CRoute::_('index.php?option=com_community&view=frontpage&filter=apps&value=polls'); ?>">
+                                    <svg viewBox="0 0 16 18" class="joms-icon">
+                                        <use xlink:href="<?php echo CRoute::getURI(); ?>#joms-icon-list"></use>
+                                    </svg>
+                                    <?php echo JText::_("COM_COMMUNITY_FILTERBAR_POLL"); ?>
+                                </li>
+                            <?php } ?>
                             <li <?php echo ($filterKey == 'privacy' && $filterValue == "me-and-friends") ? 'class="active"' : ''; ?>
                                 data-filter="privacy" data-value="me-and-friends"
                                 data-url="<?php echo CRoute::_('index.php?option=com_community&view=frontpage&filter=privacy&value=me-and-friends'); ?>">
@@ -231,6 +241,16 @@ echo $header;
                                         <use xlink:href="<?php echo CRoute::getURI(); ?>#joms-icon-file-zip"></use>
                                     </svg>
                                     <?php echo JText::_("COM_COMMUNITY_FILTERBAR_FILE"); ?>
+                                </a>
+                            </li>
+                            <?php } ?>
+                            <?php if ($config->get('enablepolls') == 1) { ?>
+                            <li <?php echo ($defaultFilter == 'apps:polls') ? 'class="active"' : ''; ?>>
+                                <a href="javascript:" data-value="apps:polls">
+                                    <svg viewBox="0 0 16 18" class="joms-icon">
+                                        <use xlink:href="<?php echo CRoute::getURI(); ?>#joms-icon-list"></use>
+                                    </svg>
+                                    <?php echo JText::_("COM_COMMUNITY_FILTERBAR_POLL"); ?>
                                 </a>
                             </li>
                             <?php } ?>

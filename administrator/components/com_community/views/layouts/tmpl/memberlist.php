@@ -64,6 +64,16 @@ defined('_JEXEC') or die('Restricted access');
     </tr>
     <tr>
         <td class="key">
+                <span class="js-tooltip" title="<?php echo JText::_('COM_COMMUNITY_LAYOUTS_LAST_VISIT_CONFIG_TIPS'); ?>">
+                    <?php echo JText::_( 'COM_COMMUNITY_LAYOUTS_LAST_VISIT_CONFIG' ); ?>
+                </span>
+        </td>
+        <td>
+            <?php echo CHTMLInput::checkbox('config[memberlist_show_last_visit]' ,'ace-switch ace-switch-5', null , CFactory::getConfig()->get('memberlist_show_last_visit') ); ?>
+        </td>
+    </tr>
+    <tr>
+        <td class="key">
                 <span class="js-tooltip" title="<?php echo JText::_('COM_COMMUNITY_LAYOUTS_MATCHMAKING_MODE_CONFIG_TIPS'); ?>">
                     <?php echo JText::_( 'COM_COMMUNITY_LAYOUTS_MATCHMAKING_MODE_CONFIG' ); ?>
                 </span>

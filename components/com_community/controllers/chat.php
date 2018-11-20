@@ -284,4 +284,10 @@ class CommunityChatController extends CommunityBaseController
         die(json_encode($result));
     }
 
+    public function ajaxSearchChat($keyword = '', $exclusion = '') {
+        $model = CFactory::getModel('chat');
+        $result = $model->searchChat($keyword, $exclusion);
+        die(json_encode($result));
+    }
+
 }

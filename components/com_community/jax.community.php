@@ -318,6 +318,8 @@
     $jaxFuncNames[] = 'admin,videoscategories,ajaxTogglePublish';
     $jaxFuncNames[] = 'admin,videoscategories,ajaxEditCategory';
     $jaxFuncNames[] = 'admin,videoscategories,ajaxSaveCategory';
+    $jaxFuncNames[] = 'admin,pollcategories,ajaxEditCategory';
+    $jaxFuncNames[] = 'admin,pollcategories,ajaxSaveCategory';
     $jaxFuncNames[] = 'admin,templates,ajaxChangeTemplate';
     $jaxFuncNames[] = 'admin,templates,ajaxLoadTemplateFile';
     $jaxFuncNames[] = 'admin,templates,ajaxSaveTemplateFile';
@@ -363,8 +365,10 @@
     $jaxFuncNames[] = 'admin,photos,ajaxViewPhoto';
     $jaxFuncNames[] = 'admin,photos,ajaxEditPhoto';
     $jaxFuncNames[] = 'admin,photos,ajaxTogglePublish';
+    $jaxFuncNames[] = 'admin,polls,ajaxTogglePublish';
 
     $jaxFuncNames[] = 'admin,moods,ajaxTogglePublish';
+    $jaxFuncNames[] = 'admin,backgrounds,ajaxTogglePublish';
     $jaxFuncNames[] = 'admin,badges,ajaxTogglePublish';
     $jaxFuncNames[] = 'admin,videos,ajaxFetchThumbnailMultiple';
 
@@ -519,9 +523,16 @@
     $jaxFuncNames[] = 'chat,ajaxLoadMoreConversation';
     $jaxFuncNames[] = 'chat,ajaxMarkAllAsRead';
     $jaxFuncNames[] = 'chat,ajaxChangeGroupChatName';
-
+    $jaxFuncNames[] = 'chat,ajaxSearchChat';
     // @since 4.5
     $jaxFuncNames[] = 'system,ajaxDeleteTempFile';
+    $jaxFuncNames[] = 'polls,ajaxDeletePoll';
+    $jaxFuncNames[] = 'polls,ajaxWarnPollDeletion';
+    $jaxFuncNames[] = 'polls,ajaxConfirmDeletePollOption';
+    $jaxFuncNames[] = 'polls,ajaxDeletePollOption';
+    $jaxFuncNames[] = 'polls,ajaxPollVote';
+    $jaxFuncNames[] = 'polls,ajaxPollVotedUsers';
+    $jaxFuncNames[] = 'polls,ajaxShowVotedUsers';
 
     // Dont process other plugin ajax definitions for back end
     if (!CStringHelper::stristr(JPATH_COMPONENT, 'administrator/components/com_community')

@@ -24,6 +24,7 @@ $photoEnabled = ($config->get('enablephotos')) ? true : false;
 $eventEnabled = ($config->get('enableevents')) ? true : false;
 $groupEnabled = ($config->get('enablegroups')) ? true : false;
 $videoEnabled = ($config->get('enablevideos')) ? true : false;
+$pollsEnabled = ($config->get('enablepolls')) ? true : false;
 
 //likes
 CFactory::load('libraries', 'like');
@@ -54,6 +55,9 @@ $profile->_videos = $videoModel->getVideosCount($profile->id);
 
 $photosModel = CFactory::getModel('photos');
 $profile->_photos = $photosModel->getPhotosCount($profile->id);
+
+$pollsModel = CFactory::getModel('polls');
+$profile->_polls = $pollsModel->getPollsCount($profile->id);
 
 if($config->get('profile_multiprofile') && isset($settings['profile'][$user->_profile_id]['tagline']) && strlen($settings['profile'][$user->_profile_id]['tagline'])) {
     $blocks = json_decode($settings['profile'][$user->_profile_id]['tagline'], true);
@@ -133,6 +137,10 @@ if (isset($blocks)) {
 
         <?php if($eventEnabled) {?>
         <li class="half"><a href="<?php echo CRoute::_('index.php?option=com_community&view=events&task=myevents&userid='.$profile->id); ?>"><?php echo ($profile->_events == 1) ? JText::_('COM_COMMUNITY_EVENTS_COUNT') . ' <span class="joms-text--light">' . $profile->_events . '</span>' : JText::_('COM_COMMUNITY_EVENTS_COUNT_MANY') . ' <span class="joms-text--light">' . $profile->_events . '</span>' ?></a></li>
+        <?php }?>
+
+        <?php if($pollsEnabled) {?>
+        <li class="half"><a href="<?php echo CRoute::_('index.php?option=com_community&view=polls&task=mypolls&userid='.$profile->id); ?>"><?php echo ($profile->_polls == 1) ? JText::_('COM_COMMUNITY_POLLS_COUNT') . ' <span class="joms-text--light">' . $profile->_polls . '</span>' : JText::_('COM_COMMUNITY_POLLS_COUNT_MANY') . ' <span class="joms-text--light">' . $profile->_polls . '</span>' ?></a></li>
         <?php }?>
     </ul>
 

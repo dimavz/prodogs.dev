@@ -60,26 +60,6 @@ defined('_JEXEC') or die('Restricted access');
 							<?php echo CHTMLInput::checkbox('fbloginimportavatar' ,'ace-switch ace-switch-5', null , $this->config->get('fbloginimportavatar') ); ?>
 						</td>
 					</tr>
-					<tr>
-						<td class="key">
-							<span class="js-tooltip" title="<?php echo JText::_('COM_COMMUNITY_CONFIGURATION_FACEBOOK_IMPORT_STATUS_TIPS'); ?>">
-								<?php echo JText::_( 'COM_COMMUNITY_CONFIGURATION_FACEBOOK_IMPORT_STATUS' ); ?>
-							</span>
-						</td>
-						<td>
-							<?php echo CHTMLInput::checkbox('fbconnectupdatestatus' ,'ace-switch ace-switch-5', null , $this->config->get('fbconnectupdatestatus') ); ?>
-						</td>
-					</tr>
-					<tr>
-						<td class="key">
-							<span class="js-tooltip" title="<?php echo JText::_('COM_COMMUNTIY_CONFIGURATION_FACEBOOK_POST_STATUS_TIPS'); ?>">
-								<?php echo JText::_( 'COM_COMMUNTIY_CONFIGURATION_FACEBOOK_POST_STATUS' ); ?>
-							</span>
-						</td>
-						<td>
-							<?php echo CHTMLInput::checkbox('fbconnectpoststatus' ,'ace-switch ace-switch-5', null , $this->config->get('fbconnectpoststatus') ); ?>
-						</td>
-					</tr>
 				</tbody>
 			</table>
 

@@ -944,7 +944,7 @@ class CommunityControllerMigrators extends CommunityController{
 				$lastId = $this->__getMigrateStatus($step);
 				$list = $model->getFields();
 				
-				$tablecolumns = '';
+				$tablecolumns = array();
 				foreach ($list as $row) {
 					$id = $row->fieldid;
 					$name = $row->title;
@@ -958,7 +958,7 @@ class CommunityControllerMigrators extends CommunityController{
 					$searchable = $row->searchable;
 					$registration = $row->registration;
 
-					$options = '';
+					$options = array();
 					$tablecolumns[] = $row->tablecolumns;
 					//$tablecolumns['type'] = $row->type;
 

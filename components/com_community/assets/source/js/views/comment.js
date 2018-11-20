@@ -112,7 +112,7 @@ function send( e ) {
     if ( text.replace( /^\s+|\s+$/g, '' ) === '' ) {
         attachment = el.siblings('.joms-textarea__attachment');
         if ( !attachment.length || !attachment.is(':visible') ) {
-            alert(joms.getTranslation('COM_COMMUNITY_CANNOT_EDIT_COMMENT_ERROR'));
+            alert(joms_lang.COM_COMMUNITY_CANNOT_EDIT_COMMENT_ERROR);
             return;
         }
     }

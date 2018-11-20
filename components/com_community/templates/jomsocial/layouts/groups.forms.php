@@ -36,22 +36,24 @@ defined('_JEXEC') or die();
 
         <div class="joms-form__group">
             <span></span>
-            <label class="joms-checkbox">
-                <input type="checkbox" class="joms-checkbox" name="approvals" onclick="joms_checkPrivacy();" value="1"
-                    <?php echo ($group->approvals == COMMUNITY_PRIVATE_GROUP) ? ' checked="checked"' : ''; ?>>
-                <span title="<?php echo JText::_('COM_COMMUNITY_GROUPS_APPROVAL_TIPS'); ?>">
-                    <?php echo JText::_('COM_COMMUNITY_GROUPS_PRIVATE_LABEL'); ?></span>
-            </label>
-
-            <label class="joms-checkbox">
-                <input type="checkbox" class="joms-checkbox" name="unlisted" value="1"
-                    <?php echo ($group->approvals == COMMUNITY_PRIVATE_GROUP) ? '' : ' disabled="disabled"'; ?>
-                    <?php echo ($group->unlisted == 1 && $group->approvals == COMMUNITY_PRIVATE_GROUP) ? ' checked="checked"' : ''; ?>>
-                <span title="<?php echo JText::_('COM_COMMUNITY_GROUPS_UNLISTED_TIPS'); ?>">
-                    <?php echo JText::_('COM_COMMUNITY_GROUPS_UNLISTED'); ?>
-                </span>
-            </label>
-
+            <div>
+                <label class="joms-checkbox">
+                    <input type="checkbox" class="joms-checkbox" name="approvals" onclick="joms_checkPrivacy();" value="1"
+                        <?php echo ($group->approvals == COMMUNITY_PRIVATE_GROUP) ? ' checked="checked"' : ''; ?>>
+                    <span title="<?php echo JText::_('COM_COMMUNITY_GROUPS_APPROVAL_TIPS'); ?>">
+                        <?php echo JText::_('COM_COMMUNITY_GROUPS_PRIVATE_LABEL'); ?></span>
+                </label>
+            </div>
+            <div>
+                <label class="joms-checkbox">
+                    <input type="checkbox" class="joms-checkbox" name="unlisted" value="1"
+                        <?php echo ($group->approvals == COMMUNITY_PRIVATE_GROUP) ? '' : ' disabled="disabled"'; ?>
+                        <?php echo ($group->unlisted == 1 && $group->approvals == COMMUNITY_PRIVATE_GROUP) ? ' checked="checked"' : ''; ?>>
+                    <span title="<?php echo JText::_('COM_COMMUNITY_GROUPS_UNLISTED_TIPS'); ?>">
+                        <?php echo JText::_('COM_COMMUNITY_GROUPS_UNLISTED'); ?>
+                    </span>
+                </label>
+            </div>
         </div>
 
         <script type="text/javascript">
@@ -162,24 +164,43 @@ defined('_JEXEC') or die();
         <?php } ?>
 
         <?php if ($config->get('file_sharing_group')) { ?>
-        <?php $filesharingAllowed = $params->get('filesharingpermission') >= 1; ?>
+            <?php $filesharingAllowed = $params->get('filesharingpermission') >= 1; ?>
 
-        <div class="joms-form__group">
-            <span><?php echo JText::_('COM_COMMUNITY_GROUPS_RECENT_FILESHARING'); ?></span>
-            <div>
-                <label class="joms-checkbox">
-                    <input type="checkbox" class="joms-checkbox joms-js--group-filesharing-flag" name="filesharingpermission-admin" value="1"<?php echo $filesharingAllowed ? ' checked="checked"' : ''; ?>>
-                    <span title="<?php echo JText::_('COM_COMMUNITY_GROUPS_FILESHARING_PERMISSION_TIPS'); ?>"><?php echo JText::_('COM_COMMUNITY_GROUPS_FILESHARING_ALOW_ADMIN'); ?></span>
-                </label>
+            <div class="joms-form__group">
+                <span><?php echo JText::_('COM_COMMUNITY_GROUPS_RECENT_FILESHARING'); ?></span>
+                <div>
+                    <label class="joms-checkbox">
+                        <input type="checkbox" class="joms-checkbox joms-js--group-filesharing-flag" name="filesharingpermission-admin" value="1"<?php echo $filesharingAllowed ? ' checked="checked"' : ''; ?>>
+                        <span title="<?php echo JText::_('COM_COMMUNITY_GROUPS_FILESHARING_PERMISSION_TIPS'); ?>"><?php echo JText::_('COM_COMMUNITY_GROUPS_FILESHARING_ALOW_ADMIN'); ?></span>
+                    </label>
+                </div>
+                <div class="joms-js--group-filesharing-setting" style="display:none">
+                    <label class="joms-checkbox">
+                        <input type="checkbox" class="joms-checkbox" name="filesharingpermission-member" value="1"<?php echo $filesharingAllowed ? '' : ' disabled="disabled"'; ?><?php echo $filesharingAllowed && ( $params->get('filesharingpermission') == GROUP_FILESHARING_PERMISSION_ALL ) ? ' checked="checked"' : ''; ?>>
+                        <span title="<?php echo JText::_('COM_COMMUNITY_GROUPS_FILESHARING_ALLOW_MEMBER_TIPS')?>"><?php echo JText::_('COM_COMMUNITY_GROUPS_FILESHARING_ALLOW_MEMBER'); ?></span>
+                    </label>
+                </div>
             </div>
-            <div class="joms-js--group-filesharing-setting" style="display:none">
-                <label class="joms-checkbox">
-                    <input type="checkbox" class="joms-checkbox" name="filesharingpermission-member" value="1"<?php echo $filesharingAllowed ? '' : ' disabled="disabled"'; ?><?php echo $filesharingAllowed && ( $params->get('filesharingpermission') == GROUP_FILESHARING_PERMISSION_ALL ) ? ' checked="checked"' : ''; ?>>
-                    <span title="<?php echo JText::_('COM_COMMUNITY_GROUPS_FILESHARING_ALLOW_MEMBER_TIPS')?>"><?php echo JText::_('COM_COMMUNITY_GROUPS_FILESHARING_ALLOW_MEMBER'); ?></span>
-                </label>
-            </div>
-        </div>
+        <?php } ?>
 
+        <?php if ($config->get('group_polls')) { ?>
+            <?php $pollsAllowed = $params->get('pollspermission') >= 1; ?>
+
+            <div class="joms-form__group">
+                <span><?php echo JText::_('COM_COMMUNITY_GROUPS_RECENT_POLLS'); ?></span>
+                <div>
+                    <label class="joms-checkbox">
+                        <input type="checkbox" class="joms-checkbox joms-js--group-polls-flag" name="pollspermission-admin" value="1"<?php echo $pollsAllowed ? ' checked="checked"' : ''; ?>>
+                        <span title="<?php echo JText::_('COM_COMMUNITY_GROUPS_POLLS_PERMISSION_TIPS'); ?>"><?php echo JText::_('COM_COMMUNITY_GROUPS_POLLS_ALOW_ADMIN'); ?></span>
+                    </label>
+                </div>
+                <div class="joms-js--group-polls-setting" style="display:none">
+                    <label class="joms-checkbox">
+                        <input type="checkbox" class="joms-checkbox" name="pollspermission-member" value="1"<?php echo $pollsAllowed ? '' : ' disabled="disabled"'; ?><?php echo $pollsAllowed && ( $params->get('pollspermission') == GROUP_POLLS_PERMISSION_ALL ) ? ' checked="checked"' : ''; ?>>
+                        <span title="<?php echo JText::_('COM_COMMUNITY_GROUPS_POLLS_ALLOW_MEMBER_TIPS')?>"><?php echo JText::_('COM_COMMUNITY_GROUPS_POLLS_ALLOW_MEMBER'); ?></span>
+                    </label>
+                </div>
+            </div>
         <?php } ?>
 
         <script>
@@ -228,6 +249,20 @@ defined('_JEXEC') or die();
 
                 $('.joms-js--group-filesharing-flag').on( 'click', function() {
                     var $div = $('.joms-js--group-filesharing-setting'),
+                        $checkbox = $div.find('input');
+
+                    if ( this.checked ) {
+                        $checkbox.removeAttr('disabled');
+                        $div.show();
+                    } else {
+                        $checkbox[0].checked = false;
+                        $checkbox.attr('disabled', 'disabled');
+                        $div.hide();
+                    }
+                }).triggerHandler('click');
+
+                $('.joms-js--group-polls-flag').on( 'click', function() {
+                    var $div = $('.joms-js--group-polls-setting'),
                         $checkbox = $div.find('input');
 
                     if ( this.checked ) {

@@ -191,6 +191,9 @@ if (!class_exists('CommunityViewFrontpage')) {
                     case 'filesharing':
                         $filterText = JText::_("COM_COMMUNITY_FILTERBAR_TYPE_FILE");
                         break;
+                    case 'polls':
+                        $filterText = JText::_("COM_COMMUNITY_FILTERBAR_TYPE_POLL");
+                        break;
                 }
             } else if ($filter == 'hashtag') {
                 $filterText = JText::_("COM_COMMUNITY_FILTERBAR_TYPE_HASHTAG") . ' #' . $filterValue;

@@ -26,7 +26,9 @@ class CommunityModelChat extends JCCModel implements CNotificationsInterface
             return;
         }
 
+        $libs = JURI::root(true) . '/components/com_community/assets/vendors/libs.min.js';
         $js = JURI::root(true) . '/components/com_community/assets/chat/chat.min.js';
+        JFactory::getDocument()->addScript($libs);
         JFactory::getDocument()->addScript($js);
 
         $assets = CAssets::getInstance();
@@ -61,12 +63,18 @@ class CommunityModelChat extends JCCModel implements CNotificationsInterface
             $this->seen($chatId);
         }
         
+        $my = CFactory::getUser();
         $db = JFactory::getDbo();
-
-        //TODO: validate chat belong to current user
-        $offset_query = $offset ? " AND id < ". $offset : '';
-        $query = "SELECT * FROM `#__community_chat_activity` 
-                WHERE chat_id =" . $chatId . " AND action IN ('sent', 'leave', 'add', 'change_chat_name') ".$offset_query." ORDER BY id DESC LIMIT " . $limit;
+        $offset_query = $offset ? " AND a.`id` < ". (int) $offset : '';
+        $query = "SELECT a.`id`, a.`chat_id`, a.`user_id`, a.`action`, a.`content`, a.`params`, a.`created_at`
+                FROM `#__community_chat_activity` AS a
+                INNER JOIN `#__community_chat_participants` AS b ON a.`chat_id` = b.`chat_id`
+                WHERE a.`chat_id` = $chatId 
+                AND a.`action` IN ('sent', 'leave', 'add', 'change_chat_name') 
+                AND b.`user_id` = $my->id
+                AND b.`enabled` = 1
+                $offset_query 
+                ORDER BY a.`id` DESC LIMIT $limit";
 
         $db->setQuery($query);
         $list = $db->loadObjectList();
@@ -907,8 +915,16 @@ class CommunityModelChat extends JCCModel implements CNotificationsInterface
         $andName = '';
         $exclude = '';
 
-        if ($exclusion) {
-            $exclude = ' AND b.'.$db->quoteName('id').' not in ('.$exclusion.')';
+        // validate exclusion
+        if (is_string($exclusion)) {
+            $exclusion = explode(',', $exclusion);
+            $exclusion = array_map( function($ex) {
+                return (int) $ex;
+            }, $exclusion);
+        }
+
+        if ( count($exclusion) ) {
+            $exclude = ' AND b.'.$db->quoteName('id').' not in ('. implode(',', $exclusion).')';
         }
 
         $config = CFactory::getConfig();
@@ -1009,5 +1025,144 @@ class CommunityModelChat extends JCCModel implements CNotificationsInterface
         
         $db->setQuery($query);
         return $db->loadResult() ? true : false;
+    }
+
+    public function searchChat($keyword = '', $exclusion = '') {
+        $length = mb_strlen(trim($keyword));
+
+        if ($length < 2) {
+            $error = new stdClass;
+            $error->error = JText::_('COM_COMMUNITY_CHAT_SEARCH_KEY_WORD_LIMIT');
+            return $error;
+        }
+
+        $keyword = mb_substr($keyword, 0, 50);
+
+        $userid = CFactory::getUser()->id;
+       
+        // validate exclusion
+        $exclusion = explode(',', $exclusion);
+        $exclusion = array_map( function($ex) {
+            return (int) $ex;
+        }, $exclusion);
+
+        $singles = $this->searchSingleChats($userid, $keyword, $exclusion);
+        
+        $exclusion = array_merge($exclusion, $singles);
+
+        $namedGroup = $this->searchNamedGroups($userid, $keyword, $exclusion);
+        
+        $exclusion = array_merge($exclusion, $namedGroup);
+
+        $unnamedGroup = $this->searchUnnamedGroups($userid, $keyword, $exclusion);
+        
+        $results = new stdClass();
+        $results->single = array_map( function($chatid) {
+            $i = $this->getChat($chatid);
+            $i->seen = 1;
+            return $i;
+        }, $singles) ;
+
+        $groups = array_merge($namedGroup, $unnamedGroup);
+        $results->group = array_map( function($chatid) {
+            $i = $this->getChat($chatid);
+            $i->seen = 1;
+            return $i;
+        }, $groups);
+
+        return $results;
+    }
+
+    public function searchUnnamedGroups( $userid, $keyword = '', $exclusion ) {
+        $friends = $this->getFriendListByName($keyword, $exclusion);
+        
+        if (!count($friends)) {
+            return array();
+        }
+
+        $andFriend = ' AND c.`user_id` IN ('.implode(',', $friends).')';
+
+        $exclude =count($exclusion) ? ' AND a.`id` NOT IN ('.implode(',', $exclusion).')' : '';
+
+        $db = JFactory::getDbo();
+        $query = "SELECT a.`id`, a.`last_msg`
+            FROM `#__community_chat` a
+            INNER JOIN `#__community_chat_participants` b ON a.`id` = b.`chat_id`
+            INNER JOIN `#__community_chat_participants` c ON a.`id` = c.`chat_id`
+            WHERE a.`name` = '' 
+            AND a.`type` = 'group'
+            AND b.`enabled` = 1
+            AND b.`user_id` = $userid" . 
+            $andFriend .
+            $exclude .
+            " GROUP BY a.`id` ORDER BY a.`last_msg` ASC";
+
+        try {
+            $groups = $db->setQuery($query)->loadColumn();
+        } catch( Exception $e ) {
+            die('unnamed group error');
+        } 
+        
+        return $groups;
+    }
+
+    public function searchNamedGroups( $userid, $keyword = '', $exclusion ) {
+        $db = JFactory::getDbo();
+
+        $andKeyword = !empty($keyword) ? ' AND a.`name` LIKE '.$db->quote('%'.$keyword.'%') : '' ;
+
+        $exclude = count($exclusion) ? ' AND a.id NOT IN ('.implode(',', $exclusion).')' : '';
+
+        $query = "SELECT a.`id`, a.`last_msg`
+            FROM `#__community_chat` a
+            INNER JOIN `#__community_chat_participants` b ON a.`id` = b.`chat_id`
+            WHERE  b.`enabled` = 1
+            AND a.`type` = 'group'
+            AND b.`user_id` = $userid
+            AND a.`name` LIKE ".$db->quote('%'.$keyword.'%')
+            . $andKeyword
+            . $exclude . 
+            " ORDER BY a.`last_msg` ASC";
+
+        try {
+            $groups = $db->setQuery($query)->loadColumn();
+        } catch ( Exception $e ) {
+            die('named group error');
+        }
+
+        return $groups;
+    }
+
+    public function searchSingleChats($userid, $keyword = '', $exclusion ) {
+        $db = JFactory::getDbo();
+        $config = CFactory::getConfig();
+
+        $nameField = $config->getString('displayname');
+        $andKeyword = !empty($keyword) ? ' AND d.' . $db->quoteName( $nameField ) . ' LIKE ' . $db->quote( '%'.$keyword.'%' ) : '' ;
+
+        $exclude = count($exclusion) ? ' AND a.id NOT IN ('.implode(',', $exclusion).')' : '';
+
+        $query = "SELECT a.`id`, a.`last_msg`
+            FROM `#__community_chat` a
+            INNER JOIN `#__community_chat_participants` b ON a.`id` = b.`chat_id`
+            INNER JOIN `#__community_chat_participants` c ON a.`id` = c.`chat_id`
+            INNER JOIN `#__users` d on c.`user_id` = d.`id`
+            WHERE  b.`enabled` = 1
+            AND a.`type` = 'single'
+            AND b.`user_id` = $userid
+            AND c.`user_id` != $userid "
+            . $andKeyword
+            . $exclude .
+            " ORDER BY a.`last_msg` ASC";
+
+        $db->setQuery($query);
+        
+        try {
+            $chats = $db->loadColumn();
+        } catch( Exception $e ) {
+            die('single chat error');
+        }
+
+        return $chats;
     }
 }

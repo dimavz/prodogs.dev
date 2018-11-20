@@ -822,6 +822,7 @@ class CommunitySystemController extends CommunityBaseController {
      * @return type
      */
     public function ajaxStreamAdd($message, $attachment, $streamFilter = FALSE) {
+        $attachment = json_decode($attachment, true);
         $streamHTML = '';
         // $attachment pending filter
 
@@ -837,8 +838,15 @@ class CommunitySystemController extends CommunityBaseController {
 
         //@rule: In case someone bypasses the status in the html, we enforce the character limit.
         $config = CFactory::getConfig();
-        if (CStringHelper::strlen($message) > $config->get('statusmaxchar')) {
-            $message = JHTML::_('string.truncate', $message, $config->get('statusmaxchar'));
+        
+        if ($attachment['type'] == 'message' && isset($attachment['bgid'])) {
+            if (CStringHelper::strlen($message) > 150) {
+                $message = JHTML::_('string.truncate', $message, 150);
+            }
+        } else {
+            if (CStringHelper::strlen($message) > $config->get('statusmaxchar')) {
+                $message = JHTML::_('string.truncate', $message, $config->get('statusmaxchar'));
+            }
         }
 
         $message = CStringHelper::trim($message);
@@ -865,9 +873,7 @@ class CommunitySystemController extends CommunityBaseController {
                 return $objResponse->sendResponse();
             }
         }
-
-        $attachment = json_decode($attachment, true);
-
+        
         switch ($attachment['type']) {
             case 'message':
                 //if (!empty($message)) {
@@ -906,7 +912,7 @@ class CommunitySystemController extends CommunityBaseController {
                         if (!COwnerHelper::isMine($my->id, $attachment['target']) && $attachment['target'] != '') {
                             $attachment['privacy'] = CFactory::getUser($attachment['target'])->getParams()->get('privacyProfileView');
                         }
-
+                        
                         //push to activity stream
                         $act = new stdClass();
                         $act->cmd = 'profile.status.update';
@@ -953,10 +959,17 @@ class CommunitySystemController extends CommunityBaseController {
 
                             $activityParams->set('headMetas', $headMeta->toString());
                         }
+                        
                         //Store mood in paramm
                         if (isset($attachment['mood']) && $attachment['mood'] != 'Mood') {
                             $activityParams->set('mood', $attachment['mood']);
                         }
+
+                        //Store status background in paramm
+                        if (isset($attachment['colorful']) && $attachment['colorful'] == true) {
+                            $activityParams->set('bgid', $attachment['bgid']);
+                        }
+
                         $act->params = $activityParams->toString();
 
                         //CActivityStream::add($act);
@@ -1049,6 +1062,11 @@ class CommunitySystemController extends CommunityBaseController {
                         //Store mood in paramm
                         if (isset($attachment['mood']) && $attachment['mood'] != 'Mood') {
                             $activityParams->set('mood', $attachment['mood']);
+                        }
+
+                        //Store status background in paramm
+                        if (isset($attachment['colorful']) && $attachment['colorful'] == true) {
+                            $activityParams->set('bgid', $attachment['bgid']);
                         }
 
                         $act->params = $activityParams->toString();
@@ -1167,6 +1185,11 @@ class CommunitySystemController extends CommunityBaseController {
                         //Store mood in paramm
                         if (isset($attachment['mood']) && $attachment['mood'] != 'Mood') {
                             $activityParams->set('mood', $attachment['mood']);
+                        }
+
+                        //Store status background in paramm
+                        if (isset($attachment['colorful']) && $attachment['colorful'] == true) {
+                            $activityParams->set('bgid', $attachment['bgid']);
                         }
 
                         $act->params = $activityParams->toString();
@@ -1609,6 +1632,12 @@ class CommunitySystemController extends CommunityBaseController {
                         // attachment id
                         $fetch = $attachment['fetch'];
                         $cid = $fetch[0];
+                        
+                        //if actor posted something to target, the privacy should be under target's profile privacy settings
+                        if (!COwnerHelper::isMine($my->id, $attachment['target']) && $attachment['target'] != '') {
+                            $attachment['privacy'] = CFactory::getUser($attachment['target'])->getParams()->get('privacyProfileView');
+                        }
+                        
                         $privacy = isset($attachment['privacy']) ? $attachment['privacy'] : COMMUNITY_STATUS_PRIVACY_PUBLIC;
 
                         $video = JTable::getInstance('Video', 'CTable');
@@ -1667,9 +1696,7 @@ class CommunitySystemController extends CommunityBaseController {
                         //
                         $activityData = CActivityStream::add($act, $params->toString());
 
-                        //this video must be public because it's posted on someone else's profile
                         if($my->id != $attachment['target']){
-                            $video->set('permissions', COMMUNITY_STATUS_PRIVACY_PUBLIC);
                             $params = new CParameter();
                             $params->set('activity_id', $activityData->id); // activity id is used to remove the activity if someone deleted this video
                             $params->set('target_id', $attachment['target']);
@@ -2237,6 +2264,110 @@ class CommunitySystemController extends CommunityBaseController {
                     break;
                 }
                 break;
+            case 'poll':
+                switch ($attachment['element']) {
+                    case 'profile':
+                        if (COwnerHelper::isMine($my->id, $attachment['target'])) {
+                            /* If no privacy in attachment than we apply default: Public */
+                            if (!isset($attachment['privacy'])) $attachment['privacy'] = COMMUNITY_STATUS_PRIVACY_PUBLIC;
+                        }
+
+                        //if actor posted something to target, the privacy should be under target's profile privacy settings
+                        if (!COwnerHelper::isMine($my->id, $attachment['target']) && $attachment['target'] != '') {
+                            $attachment['privacy'] = CFactory::getUser($attachment['target'])->getParams()->get('privacyProfileView');
+                        }
+
+                        require_once(COMMUNITY_COM_PATH . '/controllers/polls.php');
+
+                        $pollController = new CommunityPollsController();
+                        $poll = $pollController->ajaxCreate($attachment, $message, $objResponse);
+
+                        if (CFactory::getConfig()->get('moderatepollcreation')) {
+                            $objResponse->addAlert(JText::sprintf('COM_COMMUNITY_POLLS_MODERATION_MSG', $poll->title));
+                        }
+
+                    break;
+                    case 'groups':
+                        require_once(COMMUNITY_COM_PATH . '/controllers/polls.php');
+
+                        $groupLib = new CGroups();
+                        $group = JTable::getInstance('Group', 'CTable');
+                        $group->load($attachment['target']);
+
+                        // Permission check, only site admin and those who has
+                        // mark their attendance can post message
+                        if (!COwnerHelper::isCommunityAdmin() && !$group->isMember($my->id) && $config->get('lockgroupwalls')) {
+                            $objResponse->addScriptCall("alert('permission denied');");
+                            return $objResponse->sendResponse();
+                        }
+
+                        // Assign default values where necessary
+                        $attachment['description'] = $message;
+                        $attachment['ticket'] = 0;
+                        $attachment['offset'] = 0;
+
+                        $pollController = new CommunityPollsController();
+                        $poll = $pollController->ajaxCreate($attachment, $message, $objResponse);
+
+                        //add Group Notification
+                        if (!CFactory::getConfig()->get('moderatepollcreation')) {
+                            $group = JTable::getInstance( 'Group' , 'CTable' );
+                            $group->load($attachment['target']);
+
+                            $modelGroup = CFactory::getModel('groups');
+                            $groupMembers = array();
+                            $groupMembers = $modelGroup->getMembersId($attachment['target'], true);
+
+                            // filter group creator.
+                            if ($key = array_search($poll->creator, $groupMembers)) {
+                                unset($groupMembers[$key]);
+                            }
+
+                            $subject = JText::sprintf('COM_COMMUNITY_GROUP_NEW_POLL_NOTIFICATION', $my->getDisplayName(), $group->name);
+                            $params = new CParameter( '' );
+                            $params->set('title', $poll->title);
+                            $params->set('group', $group->name);
+                            $params->set('group_url' , 'index.php?option=com_community&view=groups&task=viewgroup&groupid='.$group->id);
+                            $params->set('poll', $poll->title);
+                            $params->set('poll_url' , 'index.php?option=com_community&view=polls&groupid='.$group->id);
+                            $params->set('url', 'index.php?option=com_community&view=polls&groupid='.$group->id);
+                            CNotificationLibrary::add('groups_create_poll', $my->id, $groupMembers, JText::sprintf('COM_COMMUNITY_GROUP_NEW_EVENT_NOTIFICATION'), '', 'groups.poll', $params);
+                        }
+
+                        if (CFactory::getConfig()->get('moderatepollcreation')) {
+                            $objResponse->addAlert(JText::sprintf('COM_COMMUNITY_POLLS_MODERATION_MSG', $poll->title));
+                        }
+
+                        // Reload the stream with new stream data
+                        $streamHTML = $groupLib->getStreamHTML($group, array('showLatestActivityOnTop'=>true));
+
+                    break;
+                    case 'events':
+                        require_once(COMMUNITY_COM_PATH . '/controllers/polls.php');
+
+                        $eventLib = new CEvents();
+                        $event = JTable::getInstance('Event', 'CTable');
+                        $event->load($attachment['target']);
+
+                        // Permission check, only site admin and those who has
+                        // mark their attendance can post message
+                        if ((!COwnerHelper::isCommunityAdmin() && !$event->isMember($my->id) && $config->get('lockeventwalls'))) {
+                            $objResponse->addScriptCall("alert('permission denied');");
+                            return $objResponse->sendResponse();
+                        }
+
+                        $pollController = new CommunityPollsController();
+                        $poll = $pollController->ajaxCreate($attachment, $message, $objResponse);
+                        
+                        if (CFactory::getConfig()->get('moderatepollcreation')) {
+                            $objResponse->addAlert(JText::sprintf('COM_COMMUNITY_POLLS_MODERATION_MSG', $poll->title));
+                        }
+
+                        // Reload the stream with new stream data
+                        $streamHTML = $eventLib->getStreamHTML($event, array('showLatestActivityOnTop'=>true));
+                    break;
+                }
+                break;
             case 'link':
                 break;
         }
@@ -2320,7 +2451,7 @@ class CommunitySystemController extends CommunityBaseController {
 
         // Log user engagement
         CEngagement::log($attachment['type'] . '.share', $my->id);
-
+        
         return $objResponse->sendResponse();
     }
 
@@ -3370,7 +3501,7 @@ class CommunitySystemController extends CommunityBaseController {
         $my = CFactory::getUser();
 
 
-        $allowedFilter = array( 'all','privacy:me-and-friends','apps:profile','apps:photo','apps:video','apps:group','apps:event','apps:filesharing' );
+        $allowedFilter = array('all','privacy:me-and-friends','apps:profile','apps:photo','apps:video','apps:group','apps:event','apps:filesharing','apps:polls');
         //quick validation
         if(!$my->id || !in_array($defaultFilter,$allowedFilter)){
             die( json_encode( array(

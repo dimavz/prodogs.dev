@@ -126,6 +126,16 @@ defined('_JEXEC') or die('Restricted access');
 						</tr>
 						<tr>
 							<td class="key">
+								<span class="editlinktip js-tooltip" title="<?php echo JText::_('COM_COMMUNITY_CONFIGURATION_GROUPS_POLLS_TIPS'); ?>">
+									<?php echo JText::_( 'COM_COMMUNITY_CONFIGURATION_GROUPS_POLLS' ); ?>
+								</span>
+							</td>
+							<td>
+								<?php echo CHTMLInput::checkbox('group_polls' ,'ace-switch ace-switch-5', null , $this->config->get('group_polls') ); ?>
+							</td>
+						</tr>
+						<tr>
+							<td class="key">
 								<span class="editlinktip js-tooltip" title="<?php echo JText::_('COM_COMMUNITY_CONFIGURATION_GROUPS_ANNOUNCEMENTS_TIPS'); ?>">
 									<?php echo JText::_( 'COM_COMMUNITY_CONFIGURATION_GROUPS_ANNOUNCEMENTS' ); ?>
 								</span>

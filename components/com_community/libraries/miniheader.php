@@ -48,6 +48,7 @@
                 $eventEnabled = ($config->get('enableevents')) ? true : false;
                 $groupEnabled = ($config->get('enablegroups')) ? true : false;
                 $videoEnabled = ($config->get('enablevideos')) ? true : false;
+                $pollsEnabled = ($config->get('enablepolls')) ? true : false;
 
                 //likes
                 CFactory::load('libraries', 'like');
@@ -92,6 +93,9 @@
                 $photosModel = CFactory::getModel('photos');
                 $profile->_photos = $photosModel->getPhotosCount($profile->id);
 
+                $pollsModel = CFactory::getModel('Polls');
+                $profile->_polls = $pollsModel->getPollsCount($profile->id);
+
                 /* is featured */
                 $modelFeatured = CFactory::getModel('Featured');
                 $profile->featured = $modelFeatured->isExists(FEATURED_USERS, $profile->id);
@@ -111,12 +115,13 @@
                     ->set('eventEnabled', $eventEnabled)
                     ->set('groupEnabled', $groupEnabled)
                     ->set('videoEnabled', $videoEnabled)
+                    ->set('pollsEnabled', $pollsEnabled)
                     ->set('profile', $profile)
                     ->set('isUserLiked', $isUserLiked)
                     ->set('likes', $likes)
                     ->set('isFriend', CFriendsHelper::isConnected($user->id, $my->id) && $user->id != $my->id);
                 $showMiniHeader = $option == 'com_community' ? $tmpl->fetch('profile.miniheader') : '<div id="community-wrap" style="min-height:50px;">' . $tmpl->fetch('profile.miniheader') . '</div>';
-
+                
                 return $showMiniHeader;
             }
         }
@@ -171,6 +176,13 @@
                     $totalPhotos = $totalPhotos + $albumParams->get('count');
                 }
 
+                $pollModel = CFactory::getModel('polls');
+                $polls = $pollModel->getAllPolls(null, null, null, null, false, true, $group->id);
+                $totalPolls = 0; 
+                foreach ($polls as $poll) {
+                    $totalPolls++;
+                }
+
                 $videoModel = CFactory::getModel('videos');
                 $tmpVideos = $videoModel->getGroupVideos($groupId, '',
                     $params->get('grouprecentvideos', GROUP_VIDEO_RECENT_LIMIT));
@@ -213,10 +225,13 @@
                         ($params->get('photopermission') != -1) && $config->get('enablephotos') && $config->get('groupphotos'))
                     ->set('showVideos',
                         ($params->get('videopermission') != -1) && $config->get('enablevideos') && $config->get('groupvideos'))
+                    ->set('showPolls',
+                        ($params->get('pollspermission') != -1) && $config->get('enablepolls') && $config->get('group_polls'))
                     ->set('isSuperAdmin', COwnerHelper::isCommunityAdmin())
                     ->set('isMine', ($my->id == $group->ownerid))
                     ->set('totalVideos', $totalVideos)
                     ->set('totalPhotos', $totalPhotos)
+                    ->set('totalPolls', $totalPolls)
                     ->set('isAdmin', $groupModel->isAdmin($my->id, $group->id))
                     ->set('isFile', $fileModel->isfileAvailable($group->id, 'group'))
                     ->set('isLikeEnabled', $isLikeEnabled)
@@ -286,6 +301,10 @@
             $videosModel = CFactory::getModel('videos');
             $totalVideos = count($videosModel->getEventVideos($event->id));
 
+            //get total polls
+            $pollsModel = CFactory::getModel('polls');
+            $totalPolls = $pollsModel->getEventPollsCount($event->id);
+
             $now = new JDate();
             $tmpl = new CTemplate();
             $tmpl->set('event', $event)
@@ -304,8 +323,10 @@
                 ->set('isMine', $event->isCreator($my->id))
                 ->set('showPhotos', ( $params->get('photopermission') != -1 ) && $config->get('enablephotos') && $config->get('eventphotos'))
                 ->set('showVideos', ( $params->get('videopermission') != -1 ) && $config->get('enablevideos') && $config->get('eventvideos'))
+                ->set('showPolls', ( $params->get('pollspermission') != -1 ) && $config->get('enablepolls') && $config->get('event_polls'))
                 ->set('totalPhotos', $totalPhotos)
                 ->set('totalVideos', $totalVideos)
+                ->set('totalPolls', $totalPolls)
                 ->set('handler', $handler);
 
             return $option == 'com_community' ? $tmpl->fetch('events/miniheader') : '<div id="community-wrap">' . $tmpl->fetch('events/miniheader') . '</div>';

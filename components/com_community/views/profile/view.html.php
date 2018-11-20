@@ -1725,6 +1725,9 @@ if (!class_exists('CommunityViewProfile')) {
             $photosModel = CFactory::getModel('photos');
             $profile->_photos = $photosModel->getPhotosCount($profile->id);
 
+            $pollsModel = CFactory::getModel('Polls');
+            $profile->_polls = $pollsModel->getPollsCount($profile->id);
+
             if ($profile->status !== '') {
                 $postedOn = new JDate($user->_posted_on);
                 $postedOn = CActivityStream::_createdLapse($postedOn);
@@ -1777,6 +1780,7 @@ if (!class_exists('CommunityViewProfile')) {
             $eventEnabled = ($config->get('enableevents')) ? true : false;
             $groupEnabled = ($config->get('enablegroups')) ? true : false;
             $videoEnabled = ($config->get('enablevideos')) ? true : false;
+            $pollsEnabled = ($config->get('enablepolls')) ? true : false;
             $isSEFEnabled = ($jConfig->get('sef')) ? true : false;
 
             $multiprofile = JTable::getInstance('MultiProfile', 'CTable');
@@ -1851,6 +1855,7 @@ if (!class_exists('CommunityViewProfile')) {
                     ->set('eventEnabled', $eventEnabled)
                     ->set('groupEnabled', $groupEnabled)
                     ->set('videoEnabled', $videoEnabled)
+                    ->set('pollsEnabled', $pollsEnabled)
                     ->set('about', $this->_getProfileHTML($data->profile))
                     ->set('isSEFEnabled', $isSEFEnabled)
                     ->set('blocked', $user->isBlocked())

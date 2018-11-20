@@ -58,7 +58,8 @@ class CProfileTrigger
 	 * Method is called during the status update triggers.
 	 **/
 	public function onProfileStatusUpdate( $userid , $oldMessage , $newMessage )
-	{
+	{	
+		return false;
 		$config	= CFactory::getConfig();
 		$my = CFactory::getUser();
 		

@@ -234,6 +234,10 @@ if ($isSuperAdmin && $config->get('show_featured') && !$group->unlisted) {
             <?php } ?>
 
 
+            <?php // Create poll
+            if ($my->authorise('community.create', 'groups.polls.' . $group->id)) { ?>
+                <li><a href="<?php echo CRoute::_('index.php?option=com_community&view=polls&task=create&groupid=' . $group->id); ?>"><?php echo JText::_('COM_COMMUNITY_GROUPS_CREATE_POLL'); ?></a></li>
+            <?php } ?>
 
             <?php // @TODO: CAccess - Leave group
             if ($isMember && !$isMine && !$waitingApproval && COwnerHelper::isRegisteredUser()) { ?>
@@ -366,7 +370,7 @@ if($showGroupDetails || $aclaccess){
                 </a>
             </li>
         <?php } ?>
-
+        
         <?php if ($showEvents) { ?>
             <li class="half">
                 <a href="<?php echo CRoute::_('index.php?option=com_community&view=events&groupid=' . $group->id); ?>"><?php echo ($totalEvents == 1)
@@ -375,6 +379,14 @@ if($showGroupDetails || $aclaccess){
             </li>
         <?php } ?>
 
+        <?php if ($showPolls) { ?>
+            <li class="half">
+                <a href="<?php echo CRoute::_('index.php?option=com_community&view=polls&groupid=' . $group->id); ?>"><?php echo ($totalPolls == 1)
+                        ? JText::_('COM_COMMUNITY_POLLS_COUNT') . ' <span class="joms-text--light">' . $totalPolls . '</span>'
+                        : JText::_('COM_COMMUNITY_POLLS_COUNT_MANY') . ' <span class="joms-text--light">' . $totalPolls . '</span>' ; ?></a>
+            </li>
+        <?php } ?>
+        
         <li class="half">
             <a href="<?php echo CRoute::_('index.php?option=com_community&view=groups&task=viewmembers&groupid=' . $group->id); ?>"><?php echo ($membersCount == 1)
                     ? JText::_('COM_COMMUNITY_GROUPS_MEMBER') . ' <span class="joms-text--light">' . $membersCount . '</span>'
@@ -998,9 +1010,9 @@ if($showGroupDetails || $aclaccess){
 
     joms.constants.groupid = <?php echo $group->id; ?>;
     joms.constants.videocreatortype = '<?php echo VIDEO_GROUP_TYPE ?>';
-    joms.constants.conf.enablephotos = <?php echo (isset($showPhotos) && $showPhotos == 1 && (( $isAdmin && $photoPermission == 1 ) || ($isMember && $photoPermission == 2) ) && CFactory::getUser()->authorise('community.photocreate', 'com_community')) ? 1 : 0 ; ?>;
-    joms.constants.conf.enablevideos = <?php echo (isset($showVideos) && $showVideos == 1 && (( $isAdmin && $videoPermission == 1 ) || ($isMember && $videoPermission == 2) ) && CFactory::getUser()->authorise('community.videocreate', 'com_community')) ? 1 : 0 ; ?>;
+    joms.constants.conf.enablephotos = <?php echo (isset($showPhotos) && $showPhotos == 1 && (( ($isAdmin || COwnerHelper::isCommunityAdmin()) && $photoPermission == 1 ) || (($isMember || COwnerHelper::isCommunityAdmin()) && $photoPermission == 2) ) && CFactory::getUser()->authorise('community.photocreate', 'com_community')) ? 1 : 0 ; ?>;
+    joms.constants.conf.enablevideos = <?php echo (isset($showVideos) && $showVideos == 1 && (( ($isAdmin || COwnerHelper::isCommunityAdmin()) && $videoPermission == 1 ) || (($isMember || COwnerHelper::isCommunityAdmin()) && $videoPermission == 2) ) && CFactory::getUser()->authorise('community.videocreate', 'com_community')) ? 1 : 0 ; ?>;
     joms.constants.conf.enablevideosupload  = <?php echo $config->get('enablevideosupload');?>;
-    joms.constants.conf.enableevents = <?php echo (isset($showEvents) && $showEvents == 1 && (( $isAdmin && $eventPermission == 1 ) || ($isMember && $eventPermission == 2) ) && $my->canCreateEvents() ) ? 1 : 0 ; ?>;
+    joms.constants.conf.enableevents = <?php echo (isset($showEvents) && $showEvents == 1 && (( ($isAdmin || COwnerHelper::isCommunityAdmin()) && $eventPermission == 1 ) || (($isMember || COwnerHelper::isCommunityAdmin()) && $eventPermission == 2) ) && $my->canCreateEvents() ) ? 1 : 0 ; ?>;
 
 </script>

@@ -270,6 +270,18 @@ if(!$isSearch && ($task == 'display' || !$task) && !$groupid){
                                 </a>
                             </li>
                             <?php } ?>
+
+                            <?php if($event->showPolls){ ?>
+                            <li>
+                                <svg class="joms-icon" viewBox="0 0 16 16">
+                                    <use xlink:href="<?php echo CRoute::getURI(); ?>#joms-icon-list"></use>
+                                </svg>
+                                <a href="<?php echo CRoute::_('index.php?option=com_community&view=polls&eventid=' . $event->id); ?>"><?php echo $event->totalPolls; ?>
+                                    <?php echo ($event->totalPolls == 1) ?
+                                        JText::_('COM_COMMUNITY_POLLS_COUNT') : JText::_('COM_COMMUNITY_POLLS_COUNT_MANY'); ?>
+                                </a>
+                            </li>
+                            <?php } ?>
                         </ul>
 
                         <div class="joms-gap--small"></div>

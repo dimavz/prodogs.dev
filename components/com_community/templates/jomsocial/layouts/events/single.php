@@ -410,7 +410,7 @@ if (COwnerHelper::isCommunityAdmin() && $config->get('show_featured') && !$event
                 <li class="full"><?php echo JText::sprintf('COM_COMMUNITY_EVENT_HOSTED_BY',CRoute::_('index.php?option=com_community&view=profile&userid=' . $creator->id), $creator->getDisplayName()) ?></li>
             <?php } ?>
 
-            <?php if ($showPhotos || $showVideos){ ?>
+            <?php if ($showPhotos || $showVideos || $showPolls){ ?>
             <li class="full">
                 <a href="javascript:" data-ui-object="joms-dropdown-button">
                     <?php echo JTEXT::_('COM_COMMUNITY_MORE'); ?>
@@ -426,11 +426,20 @@ if (COwnerHelper::isCommunityAdmin() && $config->get('show_featured') && !$event
                                     JText::_('COM_COMMUNITY_PHOTOS_COUNT') . ' <span class="joms-text--light">' . $totalPhotos . '</span>' ; ?></a>
                         </li>
                     <?php } ?>
+
                     <?php if($showVideos){ ?>
                         <li class="full">
                             <a href="<?php echo CRoute::_('index.php?option=com_community&view=videos&eventid=' . $event->id); ?>"><?php echo ($totalVideos == 1) ?
                                     JText::_('COM_COMMUNITY_VIDEOS_COUNT') . ' <span class="joms-text--light">' . $totalVideos . '</span>' :
                                     JText::_('COM_COMMUNITY_VIDEOS_COUNT_MANY') . ' <span class="joms-text--light">' . $totalVideos . '</span>' ; ?></a>
+                        </li>
+                    <?php } ?>
+
+                    <?php if($showPolls){ ?>
+                        <li class="full">
+                            <a href="<?php echo CRoute::_('index.php?option=com_community&view=polls&eventid=' . $event->id); ?>"><?php echo ($totalPolls == 1) ?
+                                    JText::_('COM_COMMUNITY_POLLS_COUNT') . ' <span class="joms-text--light">' . $totalPolls . '</span>' :
+                                    JText::_('COM_COMMUNITY_POLLS_COUNT_MANY') . ' <span class="joms-text--light">' . $totalPolls . '</span>' ; ?></a>
                         </li>
                     <?php } ?>
                 </ul>
@@ -576,7 +585,6 @@ if (COwnerHelper::isCommunityAdmin() && $config->get('show_featured') && !$event
                     <?php } ?>
                 </div>
                 <div id="joms-app--event-map" class="joms-tab__content">
-                    <?php if ( CMapping::validateAddress($event->location) ) { ?>
                     <div id="community-event-map" >
                         <div class="app-box-content event-description">
                             <!-- begin: dynamic map -->
@@ -635,7 +643,6 @@ if (COwnerHelper::isCommunityAdmin() && $config->get('show_featured') && !$event
                             });
                         })( window );
                     </script>
-                    <?php } ?>
                 </div>
                 <?php if ($eventSeries && $seriesCount > 1) { ?>
                 <div id="joms-app--event-series" class="joms-tab__content" style="display:none;">
@@ -908,8 +915,8 @@ if (COwnerHelper::isCommunityAdmin() && $config->get('show_featured') && !$event
     joms.constants.eventid = <?php echo $event->id; ?>;
     joms.constants.videocreatortype = '<?php echo VIDEO_EVENT_TYPE ?>';
 
-    joms.constants.conf.enablephotos = <?php echo (isset($showPhotos) && $showPhotos == 1 && (( $isAdmin && $photoPermission == 1 ) || ($isEventGuest && $photoPermission == 2) ) && CFactory::getUser()->authorise('community.photocreate', 'com_community') ) ? 1 : 0 ; ?>;
-    joms.constants.conf.enablevideos = <?php echo (isset($showVideos) && $showVideos == 1 && (( $isAdmin && $videoPermission == 1 ) || ($isEventGuest && $videoPermission == 2) ) && CFactory::getUser()->authorise('community.videocreate', 'com_community') ) ? 1 : 0 ; ?>;
+    joms.constants.conf.enablephotos = <?php echo (isset($showPhotos) && $showPhotos == 1 && (( ($isAdmin || COwnerHelper::isCommunityAdmin()) && $photoPermission == 1 ) || (($isEventGuest || COwnerHelper::isCommunityAdmin()) && $photoPermission == 2) ) && CFactory::getUser()->authorise('community.photocreate', 'com_community') ) ? 1 : 0 ; ?>;
+    joms.constants.conf.enablevideos = <?php echo (isset($showVideos) && $showVideos == 1 && (( ($isAdmin || COwnerHelper::isCommunityAdmin()) && $videoPermission == 1 ) || (($isEventGuest || COwnerHelper::isCommunityAdmin()) && $videoPermission == 2) ) && CFactory::getUser()->authorise('community.videocreate', 'com_community') ) ? 1 : 0 ; ?>;
 
     joms.constants.conf.enablevideosupload  = <?php echo $config->get('enablevideosupload');?>;
 

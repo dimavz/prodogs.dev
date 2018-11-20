@@ -8,8 +8,8 @@
 		</message>
 		<options var="task">
  			<default name="Standard Search" msg="Standard Search Form" />
-			<option value="advancesearch" name="- Advance Search" msg="Displays an advance user search form" />
-			<option value="browse" name="- All Members" msg="Displays all members page" />
+			<option value="advancesearch" name="Advance Search" msg="Displays an advance user search form" />
+			<option value="browse" name="All Members" msg="Displays all members page" />
  		</options>
 	</view>
 	<state>

@@ -175,6 +175,38 @@
                     <div class="joms-form__group" for="password">
                         <span><?php echo JText::_('COM_COMMUNITY_PASSWORD'); ?></span>
                         <input id="jspassword" name="jspassword" class="joms-input" type="password" value=""/>
+
+                        <?php 
+                            $passparams = JComponentHelper::getParams('com_users');
+
+                            if (!empty($passparams)) {
+                                $minimumLengthp = $passparams->get('minimum_length', 6);
+                                $minimumIntegersp = $passparams->get('minimum_integers');
+                                $minimumSymbolsp = $passparams->get('minimum_symbols');
+                                $minimumUppercasep = $passparams->get('minimum_uppercase');
+
+                                empty($minimumLengthp) ? : $minimumLength = (int) $minimumLengthp;
+                                empty($minimumIntegersp) ? : $minimumIntegers = (int) $minimumIntegersp;
+                                empty($minimumSymbolsp) ? : $minimumSymbols = (int) $minimumSymbolsp;
+                                empty($minimumUppercasep) ? : $minimumUppercase = (int) $minimumUppercasep;
+
+                                if (!empty($minimumLength)) {
+                                    echo  '<div>' . JText::_('COM_COMMUNITY_CONFIG_FIELD_MINIMUM_PASSWORD_LENGTH') .': ' . $minimumLength . '</div>';
+                                }
+
+                                if (!empty($minimumIntegersp)) {
+                                    echo  '<div>' . JText::_('COM_COMMUNITY_CONFIG_FIELD_MINIMUM_INTEGERS') .': ' . $minimumIntegersp . '</div>';
+                                }
+
+                                if (!empty($minimumSymbolsp)) {
+                                    echo  '<div>' . JText::_('COM_COMMUNITY_CONFIG_FIELD_MINIMUM_SYMBOLS') .': ' . $minimumSymbolsp . '</div>';
+                                }
+
+                                if (!empty($minimumUppercasep)) {
+                                    echo  '<div>' . JText::_('COM_COMMUNITY_CONFIG_FIELD_MINIMUM_UPPERCASE') .': ' . $minimumUppercasep . '</div>';
+                                }
+                            }
+                        ?>
                     </div>
                     <!-- verify password -->
                     <div class="joms-form__group" for="verifypassword">
@@ -218,15 +250,6 @@
                     <?php } else {
                         if ($associated) { ?>
                             <div><?php echo JText::_('COM_COMMUNITY_ACCOUNT_ALREADY_MERGED'); ?></div>
-                            <?php if ($config->get('fbconnectpoststatus')) { ?>
-                                <div>
-                                    <input<?php echo !empty($fbPostStatus) ? ' checked="checked"' : ''; ?> type="checkbox"
-                                                                                                           id="postFacebookStatus"
-                                                                                                           name="postFacebookStatus">
-                                    <label for="postFacebookStatus"
-                                           style="display: inline;"><?php echo JText::_('COM_COMMUNITY_ALLOW_SITE_TO_PUBLISH_UPDATES_TO_YOUR_FACEBOOK_ACCOUNT'); ?></label>
-                                </div>
-                            <?php } ?>
                         <?php } else { ?>
                             <?php echo $fbHtml; ?>
                         <?php }

@@ -22,18 +22,14 @@ module.exports = function( grunt ) {
     grunt.initConfig({
     	watch: {
             dev: {
-                files: ['<%= path.source %>js/**/*.js', 'release_32/js/bundle.src.js', 'release_32/js/templates/jst.js'],
+                files: [
+                    '<%= path.source %>js/**/*.js',
+                    '<%= path.source %>css/**/*.css',
+                    'postbox/js/**/*.js'
+                ],
                 tasks: [
-                    'requirejs:scripts',
-                    'concat',
-                    'replace',
-                    'rsync'
-                ]
-            },
-            legacy: {
-                files: ['release_32/js/**', '!release_32/js/bundle.js'],
-                tasks: [
-                    'concat:legacy'
+                    'requirejs',
+                    'concat'
                 ]
             }
     	},
@@ -51,17 +47,7 @@ module.exports = function( grunt ) {
                     '<%= path.vendor %>lab.min.js',
                     '<%= path.source %>js/loader.js'
                 ],
-                dest: '<%= path.temp %>js/loader.js'
-            },
-            legacy: {
-                src: [
-                    'release_32/js/start.frag',
-                    'release_32/js/templates/jst.js',
-                    'release_32/js/patch.js',
-                    'release_32/js/bundle.src.js',
-                    'release_32/js/end.frag'
-                ],
-                dest: 'release_32/js/bundle.js'
+                dest: '<%= path.dist %>js/loader.js'
             }
         },
         jshint: {
@@ -74,14 +60,26 @@ module.exports = function( grunt ) {
             }
         },
         requirejs: {
-            scripts: {
+            source: {
                 options: {
                     baseUrl: sourceDir + 'js/',
                     mainConfigFile: sourceDir + 'js/bundle.js',
                     name: '../../vendors/almond',
                     include: [ 'bundle' ],
                     wrap: true,
-                    out: tempDir + 'js/bundle.js',
+                    out: distDir + 'js/bundle.js',
+                    optimize: 'none',
+                    preserveLicenseComments: false
+                }
+            },
+            postbox: {
+                options: {
+                    baseUrl: 'postbox/js/',
+                    mainConfigFile:'postbox/js/bundle.js',
+                    name: '../../vendors/almond',
+                    include: [ 'bundle' ],
+                    wrap: true,
+                    out: distDir + 'js/postbox.js',
                     optimize: 'none',
                     preserveLicenseComments: false
                 }
@@ -89,36 +87,18 @@ module.exports = function( grunt ) {
             stylesheets: {
                 options: {
                     cssIn: sourceDir + 'css/override.css',
-                    out: tempDir + 'css/override.css',
+                    out: distDir + 'css/override.css',
                     optimizeCss: 'standard'
                 }
             }
         },
-        replace: {
-            release: {
-                src: ['<%= path.temp %>js/*'],
-                overwrite: true,
-                replacements: [{
-                    from: /(^|\n).*@@release@@(.*)@@.*(?=\n|$)/g,
-                    to: '$1$2'
-                }]
-            }
-        },
-        rsync: {
-            dist: {
-                resources: [{
-                    from: tempDir,
-                    to: distDir
-                }]
-            }
-        },
         uglify: {
             app: {
-                files: {
-                    '<%= path.temp %>js/bundle.js': [ '<%= path.temp %>js/bundle.js' ],
-                    '<%= path.temp %>js/loader.js': [ '<%= path.temp %>js/loader.js' ],
-                    'release_32/js/bundle.js': [ 'release_32/js/bundle.js' ],
-                },
+                files: [{
+                    expand: true,
+                    src: ['release/js/*.js'],
+                    dest: ''
+                }],
                 options: {
                     preserveComments: false,
                     report: 'gzip'
@@ -140,41 +120,16 @@ module.exports = function( grunt ) {
     grunt.registerTask( 'build', [
         'requirejs',
         'concat',
-        'replace',
         'uglify:app',
-        'rsync'
     ]);
 
     grunt.registerTask( 'dev', ['watch:dev']);
 
-    grunt.registerTask( 'dev-legacy', ['watch:legacy']);
-
-    grunt.registerTask( 'compress-legacy', [
-        'uglify:legacy'
+    grunt.registerTask( 'test', [
+        'requirejs',
+        'concat'
     ]);
 
     // Custom tasks.
     // -------------------------------------------------------------------------
-
-    // Synchronize files.
-    grunt.registerMultiTask( 'rsync', function() {
-        var exec = require('child_process').exec,
-            done = this.async(),
-            res = this.data.resources,
-            cmd = '';
-
-        if ( res && res.length ) {
-            for ( var i = 0; i < res.length; i++ ) {
-                cmd += 'rsync -racvi ' + res[ i ].from + ' ' + res[ i ].to ;
-            }
-        }
-
-        cmd || done();
-        cmd && exec( cmd, function( err, stdout, stderr ) {
-            err && grunt.fail.fatal( 'Problem with rsync: ' + err + ' ' + stderr );
-            grunt.log.writeln( stdout );
-            done();
-        });
-    });
-
 };

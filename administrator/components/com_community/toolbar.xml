@@ -128,5 +128,11 @@
 			<access>1</access>
 			<link><![CDATA[index.php?option=com_community&view=events]]></link>
 		</item>
+        <item>
+            <name>Polls</name>
+            <alias>polls</alias>
+            <access>1</access>
+            <link><![CDATA[index.php?option=com_community&view=polls]]></link>
+        </item>
 	</items>
 </toolbar>

@@ -868,6 +868,73 @@ class CommunityProfileController extends CommunityBaseController {
         $changePassword = false;
         if (CStringHelper::strlen($post['jspassword']) || CStringHelper::strlen($post['jspassword2'])) {
             // so that "0" can be used as password e.g.
+            $params = JComponentHelper::getParams('com_users');
+
+            if (!empty($params)) {
+                $minimumLengthp = $params->get('minimum_length', 6);
+                $minimumIntegersp = $params->get('minimum_integers');
+                $minimumSymbolsp = $params->get('minimum_symbols');
+                $minimumUppercasep = $params->get('minimum_uppercase');
+
+                empty($minimumLengthp) ? : $minimumLength = (int) $minimumLengthp;
+                empty($minimumIntegersp) ? : $minimumIntegers = (int) $minimumIntegersp;
+                empty($minimumSymbolsp) ? : $minimumSymbols = (int) $minimumSymbolsp;
+                empty($minimumUppercasep) ? : $minimumUppercase = (int) $minimumUppercasep;
+
+                $valueLength = strlen($post['jspassword']);
+
+                if ($valueLength > 4096) {
+                    $msg = JText::_('COM_COMMUNITY_PASSWORD_TOO_LONG');
+                    $mainframe->redirect(CRoute::_('index.php?option=com_community&view=profile&task=editDetails', false), $msg, 'error');
+                    return false;
+                }
+
+                $valueTrim = trim($post['jspassword']);
+                if (strlen($valueTrim) != $valueLength) {
+                    $msg = JText::_('COM_COMMUNITY_SPACES_IN_PASSWORD');
+                    $mainframe->redirect(CRoute::_('index.php?option=com_community&view=profile&task=editDetails', false), $msg, 'error');
+                    return false;
+                }
+
+                if (!empty($minimumLength)) {
+                    if (strlen((string) $post['jspassword']) < $minimumLength) {
+                        $msg = JText::plural('COM_COMMUNITY_PASSWORD_TOO_SHORT_N', $minimumLength);
+                        $mainframe->redirect(CRoute::_('index.php?option=com_community&view=profile&task=editDetails', false), $msg, 'error');
+                        return false;
+                    }
+                }
+
+                if (!empty($minimumIntegers)) {
+                    $nInts = preg_match_all('/[0-9]/', $post['jspassword'], $imatch);
+
+                    if ($nInts < $minimumIntegers) {
+                        $msg = JText::plural('COM_COMMUNITY_NOT_ENOUGH_INTEGERS_N', $minimumIntegers);
+                        $mainframe->redirect(CRoute::_('index.php?option=com_community&view=profile&task=editDetails', false), $msg, 'error');
+                        return false;
+                    }
+                }
+
+                if (!empty($minimumSymbols)) {
+                    $nsymbols = preg_match_all('[\W]', $post['jspassword'], $smatch);
+
+                    if ($nsymbols < $minimumSymbols) {
+                        $msg = JText::plural('COM_COMMUNITY_NOT_ENOUGH_SYMBOLS_N', $minimumSymbols);
+                        $mainframe->redirect(CRoute::_('index.php?option=com_community&view=profile&task=editDetails', false), $msg, 'error');
+                        return false;
+                    }
+                }
+
+                if (!empty($minimumUppercase)) {
+                    $nUppercase = preg_match_all("/[A-Z]/", $post['jspassword'], $umatch);
+
+                    if ($nUppercase < $minimumUppercase) {
+                        $msg = JText::plural('COM_COMMUNITY_NOT_ENOUGH_UPPERCASE_LETTERS_N', $minimumUppercase);
+                        $mainframe->redirect(CRoute::_('index.php?option=com_community&view=profile&task=editDetails', false), $msg, 'error');
+                        return false;
+                    }
+                }
+            }
+
             if ($post['jspassword'] != $post['jspassword2']) {
                 $msg = JText::_('COM_COMMUNITY_EDIT_PROFILE_PASSWORD_NOT_SAME');
                 $mainframe->redirect(CRoute::_('index.php?option=com_community&view=profile&task=editDetails', false), $msg, 'error');

@@ -191,6 +191,48 @@ Class CEventsAccess implements CAccessInterface
         return false;
     }
 
+    static public function eventsPollsCreate($userId, $eventId)
+    {
+        $config = CFactory::getConfig();
+
+        $event = JTable::getInstance('Event', 'CTable');
+        $event->load($eventId);
+
+        $params = new CParameter($event->params);
+
+        $groupModel = CFactory::getModel('groups');
+
+        // FALSE globally disabled
+        if(!$config->get('event_polls') || !CFactory::getUser()->authorise('community.pollcreate', 'com_community')) {
+            return false;
+        }
+
+        if($params->get('pollspermission') == -1 || !$userId) {
+            return false;
+        }
+
+        // TRUE Super Admin
+        if(COwnerHelper::isCommunityAdmin($userId)) {
+            return true;
+        }
+
+        // TRUE owner
+        if($event->creator == $userId) {
+            return true;
+        }
+
+        // FALSE only admins can post
+        if($params->get('pollspermission') == 1) {
+            return false;
+        }
+
+        // member and video permission is on for member
+        if($event->isMember($userId) && $params->get('pollspermission') == 2) {
+            return true;
+        }
+
+        return false;
+    }
 
     /**
      * Check if the user can do the ban action on events

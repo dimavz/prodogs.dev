@@ -926,4 +926,13 @@
                 $db->execute();
             }
         }
+
+        public static function update_26(){
+            $db = JFactory::getDbo();
+            
+            // Set default rules
+            $query = "UPDATE #__assets SET rules=".$db->Quote('{"community.profileedit":{"6":1},"community.profileeditstate":{"6":1},"community.groupcreate":{"6":1,"2":1},"community.groupdelete":{"6":1},"community.groupedit":{"6":1},"community.groupeditstate":{"6":1},"community.eventcreate":{"6":1,"2":1},"community.eventdelete":{"6":1},"community.eventedit":{"6":1},"community.eventeditstate":{"6":1},"community.photocreate":{"6":1,"2":1},"community.photodelete":{"6":1},"community.photoedit":{"6":1},"community.photoeditstate":{"6":1},"community.videocreate":{"6":1,"2":1},"community.videodelete":{"6":1},"community.videoedit":{"6":1},"community.videoeditstate":{"6":1},"community.postcommentcreate":{"6":1,"2":1},"community.postcommentdelete":{"6":1},"community.postcommentedit":{"6":1},"core.manage":{"6":1},"core.admin":{"7":1,"6":1},"community.friendrequest":{"6":1,"2":1},"community.filesharingcreate":{"6":1,"2":1},"community.pollcreate":{"6":1,"2":1},"community.polldelete":{"6":1},"community.polledit":{"6":1},"community.polleditstate":{"6":1}}')." WHERE name=".$db->Quote('com_community');
+            $db->setQuery($query);
+            $db->query();
+        }
     }

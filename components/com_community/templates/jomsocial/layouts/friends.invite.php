@@ -45,7 +45,7 @@ defined('_JEXEC') or die();
                 <div class="joms-textarea__limit">
                     <?php echo JText::_('COM_COMMUNITY_SEPARATE_BY_COMMA'); ?>
                     <?php if ($isLimit) { ?>
-                    <span>Invitations left: <b><?php echo $limit ?></b></span>
+                    <span><?php echo JText::_('COM_COMMUNITY_INVITATIONS_LEFT') ?>: <b><?php echo $limit ?></b></span>
                     <?php } ?>
                 </div>
             </div>

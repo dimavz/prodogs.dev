@@ -47,6 +47,16 @@ defined('_JEXEC') or die('Restricted access');
                         <?php echo CHTMLInput::checkbox('config[show_profile_card]' ,'ace-switch ace-switch-5', null , CFactory::getConfig()->get('show_profile_card') ); ?>
                     </td>
                 </tr>
+                <tr>
+                    <td class="key">
+                        <span class="js-tooltip" title="<?php echo JText::_('COM_COMMUNITY_CONFIGURATION_ENABLE_PROFILE_LAST_VISIT_TIPS'); ?>">
+                            <?php echo JText::_( 'COM_COMMUNITY_CONFIGURATION_ENABLE_PROFILE_LAST_VISIT' ); ?>
+                        </span>
+                    </td>
+                    <td>
+                        <?php echo CHTMLInput::checkbox('config[show_profile_last_visit]' ,'ace-switch ace-switch-5', null , CFactory::getConfig()->get('show_profile_last_visit') ); ?>
+                    </td>
+                </tr>
             </table>
         </div>
     </div>

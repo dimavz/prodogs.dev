@@ -782,6 +782,19 @@ class CommunityInstallerHelper
 					$html .= $this->notApplicable;
 				}
 
+				// Test if we are required to add default poll categories
+				$html .= '<div style="width:150px; float:left;">'.JText::_('COM_COMMUNITY_INSTALLATION_ADD_DEFAULT_POLL_CATEGORIES').'</div>';
+
+				if (needsDefaultPollsCategories())
+				{
+					addDefaultPollsCategories();
+					$html .= $this->successStatus;
+				}
+				else
+				{
+					$html .= $this->notApplicable;
+				}
+
 				// Test if we are required to add default user points
 				$html .= '<div style="width:150px; float:left;">'.JText::_('COM_COMMUNITY_INSTALLATION_ADD_DEFAULT_USERPOINTS').'</div>';
 

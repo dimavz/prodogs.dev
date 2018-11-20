@@ -571,7 +571,8 @@ select:-moz-focusring {
             } @else {
                 padding-right: ms();
             }
-            vertical-align: middle;
+            vertical-align: top;
+            padding-top: 5px;
             &.small {
                 width: 60px;
             }

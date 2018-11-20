@@ -13,7 +13,7 @@ if ( typeof root.joms !== 'object' ) {
  * @name joms.DEBUG
  * @const {boolean}
  */
-root.joms.DEBUG = true; // @@release@@root.joms.DEBUG = false;@@
+root.joms.DEBUG = false; // @@release@@root.joms.DEBUG = false;@@
 
 /**
  * Application logger.

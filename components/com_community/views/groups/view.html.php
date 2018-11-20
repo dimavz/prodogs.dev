@@ -1257,6 +1257,11 @@ if (!class_exists("CommunityViewGroups")) {
             $videos = $videoData['data'];
             $totalVideos = $videoData['total'];
 
+            // Get poll data
+            $pollData = $this->_getPolls($params, $group->id);
+            $polls = $pollData['data'];
+            $totalPolls = $pollData['total'];
+
             $tmpl = new CTemplate();
 
             $isMine = ($my->id == $group->ownerid);
@@ -1395,9 +1400,11 @@ if (!class_exists("CommunityViewGroups")) {
                     ->set('showEvents', $config->get('group_events') && $config->get('enableevents') && $params->get('eventpermission',1) >= 1)
                     ->set('showPhotos', ( $params->get('photopermission') != -1 ) && $config->get('enablephotos') && $config->get('groupphotos'))
                     ->set('showVideos', ( $params->get('videopermission') != -1 ) && $config->get('enablevideos') && $config->get('groupvideos'))
+                    ->set('showPolls', ( $params->get('pollspermission') != -1 ) && $config->get('enablepolls') && $config->get('group_polls'))
                     ->set('eventPermission', $params->get('eventpermission'))
                     ->set('photoPermission', $params->get('photopermission'))
                     ->set('videoPermission', $params->get('videopermission'))
+                    ->set('pollspermission', $params->get('pollspermission'))
                     ->set('allowCreateEvent', $allowCreateEvent)
                     ->set('videos', $videos)
                     ->set('totalVideos', $totalVideos)
@@ -1438,6 +1445,7 @@ if (!class_exists("CommunityViewGroups")) {
                     ->set('isLikeEnabled', $isLikeEnabled)
                     ->set('totalPhotos', $totalPhotos)
                     ->set('totalAlbums', $totalAlbums)
+                    ->set('totalPolls', $totalPolls)
                     ->set('profile', $my)
                     ->set('featuredList', $featuredList)
                     ->fetch('groups/single');
@@ -2610,6 +2618,32 @@ if (!class_exists("CommunityViewGroups")) {
             $totalVideos = $videoModel->total ? $videoModel->total : 0;
             $result['total'] = $totalVideos;
             $result['data'] = $videos;
+            return $result;
+        }
+
+        /**
+         * Return the poll list for viewGroup display
+         */
+        protected function _getPolls($params, $groupId) {
+            $result = array();
+            $pollModel = CFactory::getModel('polls');
+            $tmpPolls = $pollModel->getAllPolls(null, null, null, null, false, true, $groupId);
+            
+            $polls = array();
+            $totalPolls = 0; 
+
+            if ($tmpPolls) {
+                foreach ($tmpPolls as $pollEntry) {
+                    $poll = JTable::getInstance('Poll', 'CTable');
+                    $poll->bind($pollEntry);
+                    $polls[] = $poll;
+
+                    $totalPolls++;
+                }
+            }
+
+            $result['total'] = $totalPolls;
+            $result['data'] = $polls;
             return $result;
         }
 

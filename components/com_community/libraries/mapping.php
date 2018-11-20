@@ -195,6 +195,10 @@ class CMapping
         {
             $data = CMapping::getAddressData($address);
 
-            return $data->results[0]->formatted_address;
+            if (isset($data->results[0])) {
+            	return $data->results[0]->formatted_address;
+            } else {
+            	return null;
+            }
         }
 }

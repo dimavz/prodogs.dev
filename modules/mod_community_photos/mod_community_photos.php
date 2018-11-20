@@ -27,6 +27,7 @@ require_once dirname(__FILE__) . '/helper.php';
 JFactory::getLanguage()->isRTL() ? CTemplate::addStylesheet('style.rtl') : CTemplate::addStylesheet('style');
 
 $config = CFactory::getConfig();
+$my = CFactory::getUser();
 $isAlbumModal = $config->get('album_mode') == 1;
 
 $displayType = $params->get('display_type',1); // 0 = albums, 1 = photos (default)
@@ -60,7 +61,7 @@ if($displayType){
     $model = CFactory::getModel('photos');
     //photos
     $photos = $model->getAllPhotos(null, $photoType, $limit, array(0,10,20,30,40), COMMUNITY_ORDER_BY_DESC,
-        $sortBy, false, true);
+        $sortBy, false, true, true, $my->id);
 
     if ($photos) {
         // Make sure it is all photo object
@@ -82,7 +83,7 @@ if($displayType){
         $filter = $photoType;
     }
 
-    $albums = $model->getAllAlbums(0, $limit, $sortBy, $filter);
+    $albums = $model->getAllAlbums($my->id, $limit, $sortBy, $filter);
 
     if ($albums) {
        // shuffle($latestAlbums);

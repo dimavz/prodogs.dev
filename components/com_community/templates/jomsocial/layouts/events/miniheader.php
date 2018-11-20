@@ -144,9 +144,9 @@ $isGroupEvent = $event->type == CEventHelper::GROUP_TYPE;
         </div>
     </div>
     <ul class="joms-focus__link">
-        <li class="half"><?php echo ($event->ticket) ? JText::sprintf('COM_COMMUNITY_EVENTS_TICKET_STATS', $event->ticket, $eventMembersCount, ($event->ticket - $eventMembersCount)) : JText::sprintf('COM_COMMUNITY_EVENTS_UNLIMITED_SEAT'); ?></li>
+        <li class="full"><?php echo ($event->ticket) ? JText::sprintf('COM_COMMUNITY_EVENTS_TICKET_STATS', $event->ticket, $eventMembersCount, ($event->ticket - $eventMembersCount)) : JText::sprintf('COM_COMMUNITY_EVENTS_UNLIMITED_SEAT'); ?></li>
         <?php if($showPhotos){ ?>
-            <li class="full">
+            <li class="half">
                 <a href="<?php echo CRoute::_('index.php?option=com_community&view=photos&eventid=' . $event->id); ?>"><?php echo ($totalPhotos == 1) ?
                         JText::_('COM_COMMUNITY_PHOTOS_COUNT_SINGULAR') . ' <span class="joms-text--light">' . $totalPhotos . '</span>' :
                         JText::_('COM_COMMUNITY_PHOTOS_COUNT') . ' <span class="joms-text--light">' . $totalPhotos . '</span>' ; ?></a>
@@ -157,6 +157,13 @@ $isGroupEvent = $event->type == CEventHelper::GROUP_TYPE;
                 <a href="<?php echo CRoute::_('index.php?option=com_community&view=videos&eventid=' . $event->id); ?>"><?php echo ($totalVideos == 1) ?
                         JText::_('COM_COMMUNITY_VIDEOS_COUNT') . ' <span class="joms-text--light">' . $totalVideos . '</span>' :
                         JText::_('COM_COMMUNITY_VIDEOS_COUNT_MANY') . ' <span class="joms-text--light">' . $totalVideos . '</span>' ; ?></a>
+            </li>
+        <?php } ?>
+        <?php if($showPolls){ ?>
+            <li class="half">
+                <a href="<?php echo CRoute::_('index.php?option=com_community&view=polls&eventid=' . $event->id); ?>"><?php echo ($totalPolls == 1) ?
+                        JText::_('COM_COMMUNITY_POLLS_COUNT') . ' <span class="joms-text--light">' . $totalPolls . '</span>' :
+                        JText::_('COM_COMMUNITY_POLLS_COUNT_MANY') . ' <span class="joms-text--light">' . $totalPolls . '</span>' ; ?></a>
             </li>
         <?php } ?>
         <li class="half"><a href="<?php echo CRoute::_('index.php?option=com_community&view=events&task=viewguest&eventid=' . $event->id . '&type='.COMMUNITY_EVENT_STATUS_ATTEND )?>"><?php

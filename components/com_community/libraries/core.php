@@ -440,14 +440,14 @@ class CFactory {
                 if ($viewType == 'feed') {
                     include_once( JPATH_COMPONENT . '/views' . '/' . $name . '/view.html.php' );
                 } else {
-                    JFactory::getApplication()->enqueueMessage(JText::_('COM_COMMUNITY_VIEW_NOT_FOUND'), 'error');
+                    //JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_COMMUNITY_VIEW_NOT_FOUND', JPATH_COMPONENT . '/views' . '/' . $name . '/view.html.php'), 'error');
                     return;
                 }
             }
 
             $classname = $prefix . 'CommunityView' . ucfirst($name);
             if (!class_exists($classname)) {
-                JFactory::getApplication()->enqueueMessage(JText::_('COM_COMMUNITY_VIEW_NOT_FOUND'), 'error');
+                JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_COMMUNITY_VIEW_NOT_FOUND', $classname), 'error');
                 return;
             }
 
@@ -651,6 +651,7 @@ class CFactory {
             'CommunityModelFriends' => '/models/friends.php',
             'CommunityModelGroupCategories' => '/models/groupcategories.php',
             'CommunityModelGroups' => '/models/groups.php',
+            'CommunityModelPolls' => '/models/polls.php',
             'CommunityModelInbox' => '/models/inbox.php',
             'CommunityModelLike' => '/models/like.php',
             'CommunityModelMailq' => '/models/mailq.php',
@@ -680,6 +681,9 @@ class CFactory {
             'CommunityModelWall' => '/models/wall.php',
             'CommunityModelHashtags' => '/models/hashtags.php',
             'CommunityModelManualDbUpgrade' => '/models/manualdbupgrade.php',
+            'CommunityModelMigrators' => '/models/migrators.php',
+            'CommunityModelMigratorCB' => '/models/migratorCB.php',
+            'CommunityModelMigratorEasySocial' => '/models/migratorEasySocial.php',
             'CommunityModelDigest' => '/models/digest.php',
             'CommunityModelChat' => '/models/chat.php'
         );
@@ -949,7 +953,11 @@ class CFactory {
             'CTableVideo' => '/tables/video.php',
             'CTableVideosCategory' => '/tables/videoscategory.php',
             'CTableWall' => '/tables/wall.php',
-            'CTableHashtag' => '/tables/hashtag.php'
+            'CTableHashtag' => '/tables/hashtag.php',
+            'CTablePollCategory' => '/tables/pollcategory.php',
+            'CTablePoll' => '/tables/poll.php',
+            'CTablePollItem' => '/tables/pollitem.php',
+            'CTablePollUser' => '/tables/polluser.php'
         );
 
         $backendClassname = array(
@@ -961,7 +969,9 @@ class CFactory {
             'CommunityTableVideosCategories' => '/tables/videocategories.php',
             'CommunityTableEventCategories' => '/tables/eventcategories.php',
             'CommunityTableGroupCategories' => '/tables/groupcategories.php',
+            'CommunityTablePollCategories' => '/tables/pollcategories.php',
             'CommunityTableGroups' => '/tables/groups.php',
+            'CommunityTablePolls' => '/tables/polls.php',
             'CommunityTableMailQueue' => '/tables/mailqueue.php',
             'CommunityTableNetwork' => '/tables/network.php',
             'CommunityTableEvents' => '/tables/events.php',

@@ -55,6 +55,7 @@
         right: 0;
         background: transparent;
     }
+
     textarea.input {
         background: none;
         outline: none;
@@ -82,7 +83,7 @@
            color: color-contrast($scss-color-postbox);
         }
     }
-    >div >textarea.input {
+    > div > textarea.input {
         position: absolute;
         top: 0;
         left: 0;
@@ -157,17 +158,17 @@
 }
 
 .joms-postbox-tab {
-
-    font-size:$font-size-small;
+    font-size: $font-size-small;
     background: $scss-color-postbox-tab;
+
     .joms-icon {
-        height: 14px;
-        width: 14px;
+      height: 14px;
+      width: 14px;
     }
 
     [class^="joms-icon-"]:before,
     [class*=" joms-icon-"]:before {
-        color: color-contrast($scss-color-postbox-tab);
+      color: color-contrast($scss-color-postbox-tab);
     }
 
     li {
@@ -179,16 +180,20 @@
         }
 
         &.hidden {
-            display: none !important;
+          display: none !important;
         }
 
         &.invisible {
-            visibility: hidden;
+          visibility: hidden;
         }
 
         a {
             padding: ms(-2) ms(-1);
             display: block;
+        }
+
+        &.active {
+          background-color: rgba(0,0,0,0.1);
         }
     }
 
@@ -209,6 +214,7 @@
             font-weight: bold;
         }
     }
+
     span {
         display:none;
         color: color-contrast($scss-color-postbox-tab);
@@ -681,5 +687,153 @@
             left: 5px;
             right: auto !important;
         }
+    }
+}
+
+.joms-postbox-poll-options {
+    .joms-postbox-poll-add--option {
+        margin-bottom: 10px;
+        display: block;
+    }    
+}
+
+.joms-postbox-poll-settings {
+    .settings-item {
+        margin-bottom: 10px;
+        display: block;
+    }
+}
+
+.joms-postbox--poll-option {
+    margin-bottom: 10px;
+
+    .input-option, .joms-postbox-poll-remove--option {
+        display: inline-block;
+    }
+
+    .joms-postbox-poll-remove--option {
+        font-weight: bold;
+        color: inherit;
+        font-size: 18px;
+    }
+
+    .joms-postbox-poll-add--option {
+        color: inherit;
+    }
+}
+
+.colorful-status__container {
+    position: relative;
+    margin: 0 auto;
+    height: 350px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-image 300ms;
+
+    .colorful-status__inner {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        line-height: 34px;
+        word-wrap: break-word;
+        transition: color 300ms;
+
+        &:focus {
+            outline: 0px solid transparent;
+        }
+    }
+
+    .colorful-status__placeholder {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        color: #999;
+        user-select: none;
+        transition: color 300ms;
+    }
+}
+
+.colorful-status__color {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    height: 30px;
+    
+    span.joms-left {
+        position: absolute;
+        left: 0;
+
+        i.fa {
+            left: 25%;
+        }
+    }
+
+    span.joms-right {
+        position: absolute;
+        right: 0;
+
+        i.fa {
+            right: 25%;
+        }
+    }
+
+    span.joms-direction {
+        height: 30px;
+        width: 30px;
+        border: solid 1px #ddd;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #f5f5f5;
+        transition: box-shadow 300ms;
+
+        i.fa {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &:hover {
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        }
+    }
+
+    ul.colorful-status__color-list {
+        white-space: nowrap;
+        overflow: hidden;
+        position: absolute;
+        left: 40px;
+        right: 40px;
+
+        li {
+            display: inline-block;
+            margin-right: 5px;
+            background-size: cover;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: box-shadow 300ms;
+
+            &.active {
+                border: solid 3px #ddd;
+            }
+        }
+
+        li:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .colorful-status__color-selector {
+        height: 30px; 
+        width: 30px; 
+        border: solid 1px #ddd;
     }
 }

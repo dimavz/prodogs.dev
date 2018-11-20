@@ -1,11 +1,4 @@
 /**
- * underscore
- * (c) Copyright (c) 2009-2018 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * @license MIT https://github.com/jashkenas/underscore/blob/master/LICENSE
- */
-import _ from 'underscore';
-
-/**
  * store.js
  * Copyright (c) 2010-2017 Marcus Westin 
  * @license MIT https://github.com/marcuswestin/store.js/blob/master/LICENSE
@@ -41,38 +34,18 @@ import Vuex from 'vuex';
  */
 import autosize_textarea from 'autosize';
 
-let DATA;
-
-(function( root, factory ) {
-    root._ = _;
+(function( root, $, factory ) {
     root.joms = root.joms || {};
-    root.joms = _.extend( root.joms, factory( root ) );
-})( window, function( root ) {
-    let getOptions = root.Joomla && root.Joomla.getOptions,
-        map = Array.prototype.map,
+    root.joms = $.extend( root.joms, factory( root ) );
+})( window, jQuery, function( root ) {
+    let map = Array.prototype.map,
         langDate;
-
-    // Retrieve all data and language translations.
-    DATA = getOptions && getOptions( 'com_community' ) || (root.joms_data || {});
-
-    // Deprecated!
-    root.joms_lang = DATA.translations || {};
-
-    // Data getter.
-    function getData( key ) {
-        return DATA[ key ];
-    }
-
-    // Translation getter.
-    function getTranslation( key ) {
-        return DATA.translations[ key ];
-    }
 
     // Configuration for store.js
     localStorage.addPlugin( localStorageEventsPlugin );
 
     // Configuration for moment.js
-    langDate = getTranslation( 'date' ) || {};
+    langDate = root.joms_lang.date || {};
     moment.defineLocale( 'jomsocial', {
         parentLocale: 'en',
         months: langDate.months,
@@ -86,9 +59,6 @@ let DATA;
     Vue.use( Vuex );
 
     return {
-        _,
-        getData,
-        getTranslation,
         localStorage,      /* deprecated -> */ storage: localStorage,
         moment,
         Vue,

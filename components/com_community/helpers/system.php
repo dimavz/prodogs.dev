@@ -72,6 +72,15 @@
         }
 
         /**
+         * show error page
+         */
+        public static function showUnpublishPagePoll(){
+            $template = new CTemplate();
+            echo $template->fetch('general/error_poll_unpublish');
+            return;
+        }
+
+        /**
          * @param $message
          * @param array $link, array('link_name'=>'link_url')
          */

@@ -604,7 +604,7 @@ class CommunityEventsController extends CommunityBaseController
                     $content = JText::_('COM_COMMUNITY_EVENTS_DELETING_ERROR');
                 }
 
-                $redirectURL = CRoute::_('index.php?option=com_community&view=events&task=myevents&userid=' . $my->id);
+                $redirectURL = CRoute::_('index.php?option=com_community&view=events&task=myevents&userid=' . $my->id, false);
 
                 $json['message'] = $content;
                 $json['redirect'] = $redirectURL;
@@ -1443,6 +1443,7 @@ class CommunityEventsController extends CommunityBaseController
                 $params->set('photopermission', 2);
                 $params->set('videopermission', 2);
                 $params->set('filesharingpermission', 2);
+                $params->set('pollspermission', 2);
                 
                 $event->params = $params->toString();
 
@@ -1872,6 +1873,25 @@ class CommunityEventsController extends CommunityBaseController
         $event->created = JDate::getInstance()->toSql();
         $event->contentid = $handler->getContentId();
         $event->type = $handler->getType();
+
+        if ($postData['event']['private']) {
+            $event->permission = 1;
+        } else {
+            $event->permission = 0;
+        }
+
+        // set defaul params
+        $params = new CParameter('');
+        $params->set('eventrecentphotos', '6');
+        $params->set('eventrecentvideos', '6');
+        $params->set('timezone', null);
+        $params->set('photopermission', 2);
+        $params->set('videopermission', 2);
+        $params->set('filesharingpermission', 2);
+        $params->set('pollspermission', 2);
+        
+        $event->params = $params->toString();
+
         $event->store();
 
         if (!$event->isRecurring()) {
@@ -2144,6 +2164,8 @@ class CommunityEventsController extends CommunityBaseController
         $videoPermissionMember =  $jinput->get('videopermission-member', 0, 'STRING');
         $filesharingPermissionAdmin =  $jinput->get('filesharingpermission-admin', 0, 'STRING');
         $filesharingPermissionMember =  $jinput->get('filesharingpermission-member', 0, 'STRING');
+        $pollsPermissionAdmin =  $jinput->get('pollspermission-admin', 0, 'STRING');
+        $pollsPermissionMember =  $jinput->get('pollspermission-member', 0, 'STRING');
         $eventRecentPhotos = $jinput->get('eventrecentphotos', 6, 'STRING');
         $eventRecentVideos = $jinput->get('eventrecentvideos', 6, 'STRING');
 
@@ -2178,6 +2200,16 @@ class CommunityEventsController extends CommunityBaseController
             }
         }else{
             $params->set('filesharingpermission', EVENT_FILESHARING_PERMISSION_DISABLE);
+        }
+
+        if($pollsPermissionAdmin){
+            $params->set('pollspermission', EVENT_POLLS_PERMISSION_ADMINS);
+
+            if($filesharingPermissionMember){
+                $params->set('pollspermission', EVENT_POLLS_PERMISSION_ALL);
+            }
+        }else{
+            $params->set('pollspermission', EVENT_POLLS_PERMISSION_DISABLE);
         }
 
         $oldParams = new CParameter($event->params);

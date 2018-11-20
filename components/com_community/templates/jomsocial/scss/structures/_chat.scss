@@ -158,6 +158,12 @@
         color: #6a8aa8;
     }
 
+    &.result-item {
+        .joms-avatar {
+            width: 20px;
+        }
+    }
+
     > .joms-avatar {
         display: table-cell;
         width: 32px;
@@ -167,6 +173,7 @@
             max-width: 32px;
             max-height: 32px;
         }
+
     }
 }
 
@@ -487,5 +494,24 @@
 
     .joms-chat__header .joms-focus__button--options--desktop {
         display: block; top:inherit;
+    }
+}
+
+
+.joms-chat__search-results {
+    .joms-js__result-heading {
+        padding: 10px;
+        color: #7f8c8d;
+        font-weight: bold;
+    }
+
+    .joms-chat__search--no-result {
+        text-align: center;
+
+        span {
+            font-size: 11px;
+            color: #999;
+            text-decoration: underline;
+        }
     }
 }

@@ -69,6 +69,7 @@ class CUserStatus {
 		$this->permission = new stdClass();
 
         $this->permission->enablefiles = false;
+        $this->permission->enablepolls = false;
 
 		$this->permission->enablephotos = (CFactory::getConfig()->get("enablephotos") && CFactory::getUser()->authorise('community.photocreate', 'com_community')) ? 1 : 0;
 
@@ -92,7 +93,13 @@ class CUserStatus {
                     $this->permission->enablefiles = CFactory::getConfig()->get("file_sharing_group", "0");
                 }
             }
-        }elseif($this->type == 'events'){
+
+            if ((($isAdmin || $isSuperAdmin) && $params->get('pollspermission') == 1) || (($isMember || $isSuperAdmin) && $params->get('pollspermission') == 2)) {
+                if (CFactory::getUser()->authorise('community.pollcreate', 'com_community')) {
+                    $this->permission->enablepolls = CFactory::getConfig()->get("group_polls", "0");
+                }
+            }
+        } elseif($this->type == 'events') {
             $event = JTable::getInstance('Event', 'CTable');
             $event->load($this->target);
             $params = new CParameter($event->params);
@@ -105,15 +112,23 @@ class CUserStatus {
                     $this->permission->enablefiles = CFactory::getConfig()->get("file_sharing_event", "0");
                 }
             }
+
+            if ((($isAdmin || $isSuperAdmin) && $params->get('pollspermission') == 1) || (($isMember || $isSuperAdmin) && $params->get('pollspermission') == 2)) {
+                if (CFactory::getUser()->authorise('community.pollcreate', 'com_community')) {
+                    $this->permission->enablepolls = CFactory::getConfig()->get("event_polls", "0");
+                }
+            }
         } else {
             if (CFactory::getUser()->authorise('community.filesharingcreate', 'com_community')) {
                 $this->permission->enablefiles = CFactory::getConfig()->get("file_sharing_activity", "0");
             }
+
+            $this->permission->enablepolls = (CFactory::getConfig()->get("enablepolls") && $my->canCreatePolls());
         }
 
 		if($this->type == 'profile' && $this->target != $my->id){
 			$this->permission->enableevents = false;
-
+            $this->permission->enablepolls = false;
 		}
 
         $moodsModel = CFactory::getModel('Moods');
@@ -123,7 +138,19 @@ class CUserStatus {
         if (count($moods) > 0) {
             foreach ($moods as $key => $mood) {
                 if ($mood->published) {
-                    $publishedMoods[ $key ] = $mood;
+                    $publishedMoods[$key] = $mood;
+                }
+            }
+        }
+
+        $backgroundsModel = CFactory::getModel('Backgrounds');
+        $backgrounds = $backgroundsModel->getBackgrounds();
+        $publishedBackgrounds = array();
+
+        if (count($backgrounds) > 0) {
+            foreach ($backgrounds as $key => $background) {
+                if ($background->published) {
+                    $publishedBackgrounds[$key] = $background;
                 }
             }
         }
@@ -137,6 +164,7 @@ class CUserStatus {
 						->set('album',$album)
 						->set('permission',$this->permission)
                         ->set('moods', $publishedMoods)
+                        ->set('backgrounds', $publishedBackgrounds)
 						->fetch('status.form');
 
 			// Some of the creator might need custom url replacement

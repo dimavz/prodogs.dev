@@ -76,6 +76,16 @@ defined('_JEXEC') or die('Restricted access');
 					</tr>
 					<tr>
 						<td class="key">
+							<span class="js-tooltip" title="<?php echo JText::_('COM_COMMUNITY_CONFIGURATION_LIMITS_NEW_POLLS_TIPS'); ?>">
+								<?php echo JText::_( 'COM_COMMUNITY_CONFIGURATION_LIMITS_NEW_POLLS' ); ?>
+							</span>
+						</td>
+						<td>
+							<input type="text" name="limit_polls_perday" value="<?php echo $this->config->get('limit_polls_perday');?>" class="input-small" /> <?php echo JText::_('COM_COMMUNITY_DAILY');?>
+						</td>
+					</tr>
+					<tr>
+						<td class="key">
 							<span class="js-tooltip" title="<?php echo JText::_('COM_COMMUNITY_CONFIGURATION_LIMITS_NEW_FRIENDS_TIPS'); ?>">
 								<?php echo JText::_( 'COM_COMMUNITY_CONFIGURATION_LIMITS_NEW_FRIENDS' ); ?>
 							</span>

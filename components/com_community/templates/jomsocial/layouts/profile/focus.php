@@ -154,6 +154,18 @@ if ( !$isMine && $config->get('enablereporting') == 1 && ( $my->id > 0 || $confi
                     </a>
                     <?php } ?>
 
+                    <?php if ($config->get('show_profile_last_visit') == 1) { ?>
+                    <div class="joms-focus__lastvisit">
+                        <?php
+                            $lastLogin = JText::_('COM_COMMUNITY_PROFILE_NEVER_LOGGED_IN');
+                            if ($user->lastvisitDate != '0000-00-00 00:00:00') {
+                                $userLastLogin = new JDate($user->lastvisitDate);
+                                $lastLogin = CActivityStream::_createdLapse($userLastLogin);
+                            }
+                        ?>
+                        <?php echo JText::_('COM_COMMUNITY_LAST_LOGIN') . $lastLogin; ?>
+                    </div>
+                    <?php } ?>
                 </div>
 
                 <div class="joms-focus__info--desktop">
@@ -238,6 +250,18 @@ if ( !$isMine && $config->get('enablereporting') == 1 && ( $my->id > 0 || $confi
                     </a>
                     <?php } ?>
 
+                    <?php if ($config->get('show_profile_last_visit') == 1) { ?>
+                    <div class="joms-focus__lastvisit">
+                        <?php
+                            $lastLogin = JText::_('COM_COMMUNITY_PROFILE_NEVER_LOGGED_IN');
+                            if ($user->lastvisitDate != '0000-00-00 00:00:00') {
+                                $userLastLogin = new JDate($user->lastvisitDate);
+                                $lastLogin = CActivityStream::_createdLapse($userLastLogin);
+                            }
+                        ?>
+                        <?php echo JText::_('COM_COMMUNITY_LAST_LOGIN') . $lastLogin; ?>
+                    </div>
+                    <?php } ?>
                 </div>
 
 
@@ -397,6 +421,10 @@ if ( !$isMine && $config->get('enablereporting') == 1 && ( $my->id > 0 || $confi
 
         <?php if($eventEnabled) {?>
         <li class="half"><a href="<?php echo CRoute::_('index.php?option=com_community&view=events&task=myevents&userid='.$profile->id); ?>"><?php echo ($profile->_events == 1) ? JText::_('COM_COMMUNITY_EVENTS_COUNT') . ' <span class="joms-text--light">' . $profile->_events . '</span>' : JText::_('COM_COMMUNITY_EVENTS_COUNT_MANY') . ' <span class="joms-text--light">' . $profile->_events . '</span>' ?></a></li>
+        <?php }?>
+
+        <?php if($pollsEnabled) {?>
+        <li class="half"><a href="<?php echo CRoute::_('index.php?option=com_community&view=polls&task=mypolls&userid='.$profile->id); ?>"><?php echo ($profile->_polls == 1) ? JText::_('COM_COMMUNITY_POLLS_COUNT') . ' <span class="joms-text--light">' . $profile->_polls . '</span>' : JText::_('COM_COMMUNITY_POLLS_COUNT_MANY') . ' <span class="joms-text--light">' . $profile->_polls . '</span>' ?></a></li>
         <?php }?>
 
         <?php if ($isLikeEnabled) { ?>

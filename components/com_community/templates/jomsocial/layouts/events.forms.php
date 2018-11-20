@@ -49,22 +49,25 @@ if ( $event->id && $event->repeat ) {
 
         <div class="joms-form__group">
             <span></span>
-            <label class="joms-checkbox">
-                <input type="checkbox" class="joms-checkbox" name="permission" onclick="joms_checkPrivacy();" value="1"
-                    <?php echo $event->permission == COMMUNITY_PRIVATE_EVENT ? ' checked="checked"' : ''; ?>>
-                <span title="<?php echo JText::_('COM_COMMUNITY_EVENTS_TYPE_TIPS'); ?>">
-                    <?php echo JText::_('COM_COMMUNITY_EVENTS_PRIVATE_EVENT'); ?></span>
-            </label>
-            <label class="joms-checkbox">
-                <input type="checkbox" class="joms-checkbox" name="unlisted" value="1"
-                    <?php echo ($event->permission == COMMUNITY_PRIVATE_EVENT) ? '' : ' disabled="disabled"'; ?>
-                    <?php echo ($event->unlisted == 1 && $event->permission == COMMUNITY_PRIVATE_EVENT) ? ' checked="checked"' : ''; ?>>
+            <div>
+                <label class="joms-checkbox">
+                    <input type="checkbox" class="joms-checkbox" name="permission" onclick="joms_checkPrivacy();" value="1"
+                        <?php echo $event->permission == COMMUNITY_PRIVATE_EVENT ? ' checked="checked"' : ''; ?>>
+                    <span title="<?php echo JText::_('COM_COMMUNITY_EVENTS_TYPE_TIPS'); ?>">
+                        <?php echo JText::_('COM_COMMUNITY_EVENTS_PRIVATE_EVENT'); ?></span>
+                </label>
+            </div>
+            <div>
+                <label class="joms-checkbox">
+                    <input type="checkbox" class="joms-checkbox" name="unlisted" value="1"
+                        <?php echo ($event->permission == COMMUNITY_PRIVATE_EVENT) ? '' : ' disabled="disabled"'; ?>
+                        <?php echo ($event->unlisted == 1 && $event->permission == COMMUNITY_PRIVATE_EVENT) ? ' checked="checked"' : ''; ?>>
 
-                <span title="<?php echo JText::_('COM_COMMUNITY_EVENTS_UNLISTED_TIPS'); ?>">
-                    <?php echo JText::_('COM_COMMUNITY_EVENTS_UNLISTED'); ?>
-                </span>
-
-            </label>
+                    <span title="<?php echo JText::_('COM_COMMUNITY_EVENTS_UNLISTED_TIPS'); ?>">
+                        <?php echo JText::_('COM_COMMUNITY_EVENTS_UNLISTED'); ?>
+                    </span>
+                </label>
+            </div>
         </div>
             <script type="text/javascript">
             function joms_checkPrivacy() {
@@ -464,24 +467,43 @@ if ( $event->id && $event->repeat ) {
         <?php } ?>
 
         <?php if ($config->get('file_sharing_event')) { ?>
-        <?php $filesharingAllowed = $params->get('filesharingpermission') >= 1; ?>
+            <?php $filesharingAllowed = $params->get('filesharingpermission') >= 1; ?>
 
-        <div class="joms-form__group">
-            <span><?php echo JText::_('COM_COMMUNITY_GROUPS_RECENT_FILESHARING'); ?></span>
-            <div>
-                <label class="joms-checkbox">
-                    <input type="checkbox" class="joms-checkbox joms-js--event-filesharing-flag" name="filesharingpermission-admin" value="1"<?php echo $filesharingAllowed ? ' checked="checked"' : ''; ?>>
-                    <span title="<?php echo JText::_('COM_COMMUNITY_EVENTS_FILESHARING_PERMISSION_TIPS'); ?>"><?php echo JText::_('COM_COMMUNITY_EVENTS_FILESHARING_UPLOAD_ALLOW_ADMIN'); ?></span>
-                </label>
+            <div class="joms-form__group">
+                <span><?php echo JText::_('COM_COMMUNITY_EVENTS_RECENT_FILESHARING'); ?></span>
+                <div>
+                    <label class="joms-checkbox">
+                        <input type="checkbox" class="joms-checkbox joms-js--event-filesharing-flag" name="filesharingpermission-admin" value="1"<?php echo $filesharingAllowed ? ' checked="checked"' : ''; ?>>
+                        <span title="<?php echo JText::_('COM_COMMUNITY_EVENTS_FILESHARING_PERMISSION_TIPS'); ?>"><?php echo JText::_('COM_COMMUNITY_EVENTS_FILESHARING_UPLOAD_ALLOW_ADMIN'); ?></span>
+                    </label>
+                </div>
+                <div class="joms-js--event-filesharing-setting" style="display:none">
+                    <label class="joms-checkbox">
+                        <input type="checkbox" class="joms-checkbox" name="filesharingpermission-member" value="1"<?php echo $filesharingAllowed ? '' : ' disabled="disabled"'; ?><?php echo $filesharingAllowed && ( $params->get('filesharingpermission') == GROUP_FILESHARING_PERMISSION_ALL ) ? ' checked="checked"' : ''; ?>>
+                        <span title="<?php echo JText::_('COM_COMMUNITY_EVENTS_FILESHARING_ALLOW_MEMBER_TIPS')?>"><?php echo JText::_('COM_COMMUNITY_EVENTS_FILESHARING_ALLOW_MEMBER'); ?></span>
+                    </label>
+                </div>
             </div>
-            <div class="joms-js--event-filesharing-setting" style="display:none">
-                <label class="joms-checkbox">
-                    <input type="checkbox" class="joms-checkbox" name="filesharingpermission-member" value="1"<?php echo $filesharingAllowed ? '' : ' disabled="disabled"'; ?><?php echo $filesharingAllowed && ( $params->get('filesharingpermission') == GROUP_FILESHARING_PERMISSION_ALL ) ? ' checked="checked"' : ''; ?>>
-                    <span title="<?php echo JText::_('COM_COMMUNITY_EVENTS_VIDEO_UPLOAD_ALLOW_MEMBER_TIPS')?>"><?php echo JText::_('COM_COMMUNITY_EVENTS_FILESHARING_ALLOW_MEMBER'); ?></span>
-                </label>
-            </div>
-        </div>
+        <?php } ?>
 
+        <?php if ($config->get('event_polls')) { ?>
+            <?php $pollsAllowed = $params->get('pollspermission') >= 1; ?>
+
+            <div class="joms-form__group">
+                <span><?php echo JText::_('COM_COMMUNITY_EVENTS_RECENT_POLLS'); ?></span>
+                <div>
+                    <label class="joms-checkbox">
+                        <input type="checkbox" class="joms-checkbox joms-js--event-polls-flag" name="pollspermission-admin" value="1"<?php echo $filesharingAllowed ? ' checked="checked"' : ''; ?>>
+                        <span title="<?php echo JText::_('COM_COMMUNITY_EVENTS_POLLS_PERMISSION_TIPS'); ?>"><?php echo JText::_('COM_COMMUNITY_EVENTS_POLLS_UPLOAD_ALLOW_ADMIN'); ?></span>
+                    </label>
+                </div>
+                <div class="joms-js--event-polls-setting" style="display:none">
+                    <label class="joms-checkbox">
+                        <input type="checkbox" class="joms-checkbox" name="pollspermission-member" value="1"<?php echo $filesharingAllowed ? '' : ' disabled="disabled"'; ?><?php echo $filesharingAllowed && ( $params->get('pollspermission') == GROUP_FILESHARING_PERMISSION_ALL ) ? ' checked="checked"' : ''; ?>>
+                        <span title="<?php echo JText::_('COM_COMMUNITY_EVENTS_POLLS_ALLOW_MEMBER_TIPS')?>"><?php echo JText::_('COM_COMMUNITY_EVENTS_POLLS_ALLOW_MEMBER'); ?></span>
+                    </label>
+                </div>
+            </div>
         <?php } ?>
 
         <script>
@@ -516,6 +538,20 @@ if ( $event->id && $event->repeat ) {
 
                 $('.joms-js--event-filesharing-flag').on( 'click', function() {
                     var $div = $('.joms-js--event-filesharing-setting'),
+                        $checkbox = $div.find('input');
+
+                    if ( this.checked ) {
+                        $checkbox.removeAttr('disabled');
+                        $div.show();
+                    } else {
+                        $checkbox[0].checked = false;
+                        $checkbox.attr('disabled', 'disabled');
+                        $div.hide();
+                    }
+                }).triggerHandler('click');
+
+                $('.joms-js--event-polls-flag').on( 'click', function() {
+                    var $div = $('.joms-js--event-polls-setting'),
                         $checkbox = $div.find('input');
 
                     if ( this.checked ) {

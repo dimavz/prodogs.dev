@@ -52,7 +52,7 @@ function buildHtml( data ) {
     return [
         '<div class="joms-popup joms-popup--dropdown">',
             '<ul class="joms-dropdown">', options, '</ul>',
-            '<button class="mfp-close" type="button" title="Close (Esc)">×</button>',
+            '<button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>',
         '</div>'
     ].join('');
 }

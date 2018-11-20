@@ -1527,4 +1527,28 @@ class CUser extends JUser implements CGeolocationInterface {
         return false;
     }
 
+    /**
+     * Determines whether the current user is allowed to create polls
+     *
+     * @param   none
+     * @return  Boolean     True if user is allowed and false otherwise.
+     * */
+    public function canCreatePolls() 
+    {
+        $config = CFactory::getConfig();
+
+        // ACL check
+        if (!CFactory::getUser()->authorise('community.pollcreate', 'com_community')) {
+            return false;
+        }
+        
+        if (!$config->get('enablepolls')) {
+            return false;
+        }
+
+        if(!COwnerHelper::isCommunityAdmin() && !$config->get('createpolls')){
+            return false;
+        }
+        return true;
+    }
 }

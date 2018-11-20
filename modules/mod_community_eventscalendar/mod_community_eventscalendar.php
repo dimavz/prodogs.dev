@@ -63,17 +63,17 @@ defined( '_JEXEC' ) or die( 'Unauthorized Access' );
     }
 
     //only show the events that the user is able to view
-    if(!COwnerHelper::isCommunityAdmin()){ // admin can always see all events, so no need to filter
-        foreach($events as $key=>$event){
-            // if private and not a member
-            $eventTable = JTable::getInstance('Event','CTable');
-            $eventTable->load($event->id);
-            if($event->permission && !$eventTable->isMember($user->id) ){
-                unset($events[$key]);
-                continue;
-            }
-        }
-    }
+    // if(!COwnerHelper::isCommunityAdmin()){ // admin can always see all events, so no need to filter
+    //     foreach($events as $key=>$event){
+    //         // if private and not a member
+    //         $eventTable = JTable::getInstance('Event','CTable');
+    //         $eventTable->load($event->id);
+    //         if($event->permission && !$eventTable->isMember($user->id) ){
+    //             unset($events[$key]);
+    //             continue;
+    //         }
+    //     }
+    // }
 
 
     require(JModuleHelper::getLayoutPath('mod_community_eventscalendar', $params->get('layout', 'default')));

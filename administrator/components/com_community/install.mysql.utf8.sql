@@ -31,13 +31,13 @@ CREATE TABLE IF NOT EXISTS `#__community_activities` (
   KEY `app` (`app`),
   KEY `created` (`created`),
   KEY `archived` (`archived`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_activities_hide` (
   `activity_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_apps` (
   `id` int(10) unsigned NOT NULL auto_increment,
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `#__community_apps` (
   PRIMARY KEY  (`id`),
   KEY `idx_userid` (`userid`),
   KEY `idx_user_apps` (`userid`, `apps`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_avatar` (
   `id` int(10) unsigned NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `#__community_avatar` (
   `path` text NOT NULL,
   `type` tinyint(3) unsigned NOT NULL COMMENT '0 = small, 1 = medium, 2=large',
   UNIQUE KEY `id` (`id`,`apptype`,`type`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_blocklist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -68,13 +68,13 @@ CREATE TABLE IF NOT EXISTS `#__community_blocklist` (
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`),
   KEY `blocked_userid` (`blocked_userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_config` (
   `name` varchar(64) NOT NULL,
   `params` longtext NOT NULL,
   PRIMARY KEY (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_connection` (
   `connection_id` int(11) NOT NULL auto_increment,
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `#__community_connection` (
   KEY `idx_connect_to` (`connect_to`),
   KEY `idx_connect_from` (`connect_from`),
   KEY `idx_connect_tofrom` ( `connect_to`, `connect_from` )
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_connect_users` (
   `connectid` bigint(20) NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `#__community_connect_users` (
   `userid` int(11) NOT NULL,
   PRIMARY KEY (`connectid`),
   KEY `type` (`type`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_events` (
   `id` int(11) unsigned NOT NULL auto_increment,
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `#__community_events` (
   KEY `idx_type` (`type`),
   KEY `idx_catid` (`catid`),
   KEY `idx_published` (`published`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_events_category` (
   `id` int(11) unsigned NOT NULL auto_increment,
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `#__community_events_category` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_events_members` (
   `id` int(11) unsigned NOT NULL auto_increment,
@@ -166,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `#__community_events_members` (
   KEY `idx_invitedby` (`invited_by`),
   KEY `idx_permission` (`eventid`, `permission`),
   KEY `idx_member_event` (`eventid`, `memberid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_featured` (
   `id` int(11) NOT NULL auto_increment,
@@ -177,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `#__community_featured` (
   `created` datetime NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `type` (`type`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#__community_fields` (
   `id` int(10) NOT NULL auto_increment,
@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `#__community_fields` (
   `params` text NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `fieldcode` (`fieldcode`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_fields_values` (
   `id` int(10) NOT NULL auto_increment,
@@ -211,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `#__community_fields_values` (
   KEY `user_id` (`user_id`),
   KEY `idx_user_fieldid` (`user_id`, `field_id`),
   KEY ( `access` )
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_groups` (
   `id` int(11) NOT NULL auto_increment,
@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `#__community_groups` (
   `hits` int(11) NOT NULL,
   `storage` VARCHAR( 64 ) NOT NULL DEFAULT 'file',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_groups_bulletins` (
   `id` int(11) NOT NULL auto_increment,
@@ -249,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `#__community_groups_bulletins` (
   `params` TEXT NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `groupid` (`groupid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_groups_category` (
   `id` int(11) NOT NULL auto_increment,
@@ -257,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `#__community_groups_category` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_groups_discuss` (
   `id` int(11) NOT NULL auto_increment,
@@ -273,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `#__community_groups_discuss` (
   PRIMARY KEY  (`id`),
   KEY `groupid` (`groupid`),
   KEY `parentid` (`parentid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_groups_invite` (
 `groupid` INT( 11 ) NOT NULL ,
@@ -288,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `#__community_groups_members` (
   `permissions` int(1) NOT NULL,
   KEY `groupid` (`groupid`),
   KEY `idx_memberid` (`memberid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_invitations` (
   `id` int(11) NOT NULL auto_increment,
@@ -296,7 +296,7 @@ CREATE TABLE IF NOT EXISTS `#__community_invitations` (
   `cid` int(11) NOT NULL,
   `users` text NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#__community_likes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -306,7 +306,7 @@ CREATE TABLE IF NOT EXISTS `#__community_likes` (
   `dislike` TEXT NOT NULL,
   PRIMARY KEY (`id`),
   KEY `element` (`element`,`uid`)
-) ENGINE = MyISAM DEFAULT CHARSET=utf8;
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_location_cache` (
   `address` varchar(255) NOT NULL,
@@ -315,7 +315,7 @@ CREATE TABLE IF NOT EXISTS `#__community_location_cache` (
   `data` text NOT NULL,
   `status` varchar(2) NOT NULL,
   `created` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_mailq` (
   `id` int(11) NOT NULL auto_increment,
@@ -329,7 +329,7 @@ CREATE TABLE IF NOT EXISTS `#__community_mailq` (
   `params` text NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `status` (`status`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_memberlist` (
   `id` int(11) NOT NULL auto_increment,
@@ -339,7 +339,7 @@ CREATE TABLE IF NOT EXISTS `#__community_memberlist` (
   `avataronly` int(11) NOT NULL,
   `created` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#__community_memberlist_criteria` (
   `id` int(11) NOT NULL auto_increment,
@@ -350,7 +350,7 @@ CREATE TABLE IF NOT EXISTS `#__community_memberlist_criteria` (
   `type` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `listid` (`listid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#__community_msg` (
   `id` int(10) unsigned NOT NULL auto_increment,
@@ -363,7 +363,7 @@ CREATE TABLE IF NOT EXISTS `#__community_msg` (
   `body` text NOT NULL,
   `migrated` INT(10) NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_msg_recepient` (
   `msg_id` int(10) unsigned NOT NULL,
@@ -377,7 +377,7 @@ CREATE TABLE IF NOT EXISTS `#__community_msg_recepient` (
   KEY `msg_id` (`msg_id`),
   KEY `to` (`to`),
   KEY `idx_isread_to_deleted` (`is_read`, `to`, `deleted`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_oauth` (
   `userid` int(11) NOT NULL,
@@ -385,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `#__community_oauth` (
   `accesstoken` text NOT NULL,
   `app` varchar(255) NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_photos` (
   `id` int(11) NOT NULL auto_increment,
@@ -407,7 +407,7 @@ CREATE TABLE IF NOT EXISTS `#__community_photos` (
   PRIMARY KEY  (`id`),
   KEY `albumid` (`albumid`),
   KEY `idx_storage` ( `storage` )
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_photos_albums` (
   `id` int(11) NOT NULL auto_increment,
@@ -433,7 +433,7 @@ CREATE TABLE IF NOT EXISTS `#__community_photos_albums` (
   KEY `idx_albumtype` (`id`, `type`),
   KEY `idx_creatortype` (`creator`, `type`),
   KEY `idx_groupid` (`groupid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_photos_tag` (
   `id` int(11) NOT NULL auto_increment,
@@ -447,13 +447,13 @@ CREATE TABLE IF NOT EXISTS `#__community_photos_tag` (
   KEY `idx_userid` (`userid`),
   KEY `idx_created_by` (`created_by`),
   KEY `idx_photo_user` (`photoid`, `userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#__community_photos_tokens` (
   `userid` int(11) NOT NULL,
   `token` varchar(200) NOT NULL,
   `datetime` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_profiles` (
   `id` int(11) NOT NULL auto_increment,
@@ -474,7 +474,7 @@ CREATE TABLE IF NOT EXISTS `#__community_profiles` (
   `params` TEXT,
   PRIMARY KEY  (`id`),
   KEY `approvals` (`approvals`,`published`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#__community_profiles_fields` (
   `id` int(11) NOT NULL auto_increment,
@@ -483,7 +483,7 @@ CREATE TABLE IF NOT EXISTS `#__community_profiles_fields` (
   PRIMARY KEY  (`id`),
   KEY `multiprofile_id` (`parent`),
   KEY `field_id` (`field_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#__community_register` (
   `id` int(10) unsigned NOT NULL auto_increment,
@@ -497,7 +497,7 @@ CREATE TABLE IF NOT EXISTS `#__community_register` (
   `created` datetime NULL,
   `ip` varchar(25) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_register_auth_token` (
   `token` varchar(200) NOT NULL,
@@ -506,7 +506,7 @@ CREATE TABLE IF NOT EXISTS `#__community_register_auth_token` (
   `created` datetime NOT NULL,
   PRIMARY KEY  (`token`),
   KEY `ip` (`ip`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_reports` (
   `id` int(11) NOT NULL auto_increment,
@@ -515,7 +515,7 @@ CREATE TABLE IF NOT EXISTS `#__community_reports` (
   `status` int(1) NOT NULL,
   `created` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_reports_actions` (
   `id` int(11) NOT NULL auto_increment,
@@ -525,7 +525,7 @@ CREATE TABLE IF NOT EXISTS `#__community_reports_actions` (
   `parameters` varchar(255) NOT NULL,
   `defaultaction` tinyint(1) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_reports_reporter` (
   `reportid` int(11) NOT NULL,
@@ -533,7 +533,7 @@ CREATE TABLE IF NOT EXISTS `#__community_reports_reporter` (
   `created_by` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `ip` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_storage_s3` (
   `storageid` VARCHAR( 255 ) NOT NULL ,
@@ -557,7 +557,7 @@ CREATE TABLE IF NOT EXISTS `#__community_tags_words` (
   `count` int(11) NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_userpoints` (
   `id` int(11) NOT NULL auto_increment,
@@ -571,7 +571,7 @@ CREATE TABLE IF NOT EXISTS `#__community_userpoints` (
   `published` tinyint(1) NOT NULL default '0',
   `system` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_users` (
   `userid` int(11) NOT NULL,
@@ -599,7 +599,7 @@ CREATE TABLE IF NOT EXISTS `#__community_users` (
   `default_avatar` BOOLEAN NOT NULL DEFAULT TRUE,
   `usergroup` TINYTEXT DEFAULT NULL,
   PRIMARY KEY  (`userid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_user_status` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -611,7 +611,7 @@ CREATE TABLE IF NOT EXISTS `#__community_user_status` (
   `longitude` FLOAT( 10, 6 ) NOT NULL DEFAULT '255',
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_videos` (
   `id` int(11) unsigned NOT NULL auto_increment,
@@ -643,7 +643,7 @@ CREATE TABLE IF NOT EXISTS `#__community_videos` (
   KEY `creator` (`creator`),
   KEY `idx_groupid` (`groupid`),
   KEY `idx_storage` ( `storage` )
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_videos_category` (
   `id` int(11) NOT NULL auto_increment,
@@ -652,7 +652,7 @@ CREATE TABLE IF NOT EXISTS `#__community_videos_category` (
   `description` TEXT NOT NULL,
   `published` tinyint(3) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_wall` (
   `id` int(10) unsigned NOT NULL auto_increment,
@@ -667,7 +667,7 @@ CREATE TABLE IF NOT EXISTS `#__community_wall` (
   PRIMARY KEY  (`id`),
   KEY `contentid` (`contentid`),
   KEY `type` (`type`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_notifications` (
 `id` INT( 11 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
@@ -708,7 +708,7 @@ CREATE TABLE IF NOT EXISTS `#__community_files` (
   KEY `groupid` (`groupid`),
   KEY `creator` (`creator`),
   KEY `bulletinid` (`bulletinid`)
-)ENGINE=MyISAM DEFAULT CHARSET=utf8;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_videos_tag` (
 `id` INT( 11 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
@@ -727,7 +727,7 @@ CREATE TABLE IF NOT EXISTS `#__community_engagement` (
   `week` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__community_moods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -833,7 +833,7 @@ CREATE TABLE IF NOT EXISTS `#__community_profile_stats` (
   `params` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_photo_stats` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -844,7 +844,7 @@ CREATE TABLE IF NOT EXISTS `#__community_photo_stats` (
   `params` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_video_stats` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -855,7 +855,7 @@ CREATE TABLE IF NOT EXISTS `#__community_video_stats` (
   `params` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_group_stats` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -866,7 +866,7 @@ CREATE TABLE IF NOT EXISTS `#__community_group_stats` (
   `params` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_event_stats` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -877,20 +877,20 @@ CREATE TABLE IF NOT EXISTS `#__community_event_stats` (
   `params` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `#__community_digest_email` (
 `user_id` INT(11) NOT NULL ,
 `total_sent` INT(11) NOT NULL ,
 `last_sent` TIMESTAMP NOT NULL ,
-PRIMARY KEY (`user_id`) ) ENGINE = MyISAM;
+PRIMARY KEY (`user_id`) ) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `#__community_thirdparty_wall_options` (
   `name` varchar(255) NOT NULL PRIMARY KEY,
   `notification_cmd` varchar(255) NOT NULL,
   `object_name` varchar(255) NOT NULL,
   `params` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#__community_chat` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -899,7 +899,7 @@ CREATE TABLE IF NOT EXISTS `#__community_chat` (
   `last_msg` INT(11) NOT NULL,
   `params` TEXT NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#__community_chat_activity` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -912,7 +912,7 @@ CREATE TABLE IF NOT EXISTS `#__community_chat_activity` (
   PRIMARY KEY (`id`),
   KEY `idx_chat_id` (`chat_id`),
   KEY `idx_user_id` (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#__community_chat_participants` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -924,7 +924,7 @@ CREATE TABLE IF NOT EXISTS `#__community_chat_participants` (
   PRIMARY KEY (`id`),
   KEY `idx_chat_id` (`chat_id`),
   KEY `idx_user_id` (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `#__community_user_invites` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -935,4 +935,68 @@ CREATE TABLE IF NOT EXISTS `#__community_user_invites` (
   `status` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+CREATE TABLE IF NOT EXISTS `#__community_polls_category` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `parent` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
+
+CREATE TABLE IF NOT EXISTS `#__community_polls` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `published` tinyint(1) NOT NULL,
+  `multiple` tinyint(1) NOT NULL,
+  `addoption` tinyint(1) NULL,
+  `permissions` varchar(255) NOT NULL DEFAULT '0',
+  `catid` int(11) unsigned NOT NULL,
+  `creator` int(11) unsigned NOT NULL,
+  `title` text NOT NULL,
+  `enddate` datetime NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `groupid` INT(11) NULL,
+  `eventid` INT(11) NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `catid` (`catid`),
+  KEY `creator` (`creator`),
+  KEY `groupid` (`groupid`),
+  KEY `eventid` (`eventid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `#__community_polls_items` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `poll_id` int(11) UNSIGNED NOT NULL,
+  `value` text NOT NULL,
+  `count` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `poll_id` (`poll_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `#__community_polls_users` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `poll_id` int(11) UNSIGNED NOT NULL,
+  `poll_itemid` int(11) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL,
+  `state` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `poll_id` (`poll_id`),
+  KEY `poll_itemid` (`poll_itemid`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `#__community_backgrounds` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) NOT NULL,
+  `description` varchar(128) NOT NULL,
+  `image` varchar(256) DEFAULT NULL,
+  `textcolor` varchar(20) DEFAULT NULL,
+  `placeholdercolor` varchar(20) DEFAULT NULL,
+  `custom` tinyint(4) NOT NULL,
+  `published` tinyint(4) NOT NULL DEFAULT '1',
+  `allowcustomtext` tinyint(4) NOT NULL DEFAULT '0',
+  `ordering` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;

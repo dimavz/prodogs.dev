@@ -46,7 +46,7 @@ defined('_JEXEC') or die();
     <?php if ($showPrivacy) { ?>
     <div class="joms-form__group">
         <span><?php echo JText::_('COM_COMMUNITY_VIDEOS_WHO_CAN_SEE'); ?></span>
-        <?php echo CPrivacy::getHTML( 'permissions', $video->permissions, COMMUNITY_PRIVACY_BUTTON_LARGE, ($isStreamVideo) ? array('public'=>true) : array(), 'select' ); ?>
+        <?php echo CPrivacy::getHTML( 'permissions', $video->permissions, COMMUNITY_PRIVACY_BUTTON_LARGE, array(), 'select' ); ?>
     </div>
     <?php } ?>
 

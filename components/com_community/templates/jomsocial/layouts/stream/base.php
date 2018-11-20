@@ -232,6 +232,9 @@ if (isset($freshInstallMsg)) :
                     case 'filesharing':
                         $this->load('stream/filesharing');
                         break;
+                    case 'polls':
+                        $this->load('stream/poll');
+                        break;
                     default:
                         // If none of the above, only load 3rd party stream data
                         // For some known stream, convert it into new app naming, which is the folder/plugin format

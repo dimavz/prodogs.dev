@@ -516,6 +516,14 @@ if (!class_exists('CommunityView')) {
         }
 
         /**
+         * enqueue redirect for unpublish polls
+         */
+        protected function _redirectUnpublishPoll() {
+            CSystemHelper::showUnpublishPagePoll();
+            return;
+        }
+
+        /**
          * This function will prep user info so that it can display user mini header in privacy warning template.
          * Do not call this function outside this view.php
          */

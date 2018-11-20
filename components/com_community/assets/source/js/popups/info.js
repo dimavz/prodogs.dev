@@ -21,7 +21,7 @@ function render( popup, title, content ) {
 function buildHtml( title, content ) {
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', ( title || '&nbsp;' ), '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', ( title || '&nbsp;' ), '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( content || '' ), '</div>',
         '<div class="joms-popup__action">',
         '<button class="joms-button--neutral joms-button--small joms-js--button-close">', window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON, '</button>',

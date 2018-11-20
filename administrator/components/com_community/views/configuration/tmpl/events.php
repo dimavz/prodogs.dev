@@ -126,6 +126,16 @@ defined('_JEXEC') or die('Restricted access');
                                 <input type="text" name="eventvideouploadlimit" value="<?php echo $this->config->get('eventvideouploadlimit' );?>" size="10" />
                             </td>
                         </tr>
+                        <tr>
+                            <td class="key">
+								<span class="js-tooltip" title="<?php echo JText::_('COM_COMMUNITY_CONFIGURATION_EVENTS_POLLS_TIPS'); ?>">
+								<?php echo JText::_( 'COM_COMMUNITY_CONFIGURATION_EVENTS_POLLS' ); ?>
+								</span>
+                            </td>
+                            <td>
+                                <?php echo CHTMLInput::checkbox('event_polls' ,'ace-switch ace-switch-5', null , $this->config->get('event_polls') ); ?>
+                            </td>
+                        </tr>
 						<tr>
 							<td class="key">
 								<span class="js-tooltip" title="<?php echo JText::_('COM_COMMUNITY_CONFIGURATION_EVENTS_ICAL_EXPORT_TIPS'); ?>">

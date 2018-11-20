@@ -372,7 +372,7 @@ if (!class_exists("CommunityViewEvents")) {
                     $tmpl->set('canCreate', $my->authorise('community.create', 'groups.events.' . $groupId))
                          ->set('groupMiniHeader', CMiniHeader::showGroupMiniHeader($groupId));
                 } else {
-                    $tmpl->set('canCreate', $my->authorise('community.create', 'events'));
+                    $tmpl->set('canCreate', 0);
                 }
 
                 echo $tmpl->fetch('events/base');
@@ -594,10 +594,12 @@ if (!class_exists("CommunityViewEvents")) {
             ->set('ispastevents', true);
 
                 if($groupId) {
-                    $tmpl->set('canCreate', $my->authorise('community.create', 'groups.events.' . $groupId));
+                    //$tmpl->set('canCreate', $my->authorise('community.create', 'groups.events.' . $groupId));
                 } else {
-                    $tmpl->set('canCreate', $my->authorise('community.create', 'events'));
+                    //$tmpl->set('canCreate', $my->authorise('community.create', 'events'));
                 }
+
+                $tmpl->set('canCreate', 0);
 
                 echo $tmpl->fetch('events/base');
         }
@@ -1508,6 +1510,10 @@ if (!class_exists("CommunityViewEvents")) {
             $videos = $videosModel->getEventVideos($eventid);
             $totalVideos = count($videosModel->getEventVideos($eventid));
 
+            //get total polls
+            $pollsModel = CFactory::getModel('polls');
+            $totalPolls = $pollsModel->getEventPollsCount($eventid);
+
             // Output to template
             echo $tmpl->setMetaTags('event', $event)
                 ->set('status', $status)
@@ -1555,8 +1561,10 @@ if (!class_exists("CommunityViewEvents")) {
                 ->set('videoPermission', $params->get('videopermission'))
                 ->set('showPhotos', ( $params->get('photopermission') != -1 ) && $config->get('enablephotos') && $config->get('eventphotos'))
                 ->set('showVideos', ( $params->get('videopermission') != -1 ) && $config->get('enablevideos') && $config->get('eventvideos'))
+                ->set('showPolls', ( $params->get('pollspermission') != -1 ) && $config->get('enablepolls') && $config->get('event_polls'))
                 ->set('totalPhotos', $totalPhotos)
                 ->set('totalVideos', $totalVideos)
+                ->set('totalPolls', $totalPolls)
                 ->set('maybeList', $maybeList)
                 ->set('maybeCount', $maybeCount)
                 ->set('wontAttendList', $wontAttendList)
@@ -2012,6 +2020,7 @@ if (!class_exists("CommunityViewEvents")) {
                     $params = new JRegistry($event->params);
                     $event->showPhotos = ( $params->get('photopermission') != -1 ) && $config->get('enablephotos') && $config->get('eventphotos');
                     $event->showVideos = ( $params->get('videopermission') != -1 ) && $config->get('enablevideos') && $config->get('eventvideos');
+                    $event->showPolls = ( $params->get('pollspermission') != -1 ) && $config->get('enablepolls') && $config->get('event_polls');
 
                     if($event->showPhotos){
                         //gets all the albums related to this photo
@@ -2028,6 +2037,12 @@ if (!class_exists("CommunityViewEvents")) {
                         //get total videos
                         $videosModel = CFactory::getModel('videos');
                         $event->totalVideos = count($videosModel->getEventVideos($event->id));
+                    }
+
+                    if($event->showPolls){
+                        //get total polls
+                        $pollsModel = CFactory::getModel('polls');
+                        $event->totalPolls = $pollsModel->getEventPollsCount($event->id);
                     }
 
                     $events[] = $event;

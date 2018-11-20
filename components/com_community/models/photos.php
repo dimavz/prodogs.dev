@@ -290,7 +290,7 @@ class CommunityModelPhotos extends JCCModel implements CLimitsInterface {
      * @param bool $hidePrivateGroupPhotos, if set to true, the results will filter out private group photo
      * @return array
      */
-    public function getAllPhotos($albumId = null, $photoType = PHOTOS_USER_TYPE, $limit = null, $permission = null, $orderType = 'DESC', $primaryOrdering = 'ordering', $hidePrivateGroupPhotos = false, $hideInactiveUser = false) {
+    public function getAllPhotos($albumId = null, $photoType = PHOTOS_USER_TYPE, $limit = null, $permission = null, $orderType = 'DESC', $primaryOrdering = 'ordering', $hidePrivateGroupPhotos = false, $hideInactiveUser = false, $hideDefaultAlbum = false, $userId = null) {
         $db = $this->getDBO();
 
         $my = CFactory::getUser();
@@ -302,6 +302,17 @@ class CommunityModelPhotos extends JCCModel implements CLimitsInterface {
             $where = ' WHERE b.'.$db->quoteName('type').' = ' . $db->Quote($photoType);
         }
 
+        // get from all albums except default albums
+        if ($hideDefaultAlbum) {
+            $where .= ' AND ((b.'. $db->quoteName('type') .' = '.$db->Quote('group').' AND '.$db->quoteName('default').' <> 1 )';
+            $where .= ' OR (b.'. $db->quoteName('eventid') .' > '.$db->Quote('1'); // first filter by event id first
+            $where .= ' AND b.'. $db->quoteName('default') .' <> '.$db->Quote('1'); // not the default stream album
+            $where .= ' AND b.'. $db->quoteName('type') .' LIKE '.$db->Quote('event') . ')'; //event type only
+            $where .= ' OR (b.'. $db->quoteName('type') .' = '.$db->Quote('user').' AND '.$db->quoteName('default').' <> 1 ))';
+            $where .= ' AND b.'. $db->quoteName('type') .' NOT LIKE '.$db->Quote('%avatar');
+            $where .= ' AND b.'. $db->quoteName('type') .' NOT LIKE '.$db->Quote('%cover');
+            $where .= ' AND b.'. $db->quoteName('type') .' NOT LIKE '.$db->Quote('%gif');
+        }
 
         if (!is_null($albumId)) {
             $where .= ' AND b.'.$db->quoteName('id')
@@ -311,7 +322,8 @@ class CommunityModelPhotos extends JCCModel implements CLimitsInterface {
         }
 
         // Only apply the permission if explicitly specified
-        if (!is_null($permission)) {
+        // $userId only using at photos module for override the privacy
+        if (!is_null($permission) && is_null($userId)) {
             if(is_array($permission)){
                 $where .= 'AND (';
                 $i = 0;
@@ -343,6 +355,21 @@ class CommunityModelPhotos extends JCCModel implements CLimitsInterface {
             }else{
                 $where .= ' AND b.'.$db->quoteName('permissions')
                     . '=' . $db->Quote($permission);
+            }
+        } else {
+            $permissions = ($userId == 0) ? 10 : 20;
+
+            $permissions = (CFactory::getUser()->authorise('community.photoedit', 'com_community') || CFactory::getUser()->authorise('community.photodelete', 'com_community') || CFactory::getUser()->authorise('community.photoeditstate', 'com_community')) ? 40 : $permissions;
+
+            //need to grab friends' album that has "Friends only" permission as well
+            $friendmodel = CFactory::getModel('friends');
+            $friends = $friendmodel->getFriendIds($userId);
+
+            if (!empty($friends)) {
+                $where .= ' AND (b.permissions <=' . $db->Quote($permissions) . ' OR (b.creator=' . $db->Quote($userId) . ' AND b.permissions <=' . $db->Quote(40) . ') ';
+                $where .= ' OR (b.creator IN(' . implode(',', $friends) . ') AND b.permissions = ' . $db->Quote(30) . ') )';
+            }else{
+                $where .= ' AND (b.permissions <=' . $db->Quote($permissions) . ' OR (b.creator=' . $db->Quote($userId) . ' AND b.permissions <=' . $db->Quote(40) . ') )';
             }
         }
 

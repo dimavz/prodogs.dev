@@ -86,6 +86,7 @@
     define('FEATURED_VIDEOS', 'videos');
     define('FEATURED_ALBUMS', 'albums');
     define('FEATURED_EVENTS', 'events');
+    define('FEATURED_POLLS', 'polls');
 
     define('PHOTOS_USER_TYPE', 'user');
     define('PHOTOS_PROFILE_TYPE', 'profile');
@@ -109,6 +110,10 @@
     define('GROUP_FILESHARING_PERMISSION_DISABLE', -1);
     define('GROUP_FILESHARING_PERMISSION_ADMINS', 1);
     define('GROUP_FILESHARING_PERMISSION_ALL', 2);
+
+    define('GROUP_POLLS_PERMISSION_DISABLE', -1);
+    define('GROUP_POLLS_PERMISSION_ADMINS', 1);
+    define('GROUP_POLLS_PERMISSION_ALL', 2);
 
     define('GROUP_VIDEO_PERMISSION_DISABLE', -1);
     define('GROUP_VIDEO_PERMISSION_MEMBERS', 0);
@@ -164,6 +169,9 @@
     define('COMMUNITY_CACHE_TAG_GROUPS', 'groups');
     define('COMMUNITY_CACHE_TAG_GROUPS_DETAIL', 'groups_detail');
     define('COMMUNITY_CACHE_TAG_GROUPS_CAT', 'groups_category');
+    define('COMMUNITY_CACHE_TAG_POLLS', 'polls');
+    define('COMMUNITY_CACHE_TAG_POLLS_DETAIL', 'polls_detail');
+    define('COMMUNITY_CACHE_TAG_POLLS_CAT', 'polls_category');
     define('COMMUNITY_CACHE_TAG_PHOTOS', 'photos');
     define('COMMUNITY_CACHE_TAG_ALBUMS', 'albums');
     define('COMMUNITY_CACHE_TAG_EVENTS', 'events');
@@ -344,6 +352,12 @@
     define('EVENT_FILESHARING_PERMISSION_ALL', 2);
     define('FILESHARING_EVENT_TYPE', 'event');
 
+    define('EVENT_POLLS_PERMISSION_DISABLE', -1);
+    define('EVENT_POLLS_PERMISSION_MEMBERS', 0);
+    define('EVENT_POLLS_PERMISSION_ADMINS', 1);
+    define('EVENT_POLLS_PERMISSION_ALL', 2);
+    define('POLLS_EVENT_TYPE', 'polls');
+
     define('WATERMARK_DEFAULT_NAME', 'default_watermark'); // name of the default watermark that is stored in images/watermark/default_watermark.png
 
     /**
@@ -351,3 +365,4 @@
      */
 
     define('COMMUNITY_EVENT_STATUS_BANNED', 8);
+    define('COMMUNITY_STATUS_BACKGROUND_PATH', JPATH_ROOT . '/images/backgrounds');

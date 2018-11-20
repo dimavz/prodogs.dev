@@ -30,9 +30,11 @@
         'popups/tnc',
         'popups/user',
         'popups/video',
+        'popups/poll',
         'views/cover',
         'views/page',
-        'views/stream'
+        'views/stream',
+        'views/poll'
     ], function() {
         return joms.api;
     });

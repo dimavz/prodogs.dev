@@ -85,6 +85,21 @@ defined('_JEXEC') or die();
                                     ?>
                                 </span>
                                 <?php } ?>
+
+                                <?php if ($config->get('memberlist_show_last_visit') == 1) { ?>
+                                <p>
+                                    <span class="joms-text--title">
+                                        <?php
+                                            $lastLogin = JText::_('COM_COMMUNITY_PROFILE_NEVER_LOGGED_IN');
+                                            if ($member->lastvisitDate != '0000-00-00 00:00:00') {
+                                                $userLastLogin = new JDate($member->lastvisitDate);
+                                                $lastLogin = CActivityStream::_createdLapse($userLastLogin);
+                                            }
+                                        ?>
+                                        <?php echo JText::_('COM_COMMUNITY_LAST_LOGIN') . $lastLogin; ?>
+                                    </span>
+                                </p>
+                                <?php } ?>
                             </div>
 
                             <?php if($member->isAdmin): ?>

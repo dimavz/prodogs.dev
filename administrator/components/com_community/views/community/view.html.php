@@ -168,6 +168,10 @@ class CommunityViewCommunity extends JViewLegacy
                         'title' => JText::_('COM_COMMUNITY_CONFIGURATION_BADGES'),
                         'url' => 'index.php?option=com_community&view=badges',
                     ),
+                    // array(
+                    //     'title' => JText::_('COM_COMMUNITY_CONFIGURATION_STATUS_BACKGROUNDS'),
+                    //     'url' => 'index.php?option=com_community&view=backgrounds',
+                    // ),
                     array(
                         'title' => JText::_('COM_COMMUNITY_CONFIGURATION_LAYOUTS'),
                         'url' => 'index.php?option=com_community&view=layouts',
@@ -313,6 +317,25 @@ class CommunityViewCommunity extends JViewLegacy
                     array(
                         'title' => JText::_('COM_COMMUNITY_TITLE_VIDEO_SETTING'),
                         'url' => 'index.php?option=com_community&view=configuration&cfgSection=video',
+                    )
+                )
+            ),
+            array(
+                'title' => JText::_('COM_COMMUNITY_POLLS'),
+                'url' => '#',
+                'class' => 'js-icon-list-ul',
+                'children' => array(
+                    array(
+                        'title' => JText::_('COM_COMMUNITY_TITLE_POLL_VIEW'),
+                        'url' => 'index.php?option=com_community&view=polls',
+                    ),
+                    array(
+                        'title' => JText::_('COM_COMMUNITY_TOOLBAR_POLL_CATEGORIES'),
+                        'url' => 'index.php?option=com_community&view=pollcategories',
+                    ),
+                    array(
+                        'title' => JText::_('COM_COMMUNITY_TITLE_POLL_SETTING'),
+                        'url' => 'index.php?option=com_community&view=configuration&cfgSection=polls',
                     )
                 )
             ),

@@ -94,7 +94,7 @@ $title = $activity->get('title');
             </span>
         <?php } ?>
 
-        <a href="<?php echo CRoute::_('index.php?option=com_community&view=profile&userid='.$activity->actor.'&actid='.$activity->id); ?>">
+        <a href="<?php echo CRoute::_('index.php?option=com_community&view=profile&userid='.$activity->actor.'&actid='.$activity->id); ?>" style="display: inherit;">
             <span class="joms-stream__time">
                 <small><?php echo $activity->getCreateTimeFormatted(); ?></small>
                 <?php if ( strpos($activity->get('app'), 'events') === false  && strpos($activity->get('app'), 'groups') === false ) { ?>

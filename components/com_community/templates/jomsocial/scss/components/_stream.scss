@@ -29,7 +29,8 @@
 }
 
 .joms-stream__header,
-.joms-comment__header, {
+.joms-comment__header,
+.joms-poll__header {
     display:table;
     padding:ms();
     width:100%;
@@ -38,7 +39,8 @@
     }
 }
 
-.joms-stream__header {
+.joms-stream__header,
+.joms-poll__header {
     &.system {
         padding: 0;
         margin-bottom: ms(-2);
@@ -68,6 +70,7 @@
 }
 
 
+.joms-stream__meta,
 .joms-stream__meta {
     padding-right: ms();
 
@@ -78,7 +81,9 @@
 
 .joms-stream__meta,
 .joms-comment__meta,
-.joms-stream__content {
+.joms-stream__content,
+.joms-stream__meta,
+.joms-poll__meta {
     display:table-cell;
     vertical-align: middle;
 
@@ -99,7 +104,8 @@
 }
 
 .joms-stream__time,
-.joms-comment__time {
+.joms-comment__time,
+.joms-poll__time {
     color: $color-concrete;
     display: block;
 }
@@ -182,6 +188,18 @@
               float: none;
             }
           }
+        }
+      }
+
+      // Add style for poll list
+      ul.joms-poll__option-list {
+        border: 0;
+        
+        li {
+          background-color: transparent;
+          border: 0;
+          padding: 0;
+          margin-bottom: 15px;
         }
       }
     }

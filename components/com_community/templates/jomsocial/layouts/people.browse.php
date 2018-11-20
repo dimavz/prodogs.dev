@@ -136,6 +136,21 @@ if (!isset($pageTitle)) {
                             ?>
                         </span>
                         <?php } ?>
+
+                        <?php if ($config->get('memberlist_show_last_visit') == 1) { ?>
+                        <p>
+                            <span class="joms-text--title">
+                                <?php
+                                    $lastLogin = JText::_('COM_COMMUNITY_PROFILE_NEVER_LOGGED_IN');
+                                    if ($row->user->lastvisitDate != '0000-00-00 00:00:00') {
+                                        $userLastLogin = new JDate($row->user->lastvisitDate);
+                                        $lastLogin = CActivityStream::_createdLapse($userLastLogin);
+                                    }
+                                ?>
+                                <?php echo JText::_('COM_COMMUNITY_LAST_LOGIN') . $lastLogin; ?>
+                            </span>
+                        </p>
+                        <?php } ?>
                     </div>
 
                 </div>

@@ -9,6 +9,16 @@
  */
 defined('_JEXEC') OR DIE();
 
+// Poll categories
+$rawPollCats = CFactory::getModel('polls')->getCategories();
+$pollCategories = array_map(function($cat) {
+  $item = new stdClass;
+  $item->id = $cat->id;
+  $item->name = JText::_($cat->name);
+  $item->parent = $cat->parent;
+  return $item;
+}, $rawPollCats);
+
 // Event categories.
 $rawEventCategories = CFactory::getModel('events')->getCategories();
 $eventCategories = array();
@@ -63,6 +73,7 @@ $num_photo_per_upload = $config->get("num_photo_per_upload_stream", 8);
   joms.constants.album                        = <?php echo json_encode( $album ); ?>;
   joms.constants.eventCategories              = <?php echo json_encode( $eventCategories ); ?>;
   joms.constants.videoCategories              = <?php echo json_encode( $videoCategories ); ?>;
+  joms.constants.pollCategories               = <?php echo json_encode( $pollCategories ); ?>;
   joms.constants.customActivities             = <?php echo json_encode( CActivityStream::getCustomActivities() ); ?>;
   joms.constants.videocreatortype             = '<?php echo VIDEO_USER_TYPE ?>';
 
@@ -114,6 +125,8 @@ $num_photo_per_upload = $config->get("num_photo_per_upload_stream", 8);
   joms.constants.conf.file_sharing_event      = +'<?php echo $config->get("file_sharing_event", 0) ?>';
   joms.constants.conf.file_sharing_event_max  = +'<?php echo $config->get("file_sharing_event_max", 1) ?>';
   joms.constants.conf.file_event_ext          = '<?php echo $config->get("file_sharing_event_ext", "zip") ?>';
+  joms.constants.conf.enablepolls             = +'<?php echo $permission->enablepolls; ?>';
+  joms.constants.conf.enablebackground        = +'<?php echo 0; ?>';
 
   joms.constants.postbox || (joms.constants.postbox = {});
   joms.constants.postbox.attachment           = {};
@@ -127,20 +140,39 @@ $num_photo_per_upload = $config->get("num_photo_per_upload_stream", 8);
   // Custom moods
   joms.constants.moods = [];<?php
 
-    // Render custom moods.
-    foreach ($moods as $key => $value) {
-        if(!$value->custom) continue;
-        $mood = array(
-            'id'          => $value->id,
-            'title'       => $value->title,
-            'description' => $value->description,
-            'custom'      => $value->custom ? true : false,
-            'image'       => $value->custom ? $value->image : null
-        );
+  // Render custom moods.
+  foreach ($moods as $key => $value) {
+      if(!$value->custom) continue;
+      $mood = array(
+          'id'          => $value->id,
+          'title'       => $value->title,
+          'description' => $value->description,
+          'custom'      => $value->custom ? true : false,
+          'image'       => $value->custom ? $value->image : null
+      );
 
-        echo PHP_EOL . '  joms.constants.moods.push(' . json_encode($mood) . ');';
-    }
+      echo PHP_EOL . '  joms.constants.moods.push(' . json_encode($mood) . ');';
+  }
+  ?>
 
+
+  // Status backgrounds
+  joms.constants.backgrounds = [];<?php
+
+  // Render status backgrounds
+  foreach ($backgrounds as $key => $value) {
+      $background = array(
+          'id' => $value->id,
+          'title' => $value->title,
+          'description' => $value->description,
+          'image' => $value->image,
+          'thumbnail' => $value->thumb,
+          'textcolor' => $value->textcolor,
+          'placeholdercolor' => $value->placeholdercolor
+      );
+
+      echo PHP_EOL . '  joms.constants.backgrounds.push(' . json_encode($background) . ');';
+  }
   ?>
 
 
@@ -159,6 +191,7 @@ $num_photo_per_upload = $config->get("num_photo_per_upload_stream", 8);
   joms.language.status['photo_hint']          = '<?php echo addslashes( JText::_("COM_COMMUNITY_STATUS_PHOTO_HINT") ); ?>';
   joms.language.status['photos_hint']         = '<?php echo addslashes( JText::_("COM_COMMUNITY_STATUS_PHOTOS_HINT") ); ?>';
   joms.language.status['file_hint']           = '<?php echo addslashes( JText::_("COM_COMMUNITY_STATUS_FILE_HINT") ); ?>';
+  joms.language.status['poll_hint']           = '<?php echo addslashes( JText::_("COM_COMMUNITY_STATUS_POLL_HINT") ); ?>';
   joms.language.status['files_hint']          = '<?php echo addslashes( JText::_("COM_COMMUNITY_STATUS_FILES_HINT") ); ?>';
   joms.language.status['video_hint']          = '<?php echo addslashes( JText::_("COM_COMMUNITY_STATUS_VIDEO_HINT") ); ?>';
   joms.language.status['event_hint']          = '<?php echo addslashes( JText::_("COM_COMMUNITY_STATUS_EVENT_HINT") ); ?>';
@@ -176,6 +209,7 @@ $num_photo_per_upload = $config->get("num_photo_per_upload_stream", 8);
   joms.language.postbox.post_button           = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POST_BUTTON") ); ?>';
   joms.language.postbox.cancel_button         = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_CANCEL_BUTTON") ); ?>';
   joms.language.postbox.upload_button         = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_UPLOAD_BUTTON") ); ?>';
+  joms.language.postbox.polltime              = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_SELECT_EXPRIED_DATE") ); ?>';
 
   joms.language.photo || (joms.language.photo = {});
   joms.language.photo.batch_notice            = '<?php echo addslashes( JText::sprintf("COM_COMMUNITY_PHOTO_BATCH_NOTICE", $num_photo_per_upload) ); ?>';
@@ -231,6 +265,8 @@ $num_photo_per_upload = $config->get("num_photo_per_upload_stream", 8);
   joms.language.event.end_date_not_selected   = '<?php echo addslashes( JText::_("COM_COMMUNITY_EVENTS_END_DATE_NOT_SELECTED") ); ?>';
   joms.language.event.start_time_not_selected = '<?php echo addslashes( JText::_("COM_COMMUNITY_EVENTS_START_TIME_NOT_SELECTED") ); ?>';
   joms.language.event.end_time_not_selected   = '<?php echo addslashes( JText::_("COM_COMMUNITY_EVENTS_END_TIME_NOT_SELECTED") ); ?>';
+  joms.language.event.private                 = '<?php echo addslashes( JText::_("COM_COMMUNITY_EVENTS_PRIVATE_EVENT") ); ?>';
+  joms.language.event.private_tips            = '<?php echo addslashes( JText::_("COM_COMMUNITY_EVENTS_TYPE_TIPS") ); ?>';
 
   joms.language.custom || (joms.language.custom = {});
   joms.language.custom.predefined_button      = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_CUSTOM_PREDEFINED_BUTTON") ); ?>';
@@ -288,6 +324,23 @@ $num_photo_per_upload = $config->get("num_photo_per_upload_stream", 8);
   joms.language.datepicker.today              = '<?php echo addslashes( JText::_("COM_COMMUNITY_DATEPICKER_CURRENT") ); ?>';
   joms.language.datepicker['clear']           = '<?php echo addslashes( JText::_("COM_COMMUNITY_DATEPICKER_CLEAR") ); ?>';
 
+  joms.language.poll || (joms.language.poll = {});
+  joms.language.poll.title_hint               = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_HINT_TITLE")) ?>';
+  joms.language.poll.add_option               = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_ADD_OPTION")) ?>';
+  joms.language.poll.hint_add_option          = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_HINT_ADD_OPTION")) ?>';
+  joms.language.poll.expired_date             = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_EXPIRED_DATE")) ?>';
+  joms.language.poll.expired_time             = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_EXPIRED_TIME")) ?>';
+  joms.language.poll.expired_in               = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_EXPIRED_IN")) ?>';
+  joms.language.poll.epxired_date_hint        = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_HINT_EXPIRED_DATE")) ?>';
+  joms.language.poll.expired_time_hint        = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_HINT_EXPIRED_TIME")) ?>';
+  joms.language.poll.allow_multiple_choices   = '<?php echo addslashes( JText::_("COM_COMMUNITY_POLLS_MULTIPLE")) ?>';
+  joms.language.poll.no_title                 = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_EMPTY_TITLE_WARNING")) ?>';
+  joms.language.poll.not_enough_option        = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_NOT_ENOUGH_OPTION_WARNING")) ?>';
+  joms.language.poll.no_category              = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_NO_CATEGORY_WARNING")) ?>';
+  joms.language.poll.no_expiry_time           = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_NO_EXPIRY_TIME_WARNING")) ?>';
+  joms.language.poll.no_expiry_date           = '<?php echo addslashes( JText::_("COM_COMMUNITY_POSTBOX_POLL_NO_EXPIRY_DATE_WARNING")) ?>';
+  joms.language.poll.create_limit_exceeded   = '<?php echo addslashes( JText::_("COM_COMMUNITY_POLLS_LIMIT") ); ?>';
+
 </script>
 <!-- dummy comment -->
 <div class="joms-postbox" style="display:none;">
@@ -326,6 +379,12 @@ $num_photo_per_upload = $config->get("num_photo_per_upload_stream", 8);
           <use xlink:href="<?php echo CRoute::getURI(); ?>#joms-icon-file-zip"></use>
         </svg>
         <span class="visible-desktop"><?php echo JText::_("COM_COMMUNITY_POSTBOX_FILE"); ?></span>
+      </li>
+      <li data-tab="poll">
+        <svg viewBox="0 0 16 18" class="joms-icon">
+          <use xlink:href="<?php echo CRoute::getURI(); ?>#joms-icon-list"></use>
+        </svg>
+        <span class="visible-desktop"><?php echo JText::_("COM_COMMUNITY_POSTBOX_POLL"); ?></span>
       </li>
       <?php if ( $config->get("custom_activity") && COwnerHelper::isCommunityAdmin() && $target == $my->id ) { ?>
       <li data-tab="custom">

@@ -1101,7 +1101,7 @@ class CTableEvent extends JTable implements CGeolocationInterface, CTaggable_Ite
         //CFactory::load( 'helpers' , 'event' );
 
         $handler = CEventHelper::getHandler($this);
-        return $handler->getFormattedLink('index.php?option=com_community&view=events&task=viewevent&eventid=' . $this->id);
+        return $handler->getFormattedLink('index.php?option=com_community&view=events&task=viewevent&eventid=' . $this->id, false);
     }
 
     /**

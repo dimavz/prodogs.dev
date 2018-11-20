@@ -190,6 +190,14 @@ if ($group->approvals == COMMUNITY_PRIVATE_GROUP && !$group->isMember($my->id) &
                 </li>
             <?php } ?>
 
+            <?php if ($showPolls) { ?>
+                <li class="half hidden-mobile">
+                    <a href="<?php echo CRoute::_('index.php?option=com_community&view=polls&groupid=' . $group->id); ?>"><?php echo ($totalPolls == 1)
+                            ? JText::_('COM_COMMUNITY_POLLS_COUNT') . ' <span class="joms-text--light">' . $totalPolls . '</span>'
+                            : JText::_('COM_COMMUNITY_POLLS_COUNT_MANY') . ' <span class="joms-text--light">' . $totalPolls . '</span>' ; ?></a>
+                </li>
+            <?php } ?>
+
             <li class="half hidden-mobile">
                 <a href="<?php echo CRoute::_('index.php?option=com_community&view=groups&task=viewmembers&groupid=' . $group->id); ?>">
                     <?php echo ($membersCount == 1)
@@ -289,6 +297,14 @@ if ($group->approvals == COMMUNITY_PRIVATE_GROUP && !$group->isMember($my->id) &
                         </li>
                     <?php } ?>
                     
+                    <?php if ($showPolls) { ?>
+                        <li class="half">
+                            <a href="<?php echo CRoute::_('index.php?option=com_community&view=polls&groupid=' . $group->id); ?>"><?php echo ($totalPolls == 1)
+                                    ? JText::_('COM_COMMUNITY_POLLS_COUNT') . ' <span class="joms-text--light">' . $totalPolls . '</span>'
+                                    : JText::_('COM_COMMUNITY_POLLS_COUNT_MANY') . ' <span class="joms-text--light">' . $totalPolls . '</span>' ; ?></a>
+                        </li>
+                    <?php } ?>
+
                     <li class="hidden-desktop">
                         <a href="<?php echo CRoute::_('index.php?option=com_community&view=groups&task=viewmembers&groupid=' . $group->id); ?>">
                             <?php echo ($membersCount == 1)

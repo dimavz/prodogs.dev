@@ -13,7 +13,7 @@ if ( typeof root.joms !== 'object' ) {
  * @name joms.DEBUG
  * @const {boolean}
  */
-root.joms.DEBUG = false;
+root.joms.DEBUG = false; // @@release@@root.joms.DEBUG = false;@@
 
 /**
  * Application logger.
@@ -21,9 +21,9 @@ root.joms.DEBUG = false;
  * @param {mixed} data
  */
 root.joms.log = root.joms.info = root.joms.warn = function( data ) {
-
-
-
+    if ( root.joms.DEBUG && root.console && root.console.log ) { // @@release@@@@
+        root.console.log( 'JOMS: ', data ); // @@release@@@@
+    } // @@release@@@@
 };
 
 // Temporary variables to reserve some current application libraries in case of override.
@@ -170,6 +170,22 @@ root.joms.fixUI = function() {
     });
 };
 
+root.joms.ie  = !!navigator.userAgent.match(/Trident.*rv\:11\./); // joms only support ie 11
+
+var getOptions = root.Joomla && root.Joomla.getOptions,
+    DATA;
+
+// Retrieve all data and language translations.
+DATA = getOptions && getOptions( 'com_community' ) || (root.joms_data || {});
+
+// Deprecated!
+root.joms_lang = DATA.translations || {};
+
+// Data getter.
+root.joms.getData = function( key ) {
+    return DATA[ key ];
+}
+
 // FROM THIS POINT BELOW IS A JOMSOCIAL JAVASCRIPT LOADING SEQUENCE!
 
 // Path mapper.
@@ -178,7 +194,7 @@ var path_source  = 'source/js/',
     path_vendors = 'vendors/',
     path_jquery  = path_vendors + 'jquery.min.js',
     path_require = path_vendors + 'require.min.js',
-    path_bundle  = 'bundle.js?_=' + (new Date()).getTime();
+    path_bundle  = 'bundle.js';
 
 // Loading sequence.
 function load() {
@@ -219,22 +235,12 @@ function postLoad() {
 
 // EXECUTE LOADING SEQUENCE!
 
-if ( root.joms_assets_url !== undef ) {
-    load();
-    return;
-}
-
-var attempts = 0, attemptsDelay = 500, maxAttempts = 1200;
-var timer = root.setInterval(function() {
-    if ( ++attempts > maxAttempts ) {
-        root.clearInterval( timer );
-        root.joms.warn( 'Variable `joms_assets_url` is not defined.' );
-        return;
-    }
-    if ( root.joms_assets_url !== undef ) {
-        root.clearInterval( timer );
+document.addEventListener("DOMContentLoaded", function() {
+    if ( root.joms_assets_url ) {
         load();
+    } else {
+        root.joms.warn( 'Variable `joms_assets_url` is not defined.' );
     }
-}, attemptsDelay );
+});
 
 })( this );

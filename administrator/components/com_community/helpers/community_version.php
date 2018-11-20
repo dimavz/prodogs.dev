@@ -12,7 +12,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 // do not install build version with package else this will be overwritten
-define("COMMUNITY_INSTALLER_VERSION", "pro");
+define("COMMUNITY_INSTALLER_VERSION", "dev");
 
 // pro - for JomSocial Professional
 // std - for JomSocial Standard

@@ -115,6 +115,18 @@ function AzrulCommunity() {
         cWindowShow(ajaxCall , windowTitle , 430 , 280);
     }
 
+    this.savePollCategory  = function(){
+        var values  = jax.getFormValues('editPollCategory');
+
+        jax.call('community','admin,pollcategories,ajaxSaveCategory', values);
+    }
+
+    this.editPollCategory  = function(isEdit , windowTitle){
+        var ajaxCall    = 'jax.call("community","admin,pollcategories,ajaxEditCategory" , ' + isEdit + ');';
+
+        cWindowShow(ajaxCall , windowTitle , 430 , 280);
+    }
+
     this.newField = function(){
 
         cWindowShow('jax.call("community","admin,profiles,ajaxEditField","0");', '' , 650 ,420 );

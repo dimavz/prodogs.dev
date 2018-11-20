@@ -49,11 +49,18 @@ if (!empty($act->params)) {
         $act->params = new JRegistry($act->params);
     }
     $mood = $act->params->get('mood', null);
+
+    // get status background
+    $bgid = $act->params->get('bgid', null);
+    $backgroundsModel = CFactory::getModel('Backgrounds');
+    $background = $backgroundsModel->getBackground($bgid);
+
 } else {
     $mood = null;
+    $background = null;
 }
-$title = $activity->get('title');
 
+$title = $activity->get('title');
 ?>
 
 <div class="joms-stream__header">
@@ -92,7 +99,7 @@ $title = $activity->get('title');
             </span>
         <?php } ?>
 
-        <a href="<?php echo CRoute::_('index.php?option=com_community&view=profile&userid='.$activity->actor.'&actid='.$activity->id); ?>">
+        <a href="<?php echo CRoute::_('index.php?option=com_community&view=profile&userid='.$activity->actor.'&actid='.$activity->id); ?>" style="display: inherit;">
             <span class="joms-stream__time">
                 <small><?php echo $activity->getCreateTimeFormatted(); ?></small>
                 <?php if ( strpos($activity->get('app'), 'events') === false  && strpos($activity->get('app'), 'groups') === false ) { ?>
@@ -121,14 +128,21 @@ $title = $activity->get('title');
     </div>
 
     <p data-type="stream-content">
-        <?php $title =  empty($title) ? ltrim(CActivities::format($activity->get('title'), $mood),' -') : CActivities::format($activity->get('title'), $mood);
+        <?php if ($background && $config->get('enablebackground')) { ?>
+            <div class="colorful-status__container" style="background-image: url('<?php echo $background->image ?>');">
+                <div class="colorful-status__inner" style="<?php echo (($background->textcolor) ? 'color:#' . $background->textcolor . ';' : '') ?>">
+                    <?php echo CActivities::format($activity->get('title')); ?>
+                </div>
+            </div>
+        <?php } else { ?>
+        <?php 
+            $title =  empty($title) ? ltrim(CActivities::format($activity->get('title'), $mood),' -') : CActivities::format($activity->get('title'), $mood);
+            echo CActivities::shorten($title, $activity->get('id'), $isSingleAct, $config->getInt('streamcontentlength'));
 
-        echo CActivities::shorten($title, $activity->get('id'), $isSingleAct, $config->getInt('streamcontentlength'));
-
-        if ($address) { ?>
-            <span class="joms-status-location"><?php if(!empty($title)){?>- <?php }?><?php echo JText::_('COM_COMMUNITY_AT'); ?>
-                <a href="javascript:" onclick="joms.api.locationView('<?php echo $activity->get('id'); ?>');"><?php echo $address ?></a>
-        </span>
+            if ($address) { ?>
+                <span class="joms-status-location"><?php if(!empty($title)){?>- <?php }?><?php echo JText::_('COM_COMMUNITY_AT'); ?>
+                    <a href="javascript:" onclick="joms.api.locationView('<?php echo $activity->get('id'); ?>');"><?php echo $address ?></a></span>
+            <?php } ?>
         <?php } ?>
     </p>
 

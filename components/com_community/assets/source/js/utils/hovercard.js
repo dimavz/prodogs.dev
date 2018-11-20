@@ -5,7 +5,13 @@
 
 })( window, joms.jQuery, function( window, $ ) {
 
-var card, showTimer, hideTimer, cache = {};
+var card, 
+    showTimer = 0, 
+    hideTimer = 0, 
+    animateTimer = 0, 
+    cache = {}, 
+    mouseOver = false,
+    current = 0;
 
 var MOUSEOVER_EVENT = 'mouseover.joms-hcard',
     MOUSEOUT_EVENT = 'mouseout.joms-hcard',
@@ -16,6 +22,8 @@ function initialize() {
     if ( joms.mobile ) {
         return;
     }
+
+    createCard();
 
     // Attach handler.
     $( document.body )
@@ -31,17 +39,19 @@ function onMouseOver( e ) {
     // Remove title attribute to avoid redundancy.
     img.removeAttr('title');
 
-    if ( !card ) {
-        createCard();
-    }
+    resetCard();
+    
+    mouseOver = true;
+    
+    current = id;
 
     clearTimeout( hideTimer );
 
     if ( cache[id] ) {
         clearTimeout( showTimer );
         showTimer = setTimeout(function() {
-            updateCard( cache[id], img );
-        }, 400 );
+            mouseOver && updateCard( cache[id], img );
+        }, 100 );
         return;
     }
 
@@ -52,26 +62,42 @@ function onMouseOver( e ) {
             if ( json.html ) {
                 cache[id] = json.html;
                 clearTimeout( showTimer );
-                updateCard( json.html, img );
+                mouseOver && current == id && updateCard( json.html, img );
             }
         }
     });
 }
 
 function onMouseOut() {
+    mouseOver = false;
     clearTimeout( showTimer );
     hideTimer = setTimeout(function() {
-        card && card.hide();
-    }, 400 );
+        card && resetCard();
+    }, 100 );
 }
 
 function createCard() {
     card = $('<div>Loading...</div>');
-    card.css({ position: 'absolute', zIndex: 2000 });
+    card.css({ 
+        position: 'absolute', 
+        zIndex: 2000, 
+        display: 'none', 
+        opacity:0, 
+        transition: 'opacity 300ms, top 300ms' 
+    });
+
     card.appendTo( document.body );
 
     card.on( MOUSEOVER_EVENT, function() { clearTimeout( hideTimer ); });
     card.on( MOUSEOUT_EVENT, onMouseOut );
+}
+
+function resetCard() {
+    clearTimeout( animateTimer );
+    card && card.css({
+        display: 'none',
+        opacity: 0
+    });
 }
 
 function updateCard( html, img ) {
@@ -86,19 +112,27 @@ function updateCard( html, img ) {
         top = offset.top + height + 10;
 
     card.html( html );
-    card.css({
-       top: -10000,
-       left: alignLeft ? offset.left : '',
-       right: alignLeft ? '' : maxWidth - offset.left - width
-    });
-    card.show();
 
     cardHeight = card.height();
+
     if ( top + cardHeight > maxHeight ) {
         top = offset.top - cardHeight - 4;
     }
 
-    card.css({ top: top });
+    card.css({
+       top: top - 10,
+       left: alignLeft ? offset.left : '',
+       right: alignLeft ? '' : maxWidth - offset.left - width,
+       display: 'block',
+       opacity: 0
+    });
+
+    animateTimer = setTimeout(function() {
+        card.css({
+            top: top,
+            opacity: 1
+        })
+    }, 300)
 }
 
 // Exports.

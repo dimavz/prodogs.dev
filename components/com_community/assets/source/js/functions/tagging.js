@@ -116,6 +116,8 @@ function fetchFriendsInContext() {
         },
         complete: function() {
             window.joms_friends = friends;
+            var event = new Event('JomsFriendsFetched');
+            document.dispatchEvent(event);
         }
     });
 }

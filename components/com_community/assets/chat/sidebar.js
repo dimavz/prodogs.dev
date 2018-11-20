@@ -13,7 +13,9 @@
         events: {
             'click .joms-chat__item': 'itemSelect',
             'wheel .joms-js-list': 'scrollSidebar',
-            'keyup .joms-chat__search_conversation': 'searchConversation'
+            'keyup .joms-chat__search_conversation': 'searchConversation',
+            'focus .joms-chat__search_conversation': 'showSearchResultsBox',
+            'click .search-close': 'onSearchClose'
         },
 
         initialize: function () {
@@ -21,6 +23,18 @@
             this.$loading = this.$list.find('.joms-js--chat-sidebar-loading');
             this.$notice = this.$('.joms-js-notice');
             this.$searchInput = this.$('.joms-chat__search_conversation');
+            this.$searchBox = this.$('.joms-chat__search-box');
+            this.$closeBtn = this.$searchBox.find('.search-close');
+
+            this.$searchResults = this.$('.joms-chat__search-results');
+
+            this.$groupResults = this.$searchResults.find('.joms-js__group-results');
+            this.$groupLoading = this.$groupResults.next('.joms-js--chat-sidebar-loading');
+                
+            this.$contactResults = this.$searchResults.find('.joms-js__contact-results');
+            this.$contactLoading = this.$contactResults.next('.joms-js--chat-sidebar-loading');
+
+            this.searching = 0;
             this.no_conversation_left = false;
             this.limit = +joms.getData('message_sidebar_softlimit');
 
@@ -68,23 +82,152 @@
             this.$notice.show();
         },
 
+        showSearchResultsBox: function() {
+            this.$list.hide();
+            this.$searchResults.show();
+            this.$closeBtn.show();
+            joms_observer.do_action('chat_hide_new_message_button');
+        },
+
+        onSearchClose: function() {
+            this.hideSearchResultsBox(true);
+        },
+
+        hideSearchResultsBox: function( open ) {
+            this.resetSearchResults();
+            this.$searchInput.val('')
+                .trigger('keyup'); // hide result results
+            this.$searchResults.hide();
+            this.$closeBtn.hide();
+            this.$list.show();
+            var $active = this.$list.find('.joms-chat__item.active');
+            if ( !$active.length && open ) {
+                this.openFirstWindow();
+            }
+
+            joms_observer.do_action('chat_show_new_message_button');
+        },
+
         searchConversation: function(e) {
             var keyword = this.$searchInput.val().toLowerCase();
-            if (!keyword) {
-                this.$list.find('.joms-chat__item').show();
+            
+            if (keyword === this.keyword) {
                 return;
             }
 
-            if (e.which < 112 && e.which > 47 || e.which === 8 || e.which === 16) {
-                var items = this.$list.find('.joms-chat__item');
-                items.hide();
+            this.keyword = keyword;
+
+            this.resetSearchResults();
+            if (keyword.length < 2) {
+                this.$groupLoading.hide();
+                this.$contactLoading.hide();
+                return;
+            }
+
+            if ((e.which < 112 && e.which > 47) || e.which === 8 || e.which === 16) {
+                clearTimeout(this.searching);
+                
+                this.$groupLoading.show();
+                this.$contactLoading.show();
+
+                var items = this.$list.find('.joms-chat__item'),
+                    self = this,
+                    exclusion = [],
+                    state,
+                    fetchtime,
+                    no_contact_template,
+                    no_group_template;
+
                 _.each(items, function(item) {
-                    var name = $(item).find('a').text().toLowerCase();
-                    if (name.indexOf(keyword) > -1) {
-                        $(item).show();
+                    var name = $(item).find('b').text().toLowerCase(),
+                        id = $(item).data('chat-id'),
+                        type = $(item).data('chat-type');
+
+                    exclusion.push( id );
+
+                    if (name.indexOf(keyword) === -1) {
+                        return;
+                    }
+
+                    var $clone = $(item).clone();
+                    $clone.removeClass('active').addClass('result-item');
+
+                    if ( type === 'group') {
+                        self.$groupResults.append( $clone );
+                    } 
+
+                    if ( type === 'single') {
+                        self.$contactResults.append( $clone );
                     }
                 });
+                
+                self._fetchTime = fetchtime = ( new Date ).getTime();
+                self.searching = setTimeout( function() {
+                    joms.ajax({
+                        func: 'chat,ajaxSearchChat',
+                        data: [ keyword, exclusion.join(',') ],
+                        callback: function (json) {
+                            if (self._fetchTime !== fetchtime) {
+                                return;
+                            }
+
+                            if (json.error) {
+                                alert(json.error)
+                                return;
+                            }
+
+                            var data = {};
+                            _.each( json.single, function(item) {
+                                var html = self.renderSearchResult(item);
+                                self.$contactResults.append(html);
+                                data['chat_'+item.chat_id] = item
+                            })
+
+                            if (!json.single.length && !self.$contactResults.html()) {
+                                no_contact_template = util.getTemplateById( 'joms-js-template-chat-no-contact-found' );
+                                self.$contactResults.html(no_contact_template());
+                            }
+                            self.$contactLoading.hide()
+
+                            _.each( json.group, function(item) {
+                                var html = self.renderSearchResult(item);
+                                self.$groupResults.append(html);
+
+                                item.name = util.formatName(item.name);
+                                data['chat_'+item.chat_id] = item;
+                            })
+
+                            joms_observer.do_action('chat_add_conversions', data);
+
+                            if (!json.group.length && !self.$groupResults.html()) {
+                                no_contact_template = util.getTemplateById( 'joms-js-template-chat-no-group-found' )
+                                self.$groupResults.html(no_contact_template());
+                            }
+
+                            self.$groupLoading.hide()
+                        }
+                    });
+                }, 500)
             }
+        },
+
+        renderSearchResult: function(data) {
+            var template = util.getTemplateById( 'joms-js-template-chat-sidebar-search-result-item' ),
+                html;
+
+            html = template({
+                id: data.chat_id,
+                type: data.type,
+                name: util.formatName( data.name ).replace(/<img(.*?)\/>/, ''),
+                avatar: data.thumb
+            });
+
+            return html;
+        },
+
+        resetSearchResults: function() {
+            this.$contactResults.html('');
+            this.$groupResults.html('');
         },
 
         scrollSidebar: function(e) {
@@ -166,9 +309,31 @@
 
         moveWindowToTop: function(list) {
             for (var i = 0; i < list.length; i++) {
-                var item = this.$list.find('.joms-js--chat-item-'+list[i].chat_id);
-                this.$list.prepend(item);
+                var $item = this.$list.find('.joms-js--chat-item-'+list[i].chat_id);
+                if ($item.length) {
+                    this.$list.prepend($item);
+                } else {
+                    // render searched item after sending message
+                    var template = util.getTemplateById( 'joms-js-template-chat-sidebar-item' ),
+                        html, data;
+
+                    data = list[i];
+
+                    html = template({
+                        id: data.chat_id,
+                        type: data.type,
+                        name: util.formatName( data.name ).replace(/<img(.*?)\/>/, ''),
+                        unread: false,
+                        active: true,
+                        online: data.online,
+                        avatar: data.thumb
+                    });
+
+                    this.$list.prepend(html);
+                }
             }
+
+            this.hideSearchResultsBox();
         },
 
         setAllWindowSeen: function() {
@@ -303,13 +468,21 @@
          */
         itemSelect: function (e) {
             e.preventDefault();
-            var $item = $(e.currentTarget),
-                chatId = $item.data('chat-id');
-            this.itemSetActive($item);
+            var $elm = $(e.currentTarget),
+                chatId = $elm.data('chat-id'),
+                $item = this.$list.find('.joms-js--chat-item-' + chatId);
+
+            if ($item.length) {
+                this.itemSetActive($item);
+            } else {
+                this.setInactiveAll();
+            }
+
             if (this.$searchInput.val()) {
                 this.$searchInput.val('');
                 this.$list.find('.joms-chat__item').show();
             }
+
             joms_observer.do_action('chat_sidebar_select', chatId);
             if (chatId > 0) {
                 joms_observer.do_action('chat_selector_hide');
@@ -325,6 +498,10 @@
         itemSetActive: function ($item) {
             $item.siblings('.active').removeClass('active');
             $item.removeClass('unread').addClass('active');
+        },
+
+        setInactiveAll: function() {
+            this.$list.find('.joms-chat__item').removeClass('active');
         },
 
         /**

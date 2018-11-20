@@ -361,6 +361,12 @@ class CFacebook {
      * @return String the html data
      */
     public function getLoginHTML() {
+        $my = CFactory::getUser();
+        
+        if ($my->id != 0) {
+            return '';
+        }
+
         JFactory::getLanguage()->load('com_community');
 
         $config = CFactory::getConfig();

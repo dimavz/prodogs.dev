@@ -544,7 +544,7 @@ class CommunityGroupsController extends CommunityBaseController {
                     $content = JText::_('COM_COMMUNITY_GROUPS_DELETE_ERROR');
                 }
 
-                $redirect = CRoute::_('index.php?option=com_community&view=groups');
+                $redirect = CRoute::_('index.php?option=com_community&view=groups', false);
 
                 $json['message'] = $content;
                 $json['redirect'] = $redirect;
@@ -1783,6 +1783,17 @@ class CommunityGroupsController extends CommunityBaseController {
             }
         } else {
             $params->set('filesharingpermission', GROUP_FILESHARING_PERMISSION_DISABLE);
+        }
+
+        // Set the group polls permission
+        if (array_key_exists('pollspermission-admin', $jinput->post->getArray())) {
+            $params->set('pollspermission', GROUP_POLLS_PERMISSION_ADMINS);
+
+            if (array_key_exists('pollspermission-member', $jinput->post->getArray())) {
+                $params->set('pollspermission', GROUP_POLLS_PERMISSION_ALL);
+            }
+        } else {
+            $params->set('pollspermission', GROUP_POLLS_PERMISSION_DISABLE);
         }
 
         $config = CFactory::getConfig();

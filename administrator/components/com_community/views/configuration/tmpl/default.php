@@ -204,6 +204,15 @@ switch ($this->cfgSection) {
 		</div>
 		<?php
 		break;
+	case 'polls':
+		?>
+		<div class="row-fluid">
+			<div class="span24">
+				<?php require_once( dirname(__FILE__) . '/polls.php' ); ?>
+			</div>
+		</div>
+		<?php
+		break;
 }
 ?>
 

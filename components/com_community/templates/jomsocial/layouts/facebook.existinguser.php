@@ -15,13 +15,5 @@ defined('_JEXEC') or die();
 	<div class="clr"></div>
 </div>
 <div style="padding: 5px;">
-	<?php
-	if( $config->get('fbconnectupdatestatus') )
-	{
-	?>
-	<label class="lblcheck"><input type="checkbox" <?php if(intval( $config->get('fbloginimportprofile'))) { ?>checked="checked"<?php } ?> value="1" name="importstatus" id="importstatus" /><?php echo JText::_('COM_COMMUNITY_IMPORT_PROFILE_STATUS');?></label>
-	<?php
-	}
-	?>
 	<label class="lblcheck"><input type="checkbox" <?php if(intval( $config->get('fbloginimportavatar'))) { ?>checked="checked"<?php } ?> value="1" name="importavatar" id="importavatar" /><?php echo JText::_('COM_COMMUNITY_IMPORT_PROFILE_AVATAR');?></label>
 </div>

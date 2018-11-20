@@ -894,6 +894,82 @@ Class CGroupsAccess implements CAccessInterface
         return false;
     }
 
+    static public function groupsPollsCreate($userId, $groupId)
+    {
+        $config = CFactory::getConfig();
+
+        $group = JTable::getInstance('Group', 'CTable');
+        $group->load($groupId);
+
+        $params = $group->getParams();
+
+        $groupModel = CFactory::getModel('groups');
+
+        // FALSE globally disabled
+        if(!$config->get('group_polls') || !CFactory::getUser()->authorise('community.pollcreate', 'com_community')) {
+            echo "<!-- ".__FUNCTION__.__LINE__."-->";
+            return false;
+        }
+
+        // FALSE group photos disabled
+        if($params->get('pollspermission') == -1) {
+            echo "<!-- ".__FUNCTION__.__LINE__."-->";
+            return false;
+        }
+
+        // FALSE not logged in
+        if(!$userId) {
+            echo "<!-- ".__FUNCTION__.__LINE__."-->";
+            return false;
+        }
+
+        // TRUE Super Admin
+        if(COwnerHelper::isCommunityAdmin($userId) || $group->isAdmin($userId)) {
+            echo "<!-- ".__FUNCTION__.__LINE__."-->";
+            return true;
+        }
+
+        // TRUE owner
+        if($group->ownerid == $userId) {
+            echo "<!-- ".__FUNCTION__.__LINE__."-->";
+            return true;
+        }
+
+        // FALSE only admins can post
+        if($params->get('pollspermission') == 1) {
+            echo "<!-- ".__FUNCTION__.__LINE__."-->";
+            return false;
+        }
+
+        // FALSE not member
+        if(!$group->isMember($userId)) {
+            echo "<!-- ".__FUNCTION__.__LINE__."-->";
+            return false;
+        }
+
+        // FALSE member, but banned
+        if($group->isBanned($userId)) {
+            echo "<!-- ".__FUNCTION__.__LINE__."-->";
+            return false;
+        }
+
+        // FALSE member, but waiting approval
+        if($groupModel->isWaitingAuthorization($userId, $groupId)) {
+            echo "<!-- " . __FUNCTION__ . __LINE__ . "-->";
+            return false;
+        }
+
+        // TRUE member
+        if($group->isMember($userId)) {
+            echo "<!-- ".__FUNCTION__.__LINE__."-->";
+            return true;
+        }
+
+        // default (shouldn't really kick in)
+        echo "<!-- ".__FUNCTION__.__LINE__."-->";
+        return false;
+    }
+
 	static public function groupsCreate($userId)
 	{
 		$config = CFactory::getConfig();

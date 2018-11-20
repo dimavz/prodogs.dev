@@ -13,7 +13,7 @@ defined('_JEXEC') or die('Restricted access');
 
 <div class="widget-box">
     <div class="widget-header widget-header-flat">
-        <h5><?php echo JText::_( 'COM_COMMUNITY_CONFIGURATION_MOODS_BADGES' ); ?></h5>
+        <h5><?php echo JText::_( 'COM_COMMUNITY_CONFIGURATION_MOODS_BADGES_BACKGROUNDS' ); ?></h5>
     </div>
     <div class="widget-body">
         <div class="widget-main">

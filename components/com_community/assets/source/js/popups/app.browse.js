@@ -146,7 +146,7 @@ function buildHtml( json, type ) {
 
     return [
         '<div class="joms-popup joms-popup--whiteblock">',
-        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="Close (Esc)">×</button>', json.title, '</div>',
+        '<div class="joms-popup__title"><button class="mfp-close" type="button" title="',window.joms_lang.COM_COMMUNITY_CLOSE_BUTTON_TITLE,'">×</button>', json.title, '</div>',
         '<div class="joms-popup__content joms-popup__content--single">', ( json.html || '' ), '</div>',
         action,
         '</div>'

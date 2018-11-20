@@ -45,8 +45,8 @@ function buildHtml( url ) {
     url = url.replace( 'thumb_', '' );
     return [
         '<div class="joms-popup-wrapper" style="width:100%;height:100%;margin:0 auto;text-align:center">',
-        '<div class="joms-popup" style="max-width:100%;left:auto;right:auto;position:relative;display:inline;top:0">',
-        '<img src="' + url + '" style="width:auto;max-width:100%">',
+        '<div class="joms-popup" style="max-width:100%;left:auto;right:auto;position:relative;top:0;display:none;">',
+        '<img src="' + url + '" style="width:auto;max-width:100%; display:none;">',
         '</div>',
         '</div>'
     ].join('');
@@ -62,16 +62,32 @@ var fixResize = joms._.debounce(function() {
         $pop.unwrap();
     }
 
-    setTimeout(function() {
-        var imgHeight = +$img.height(),
-            cntHeight = +$cnt.height();
+    var $mfp = $pop.parents('.mfp-content'),
+        xHeight, ratio, height, width;
 
-        imgHeight = imgHeight && ( imgHeight < cntHeight ) ? '' : cntHeight;
-        $img.css( 'height', imgHeight );
-        setTimeout(function() {
-            $pop.css({ position: 'relative', width: $img.width() });
-        }, 1 );
-    }, 1 );
+    height = $img.get(0).height;
+    width = $img.get(0).width; 
+
+    ratio = width / height;
+
+    xHeight = $mfp.width() / ratio;
+
+    if (xHeight > $mfp.height()) {
+        width = 'auto';
+        height = $mfp.height();
+    } else {
+        width = $mfp.width();
+        height = 'auto';
+    }
+
+    $img.css({
+        display: 'block',
+        height: height,
+        width: width
+    });
+
+    $pop.css({ position: 'relative', width: $img.width() });
+    
 }, 100 );
 
 // Exports.

@@ -41,7 +41,31 @@ $enablepm = $config->get('enablepm');
         <!-- Sidebar -->
         <div class="joms-chat__conversations-wrapper">
             <div class="joms-chat__search">
-                <input class="joms-input joms-chat__search_conversation" type="text" placeholder="<?php echo JText::_('COM_COMMUNITY_CHAT_SEARCH'); ?>" />
+                <div class="joms-chat__search-box" style="position: relative;">
+                    <input 
+                        class="joms-input joms-chat__search_conversation" 
+                        type="text" 
+                        maxlength="50"
+                        placeholder="<?php echo JText::_('COM_COMMUNITY_CHAT_SEARCH'); ?>" />
+                    <i class="fa fa-times-circle search-close" aria-hidden="true" style="display:none; position: absolute;top: 50%;right: 10px;transform: translateY(-100%);cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="joms-chat__search-results" style="display:none;">
+                <div class="joms-js__results-list" style="max-height: 495px; overflow:auto;">
+                    <div class="joms-js__result-heading"><?php echo JText::_('COM_COMMUNITY_CHAT_SEARCH_CONTACT_RESULTS') ?></div>
+                    <div class="joms-js__contact-results">
+                    </div>
+                    <div class="joms-js--chat-sidebar-loading" style="text-align:center;display:none">
+                        <img src="<?php echo JURI::root(true) ?>/components/com_community/assets/ajax-loader.gif" alt="loader" />
+                    </div>
+
+                    <div class="joms-js__result-heading"><?php echo JText::_('COM_COMMUNITY_CHAT_SEARCH_GROUP_RESULTS') ?></div>
+                    <div class="joms-js__group-results">
+                    </div>
+                    <div class="joms-js--chat-sidebar-loading" style="text-align:center;display:none">
+                        <img src="<?php echo JURI::root(true) ?>/components/com_community/assets/ajax-loader.gif" alt="loader" />
+                    </div>
+                </div>
             </div>
             <div class="joms-chat__conversations">
                 <div class="joms-js-list" style="display:none;max-height: 495px; overflow:auto;">
@@ -385,6 +409,34 @@ $enablepm = $config->get('enablepm');
     <div class="joms-chat__item joms-js--chat-item-{{= data.id }} {{= +data.unread ? 'unread' : '' }} {{= +data.active ? 'active' : '' }}"
             data-chat-type="{{= data.type }}" data-chat-id="{{= data.id }}">
         <div class="joms-avatar {{= data.online ? 'joms-online' : '' }}">
+            <img src="{{= data.avatar }}" />
+        </div>
+        <div class="joms-chat__item-body">
+            <b href="#">{{= data.name }}</b>
+            <span class="joms-js--chat-item-msg"></span>
+        </div>
+    </div>
+</script>
+
+<!-- Sidebar search no contacts found -->
+<script type="text/template" id="joms-js-template-chat-no-contact-found">
+    <div class="joms-chat__search--no-result">
+        <span><?php echo JText::_('COM_COMMUNITY_CHAT_SEARCH_NO_CONTACT') ?></span>
+    </div>
+</script>
+
+<!-- Sidebar search no groups found -->
+<script type="text/template" id="joms-js-template-chat-no-group-found">
+    <div class="joms-chat__search--no-result">
+        <span><?php echo JText::_('COM_COMMUNITY_CHAT_SEARCH_NO_GROUP') ?></span>
+    </div>
+</script>
+
+<!-- Sidebar search result item template -->
+<script type="text/template" id="joms-js-template-chat-sidebar-search-result-item">
+    <div class="joms-chat__item joms-js--chat-item-{{= data.id }} {{= +data.unread ? 'unread' : '' }} result-item"
+            data-chat-type="{{= data.type }}" data-chat-id="{{= data.id }}">
+        <div class="joms-avatar">
             <img src="{{= data.avatar }}" />
         </div>
         <div class="joms-chat__item-body">
