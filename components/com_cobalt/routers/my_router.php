@@ -353,6 +353,9 @@ function CobaltBuildRoute(&$query)
 
 	function CobaltParseRoute($segments)
 	{
+		echo "<PRE>";
+		print_r($segments);
+		echo "</PRE>";
 		$vars         = array();
 		$filter       = JFilterInput::getInstance();
 		$count        = count($segments);
