@@ -25,16 +25,15 @@ class CobaltViewCobalt extends JViewLegacy
 	 */
 	public function display($tpl = NULL)
 	{
-		$user   = JFactory::getUser();
+		//$user   = JFactory::getUser();
 		// $url = "index.php?option=com_community&view=profile&userid={$user->id}";
 		$url_referer = $_SERVER['HTTP_REFERER']; // Получаем ссылку с которой перешли
 		$app    = JFactory::getApplication();
-		$app->redirect($url_referer);
+		$app->redirect($url_referer); //Выполняем перенаправление на ссылку с которой перешли
 
 		// echo "<PRE>";
 		// print_r($user);
 		// echo "</PRE>";
-
 		parent::display($tpl);
 	}
 
