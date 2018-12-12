@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
 	<name>Default</name>
-	<author>MintJoomla</author>
-	<creationDate>Febrary 2012</creationDate>
+	<author>Dmitry Zatulenko</author>
+	<creationDate>Desember 2018</creationDate>
 	<copyright>Copyright (C) 2005 - 2012 MintJoomla. All rights reserved.</copyright>
 	<license>Commercial (http://www.mintjoomla.com/commercial-license)</license>
 	<authorEmail>support@mintjoomla.com</authorEmail>
@@ -39,7 +39,7 @@
 			<field name="form_public_alert" type="text" label="X_FORMPUALERT"  default="Вы не зарегистрированы. Вы не сможете редактировать свои посты позже."/>
 
 		</fieldset>
-		<fieldset name="maini" label="Icons">
+		<fieldset name="maini" label="Иконки">
 			<field name="item_icon_title_icon" type="fieldicon" default="edit.png" label="Record title icon" />
 			<field name="form_title_icon" type="radio" class="btn-group" label="X_SHOWTITLEICON"  default="1">
 				<option value="0">CNO</option>
@@ -73,84 +73,84 @@
 				<option value="0">CNO</option>
 				<option value="1">CYES</option>
 			</field>
-			<field name="item_icon_fields" type="radio" class="btn-group" default="1" label="Fields Icons" description="">
+			<field name="item_icon_fields" type="radio" class="btn-group" default="1" label="Иконки Полей" description="">
 				<option value="0">CNO</option>
 				<option value="1">CYES</option>
 			</field>
 		</fieldset>
 		<fieldset name="shows" label="CSHOWFIELDS">
 			<field name="form_show_ctime" type="accesslevel" default="3" label="CCTIME"  >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_extime" type="accesslevel" default="3" label="CEXTIME" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_ftime" type="accesslevel" default="3" label="CFTIME" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_hidden" type="accesslevel" default="3" label="CHIDEUNHIDE" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_langs" type="accesslevel" default="3" label="CLANGUAGE" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_votes" type="accesslevel" default="0" label="CVOTENUM" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_hits" type="accesslevel" default="0" label="CHITS" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_ip" type="accesslevel" default="0" label="CIP" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_votes_result" type="accesslevel" default="0" label="CVOTERES" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_featured" type="accesslevel" default="3" label="CFEATURED" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_user_id" type="accesslevel" default="3" label="CAUTHOR" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_archive" type="accesslevel" default="3" label="CARCHIVEFIELD" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_access" type="accesslevel" default="3" label="CACCESSFIELD" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_published" type="accesslevel" default="3" label="CPUBLISHEDF" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 		</fieldset>
 		<fieldset name="seo" label="CCEOFIELDS">
 			<field name="form_show_meta_descr" type="accesslevel" default="2" label="CMETADESCRF" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_meta_key" type="accesslevel" default="2" label="CMETAKEYF" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_meta_robots" type="accesslevel" default="2" label="CROPOTFILDS" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_alias" type="accesslevel" default="2" label="CALIASFIELD" >
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 		</fieldset>
-		<fieldset name="bshows" label="Show Buttons">
+		<fieldset name="bshows" label="Показать Кнопки">
 			<field name="form_show_apply_button" type="accesslevel" label="X_SHOWAPPLYB"  default="1">
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_save_button" type="accesslevel" label="X_SHOWSAVEB"  default="1">
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_savenew_button" type="accesslevel" label="X_SHOWSAVENEWB"  default="1">
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_savecopy_button" type="accesslevel" label="X_SHOWSAVECOPY"  default="1">
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_show_close_button" type="accesslevel" label="X_SHOWCLOSEB"  default="1">
-				<option value="0">Do not show</option>
+				<option value="0">Не отображать</option>
 			</field>
 			<field name="form_button_position" type="list" label="X_BUTTONPOSITION" default="3">
 				<option value="1">CTOP</option>
@@ -178,10 +178,11 @@
 			<field name="form_label_access" type="text" default="Доступ" label="CACCESS"  size="40" />
 			<field name="form_label_published" type="text" default="Опубликовано" label="CPUBLISHED"  size="40" />
 			<field name="form_label_category" type="text" default="Категория" label="CCATEGORY"  size="40" />
+			<field name="form_label_ucategory" type="text" default="Категория пользователя" label="UCATEGORY"  size="40" />
 			<field name="form_label_tags" type="text" default="Метки" label="CTAGS"  size="40" />
 		</fieldset>
 
-		<fieldset name="blabels" label="Button Labels">
+		<fieldset name="blabels" label="Ярлыки Кнопок">
 			<field name="form_label_apply_button" type="text" default="Применить" label="CAPPLY"  size="40" />
 			<field name="form_label_save_button" type="text" default="Сохранить &amp; Закрыть" label="CSAVECLOSE"  size="40" />
 			<field name="form_label_savenew_button" type="text" default="Сохранить &amp; Новый" label="CSAVENEW"  size="40" />

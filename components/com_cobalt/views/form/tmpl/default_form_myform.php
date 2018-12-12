@@ -98,13 +98,13 @@ $k = 0;
 			<?php endif;?>
 
 			<?php if(count($this->meta)):?>
-				<li><a href="#tab-meta" data-toggle="tab"><?php echo JText::_('Meta Data');?></a></li>
+				<li><a href="#tab-meta" data-toggle="tab"><?php echo JText::_('Мета Данные');?></a></li>
 			<?php endif;?>
 			<?php if(count($this->core_admin_fields)):?>
-				<li><a href="#tab-special" data-toggle="tab"><?php echo JText::_('Special Fields');?></a></li>
+				<li><a href="#tab-special" data-toggle="tab"><?php echo JText::_('Специальные Поля');?></a></li>
 			<?php endif;?>
 			<?php if(count($this->core_fields)):?>
-				<li><a href="#tab-core" data-toggle="tab"><?php echo JText::_('Core Fields');?></a></li>
+				<li><a href="#tab-core" data-toggle="tab"><?php echo JText::_('Поля Ядра');?></a></li>
 			<?php endif;?>
 		</ul>
 <?php endif;?>
@@ -222,7 +222,7 @@ $k = 0;
 					<?php echo HTMLFormatHelper::icon('category.png');  ?>
 				<?php endif;?>
 
-				<?php echo JText::_($this->tmpl_params->get('tmpl_core.form_label_ucategory', 'Category')) ?>
+				<?php echo JText::_($this->tmpl_params->get('tmpl_core.form_label_ucategory', 'User Category')) ?>
 
 				<span class="pull-right" rel="tooltip" data-original-title="<?php echo JText::_('CREQUIRED')?>"><?php echo HTMLFormatHelper::icon('asterisk-small.png');  ?></span>
 			</label>
