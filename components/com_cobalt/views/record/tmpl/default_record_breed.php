@@ -125,9 +125,9 @@ if($params->get('tmpl_core.item_follow_num'))
 	<div class="clearfix"></div>
 
 	<?php if(isset($this->item->fields_by_groups[null])):?>
-		<dl class="dl-horizontal fields-list">
+		<div class="fields_no_groups" style="float:left">
 			<?php foreach ($this->item->fields_by_groups[null] as $field_id => $field):?>
-				<dt id="<?php echo 'dt-'.$field_id; ?>" class="<?php echo $field->class;?>">
+				<div class="<?php echo $field->class;?>">
 					<?php if($field->params->get('core.show_lable') > 1):?>
 						<label id="<?php echo $field->id;?>-lbl">
 							<?php echo $field->label; ?>
@@ -138,14 +138,26 @@ if($params->get('tmpl_core.item_follow_num'))
 						<?php if($field->params->get('core.label_break') > 1):?>
 						<?php endif;?>
 					<?php endif;?>
-				</dt>
-				<dd id="<?php echo 'dd-'.$field_id; ?>" class="<?php echo $field->fieldclass;?><?php echo ($field->params->get('core.label_break') > 1 ? ' line-brk' : NULL) ?>">
+				</div>
+				<div id="<?php echo 'dd-'.$field_id; ?>" class="<?php echo $field->fieldclass;?><?php echo ($field->params->get('core.label_break') > 1 ? ' line-brk' : NULL) ?>">
 					<?php echo $field->result; ?>
-				</dd>
+				</div>
 			<?php endforeach;?>
-		</dl>
+		</div>
 		<?php unset($this->item->fields_by_groups[null]);?>
 	<?php endif;?>
+
+	<?php if($params->get('tmpl_core.item_rating')): ?>
+		<div class="well article-info" style="float:right">
+			<div class="row-fluid">
+				<?php if($params->get('tmpl_core.item_rating')):?>
+					<div class="span2">
+						<?php echo $item->rating;?>
+					</div>
+				<?php endif; ?>
+			</div>
+		</div>
+	<?php endif; ?>
 
 	<?php if(in_array($params->get('tmpl_params.item_grouping_type', 0), array(1)) && count($this->item->fields_by_groups)):?>
 		<div class="clearfix"></div>
@@ -202,18 +214,6 @@ if($params->get('tmpl_core.item_follow_num'))
 		<div class="clearfix"></div>
 		<br />
 	<?php endif;?>
-
-	<?php if($params->get('tmpl_core.item_rating')): ?>
-		<div class="well article-info">
-			<div class="row-fluid">
-				<?php if($params->get('tmpl_core.item_rating')):?>
-					<div class="span2">
-						<?php echo $item->rating;?>
-					</div>
-				<?php endif; ?>
-			</div>
-		</div>
-	<?php endif; ?>
 
 	<?php echo $this->loadTemplate('tags');?>
 
