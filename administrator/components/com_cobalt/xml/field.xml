@@ -68,7 +68,7 @@
 				<option value="0">XML_OPT_NOONE</option>
 			</field>
 			<field name="field_view_message" type="text"
-				   default="You cannot view this field" label="XML_LABEL_F_MSG"/>
+				   default="Вы не можете видеть это поле" label="XML_LABEL_F_MSG"/>
 		</fieldset>
 
 		<fieldset name="access2_submit" label="XML_LABEL_F_SUBMIT_ACCESS">
@@ -77,7 +77,7 @@
 				<option value="0">XML_OPT_NOONE</option>
 			</field>
 			<field name="field_submit_message" type="text"
-				   default="You cannot submit this field" label="XML_LABEL_F_MSG"/>
+				   default="Вы не можете добавить это поле" label="XML_LABEL_F_MSG"/>
 		</fieldset>
 
 		<fieldset name="access2_edit" label="XML_LABEL_F_EDIT_ACCESS">
@@ -86,7 +86,7 @@
 				<option value="0">XML_OPT_NOONE</option>
 			</field>
 			<field name="field_edit_message" type="text"
-				   default="You cannot edit this field" label="XML_LABEL_F_MSG"/>
+				   default="Вы не можете редактировать это поле" label="XML_LABEL_F_MSG"/>
 		</fieldset>
 	</fields>
 
