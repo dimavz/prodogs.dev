@@ -7760,3 +7760,23 @@ ul.manager .height-50 .icon-folder-2 {
 .rtl .finder-selects {
 	margin: 0 0 15px 15px;
 }
+
+/*Мои добавления стилей*/
+/*Модуль главного меню*/
+.menumain {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+.menumain li{
+	margin-right: 5px;
+	padding: 5px;
+}
+.menumain li a{
+	padding: 5px;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
