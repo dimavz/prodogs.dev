@@ -94,7 +94,7 @@ class JFormFieldCAg_picture extends CFormField
 				 || !JFile::write($folder . 'index.html', $index = '<html><body></body></html>')
 				 )
 				{
-					$message	= JText::_('Cannot create folder(s), Please, check upload directory is correct and accessible');
+					$message	= JText::_('Не удается создать папку (и). Пожалуйста, проверьте правильность и доступность каталога загрузки');
 					$this->setError($message);
 					return false;
 				}
@@ -104,8 +104,8 @@ class JFormFieldCAg_picture extends CFormField
 			if (!in_array($ext, $this->_exts))
 			{
 				$message	= JText::_("File is not appropriate format");
-				$message	.= "<br/>File: ".basename($name);
-				$message	.= "<br/>Allowed Formats: ".implode(", ", $this->_exts);
+				$message	.= "<br/>Файл: ".basename($name);
+				$message	.= "<br/>Разрешенные форматы: ".implode(", ", $this->_exts);
 				$this->setError($message);
 				return false;
 			}
@@ -115,9 +115,9 @@ class JFormFieldCAg_picture extends CFormField
 			if (($size > $max_size) && $max_size)
 			{
 				$message	= JText::_("File exceed allowed size");
-				$message	.= "<br\>File: ".$name;
-				$message	.= "<br\>Size: ".number_format($size, 0, '', ',');
-				$message	.= "<br\>Allowed Size: ".number_format($max_size, 0, '', ',');
+				$message	.= "<br\>Файл: ".$name;
+				$message	.= "<br\>Размер: ".number_format($size, 0, '', ',');
+				$message	.= "<br\>Разрешенный размер: ".number_format($max_size, 0, '', ',');
 				$this->setError($message);
 				return false;
 			}
@@ -128,8 +128,8 @@ class JFormFieldCAg_picture extends CFormField
 				$dest	= $folder.$name;
 				if (JFile::exists($dest) && !$this->params->get('params.overwrite', 1))
 				{
-					$message	= JText::_("This File already Exists");
-					$message	.= "<br\>File: ".$name;
+					$message	= JText::_("Этот файл уже существует");
+					$message	.= "<br\>Файл: ".$name;
 					$this->setError($message);
 					return false;
 				}
@@ -190,8 +190,8 @@ class JFormFieldCAg_picture extends CFormField
 			$dest		= $folder.$name;
 			if (!JFile::upload($tmp_name, $dest))
 			{
-				$message	= JText::_("Could not upload the file");
-				$message		.= "<br\>File: ".$name;
+				$message	= JText::_("Не удалось загрузить файл");
+				$message		.= "<br\>Файл: ".$name;
 				JError::raiseError(403, $msg);
 				return false;
 			}
