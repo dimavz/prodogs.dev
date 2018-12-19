@@ -2890,6 +2890,11 @@ input[type="submit"].btn.btn-mini {
 	margin-left: 0;
 	margin-bottom: 18px;
 	list-style: none;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
 }
 .nav > li > a {
 	display: block;
@@ -7388,6 +7393,10 @@ figcaption {
 }
 .navigation .nav li {
 	position: relative;
+	margin-left: 5px;
+	padding: 5px;
+	background-color: #fff;
+	cursor: pointer;
 }
 .navigation .nav > li:hover > .nav-child,
 .navigation .nav > li > a:focus + .nav-child,
