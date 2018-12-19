@@ -25,11 +25,11 @@ window.addEvent('domready', function() {
 <?php endif;?>
 
 <input type="file" name="file<?php echo $this->id?>" /><br/>
-<?php echo JText::_('Allowed formats are')." : ".implode(', ', $this->_exts);?><br/>
+<?php echo JText::_('Разрешенные форматы')." : ".implode(', ', $this->_exts);?><br/>
 <?php if(@$this->value['image']):?>
 	<span class="small">
 		<input type="checkbox" value="1" name="jform[fields][<?php echo $this->id?>][remove]" id="remove<?php echo $this->id?>" />
-		<label for="remove<?php echo $this->id?>"><?php echo JText::_('Remove Current')." ({$this->value['image']})";?></label>
+		<label for="remove<?php echo $this->id?>"><?php echo JText::_('Удалить текущий')." ({$this->value['image']})";?></label>
 		<input type="hidden" name="jform[fields][<?php echo $this->id?>][image]" value="<?php echo $this->value['image'];?>" />
 		<input type="hidden" name="jform[fields][<?php echo $this->id?>][subfolder]" value="<?php echo $this->value['subfolder'];?>" />
 	</span>
