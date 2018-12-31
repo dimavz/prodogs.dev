@@ -1,10 +1,43 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-$i = $o = 0;
-
+$i = $n = 0;
+$params = $this->tmpl_params['list'];
 foreach ($this->items as $item)
 {
-	
+	?>
+	<article class="has-context<?php if($item->featured) {echo ' featured';}?>">
+				<div class="pull-right controls">
+					<div class="btn-group" style="display: none;">
+						<?php echo HTMLFormatHelper::bookmark($item, $this->submission_types[$item->type_id], $params);?>
+						<?php echo HTMLFormatHelper::follow($item, $this->section);?>
+						<?php echo HTMLFormatHelper::repost($item, $this->section);?>
+						<?php echo HTMLFormatHelper::compare($item, $this->submission_types[$item->type_id], $this->section);?>
+						<?php if($item->controls):?>
+							<a href="#" data-toggle="dropdown" class="dropdown-toggle btn btn-mini">
+								<?php echo HTMLFormatHelper::icon('gear.png');  ?>
+							</a>
+							<ul class="dropdown-menu">
+								<?php echo list_controls($item->controls);?>
+							</ul>
+						<?php endif;?>
+					</div>
+				</div>
+		<h2>
+					<?php if($params->get('tmpl_core.item_title')):?>
+						<?php if(in_array($params->get('tmpl_core.item_link'), $this->user->getAuthorisedViewLevels())):?>
+							<a <?php echo $item->nofollow ? 'rel="nofollow"' : '';?> href="<?php echo JRoute::_($item->url);?>">
+								<?php echo $item->title?>
+							</a>
+						<?php else :?>
+							<?php echo $item->title?>
+						<?php endif;?>
+					<?php endif;?>
+					<?php echo CEventsHelper::showNum('record', $item->id);?>
+		</h2>
+
+	<?php
+
+	//Вывод полей без группы
 	if(isset($item->fields_by_groups[null]))
 	{
 			echo "<dl class='dl-horizontal fields-list'>";
@@ -33,13 +66,25 @@ foreach ($this->items as $item)
 
 	echo "<div class='clearfix'></div>";
 
+	//Вывод табов
+	echo "<div class='tabbable'>";
 	echo "<ul class='nav nav-tabs' id='tabs-list'>";
 				if(isset($item->fields_by_groups))
 				{
+					$start = true;
 						foreach ($item->fields_by_groups as $group_id => $fields)
 						{
-							echo "<li>";
-							echo "<a href='#tab-".$o++."' data-toggle='tab'>";
+							if($start)
+							{
+								echo "<li class='active'>";
+								$start = false;
+							}
+							else
+							{
+								echo "<li>";
+							}
+							
+							echo "<a href='#tab-".$n++."' data-toggle='tab'>";
 								if(!empty($item->field_groups[$group_id]['icon']))
 								{
 									echo HTMLFormatHelper::icon($item->field_groups[$group_id]['icon']);
@@ -53,17 +98,29 @@ foreach ($this->items as $item)
 					
 	echo "</ul>";
 
+	//Вывод полей в табы
 	if(isset($item->fields_by_groups))
 	{
+		echo '<div class="tab-content" id="tabs-box">';
+		$start = true;
 		foreach ($item->fields_by_groups as $group_name => $fields)
 		{
-			$started = true;
-			group_start($this, $group_name, 'tab-'.$i++);
+			// group_start($this, $group_name, 'tab-'.$i++);
+			if($start)
+			{
+				echo '<div class="tab-pane active" id="tab-'.$i.'">';
+				$start = false;
+			}
+			else
+			{
+				echo '<div class="tab-pane" id="tab-'.$i.'">';
+			}
+			
 			echo '<dl class="dl-horizontal fields-list fields-group'.$i.'">';
 				foreach ($fields as $field_id => $field)
 				{
-					print_r($field->params);
-					exit();
+					// print_r($field->params);
+					// exit();
 						echo '<dt id="dt-'.$field_id.'" class="'.$field->class.'">';
 						if($field->params->get('core.show_lable') > 1)
 						{
@@ -81,86 +138,15 @@ foreach ($this->items as $item)
 					echo '</dd>';
 				}
 			echo "</dl>";
-			group_end($this);
+			echo '</div>';
+			$i++;
+			
 		}
+		echo '</div>';
 	}
-}
 
-// echo "<PRE>";
-// print_r($this->items[0]->title);
-// echo "</PRE>";
+	echo "</div>"; // end class='tabbable'
+	echo '</article>';
+}
 ?>
 
-<?php
-function group_start($data, $label, $name)
-{
-	static $start = false;
-	$icon = '';
-	if(!empty($data->item->field_groups[$label]['icon']) && $data->tmpl_params['record']->get('tmpl_params.show_groupicon', 1)) {
-		$icon = HTMLFormatHelper::icon($data->item->field_groups[$label]['icon']);
-	}
-	switch ($data->tmpl_params['record']->get('tmpl_params.item_grouping_type', 0))
-	{
-		//tab
-		case 1:
-			if(!$start)
-			{
-				echo '<div class="tab-content" id="tabs-box">';
-				$start = TRUE;
-			}
-			echo '<div class="tab-pane" id="'.$name.'">';
-			break;
-		//slider
-		case 2:
-			if(!$start)
-			{
-				echo '<div class="accordion" id="accordion2">';
-				$start = TRUE;
-			}
-			echo '<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#'.$name.'">
-					     '.$icon. ' '. $label.'
-					</a>
-				</div>
-				<div id="'.$name.'" class="accordion-body collapse">
-					<div class="accordion-inner">';
-			break;
-		// fieldset
-		case 3:
-			echo "<legend>{$icon} {$label}</legend>";
-		break;
-	}
-
-	if($data->tmpl_params['record']->get('tmpl_params.show_groupdescr') && !empty($data->item->field_groups[$label]['descr']))
-	{
-		echo $data->item->field_groups[$label]['descr'];
-	}
-}
-
-function group_end($data)
-{
-	switch ($data->tmpl_params['record']->get('tmpl_params.item_grouping_type', 0))
-	{
-		case 1:
-			echo '</div>';
-		break;
-		case 2:
-			echo '</div></div></div>';
-		break;
-	}
-}
-
-function total_end($data)
-{
-	switch ($data->tmpl_params['record']->get('tmpl_params.item_grouping_type', 0))
-	{
-		//tab
-		case 1:
-			echo '</div>';
-		break;
-		case 2:
-			echo '</div>';
-		break;
-	}
-}
