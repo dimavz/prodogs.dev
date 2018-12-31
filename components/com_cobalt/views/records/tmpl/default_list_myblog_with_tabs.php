@@ -1,5 +1,19 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
+?>
+
+<style>
+	.dl-horizontal dd {
+		margin-bottom: 10px;
+	}
+
+.line-brk {
+	margin-left: 0px !important;
+}
+</style>
+
+<?php
+
 $i = $n = 0;
 $params = $this->tmpl_params['list'];
 
@@ -253,12 +267,3 @@ foreach ($this->items as $item)
 }
 ?>
 
-<style>
-	.dl-horizontal dd {
-		margin-bottom: 10px;
-	}
-
-.line-brk {
-	margin-left: 0px !important;
-}
-</style>
