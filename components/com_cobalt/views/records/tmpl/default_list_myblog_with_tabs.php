@@ -5,6 +5,16 @@ $params = $this->tmpl_params['list'];
 foreach ($this->items as $item)
 {
 	?>
+	<style>
+	.dl-horizontal dd {
+		margin-bottom: 10px;
+	}
+
+.line-brk {
+	margin-left: 0px !important;
+}
+</style>
+
 	<article class="has-context<?php if($item->featured) {echo ' featured';}?>">
 				<div class="pull-right controls">
 					<div class="btn-group" style="display: none;">
@@ -56,7 +66,7 @@ foreach ($this->items as $item)
 					}
 						
 			echo "</dt>";
-			echo "<dd id='dd-".$field_id."' class=".$field->fieldclass.">";
+			echo "<dd id='dd-".$field_id."' class='".$field->fieldclass.($field->params->get('core.label_break') > 1 ? ' line-brk' : NULL)."'>";
 			echo $field->result;
 			echo "</dd>";
 			}
@@ -105,7 +115,6 @@ foreach ($this->items as $item)
 		$start = true;
 		foreach ($item->fields_by_groups as $group_name => $fields)
 		{
-			// group_start($this, $group_name, 'tab-'.$i++);
 			if($start)
 			{
 				echo '<div class="tab-pane active" id="tab-'.$i.'">';
