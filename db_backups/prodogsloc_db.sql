@@ -2191,7 +2191,7 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_files` (
   PRIMARY KEY (`id`),
   KEY `idx_name` (`filename`),
   KEY `idx_record` (`record_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=718 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=725 DEFAULT CHARSET=utf8;
 
 -- Экспортируемые данные не выделены.
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_hits
@@ -2205,7 +2205,7 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_hits` (
   PRIMARY KEY (`id`),
   KEY `idx_record` (`record_id`),
   KEY `idex_user` (`section_id`,`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=120 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=121 DEFAULT CHARSET=utf8;
 
 -- Экспортируемые данные не выделены.
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_import
@@ -2392,7 +2392,7 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_record` (
   KEY `idx_comment` (`comments`),
   KEY `idx_vote` (`votes_result`),
   FULLTEXT KEY `full` (`fieldsdata`)
-) ENGINE=MyISAM AUTO_INCREMENT=265 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=266 DEFAULT CHARSET=utf8;
 
 -- Экспортируемые данные не выделены.
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_record_category
@@ -2447,7 +2447,7 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_record_values` (
   KEY `idx_key` (`field_key`),
   KEY `idx_record` (`record_id`),
   KEY `idx_field` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4237 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4251 DEFAULT CHARSET=utf8;
 
 -- Экспортируемые данные не выделены.
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_sales
@@ -2512,7 +2512,7 @@ CREATE TABLE IF NOT EXISTS `dogs_js_res_subscribe` (
   PRIMARY KEY (`id`),
   KEY `idx_rf` (`ref_id`),
   KEY `idx_us` (`user_id`,`section_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=192 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=193 DEFAULT CHARSET=utf8;
 
 -- Экспортируемые данные не выделены.
 -- Дамп структуры для таблица prodogs.loc.dogs_js_res_subscribe_cat
